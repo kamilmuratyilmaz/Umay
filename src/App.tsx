@@ -36,7 +36,7 @@ export default function App() {
             <div className="w-10 h-10 bg-[#C8102E] rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-sm chinese-text">
               中
             </div>
-            <h1 className="text-xl font-bold text-[#2D2A26] tracking-tight">Çince Öğren</h1>
+            <h1 className="text-xl font-bold text-[#2D2A26] tracking-tight">Umay</h1>
           </div>
           <nav className="hidden md:flex space-x-1">
             {[
