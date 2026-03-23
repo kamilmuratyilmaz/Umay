@@ -1,0 +1,11443 @@
+export interface VocabularyWord {
+  hanzi: string;
+  pinyin: string;
+  turkish: string;
+  english?: string;
+  example_zh?: string;
+  example_tr?: string;
+  example_en?: string;
+  category: string;
+}
+
+export const VOCABULARY: VocabularyWord[] = [
+  {
+    "hanzi": "你好",
+    "pinyin": "nǐ hǎo",
+    "turkish": "Merhaba",
+    "english": "Hello",
+    "example_zh": "你好，很高兴认识你。",
+    "example_tr": "Merhaba, tanıştığımıza memnun oldum.",
+    "example_en": "Hello, nice to meet you.",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "您好",
+    "pinyin": "nín hǎo",
+    "turkish": "Merhaba (saygılı)",
+    "english": "Hello (polite)",
+    "example_zh": "您好，请问您贵姓？",
+    "example_tr": "Merhaba, adınızı sorabilir miyim?",
+    "example_en": "Hello, may I ask your name?",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "早上好",
+    "pinyin": "zǎo shǎng hǎo",
+    "turkish": "Günaydın",
+    "english": "Good morning",
+    "example_zh": "早上好，今天天气很好。",
+    "example_tr": "Günaydın, bugün hava çok güzel.",
+    "example_en": "Good morning, the weather is nice today.",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "下午好",
+    "pinyin": "xià wǔ hǎo",
+    "turkish": "İyi öğleden sonra",
+    "english": "Good afternoon",
+    "example_zh": "下午好，你吃过午饭了吗？",
+    "example_tr": "İyi öğleden sonra, öğle yemeği yedin mi?",
+    "example_en": "Good afternoon, have you had lunch?",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "晚上好",
+    "pinyin": "wǎn shàng hǎo",
+    "turkish": "İyi akşamlar",
+    "english": "Good evening",
+    "example_zh": "晚上好，今天工作累吗？",
+    "example_tr": "İyi akşamlar, bugün iş yorucu muydu?",
+    "example_en": "Good evening, was work tiring today?",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "不好意思",
+    "pinyin": "bù hǎo yì si",
+    "turkish": "Özür dilerim / Afedersiniz",
+    "english": "Excuse me / Sorry",
+    "example_zh": "不好意思，请让一下。",
+    "example_tr": "Özür dilerim, lütfen kenara çekilin.",
+    "example_en": "Excuse me, please move aside.",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "请问",
+    "pinyin": "qǐng wèn",
+    "turkish": "Soru sorabilir miyim…",
+    "english": "May I ask…",
+    "example_zh": "请问，洗手间在哪里？",
+    "example_tr": "Affedersiniz, tuvalet nerede?",
+    "example_en": "Excuse me, where is the restroom?",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "明天见",
+    "pinyin": "míng tiān jiàn",
+    "turkish": "Yarın görüşürüz",
+    "english": "See you tomorrow",
+    "example_zh": "明天见，祝你晚上愉快！",
+    "example_tr": "Yarın görüşürüz, iyi akşamlar!",
+    "example_en": "See you tomorrow, have a good evening!",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "你好吗？",
+    "pinyin": "nǐ hǎo ma?",
+    "turkish": "Nasılsınız?",
+    "english": "How are you?",
+    "example_zh": "你好吗？最近怎么样？",
+    "example_tr": "Nasılsınız? Son zamanlarda neler yapıyorsunuz?",
+    "example_en": "How are you? How have you been lately?",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "我很好",
+    "pinyin": "wǒ hěn hǎo",
+    "turkish": "Çok iyiyim",
+    "english": "I'm very well",
+    "example_zh": "我很好，谢谢关心。",
+    "example_tr": "Çok iyiyim, ilginiz için teşekkürler.",
+    "example_en": "I'm very well, thanks for asking.",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "谢谢",
+    "pinyin": "xiè xie",
+    "turkish": "Teşekkür ederim",
+    "english": "Thank you",
+    "example_zh": "谢谢你的帮助。",
+    "example_tr": "Yardımınız için teşekkür ederim.",
+    "example_en": "Thank you for your help.",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "不客气",
+    "pinyin": "bú kè qi",
+    "turkish": "Rica ederim",
+    "english": "You're welcome",
+    "example_zh": "不客气，这是我应该做的。",
+    "example_tr": "Rica ederim, bu benim görevim.",
+    "example_en": "You're welcome, it's my duty.",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "对不起",
+    "pinyin": "duì bù qǐ",
+    "turkish": "Özür dilerim",
+    "english": "Sorry",
+    "example_zh": "对不起，我迟到了。",
+    "example_tr": "Özür dilerim, geciktim.",
+    "example_en": "Sorry, I'm late.",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "没关系",
+    "pinyin": "méi guān xì",
+    "turkish": "Sorun değil / Önemli değil",
+    "english": "It's okay / No problem",
+    "example_zh": "没关系，下次注意就好。",
+    "example_tr": "Sorun değil, bir dahaki sefere dikkat et.",
+    "example_en": "It's okay, just be careful next time.",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "再见",
+    "pinyin": "zài jiàn",
+    "turkish": "Güle güle",
+    "english": "Goodbye",
+    "example_zh": "再见，一路平安！",
+    "example_tr": "Güle güle, yolunuz açık olsun!",
+    "example_en": "Goodbye, have a safe journey!",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "晚安",
+    "pinyin": "wǎn ān",
+    "turkish": "İyi geceler",
+    "english": "Good night",
+    "example_zh": "晚安，做个好梦！",
+    "example_tr": "İyi geceler, tatlı rüyalar!",
+    "example_en": "Good night, sweet dreams!",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "请",
+    "pinyin": "qǐng",
+    "turkish": "Lütfen",
+    "english": "Please",
+    "example_zh": "请进，别客气。",
+    "example_tr": "Lütfen girin, çekinmeyin.",
+    "example_en": "Please come in, make yourself at home.",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "是",
+    "pinyin": "shì",
+    "turkish": "Evet",
+    "english": "Yes",
+    "example_zh": "是的，我明白了。",
+    "example_tr": "Evet, anladım.",
+    "example_en": "Yes, I understand.",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "不是",
+    "pinyin": "bú shì",
+    "turkish": "Hayır",
+    "english": "No",
+    "example_zh": "不是，你误会了。",
+    "example_tr": "Hayır, yanlış anladınız.",
+    "example_en": "No, you misunderstood.",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "不知道",
+    "pinyin": "bù zhī dào",
+    "turkish": "Bilmiyorum",
+    "english": "I don't know",
+    "example_zh": "对不起，我不知道。",
+    "example_tr": "Özür dilerim, bilmiyorum.",
+    "example_en": "Sorry, I don't know.",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "明白",
+    "pinyin": "míng bái",
+    "turkish": "Anlıyorum",
+    "english": "Understand",
+    "example_zh": "我明白了，谢谢解释。",
+    "example_tr": "Anladım, açıklama için teşekkürler.",
+    "example_en": "I understand, thanks for explaining.",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "不明白",
+    "pinyin": "bù míng bái",
+    "turkish": "Anlamıyorum",
+    "english": "Don't understand",
+    "example_zh": "对不起，我不明白你的意思。",
+    "example_tr": "Özür dilerim, ne demek istediğinizi anlamadım.",
+    "example_en": "Sorry, I don't understand what you mean.",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "请进",
+    "pinyin": "qǐng jìn",
+    "turkish": "Lütfen girin",
+    "english": "Please come in",
+    "example_zh": "请进，外面很冷吧？",
+    "example_tr": "Lütfen girin, dışarısı soğuk değil mi?",
+    "example_en": "Please come in, it's cold outside, isn't it?",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "欢迎",
+    "pinyin": "huān yíng",
+    "turkish": "Hoş geldiniz",
+    "english": "Welcome",
+    "example_zh": "欢迎光临！",
+    "example_tr": "Hoş geldiniz!",
+    "example_en": "Welcome!",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "好久不见",
+    "pinyin": "hǎo jiǔ bú jiàn",
+    "turkish": "Çok görüşemedik",
+    "english": "Long time no see",
+    "example_zh": "好久不见，你变了很多！",
+    "example_tr": "Çok görüşemedik, çok değişmişsiniz!",
+    "example_en": "Long time no see, you've changed a lot!",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "最近怎么样？",
+    "pinyin": "zuì jìn zěn me yàng?",
+    "turkish": "Nasıl gidiyor?",
+    "english": "How have you been?",
+    "example_zh": "最近怎么样？工作顺利吗？",
+    "example_tr": "Nasıl gidiyor? İşler yolunda mı?",
+    "example_en": "How have you been? Is work going well?",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "还不错",
+    "pinyin": "hái bú cuò",
+    "turkish": "Fena değil",
+    "english": "Not bad",
+    "example_zh": "还不错，一切都好。",
+    "example_tr": "Fena değil, her şey yolunda.",
+    "example_en": "Not bad, everything is fine.",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "保重",
+    "pinyin": "bǎo zhòng",
+    "turkish": "Kendine iyi bak",
+    "english": "Take care",
+    "example_zh": "保重，注意身体！",
+    "example_tr": "Kendine iyi bak, sağlığına dikkat et!",
+    "example_en": "Take care, look after your health!",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "一路顺风",
+    "pinyin": "yí lù shùn fēng",
+    "turkish": "İyi yolculuklar",
+    "english": "Have a safe trip",
+    "example_zh": "一路顺风，到了给我电话！",
+    "example_tr": "İyi yolculuklar, vardığında beni ara!",
+    "example_en": "Have a safe trip, call me when you arrive!",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "恭喜",
+    "pinyin": "gōng xǐ",
+    "turkish": "Tebrikler",
+    "english": "Congratulations",
+    "example_zh": "恭喜你升职了！",
+    "example_tr": "Tebrikler, terfi ettiniz!",
+    "example_en": "Congratulations on your promotion!",
+    "category": "greetings"
+  },
+  {
+    "hanzi": "兴趣",
+    "pinyin": "xìng qù",
+    "turkish": "Hobi",
+    "english": "Hobby",
+    "example_zh": "我的兴趣是读书和旅行。",
+    "example_tr": "Hobilerim kitap okumak ve seyahat etmek.",
+    "example_en": "My hobbies are reading and traveling.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "学习",
+    "pinyin": "xué xí",
+    "turkish": "Çalışmak",
+    "english": "Study",
+    "example_zh": "我在大学学习中文。",
+    "example_tr": "Üniversitede Çince okuyorum.",
+    "example_en": "I study Chinese at university.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "留学",
+    "pinyin": "liú xué",
+    "turkish": "Yurtdışında okumak",
+    "english": "Study abroad",
+    "example_zh": "我想去中国留学。",
+    "example_tr": "Çin'de okumak istiyorum.",
+    "example_en": "I want to study abroad in China.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "大学",
+    "pinyin": "dà xué",
+    "turkish": "Üniversite",
+    "english": "University",
+    "example_zh": "北京大学很有名。",
+    "example_tr": "Pekin Üniversitesi çok ünlü.",
+    "example_en": "Peking University is very famous.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "高中",
+    "pinyin": "gāo zhōng",
+    "turkish": "Lise",
+    "english": "High school",
+    "example_zh": "我高中毕业后去工作了。",
+    "example_tr": "Liseden sonra işe başladım.",
+    "example_en": "I started working after high school.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "名字",
+    "pinyin": "míng zì",
+    "turkish": "İsim",
+    "english": "Name",
+    "example_zh": "你叫什么名字？",
+    "example_tr": "Adınız nedir?",
+    "example_en": "What is your name?",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "姓",
+    "pinyin": "xìng",
+    "turkish": "Soyad",
+    "english": "Surname",
+    "example_zh": "我姓王，你呢？",
+    "example_tr": "Benim soyadım Wang, ya sizin?",
+    "example_en": "My surname is Wang, what about yours?",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "现在",
+    "pinyin": "xiàn zài",
+    "turkish": "Şimdi / Şu anda",
+    "english": "Present / Currently",
+    "example_zh": "我现在住在北京。",
+    "example_tr": "Şu anda Pekin'de yaşıyorum.",
+    "example_en": "I currently live in Beijing.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "英文名字",
+    "pinyin": "yīng wén míng zì",
+    "turkish": "İngilizce isim",
+    "english": "English name",
+    "example_zh": "我的英文名字是David。",
+    "example_tr": "İngilizce adım David.",
+    "example_en": "My English name is David.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "年龄",
+    "pinyin": "nián líng",
+    "turkish": "Yaş",
+    "english": "Age",
+    "example_zh": "你的年龄是多少？",
+    "example_tr": "Yaşınız kaç?",
+    "example_en": "What is your age?",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "岁",
+    "pinyin": "suì",
+    "turkish": "Yaş (birim)",
+    "english": "Years old",
+    "example_zh": "我今年二十五岁。",
+    "example_tr": "Bu yıl yirmi beş yaşındayım.",
+    "example_en": "I am twenty-five years old this year.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "出生",
+    "pinyin": "chū shēng",
+    "turkish": "Doğmak",
+    "english": "Born",
+    "example_zh": "我出生在上海。",
+    "example_tr": "Şanghay'da doğdum.",
+    "example_en": "I was born in Shanghai.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "出生地",
+    "pinyin": "chū shēng dì",
+    "turkish": "Doğum yeri",
+    "english": "Place of birth",
+    "example_zh": "我的出生地是广州。",
+    "example_tr": "Doğum yerim Guangzhou.",
+    "example_en": "My place of birth is Guangzhou.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "来自",
+    "pinyin": "lái zì",
+    "turkish": "Gelmek (bir yerden)",
+    "english": "Come from",
+    "example_zh": "我来自中国。",
+    "example_tr": "Çin'den geliyorum.",
+    "example_en": "I come from China.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "国家",
+    "pinyin": "guó jiā",
+    "turkish": "Ülke",
+    "english": "Country",
+    "example_zh": "你是哪个国家的？",
+    "example_tr": "Hangi ülkelisiniz?",
+    "example_en": "Which country are you from?",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "性别",
+    "pinyin": "xìng bié",
+    "turkish": "Cinsiyet",
+    "english": "Gender",
+    "example_zh": "请填写你的性别。",
+    "example_tr": "Lütfen cinsiyetinizi yazın.",
+    "example_en": "Please fill in your gender.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "电话号码",
+    "pinyin": "diàn huà hào mǎ",
+    "turkish": "Telefon numarası",
+    "english": "Phone number",
+    "example_zh": "你的电话号码是多少？",
+    "example_tr": "Telefon numaranız nedir?",
+    "example_en": "What is your phone number?",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "城市",
+    "pinyin": "chéng shì",
+    "turkish": "Şehir",
+    "english": "City",
+    "example_zh": "你住在哪个城市？",
+    "example_tr": "Hangi şehirde yaşıyorsunuz?",
+    "example_en": "Which city do you live in?",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "住在",
+    "pinyin": "zhù zài",
+    "turkish": "Yaşamak",
+    "english": "Live in",
+    "example_zh": "我住在上海。",
+    "example_tr": "Şanghay'da yaşıyorum.",
+    "example_en": "I live in Shanghai.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "地址",
+    "pinyin": "dì zhǐ",
+    "turkish": "Adres",
+    "english": "Address",
+    "example_zh": "请告诉我你的地址。",
+    "example_tr": "Lütfen adresinizi söyleyin.",
+    "example_en": "Please tell me your address.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "男",
+    "pinyin": "nán",
+    "turkish": "Erkek",
+    "english": "Male",
+    "example_zh": "我是男生。",
+    "example_tr": "Ben erkeğim.",
+    "example_en": "I am male.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "女",
+    "pinyin": "nǚ",
+    "turkish": "Kadın",
+    "english": "Female",
+    "example_zh": "我是女生。",
+    "example_tr": "Ben kadınım.",
+    "example_en": "I am female.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "邮箱",
+    "pinyin": "yóu xiāng",
+    "turkish": "E-posta",
+    "english": "Email",
+    "example_zh": "你的邮箱地址是什么？",
+    "example_tr": "E-posta adresiniz nedir?",
+    "example_en": "What is your email address?",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "毕业",
+    "pinyin": "bì yè",
+    "turkish": "Mezun olmak",
+    "english": "Graduate",
+    "example_zh": "我去年大学毕业。",
+    "example_tr": "Geçen yıl üniversiteden mezun oldum.",
+    "example_en": "I graduated from university last year.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "家乡",
+    "pinyin": "jiā xiāng",
+    "turkish": "Memleket",
+    "english": "Hometown",
+    "example_zh": "我的家乡在四川。",
+    "example_tr": "Memleketim Sichuan.",
+    "example_en": "My hometown is in Sichuan.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "公司",
+    "pinyin": "gōng sī",
+    "turkish": "Şirket",
+    "english": "Company",
+    "example_zh": "我在一家大公司工作。",
+    "example_tr": "Büyük bir şirkette çalışıyorum.",
+    "example_en": "I work at a big company.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "工作",
+    "pinyin": "gōng zuò",
+    "turkish": "İş",
+    "english": "Job",
+    "example_zh": "你的工作是什么？",
+    "example_tr": "Mesleğiniz nedir?",
+    "example_en": "What is your job?",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "喜欢",
+    "pinyin": "xǐ huān",
+    "turkish": "Sevmek",
+    "english": "Like",
+    "example_zh": "我喜欢吃中国菜。",
+    "example_tr": "Çin yemeklerini seviyorum.",
+    "example_en": "I like eating Chinese food.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "上班",
+    "pinyin": "shàng bān",
+    "turkish": "İşe gitmek",
+    "english": "Go to work",
+    "example_zh": "我每天早上八点上班。",
+    "example_tr": "Her sabah saat sekizde işe gidiyorum.",
+    "example_en": "I go to work at 8 AM every morning.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "专业",
+    "pinyin": "zhuān yè",
+    "turkish": "Bölüm",
+    "english": "Major",
+    "example_zh": "我的专业是计算机科学。",
+    "example_tr": "Bölümüm bilgisayar bilimi.",
+    "example_en": "My major is computer science.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "梦想",
+    "pinyin": "mèng xiǎng",
+    "turkish": "Hayal",
+    "english": "Dream",
+    "example_zh": "我的梦想是成为一名医生。",
+    "example_tr": "Hayalim doktor olmak.",
+    "example_en": "My dream is to become a doctor.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "语言",
+    "pinyin": "yǔ yán",
+    "turkish": "Dil",
+    "english": "Language",
+    "example_zh": "你会说几种语言？",
+    "example_tr": "Kaç dil konuşabiliyorsunuz?",
+    "example_en": "How many languages can you speak?",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "中文",
+    "pinyin": "zhōng wén",
+    "turkish": "Çince",
+    "english": "Chinese",
+    "example_zh": "我正在学习中文。",
+    "example_tr": "Çince öğreniyorum.",
+    "example_en": "I am learning Chinese.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "英文",
+    "pinyin": "yīng wén",
+    "turkish": "İngilizce",
+    "english": "English",
+    "example_zh": "我的英文不太好。",
+    "example_tr": "İngilizcem çok iyi değil.",
+    "example_en": "My English is not very good.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "学生",
+    "pinyin": "xué shēng",
+    "turkish": "Öğrenci",
+    "english": "Student",
+    "example_zh": "我是一名大学生。",
+    "example_tr": "Ben bir üniversite öğrencisiyim.",
+    "example_en": "I am a university student.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "老师",
+    "pinyin": "lǎo shī",
+    "turkish": "Öğretmen",
+    "english": "Teacher",
+    "example_zh": "我的老师很严格。",
+    "example_tr": "Öğretmenim çok disiplinlidir.",
+    "example_en": "My teacher is very strict.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "朋友",
+    "pinyin": "péng yǒu",
+    "turkish": "Arkadaş",
+    "english": "Friend",
+    "example_zh": "我有很多朋友。",
+    "example_tr": "Çok fazla arkadaşım var.",
+    "example_en": "I have many friends.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "中国人",
+    "pinyin": "zhōng guó rén",
+    "turkish": "Çinli",
+    "english": "Chinese person",
+    "example_zh": "他是中国人。",
+    "example_tr": "O Çinli.",
+    "example_en": "He is Chinese.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "外国人",
+    "pinyin": "wài guó rén",
+    "turkish": "Yabancı",
+    "english": "Foreigner",
+    "example_zh": "我是外国人。",
+    "example_tr": "Ben yabancıyım.",
+    "example_en": "I am a foreigner.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "会",
+    "pinyin": "huì",
+    "turkish": "Bilmek / Yapabilmek",
+    "english": "Can / Able to",
+    "example_zh": "我会说一点中文。",
+    "example_tr": "Biraz Çince konuşabiliyorum.",
+    "example_en": "I can speak a little Chinese.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "不会",
+    "pinyin": "bú huì",
+    "turkish": "Bilememek",
+    "english": "Cannot",
+    "example_zh": "我不会游泳。",
+    "example_tr": "Yüzemiyorum.",
+    "example_en": "I cannot swim.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "说",
+    "pinyin": "shuō",
+    "turkish": "Konuşmak",
+    "english": "Speak",
+    "example_zh": "请说慢一点。",
+    "example_tr": "Lütfen yavaş konuşun.",
+    "example_en": "Please speak slowly.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "写",
+    "pinyin": "xiě",
+    "turkish": "Yazmak",
+    "english": "Write",
+    "example_zh": "我会写汉字。",
+    "example_tr": "Çince karakter yazabiliyorum.",
+    "example_en": "I can write Chinese characters.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "读",
+    "pinyin": "dú",
+    "turkish": "Okumak",
+    "english": "Read",
+    "example_zh": "我正在读一本书。",
+    "example_tr": "Bir kitap okuyorum.",
+    "example_en": "I am reading a book.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "听",
+    "pinyin": "tīng",
+    "turkish": "Dinlemek",
+    "english": "Listen",
+    "example_zh": "我喜欢听音乐。",
+    "example_tr": "Müzik dinlemeyi seviyorum.",
+    "example_en": "I like listening to music.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "看",
+    "pinyin": "kàn",
+    "turkish": "Bakmak / İzlemek",
+    "english": "Look / Watch",
+    "example_zh": "我喜欢看电影。",
+    "example_tr": "Film izlemeyi seviyorum.",
+    "example_en": "I like watching movies.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "认识",
+    "pinyin": "rèn shi",
+    "turkish": "Tanımak",
+    "english": "Know / Meet",
+    "example_zh": "很高兴认识你。",
+    "example_tr": "Tanıştığımıza memnun oldum.",
+    "example_en": "Nice to meet you.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "介绍",
+    "pinyin": "jiè shào",
+    "turkish": "Tanıtmak",
+    "english": "Introduce",
+    "example_zh": "请介绍一下你自己。",
+    "example_tr": "Lütfen kendinizi tanıtın.",
+    "example_en": "Please introduce yourself.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "叫",
+    "pinyin": "jiào",
+    "turkish": "Adı olmak",
+    "english": "Called / Named",
+    "example_zh": "我叫李明。",
+    "example_tr": "Benim adım Li Ming.",
+    "example_en": "My name is Li Ming.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "我",
+    "pinyin": "wǒ",
+    "turkish": "Ben",
+    "english": "I / Me",
+    "example_zh": "我是学生。",
+    "example_tr": "Ben öğrenciyim.",
+    "example_en": "I am a student.",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "你",
+    "pinyin": "nǐ",
+    "turkish": "Sen",
+    "english": "You",
+    "example_zh": "你是老师吗？",
+    "example_tr": "Siz öğretmen misiniz?",
+    "example_en": "Are you a teacher?",
+    "category": "self-introduction"
+  },
+  {
+    "hanzi": "这里",
+    "pinyin": "zhè lǐ",
+    "turkish": "Burada",
+    "english": "Here",
+    "example_zh": "这里很安静。",
+    "example_tr": "Burada çok sessiz.",
+    "example_en": "It's very quiet here.",
+    "category": "places"
+  },
+  {
+    "hanzi": "那里",
+    "pinyin": "nà lǐ",
+    "turkish": "Orada",
+    "english": "There",
+    "example_zh": "那里有一家餐厅。",
+    "example_tr": "Orada bir restoran var.",
+    "example_en": "There is a restaurant there.",
+    "category": "places"
+  },
+  {
+    "hanzi": "哪儿",
+    "pinyin": "nǎr",
+    "turkish": "Nerede",
+    "english": "Where",
+    "example_zh": "你想去哪儿？",
+    "example_tr": "Nereye gitmek istiyorsunuz?",
+    "example_en": "Where do you want to go?",
+    "category": "places"
+  },
+  {
+    "hanzi": "上",
+    "pinyin": "shàng",
+    "turkish": "Üstünde / Yukarı",
+    "english": "Above / On",
+    "example_zh": "请上楼。",
+    "example_tr": "Lütfen yukarı çıkın.",
+    "example_en": "Please go upstairs.",
+    "category": "places"
+  },
+  {
+    "hanzi": "下",
+    "pinyin": "xià",
+    "turkish": "Altında / Aşağı",
+    "english": "Below / Under",
+    "example_zh": "请下楼。",
+    "example_tr": "Lütfen aşağı inin.",
+    "example_en": "Please go downstairs.",
+    "category": "places"
+  },
+  {
+    "hanzi": "左边",
+    "pinyin": "zuǒ biān",
+    "turkish": "Sol taraf",
+    "english": "Left side",
+    "example_zh": "银行在左边。",
+    "example_tr": "Banka sol tarafta.",
+    "example_en": "The bank is on the left.",
+    "category": "places"
+  },
+  {
+    "hanzi": "右边",
+    "pinyin": "yòu biān",
+    "turkish": "Sağ taraf",
+    "english": "Right side",
+    "example_zh": "商店在右边。",
+    "example_tr": "Dükkan sağ tarafta.",
+    "example_en": "The shop is on the right.",
+    "category": "places"
+  },
+  {
+    "hanzi": "前面",
+    "pinyin": "qián miàn",
+    "turkish": "Önünde",
+    "english": "In front",
+    "example_zh": "学校在前面。",
+    "example_tr": "Okul ön tarafta.",
+    "example_en": "The school is in front.",
+    "category": "places"
+  },
+  {
+    "hanzi": "后面",
+    "pinyin": "hòu miàn",
+    "turkish": "Arkasında",
+    "english": "Behind",
+    "example_zh": "公园在后面。",
+    "example_tr": "Park arka tarafta.",
+    "example_en": "The park is behind.",
+    "category": "places"
+  },
+  {
+    "hanzi": "旁边",
+    "pinyin": "páng biān",
+    "turkish": "Yanında",
+    "english": "Beside",
+    "example_zh": "我家旁边有超市。",
+    "example_tr": "Evimin yanında süpermarket var.",
+    "example_en": "There is a supermarket beside my house.",
+    "category": "places"
+  },
+  {
+    "hanzi": "中间",
+    "pinyin": "zhōng jiān",
+    "turkish": "Ortada",
+    "english": "In the middle",
+    "example_zh": "请站在中间。",
+    "example_tr": "Lütfen ortada durun.",
+    "example_en": "Please stand in the middle.",
+    "category": "places"
+  },
+  {
+    "hanzi": "对面",
+    "pinyin": "duì miàn",
+    "turkish": "Karşısında",
+    "english": "Opposite",
+    "example_zh": "银行在超市对面。",
+    "example_tr": "Banka süpermarketin karşısında.",
+    "example_en": "The bank is opposite the supermarket.",
+    "category": "places"
+  },
+  {
+    "hanzi": "附近",
+    "pinyin": "fù jìn",
+    "turkish": "Yakınında",
+    "english": "Nearby",
+    "example_zh": "附近有没有餐厅？",
+    "example_tr": "Yakında restoran var mı?",
+    "example_en": "Is there a restaurant nearby?",
+    "category": "places"
+  },
+  {
+    "hanzi": "远",
+    "pinyin": "yuǎn",
+    "turkish": "Uzak",
+    "english": "Far",
+    "example_zh": "学校离这里很远。",
+    "example_tr": "Okul buradan çok uzak.",
+    "example_en": "The school is far from here.",
+    "category": "places"
+  },
+  {
+    "hanzi": "近",
+    "pinyin": "jìn",
+    "turkish": "Yakın",
+    "english": "Near",
+    "example_zh": "商店离这里很近。",
+    "example_tr": "Dükkan buraya çok yakın.",
+    "example_en": "The shop is very close to here.",
+    "category": "places"
+  },
+  {
+    "hanzi": "到",
+    "pinyin": "dào",
+    "turkish": "Varmak",
+    "english": "Arrive",
+    "example_zh": "我到了，你在哪里？",
+    "example_tr": "Vardım, neredesiniz?",
+    "example_en": "I've arrived, where are you?",
+    "category": "places"
+  },
+  {
+    "hanzi": "出口",
+    "pinyin": "chū kǒu",
+    "turkish": "Çıkış",
+    "english": "Exit",
+    "example_zh": "出口在哪里？",
+    "example_tr": "Çıkış nerede?",
+    "example_en": "Where is the exit?",
+    "category": "places"
+  },
+  {
+    "hanzi": "入口",
+    "pinyin": "rù kǒu",
+    "turkish": "Giriş",
+    "english": "Entrance",
+    "example_zh": "入口在前面。",
+    "example_tr": "Giriş ön tarafta.",
+    "example_en": "The entrance is in front.",
+    "category": "places"
+  },
+  {
+    "hanzi": "花店",
+    "pinyin": "huā diàn",
+    "turkish": "Çiçekçi",
+    "english": "Flower shop",
+    "example_zh": "我想去花店买花。",
+    "example_tr": "Çiçekçiye gidip çiçek almak istiyorum.",
+    "example_en": "I want to go to the flower shop to buy flowers.",
+    "category": "places"
+  },
+  {
+    "hanzi": "药店",
+    "pinyin": "yào diàn",
+    "turkish": "Eczane",
+    "english": "Pharmacy",
+    "example_zh": "药店几点开门？",
+    "example_tr": "Eczane saat kaçta açılır?",
+    "example_en": "What time does the pharmacy open?",
+    "category": "places"
+  },
+  {
+    "hanzi": "理发店",
+    "pinyin": "lǐ fà diàn",
+    "turkish": "Berber",
+    "english": "Barber shop",
+    "example_zh": "我要去理发店剪头发。",
+    "example_tr": "Berbere gidip saç kestireceğim.",
+    "example_en": "I'm going to the barber shop to get a haircut.",
+    "category": "places"
+  },
+  {
+    "hanzi": "电影院",
+    "pinyin": "diàn yǐng yuàn",
+    "turkish": "Sinema",
+    "english": "Cinema",
+    "example_zh": "今晚我们去电影院吧。",
+    "example_tr": "Bu akşam sinemaya gidelim.",
+    "example_en": "Let's go to the cinema tonight.",
+    "category": "places"
+  },
+  {
+    "hanzi": "动物园",
+    "pinyin": "dòng wù yuán",
+    "turkish": "Hayvanat bahçesi",
+    "english": "Zoo",
+    "example_zh": "孩子们喜欢去动物园。",
+    "example_tr": "Çocuklar hayvanat bahçesine gitmeyi sever.",
+    "example_en": "Children like going to the zoo.",
+    "category": "places"
+  },
+  {
+    "hanzi": "洗衣店",
+    "pinyin": "xǐ yī diàn",
+    "turkish": "Çamaşırhane",
+    "english": "Laundry",
+    "example_zh": "我把衣服送到洗衣店了。",
+    "example_tr": "Giysilerimi çamaşırhaneye götürdüm.",
+    "example_en": "I took my clothes to the laundry.",
+    "category": "places"
+  },
+  {
+    "hanzi": "停车场",
+    "pinyin": "tíng chē chǎng",
+    "turkish": "Otopark",
+    "english": "Parking lot",
+    "example_zh": "停车场在哪里？",
+    "example_tr": "Otopark nerede?",
+    "example_en": "Where is the parking lot?",
+    "category": "places"
+  },
+  {
+    "hanzi": "游泳池",
+    "pinyin": "yóu yǒng chí",
+    "turkish": "Yüzme havuzu",
+    "english": "Swimming pool",
+    "example_zh": "夏天我喜欢去游泳池。",
+    "example_tr": "Yazın yüzme havuzuna gitmeyi seviyorum.",
+    "example_en": "I like going to the swimming pool in summer.",
+    "category": "places"
+  },
+  {
+    "hanzi": "体育场",
+    "pinyin": "tǐ yù chǎng",
+    "turkish": "Stadyum",
+    "english": "Stadium",
+    "example_zh": "体育场有很多人。",
+    "example_tr": "Stadyumda çok insan var.",
+    "example_en": "There are many people at the stadium.",
+    "category": "places"
+  },
+  {
+    "hanzi": "公共汽车站",
+    "pinyin": "gōng gòng qì chē zhàn",
+    "turkish": "Otobüs durağı",
+    "english": "Bus stop",
+    "example_zh": "公共汽车站在哪里？",
+    "example_tr": "Otobüs durağı nerede?",
+    "example_en": "Where is the bus stop?",
+    "category": "places"
+  },
+  {
+    "hanzi": "地铁站",
+    "pinyin": "dì tiě zhàn",
+    "turkish": "Metro istasyonu",
+    "english": "Subway station",
+    "example_zh": "地铁站离这里远吗？",
+    "example_tr": "Metro istasyonu buradan uzak mı?",
+    "example_en": "Is the subway station far from here?",
+    "category": "places"
+  },
+  {
+    "hanzi": "火车站",
+    "pinyin": "huǒ chē zhàn",
+    "turkish": "Tren istasyonu",
+    "english": "Train station",
+    "example_zh": "我要去火车站接朋友。",
+    "example_tr": "Tren istasyonuna gidip arkadaşımı alacağım.",
+    "example_en": "I'm going to the train station to pick up a friend.",
+    "category": "places"
+  },
+  {
+    "hanzi": "机场",
+    "pinyin": "jī chǎng",
+    "turkish": "Havalimanı",
+    "english": "Airport",
+    "example_zh": "机场有免费WiFi。",
+    "example_tr": "Havalimanında ücretsiz WiFi var.",
+    "example_en": "There is free WiFi at the airport.",
+    "category": "places"
+  },
+  {
+    "hanzi": "天桥",
+    "pinyin": "tiān qiáo",
+    "turkish": "Üst geçit",
+    "english": "Overpass",
+    "example_zh": "请走天桥过马路。",
+    "example_tr": "Lütfen üst geçidi kullanıp yolun karşısına geçin.",
+    "example_en": "Please use the overpass to cross the road.",
+    "category": "places"
+  },
+  {
+    "hanzi": "市场",
+    "pinyin": "shì chǎng",
+    "turkish": "Pazar",
+    "english": "Market",
+    "example_zh": "市场上的水果很新鲜。",
+    "example_tr": "Pazardaki meyveler çok taze.",
+    "example_en": "The fruits at the market are very fresh.",
+    "category": "places"
+  },
+  {
+    "hanzi": "银行",
+    "pinyin": "yín háng",
+    "turkish": "Banka",
+    "english": "Bank",
+    "example_zh": "银行几点关门？",
+    "example_tr": "Banka saat kaçta kapanır?",
+    "example_en": "What time does the bank close?",
+    "category": "places"
+  },
+  {
+    "hanzi": "超市",
+    "pinyin": "chāo shì",
+    "turkish": "Süpermarket",
+    "english": "Supermarket",
+    "example_zh": "我去超市买东西。",
+    "example_tr": "Süpermarkete gidip bir şeyler alacağım.",
+    "example_en": "I'm going to the supermarket to buy something.",
+    "category": "places"
+  },
+  {
+    "hanzi": "饭店",
+    "pinyin": "fàn diàn",
+    "turkish": "Restoran",
+    "english": "Restaurant",
+    "example_zh": "这家饭店的菜很好吃。",
+    "example_tr": "Bu restoranın yemekleri çok lezzetli.",
+    "example_en": "The food at this restaurant is very delicious.",
+    "category": "places"
+  },
+  {
+    "hanzi": "工厂",
+    "pinyin": "gōng chǎng",
+    "turkish": "Fabrika",
+    "english": "Factory",
+    "example_zh": "我在这家工厂工作。",
+    "example_tr": "Bu fabrikada çalışıyorum.",
+    "example_en": "I work at this factory.",
+    "category": "places"
+  },
+  {
+    "hanzi": "寺庙",
+    "pinyin": "sì miào",
+    "turkish": "Tapınak",
+    "english": "Temple",
+    "example_zh": "这座寺庙很有历史。",
+    "example_tr": "Bu tapınak çok tarihi.",
+    "example_en": "This temple has a lot of history.",
+    "category": "places"
+  },
+  {
+    "hanzi": "商店",
+    "pinyin": "shāng diàn",
+    "turkish": "Dükkan",
+    "english": "Shop",
+    "example_zh": "商店里有很多商品。",
+    "example_tr": "Dükkanda çok fazla ürün var.",
+    "example_en": "There are many products in the shop.",
+    "category": "places"
+  },
+  {
+    "hanzi": "书店",
+    "pinyin": "shū diàn",
+    "turkish": "Kitapçı",
+    "english": "Bookstore",
+    "example_zh": "我喜欢去书店看书。",
+    "example_tr": "Kitapçıya gidip kitap okumayı seviyorum.",
+    "example_en": "I like going to the bookstore to read books.",
+    "category": "places"
+  },
+  {
+    "hanzi": "咖啡馆",
+    "pinyin": "kā fēi guǎn",
+    "turkish": "Kafe",
+    "english": "Café",
+    "example_zh": "我们去咖啡馆喝杯咖啡吧。",
+    "example_tr": "Kafeye gidip bir kahve içelim.",
+    "example_en": "Let's go to the café for a cup of coffee.",
+    "category": "places"
+  },
+  {
+    "hanzi": "饭馆",
+    "pinyin": "fàn guǎn",
+    "turkish": "Lokanta",
+    "english": "Eatery",
+    "example_zh": "这家饭馆很便宜。",
+    "example_tr": "Bu lokanta çok ucuz.",
+    "example_en": "This eatery is very cheap.",
+    "category": "places"
+  },
+  {
+    "hanzi": "公园",
+    "pinyin": "gōng yuán",
+    "turkish": "Park",
+    "english": "Park",
+    "example_zh": "周末我喜欢去公园散步。",
+    "example_tr": "Hafta sonu parkta yürüyüş yapmayı seviyorum.",
+    "example_en": "I like walking in the park on weekends.",
+    "category": "places"
+  },
+  {
+    "hanzi": "家",
+    "pinyin": "jiā",
+    "turkish": "Ev",
+    "english": "Home",
+    "example_zh": "我家离这里不远。",
+    "example_tr": "Evim buradan uzak değil.",
+    "example_en": "My home is not far from here.",
+    "category": "places"
+  },
+  {
+    "hanzi": "房间",
+    "pinyin": "fáng jiān",
+    "turkish": "Oda",
+    "english": "Room",
+    "example_zh": "这个房间很大。",
+    "example_tr": "Bu oda çok büyük.",
+    "example_en": "This room is very big.",
+    "category": "places"
+  },
+  {
+    "hanzi": "厨房",
+    "pinyin": "chú fáng",
+    "turkish": "Mutfak",
+    "english": "Kitchen",
+    "example_zh": "妈妈在厨房里做饭。",
+    "example_tr": "Annem mutfakta yemek yapıyor.",
+    "example_en": "Mom is cooking in the kitchen.",
+    "category": "places"
+  },
+  {
+    "hanzi": "卧室",
+    "pinyin": "wò shì",
+    "turkish": "Yatak odası",
+    "english": "Bedroom",
+    "example_zh": "我的卧室很整洁。",
+    "example_tr": "Yatak odam çok düzenli.",
+    "example_en": "My bedroom is very tidy.",
+    "category": "places"
+  },
+  {
+    "hanzi": "客厅",
+    "pinyin": "kè tīng",
+    "turkish": "Oturma odası",
+    "english": "Living room",
+    "example_zh": "我们在客厅看电视。",
+    "example_tr": "Oturma odasında televizyon izliyoruz.",
+    "example_en": "We are watching TV in the living room.",
+    "category": "places"
+  },
+  {
+    "hanzi": "浴室",
+    "pinyin": "yù shì",
+    "turkish": "Banyo",
+    "english": "Bathroom",
+    "example_zh": "浴室里有热水。",
+    "example_tr": "Banyoda sıcak su var.",
+    "example_en": "There is hot water in the bathroom.",
+    "category": "places"
+  },
+  {
+    "hanzi": "厕所",
+    "pinyin": "cè suǒ",
+    "turkish": "Tuvalet",
+    "english": "Toilet",
+    "example_zh": "厕所在哪里？",
+    "example_tr": "Tuvalet nerede?",
+    "example_en": "Where is the toilet?",
+    "category": "places"
+  },
+  {
+    "hanzi": "门",
+    "pinyin": "mén",
+    "turkish": "Kapı",
+    "english": "Door",
+    "example_zh": "请把门关上。",
+    "example_tr": "Lütfen kapıyı kapatın.",
+    "example_en": "Please close the door.",
+    "category": "places"
+  },
+  {
+    "hanzi": "窗户",
+    "pinyin": "chuāng hu",
+    "turkish": "Pencere",
+    "english": "Window",
+    "example_zh": "请打开窗户。",
+    "example_tr": "Lütfen pencereyi açın.",
+    "example_en": "Please open the window.",
+    "category": "places"
+  },
+  {
+    "hanzi": "花园",
+    "pinyin": "huā yuán",
+    "turkish": "Bahçe",
+    "english": "Garden",
+    "example_zh": "我家有一个美丽的花园。",
+    "example_tr": "Evimin güzel bir bahçesi var.",
+    "example_en": "My house has a beautiful garden.",
+    "category": "places"
+  },
+  {
+    "hanzi": "路",
+    "pinyin": "lù",
+    "turkish": "Yol",
+    "english": "Road",
+    "example_zh": "这条路很宽。",
+    "example_tr": "Bu yol çok geniş.",
+    "example_en": "This road is very wide.",
+    "category": "places"
+  },
+  {
+    "hanzi": "宿舍",
+    "pinyin": "sù shè",
+    "turkish": "Yurt",
+    "english": "Dormitory",
+    "example_zh": "我住在学生宿舍。",
+    "example_tr": "Öğrenci yurdunda yaşıyorum.",
+    "example_en": "I live in the student dormitory.",
+    "category": "places"
+  },
+  {
+    "hanzi": "房子",
+    "pinyin": "fáng zi",
+    "turkish": "Ev",
+    "english": "House",
+    "example_zh": "这栋房子很旧。",
+    "example_tr": "Bu ev çok eski.",
+    "example_en": "This house is very old.",
+    "category": "places"
+  },
+  {
+    "hanzi": "别墅",
+    "pinyin": "bié shù",
+    "turkish": "Villa",
+    "english": "Villa",
+    "example_zh": "他住在一栋别墅里。",
+    "example_tr": "Bir villada yaşıyor.",
+    "example_en": "He lives in a villa.",
+    "category": "places"
+  },
+  {
+    "hanzi": "海关",
+    "pinyin": "hǎi guān",
+    "turkish": "Gümrük",
+    "english": "Customs",
+    "example_zh": "过海关需要护照。",
+    "example_tr": "Gümrükten geçmek için pasaport gerekli.",
+    "example_en": "You need a passport to go through customs.",
+    "category": "places"
+  },
+  {
+    "hanzi": "办公室",
+    "pinyin": "bàn gōng shì",
+    "turkish": "Ofis",
+    "english": "Office",
+    "example_zh": "我的办公室在三楼。",
+    "example_tr": "Ofisim üçüncü katta.",
+    "example_en": "My office is on the third floor.",
+    "category": "places"
+  },
+  {
+    "hanzi": "学校",
+    "pinyin": "xué xiào",
+    "turkish": "Okul",
+    "english": "School",
+    "example_zh": "学校八点开始上课。",
+    "example_tr": "Okul saat sekizde başlar.",
+    "example_en": "School starts at 8 o'clock.",
+    "category": "places"
+  },
+  {
+    "hanzi": "医院",
+    "pinyin": "yī yuàn",
+    "turkish": "Hastane",
+    "english": "Hospital",
+    "example_zh": "医院二十四小时开门。",
+    "example_tr": "Hastane yirmi dört saat açık.",
+    "example_en": "The hospital is open 24 hours.",
+    "category": "places"
+  },
+  {
+    "hanzi": "教堂",
+    "pinyin": "jiào táng",
+    "turkish": "Kilise",
+    "english": "Church",
+    "example_zh": "教堂星期天有很多人。",
+    "example_tr": "Kilise pazar günleri çok kalabalık.",
+    "example_en": "The church is crowded on Sundays.",
+    "category": "places"
+  },
+  {
+    "hanzi": "酒店",
+    "pinyin": "jiǔ diàn",
+    "turkish": "Otel",
+    "english": "Hotel",
+    "example_zh": "我预订了一家酒店。",
+    "example_tr": "Bir otel rezervasyonu yaptım.",
+    "example_en": "I booked a hotel.",
+    "category": "places"
+  },
+  {
+    "hanzi": "东",
+    "pinyin": "dōng",
+    "turkish": "Doğu",
+    "english": "East",
+    "example_zh": "太阳从东方升起。",
+    "example_tr": "Güneş doğudan doğar.",
+    "example_en": "The sun rises in the east.",
+    "category": "places"
+  },
+  {
+    "hanzi": "西",
+    "pinyin": "xī",
+    "turkish": "Batı",
+    "english": "West",
+    "example_zh": "我家在西边。",
+    "example_tr": "Evim batı tarafta.",
+    "example_en": "My house is in the west.",
+    "category": "places"
+  },
+  {
+    "hanzi": "南",
+    "pinyin": "nán",
+    "turkish": "Güney",
+    "english": "South",
+    "example_zh": "南方比较暖和。",
+    "example_tr": "Güney daha sıcak.",
+    "example_en": "The south is warmer.",
+    "category": "places"
+  },
+  {
+    "hanzi": "北",
+    "pinyin": "běi",
+    "turkish": "Kuzey",
+    "english": "North",
+    "example_zh": "北方冬天很冷。",
+    "example_tr": "Kuzeyde kışlar çok soğuk.",
+    "example_en": "It's very cold in the north in winter.",
+    "category": "places"
+  },
+  {
+    "hanzi": "酒吧",
+    "pinyin": "jiǔ bā",
+    "turkish": "Bar",
+    "english": "Bar",
+    "example_zh": "周末我们去酒吧吧。",
+    "example_tr": "Hafta sonu bara gidelim.",
+    "example_en": "Let's go to the bar on the weekend.",
+    "category": "places"
+  },
+  {
+    "hanzi": "茶馆",
+    "pinyin": "chá guǎn",
+    "turkish": "Çay evi",
+    "english": "Teahouse",
+    "example_zh": "中国有很多茶馆。",
+    "example_tr": "Çin'de çok fazla çay evi var.",
+    "example_en": "There are many teahouses in China.",
+    "category": "places"
+  },
+  {
+    "hanzi": "健身房",
+    "pinyin": "jiàn shēn fáng",
+    "turkish": "Spor salonu",
+    "english": "Gym",
+    "example_zh": "我每天都去健身房。",
+    "example_tr": "Her gün spor salonuna gidiyorum.",
+    "example_en": "I go to the gym every day.",
+    "category": "places"
+  },
+  {
+    "hanzi": "学院",
+    "pinyin": "xué yuàn",
+    "turkish": "Akademi",
+    "english": "Academy",
+    "example_zh": "这所学院很有名。",
+    "example_tr": "Bu akademi çok ünlü.",
+    "example_en": "This academy is very famous.",
+    "category": "places"
+  },
+  {
+    "hanzi": "派出所",
+    "pinyin": "pài chū suǒ",
+    "turkish": "Karakol",
+    "english": "Police station",
+    "example_zh": "派出所可以办身份证。",
+    "example_tr": "Karakolda kimlik kartı yapılabilir.",
+    "example_en": "You can get an ID card at the police station.",
+    "category": "places"
+  },
+  {
+    "hanzi": "法院",
+    "pinyin": "fǎ yuàn",
+    "turkish": "Mahkeme",
+    "english": "Court",
+    "example_zh": "法院在市中心。",
+    "example_tr": "Mahkeme şehir merkezinde.",
+    "example_en": "The court is in the city center.",
+    "category": "places"
+  },
+  {
+    "hanzi": "阳台",
+    "pinyin": "yáng tái",
+    "turkish": "Balkon",
+    "english": "Balcony",
+    "example_zh": "我在阳台上种花。",
+    "example_tr": "Balkonda çiçek yetiştiriyorum.",
+    "example_en": "I grow flowers on the balcony.",
+    "category": "places"
+  },
+  {
+    "hanzi": "面包店",
+    "pinyin": "miàn bāo diàn",
+    "turkish": "Fırın",
+    "english": "Bakery",
+    "example_zh": "面包店的面包很香。",
+    "example_tr": "Fırının ekmekleri çok güzel kokuyor.",
+    "example_en": "The bread at the bakery smells very good.",
+    "category": "places"
+  },
+  {
+    "hanzi": "美容院",
+    "pinyin": "měi róng yuàn",
+    "turkish": "Güzellik salonu",
+    "english": "Beauty salon",
+    "example_zh": "她去美容院做头发。",
+    "example_tr": "Güzellik salonuna saç yaptırmaya gitti.",
+    "example_en": "She went to the beauty salon to do her hair.",
+    "category": "places"
+  },
+  {
+    "hanzi": "律师事务所",
+    "pinyin": "lǜ shī shì wù suǒ",
+    "turkish": "Hukuk bürosu",
+    "english": "Law firm",
+    "example_zh": "我咨询了一家律师事务所。",
+    "example_tr": "Bir hukuk bürosuna danıştım.",
+    "example_en": "I consulted a law firm.",
+    "category": "places"
+  },
+  {
+    "hanzi": "医生",
+    "pinyin": "yī shēng",
+    "turkish": "Doktor",
+    "english": "Doctor",
+    "example_zh": "我的爸爸是医生。",
+    "example_tr": "Babam doktor.",
+    "example_en": "My father is a doctor.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "护士",
+    "pinyin": "hù shì",
+    "turkish": "Hemşire",
+    "english": "Nurse",
+    "example_zh": "护士很细心。",
+    "example_tr": "Hemşireler çok dikkatlidir.",
+    "example_en": "Nurses are very careful.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "药剂师",
+    "pinyin": "yào jì shī",
+    "turkish": "Eczacı",
+    "english": "Pharmacist",
+    "example_zh": "药剂师在药店工作。",
+    "example_tr": "Eczacılar eczanede çalışır.",
+    "example_en": "Pharmacists work at pharmacies.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "理发师",
+    "pinyin": "lǐ fà shī",
+    "turkish": "Berber",
+    "english": "Hairdresser",
+    "example_zh": "我的理发师技术很好。",
+    "example_tr": "Berberim çok yetenekli.",
+    "example_en": "My hairdresser is very skilled.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "牙医",
+    "pinyin": "yá yī",
+    "turkish": "Diş hekimi",
+    "english": "Dentist",
+    "example_zh": "我明天要去看牙医。",
+    "example_tr": "Yarın diş hekimine gitmem gerekiyor.",
+    "example_en": "I need to see the dentist tomorrow.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "兽医",
+    "pinyin": "shòu yī",
+    "turkish": "Veteriner",
+    "english": "Veterinarian",
+    "example_zh": "兽医治好了我的狗。",
+    "example_tr": "Veteriner köpeğimi iyileştirdi.",
+    "example_en": "The veterinarian cured my dog.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "教授",
+    "pinyin": "jiào shòu",
+    "turkish": "Profesör",
+    "english": "Professor",
+    "example_zh": "这位教授很有学问。",
+    "example_tr": "Bu profesör çok bilgili.",
+    "example_en": "This professor is very knowledgeable.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "校长",
+    "pinyin": "xiào zhǎng",
+    "turkish": "Müdür",
+    "english": "Principal",
+    "example_zh": "校长在开会。",
+    "example_tr": "Müdür toplantıda.",
+    "example_en": "The principal is in a meeting.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "工人",
+    "pinyin": "gōng rén",
+    "turkish": "İşçi",
+    "english": "Worker",
+    "example_zh": "工人们正在工作。",
+    "example_tr": "İşçiler çalışıyor.",
+    "example_en": "The workers are working.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "建筑师",
+    "pinyin": "jiàn zhù shī",
+    "turkish": "Mimar",
+    "english": "Architect",
+    "example_zh": "这位建筑师设计了很多大楼。",
+    "example_tr": "Bu mimar çok fazla bina tasarladı.",
+    "example_en": "This architect has designed many buildings.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "工程师",
+    "pinyin": "gōng chéng shī",
+    "turkish": "Mühendis",
+    "english": "Engineer",
+    "example_zh": "他是一名软件工程师。",
+    "example_tr": "O bir yazılım mühendisi.",
+    "example_en": "He is a software engineer.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "电工",
+    "pinyin": "diàn gōng",
+    "turkish": "Elektrikçi",
+    "english": "Electrician",
+    "example_zh": "电工来修电路了。",
+    "example_tr": "Elektrikçi devreyi tamir etmeye geldi.",
+    "example_en": "The electrician came to fix the circuit.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "木工",
+    "pinyin": "mù gōng",
+    "turkish": "Marangoz",
+    "english": "Carpenter",
+    "example_zh": "木工做了一个漂亮的桌子。",
+    "example_tr": "Marangoz güzel bir masa yaptı.",
+    "example_en": "The carpenter made a beautiful table.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "水管工",
+    "pinyin": "shuǐ guǎn gōng",
+    "turkish": "Tesisatçı",
+    "english": "Plumber",
+    "example_zh": "水管工修好了漏水的水管。",
+    "example_tr": "Tesisatçı akan boruyu tamir etti.",
+    "example_en": "The plumber fixed the leaking pipe.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "司机",
+    "pinyin": "sī jī",
+    "turkish": "Şoför",
+    "english": "Driver",
+    "example_zh": "司机开车很稳。",
+    "example_tr": "Şoför çok dikkatli araba kullanıyor.",
+    "example_en": "The driver drives very carefully.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "心理医生",
+    "pinyin": "xīn lǐ yī shēng",
+    "turkish": "Psikolog",
+    "english": "Psychologist",
+    "example_zh": "心理医生帮助很多人。",
+    "example_tr": "Psikologlar çok fazla insana yardım eder.",
+    "example_en": "Psychologists help many people.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "采购员",
+    "pinyin": "cǎi gòu yuán",
+    "turkish": "Satın alma görevlisi",
+    "english": "Purchasing Officer",
+    "example_zh": "采购员去买办公用品了。",
+    "example_tr": "Satın alma görevlisi ofis malzemesi almaya gitti.",
+    "example_en": "The purchasing officer went to buy office supplies.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "飞行员",
+    "pinyin": "fēi xíng yuán",
+    "turkish": "Pilot",
+    "english": "Pilot",
+    "example_zh": "飞行员的工资很高。",
+    "example_tr": "Pilotların maaşı çok yüksek.",
+    "example_en": "Pilots have high salaries.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "空中小姐",
+    "pinyin": "kōng zhōng xiǎo jiě",
+    "turkish": "Hostes",
+    "english": "Flight attendant",
+    "example_zh": "空中小姐服务很好。",
+    "example_tr": "Hosteslerin hizmeti çok iyi.",
+    "example_en": "The flight attendants provide good service.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "厨师",
+    "pinyin": "chú shī",
+    "turkish": "Şef",
+    "english": "Chef",
+    "example_zh": "这位厨师做的菜很好吃。",
+    "example_tr": "Bu şefin yaptığı yemekler çok lezzetli.",
+    "example_en": "The food this chef cooks is very delicious.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "服务员",
+    "pinyin": "fú wù yuán",
+    "turkish": "Garson",
+    "english": "Waiter/Waitress",
+    "example_zh": "服务员，请给我菜单。",
+    "example_tr": "Garson, lütfen bana menüyü verin.",
+    "example_en": "Waiter, please give me the menu.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "会计",
+    "pinyin": "kuài jì",
+    "turkish": "Muhasebeci",
+    "english": "Accountant",
+    "example_zh": "会计正在算账。",
+    "example_tr": "Muhasebeci hesap yapıyor.",
+    "example_en": "The accountant is doing calculations.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "经理",
+    "pinyin": "jīng lǐ",
+    "turkish": "Müdür",
+    "english": "Manager",
+    "example_zh": "经理在办公室里。",
+    "example_tr": "Müdür ofiste.",
+    "example_en": "The manager is in the office.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "老板",
+    "pinyin": "lǎo bǎn",
+    "turkish": "Patron",
+    "english": "Boss",
+    "example_zh": "老板今天很高兴。",
+    "example_tr": "Patron bugün çok mutlu.",
+    "example_en": "The boss is very happy today.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "秘书",
+    "pinyin": "mì shū",
+    "turkish": "Sekreter",
+    "english": "Secretary",
+    "example_zh": "秘书安排会议时间。",
+    "example_tr": "Sekreter toplantı zamanını ayarlıyor.",
+    "example_en": "The secretary is scheduling the meeting time.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "销售员",
+    "pinyin": "xiāo shòu yuán",
+    "turkish": "Satış elemanı",
+    "english": "Salesperson",
+    "example_zh": "销售员很热情。",
+    "example_tr": "Satış elemanı çok sıcakkanlı.",
+    "example_en": "The salesperson is very enthusiastic.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "演员",
+    "pinyin": "yǎn yuán",
+    "turkish": "Oyuncu",
+    "english": "Actor",
+    "example_zh": "这位演员很有名。",
+    "example_tr": "Bu oyuncu çok ünlü.",
+    "example_en": "This actor is very famous.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "歌手",
+    "pinyin": "gē shǒu",
+    "turkish": "Şarkıcı",
+    "english": "Singer",
+    "example_zh": "这位歌手唱歌很好听。",
+    "example_tr": "Bu şarkıcı çok güzel şarkı söylüyor.",
+    "example_en": "This singer sings very well.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "音乐家",
+    "pinyin": "yīn yuè jiā",
+    "turkish": "Müzisyen",
+    "english": "Musician",
+    "example_zh": "音乐家正在演奏。",
+    "example_tr": "Müzisyen çalıyor.",
+    "example_en": "The musician is playing.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "舞蹈家",
+    "pinyin": "wǔ dǎo jiā",
+    "turkish": "Dansçı",
+    "english": "Dancer",
+    "example_zh": "舞蹈家的舞姿很美。",
+    "example_tr": "Dansçının dansı çok güzel.",
+    "example_en": "The dancer's dancing is very beautiful.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "摄影师",
+    "pinyin": "shè yǐng shī",
+    "turkish": "Fotoğrafçı",
+    "english": "Photographer",
+    "example_zh": "摄影师拍了很多照片。",
+    "example_tr": "Fotoğrafçı çok fazla fotoğraf çekti.",
+    "example_en": "The photographer took many photos.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "画家",
+    "pinyin": "huà jiā",
+    "turkish": "Ressam",
+    "english": "Painter",
+    "example_zh": "这位画家很有才华。",
+    "example_tr": "Bu ressam çok yetenekli.",
+    "example_en": "This painter is very talented.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "作家",
+    "pinyin": "zuò jiā",
+    "turkish": "Yazar",
+    "english": "Writer",
+    "example_zh": "这位作家写了很多书。",
+    "example_tr": "Bu yazar çok fazla kitap yazdı.",
+    "example_en": "This writer has written many books.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "记者",
+    "pinyin": "jì zhě",
+    "turkish": "Gazeteci",
+    "english": "Journalist",
+    "example_zh": "记者在采访新闻。",
+    "example_tr": "Gazeteci haber için röportaj yapıyor.",
+    "example_en": "The journalist is interviewing for news.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "编辑",
+    "pinyin": "biān jí",
+    "turkish": "Editör",
+    "english": "Editor",
+    "example_zh": "编辑正在修改文章。",
+    "example_tr": "Editör makaleyi düzeltiyor.",
+    "example_en": "The editor is revising the article.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "护理师",
+    "pinyin": "hù lǐ shī",
+    "turkish": "Bakıcı",
+    "english": "Caregiver",
+    "example_zh": "护理师照顾病人。",
+    "example_tr": "Bakıcı hastalara bakıyor.",
+    "example_en": "The caregiver looks after patients.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "主持人",
+    "pinyin": "zhǔ chí rén",
+    "turkish": "Sunucu",
+    "english": "Host / MC",
+    "example_zh": "主持人很幽默。",
+    "example_tr": "Sunucu çok komik.",
+    "example_en": "The host is very humorous.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "导演",
+    "pinyin": "dǎo yǎn",
+    "turkish": "Yönetmen",
+    "english": "Director",
+    "example_zh": "这位导演拍了很多好电影。",
+    "example_tr": "Bu yönetmen çok fazla güzel film çekti.",
+    "example_en": "This director has made many good movies.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "编剧",
+    "pinyin": "biān jù",
+    "turkish": "Senarist",
+    "english": "Screenwriter",
+    "example_zh": "编剧写了一个好故事。",
+    "example_tr": "Senarist güzel bir hikaye yazdı.",
+    "example_en": "The screenwriter wrote a good story.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "翻译",
+    "pinyin": "fān yì",
+    "turkish": "Çevirmen",
+    "english": "Translator",
+    "example_zh": "翻译帮助我们沟通。",
+    "example_tr": "Çevirmen iletişimimize yardım ediyor.",
+    "example_en": "The translator helps us communicate.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "审计师",
+    "pinyin": "shěn jì shī",
+    "turkish": "Denetçi",
+    "english": "Auditor",
+    "example_zh": "审计师在检查账目。",
+    "example_tr": "Denetçi hesapları kontrol ediyor.",
+    "example_en": "The auditor is checking the accounts.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "教练",
+    "pinyin": "jiào liàn",
+    "turkish": "Antrenör",
+    "english": "Coach",
+    "example_zh": "教练教我们打篮球。",
+    "example_tr": "Antrenör bize basketbol öğretiyor.",
+    "example_en": "The coach teaches us to play basketball.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "运动员",
+    "pinyin": "yùn dòng yuán",
+    "turkish": "Sporcu",
+    "english": "Athlete",
+    "example_zh": "运动员每天训练。",
+    "example_tr": "Sporcular her gün antrenman yapıyor.",
+    "example_en": "Athletes train every day.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "导游",
+    "pinyin": "dǎo yóu",
+    "turkish": "Tur rehberi",
+    "english": "Tour Guide",
+    "example_zh": "导游介绍了很多景点。",
+    "example_tr": "Tur rehberi çok fazla turistik yer tanıttı.",
+    "example_en": "The tour guide introduced many attractions.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "收银员",
+    "pinyin": "shōu yín yuán",
+    "turkish": "Kasiyer",
+    "english": "Cashier",
+    "example_zh": "收银员在数钱。",
+    "example_tr": "Kasiyer para sayıyor.",
+    "example_en": "The cashier is counting money.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "保安",
+    "pinyin": "bǎo ān",
+    "turkish": "Güvenlik görevlisi",
+    "english": "Security Guard",
+    "example_zh": "保安在门口站岗。",
+    "example_tr": "Güvenlik görevlisi kapıda nöbet tutuyor.",
+    "example_en": "The security guard is standing guard at the door.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "警察",
+    "pinyin": "jǐng chá",
+    "turkish": "Polis",
+    "english": "Police Officer",
+    "example_zh": "警察在维持秩序。",
+    "example_tr": "Polis düzeni sağlıyor.",
+    "example_en": "The police officer is maintaining order.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "消防员",
+    "pinyin": "xiāo fáng yuán",
+    "turkish": "İtfaiyeci",
+    "english": "Firefighter",
+    "example_zh": "消防员救了很多人。",
+    "example_tr": "İtfaiyeciler çok fazla insanı kurtardı.",
+    "example_en": "The firefighters saved many people.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "律师",
+    "pinyin": "lǜ shī",
+    "turkish": "Avukat",
+    "english": "Lawyer",
+    "example_zh": "律师帮我打赢了官司。",
+    "example_tr": "Avukat davamı kazandırdı.",
+    "example_en": "The lawyer won my case.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "法官",
+    "pinyin": "fǎ guān",
+    "turkish": "Hakim",
+    "english": "Judge",
+    "example_zh": "法官做出了公正的判决。",
+    "example_tr": "Hakim adil bir karar verdi.",
+    "example_en": "The judge made a fair decision.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "公务员",
+    "pinyin": "gōng wù yuán",
+    "turkish": "Memur",
+    "english": "Civil Servant",
+    "example_zh": "公务员在政府工作。",
+    "example_tr": "Memurlar hükümette çalışır.",
+    "example_en": "Civil servants work in the government.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "政治家",
+    "pinyin": "zhèng zhì jiā",
+    "turkish": "Siyasetçi",
+    "english": "Politician",
+    "example_zh": "政治家关心国家大事。",
+    "example_tr": "Siyasetçiler ülke meseleleriyle ilgilenir.",
+    "example_en": "Politicians care about national affairs.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "总统",
+    "pinyin": "zǒng tǒng",
+    "turkish": "Cumhurbaşkanı",
+    "english": "President",
+    "example_zh": "总统发表了演讲。",
+    "example_tr": "Cumhurbaşkanı konuşma yaptı.",
+    "example_en": "The president gave a speech.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "市长",
+    "pinyin": "shì zhǎng",
+    "turkish": "Belediye başkanı",
+    "english": "Mayor",
+    "example_zh": "市长视察了城市。",
+    "example_tr": "Belediye başkanı şehri denetledi.",
+    "example_en": "The mayor inspected the city.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "农民",
+    "pinyin": "nóng mín",
+    "turkish": "Çiftçi",
+    "english": "Farmer",
+    "example_zh": "农民在田里干活。",
+    "example_tr": "Çiftçiler tarlada çalışıyor.",
+    "example_en": "The farmers are working in the fields.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "渔民",
+    "pinyin": "yú mín",
+    "turkish": "Balıkçı",
+    "english": "Fisherman",
+    "example_zh": "渔民出海捕鱼。",
+    "example_tr": "Balıkçılar denize açılıp balık tutuyor.",
+    "example_en": "The fishermen go out to sea to fish.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "工匠",
+    "pinyin": "gōng jiàng",
+    "turkish": "Zanaatkar",
+    "english": "Craftsman",
+    "example_zh": "工匠的手艺很好。",
+    "example_tr": "Zanaatkarın el sanatı çok iyi.",
+    "example_en": "The craftsman's skills are very good.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "清洁工",
+    "pinyin": "qīng jié gōng",
+    "turkish": "Temizlikçi",
+    "english": "Cleaner",
+    "example_zh": "清洁工在打扫街道。",
+    "example_tr": "Temizlikçiler sokakları temizliyor.",
+    "example_en": "The cleaners are sweeping the streets.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "邮递员",
+    "pinyin": "yóu dì yuán",
+    "turkish": "Postacı",
+    "english": "Mail Carrier",
+    "example_zh": "邮递员送来了信件。",
+    "example_tr": "Postacı mektupları getirdi.",
+    "example_en": "The mail carrier delivered the letters.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "快递员",
+    "pinyin": "kuài dì yuán",
+    "turkish": "Kurye",
+    "english": "Courier",
+    "example_zh": "快递员送来了包裹。",
+    "example_tr": "Kurye paketi getirdi.",
+    "example_en": "The courier delivered the package.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "保姆",
+    "pinyin": "bǎo mǔ",
+    "turkish": "Dadı",
+    "english": "Nanny",
+    "example_zh": "保姆照顾孩子。",
+    "example_tr": "Dadı çocuklara bakıyor.",
+    "example_en": "The nanny takes care of the children.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "军人",
+    "pinyin": "jūn rén",
+    "turkish": "Asker",
+    "english": "Soldier",
+    "example_zh": "军人在保卫国家。",
+    "example_tr": "Askerler ülkeyi koruyor.",
+    "example_en": "The soldiers are defending the country.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "法医",
+    "pinyin": "fǎ yī",
+    "turkish": "Adli tıp doktoru",
+    "english": "Forensic Doctor",
+    "example_zh": "法医在做鉴定。",
+    "example_tr": "Adli tıp doktoru inceleme yapıyor.",
+    "example_en": "The forensic doctor is doing an examination.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "技术员",
+    "pinyin": "jì shù yuán",
+    "turkish": "Teknisyen",
+    "english": "Technician",
+    "example_zh": "技术员在修理机器。",
+    "example_tr": "Teknisyen makineyi tamir ediyor.",
+    "example_en": "The technician is repairing the machine.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "裁缝",
+    "pinyin": "cái féng",
+    "turkish": "Terzi",
+    "english": "Tailor",
+    "example_zh": "裁缝做了一件漂亮的衣服。",
+    "example_tr": "Terzi güzel bir elbise yaptı.",
+    "example_en": "The tailor made a beautiful dress.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "实习生",
+    "pinyin": "shí xí shēng",
+    "turkish": "Stajyer",
+    "english": "Intern",
+    "example_zh": "实习生在学习工作。",
+    "example_tr": "Stajyer işi öğreniyor.",
+    "example_en": "The intern is learning the job.",
+    "category": "jobs"
+  },
+  {
+    "hanzi": "购物",
+    "pinyin": "gòu wù",
+    "turkish": "Alışveriş",
+    "english": "Shopping",
+    "example_zh": "我喜欢购物。",
+    "example_tr": "Alışveriş yapmayı seviyorum.",
+    "example_en": "I like shopping.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "百货商店",
+    "pinyin": "bǎi huò shāng diàn",
+    "turkish": "Büyük mağaza",
+    "english": "Department store",
+    "example_zh": "百货商店有很多楼层。",
+    "example_tr": "Büyük mağazanın çok fazla katı var.",
+    "example_en": "The department store has many floors.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "购物中心",
+    "pinyin": "gòu wù zhōng xīn",
+    "turkish": "Alışveriş merkezi",
+    "english": "Shopping mall",
+    "example_zh": "购物中心很大。",
+    "example_tr": "Alışveriş merkezi çok büyük.",
+    "example_en": "The shopping mall is very big.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "买",
+    "pinyin": "mǎi",
+    "turkish": "Satın almak",
+    "english": "Buy",
+    "example_zh": "我想买这件衣服。",
+    "example_tr": "Bu kıyafeti almak istiyorum.",
+    "example_en": "I want to buy this piece of clothing.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "卖",
+    "pinyin": "mài",
+    "turkish": "Satmak",
+    "english": "Sell",
+    "example_zh": "这家店卖很多东西。",
+    "example_tr": "Bu dükkan çok fazla şey satıyor.",
+    "example_en": "This shop sells many things.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "钱",
+    "pinyin": "qián",
+    "turkish": "Para",
+    "english": "Money",
+    "example_zh": "我身上没带钱。",
+    "example_tr": "Üzerimde para yok.",
+    "example_en": "I don't have money on me.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "价格",
+    "pinyin": "jià gé",
+    "turkish": "Fiyat",
+    "english": "Price",
+    "example_zh": "这个价格太贵了。",
+    "example_tr": "Bu fiyat çok pahalı.",
+    "example_en": "This price is too expensive.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "便宜",
+    "pinyin": "pián yi",
+    "turkish": "Ucuz",
+    "english": "Cheap",
+    "example_zh": "这件衣服很便宜。",
+    "example_tr": "Bu kıyafet çok ucuz.",
+    "example_en": "This piece of clothing is very cheap.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "贵",
+    "pinyin": "guì",
+    "turkish": "Pahalı",
+    "english": "Expensive",
+    "example_zh": "这个东西很贵。",
+    "example_tr": "Bu şey çok pahalı.",
+    "example_en": "This thing is very expensive.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "打折",
+    "pinyin": "dǎ zhé",
+    "turkish": "İndirim",
+    "english": "Discount",
+    "example_zh": "这家店正在打折。",
+    "example_tr": "Bu dükkan indirim yapıyor.",
+    "example_en": "This shop is having a sale.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "付款",
+    "pinyin": "fù kuǎn",
+    "turkish": "Ödeme",
+    "english": "Payment",
+    "example_zh": "请去收银台付款。",
+    "example_tr": "Lütfen kasaya gidip ödeme yapın.",
+    "example_en": "Please go to the cashier to pay.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "现金",
+    "pinyin": "xiàn jīn",
+    "turkish": "Nakit",
+    "english": "Cash",
+    "example_zh": "我只带现金。",
+    "example_tr": "Sadece nakit para getirdim.",
+    "example_en": "I only brought cash.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "信用卡",
+    "pinyin": "xìn yòng kǎ",
+    "turkish": "Kredi kartı",
+    "english": "Credit card",
+    "example_zh": "可以用信用卡吗？",
+    "example_tr": "Kredi kartı kullanabilir miyim?",
+    "example_en": "Can I use a credit card?",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "收据",
+    "pinyin": "shōu jù",
+    "turkish": "Fiş",
+    "english": "Receipt",
+    "example_zh": "请给我收据。",
+    "example_tr": "Lütfen bana fiş verin.",
+    "example_en": "Please give me a receipt.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "发票",
+    "pinyin": "fā piào",
+    "turkish": "Fatura",
+    "english": "Invoice",
+    "example_zh": "请开发票。",
+    "example_tr": "Lütfen fatura kesin.",
+    "example_en": "Please issue an invoice.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "找零",
+    "pinyin": "zhǎo líng",
+    "turkish": "Para üstü",
+    "english": "Change",
+    "example_zh": "请给我找零。",
+    "example_tr": "Lütfen para üstü verin.",
+    "example_en": "Please give me change.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "退款",
+    "pinyin": "tuì kuǎn",
+    "turkish": "Para iadesi",
+    "english": "Refund",
+    "example_zh": "我想退款。",
+    "example_tr": "Para iadesi istiyorum.",
+    "example_en": "I want a refund.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "换货",
+    "pinyin": "huàn huò",
+    "turkish": "Değişim",
+    "english": "Exchange",
+    "example_zh": "我想换货。",
+    "example_tr": "Değişim yapmak istiyorum.",
+    "example_en": "I want to exchange it.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "退货",
+    "pinyin": "tuì huò",
+    "turkish": "İade",
+    "english": "Return",
+    "example_zh": "我想退货。",
+    "example_tr": "İade yapmak istiyorum.",
+    "example_en": "I want to return it.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "保修",
+    "pinyin": "bǎo xiū",
+    "turkish": "Garanti",
+    "english": "Warranty",
+    "example_zh": "这个产品有保修吗？",
+    "example_tr": "Bu ürünün garantisi var mı?",
+    "example_en": "Does this product have a warranty?",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "促销",
+    "pinyin": "cù xiāo",
+    "turkish": "Promosyon",
+    "english": "Promotion",
+    "example_zh": "促销活动开始了。",
+    "example_tr": "Promosyon başladı.",
+    "example_en": "The promotion has started.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "包装",
+    "pinyin": "bāo zhuāng",
+    "turkish": "Ambalaj",
+    "english": "Packaging",
+    "example_zh": "请帮我包装一下。",
+    "example_tr": "Lütfen benim için paketleyin.",
+    "example_en": "Please wrap it for me.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "标签",
+    "pinyin": "biāo qiān",
+    "turkish": "Etiket",
+    "english": "Label",
+    "example_zh": "请看一下价格标签。",
+    "example_tr": "Lütfen fiyat etiketine bakın.",
+    "example_en": "Please look at the price tag.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "商品",
+    "pinyin": "shāng pǐn",
+    "turkish": "Ürün",
+    "english": "Product",
+    "example_zh": "这个商品质量很好。",
+    "example_tr": "Bu ürünün kalitesi çok iyi.",
+    "example_en": "The quality of this product is very good.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "质量",
+    "pinyin": "zhì liàng",
+    "turkish": "Kalite",
+    "english": "Quality",
+    "example_zh": "质量第一。",
+    "example_tr": "Kalite her şeyden önce gelir.",
+    "example_en": "Quality comes first.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "评价",
+    "pinyin": "píng jià",
+    "turkish": "Değerlendirme",
+    "english": "Review",
+    "example_zh": "这件商品评价很好。",
+    "example_tr": "Bu ürünün değerlendirmesi çok iyi.",
+    "example_en": "This product has good reviews.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "网购",
+    "pinyin": "wǎng gòu",
+    "turkish": "Online alışveriş",
+    "english": "Online shopping",
+    "example_zh": "我喜欢网购。",
+    "example_tr": "Online alışveriş yapmayı seviyorum.",
+    "example_en": "I like online shopping.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "快递",
+    "pinyin": "kuài dì",
+    "turkish": "Kargo",
+    "english": "Express delivery",
+    "example_zh": "快递什么时候到？",
+    "example_tr": "Kargo ne zaman gelir?",
+    "example_en": "When will the express delivery arrive?",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "运费",
+    "pinyin": "yùn fèi",
+    "turkish": "Kargo ücreti",
+    "english": "Shipping fee",
+    "example_zh": "运费多少钱？",
+    "example_tr": "Kargo ücreti ne kadar?",
+    "example_en": "How much is the shipping fee?",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "到货",
+    "pinyin": "dào huò",
+    "turkish": "Teslimat",
+    "english": "Arrival of goods",
+    "example_zh": "货已经到了。",
+    "example_tr": "Mal teslim edildi.",
+    "example_en": "The goods have arrived.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "缺货",
+    "pinyin": "quē huò",
+    "turkish": "Stokta yok",
+    "english": "Out of stock",
+    "example_zh": "这个商品缺货了。",
+    "example_tr": "Bu ürün stokta yok.",
+    "example_en": "This product is out of stock.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "上新",
+    "pinyin": "shàng xīn",
+    "turkish": "Yeni gelenler",
+    "english": "New arrivals",
+    "example_zh": "店里上新品了。",
+    "example_tr": "Dükkanda yeni ürünler geldi.",
+    "example_en": "The shop has new arrivals.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "尺码",
+    "pinyin": "chǐ mǎ",
+    "turkish": "Beden",
+    "english": "Size",
+    "example_zh": "这个尺码合适吗？",
+    "example_tr": "Bu beden uygun mu?",
+    "example_en": "Is this size suitable?",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "试穿",
+    "pinyin": "shì chuān",
+    "turkish": "Denemek",
+    "english": "Try on",
+    "example_zh": "我可以试穿吗？",
+    "example_tr": "Deneyebilir miyim?",
+    "example_en": "Can I try it on?",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "款式",
+    "pinyin": "kuǎn shì",
+    "turkish": "Model",
+    "english": "Style",
+    "example_zh": "这个款式很流行。",
+    "example_tr": "Bu model çok moda.",
+    "example_en": "This style is very fashionable.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "颜色",
+    "pinyin": "yán sè",
+    "turkish": "Renk",
+    "english": "Color",
+    "example_zh": "你喜欢什么颜色？",
+    "example_tr": "Hangi rengi seviyorsunuz?",
+    "example_en": "What color do you like?",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "数量",
+    "pinyin": "shù liàng",
+    "turkish": "Miktar",
+    "english": "Quantity",
+    "example_zh": "数量是多少？",
+    "example_tr": "Miktar ne kadar?",
+    "example_en": "What is the quantity?",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "风格",
+    "pinyin": "fēng gé",
+    "turkish": "Stil / Moda",
+    "english": "Style / Fashion",
+    "example_zh": "这种风格很适合你。",
+    "example_tr": "Bu stil size çok yakışıyor.",
+    "example_en": "This style suits you very well.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "品牌",
+    "pinyin": "pǐn pái",
+    "turkish": "Marka",
+    "english": "Brand",
+    "example_zh": "这是什么品牌？",
+    "example_tr": "Bu hangi marka?",
+    "example_en": "What brand is this?",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "下单",
+    "pinyin": "xià dān",
+    "turkish": "Sipariş vermek",
+    "english": "Place an order",
+    "example_zh": "我已经下单了。",
+    "example_tr": "Sipariş verdim.",
+    "example_en": "I have placed an order.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "会员",
+    "pinyin": "huì yuán",
+    "turkish": "Üye",
+    "english": "Member",
+    "example_zh": "我是这家店的会员。",
+    "example_tr": "Bu dükkanın üyesiyim.",
+    "example_en": "I am a member of this shop.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "积分",
+    "pinyin": "jī fēn",
+    "turkish": "Puan",
+    "english": "Reward points",
+    "example_zh": "我有多少积分？",
+    "example_tr": "Kaç puanım var?",
+    "example_en": "How many points do I have?",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "礼品",
+    "pinyin": "lǐ pǐn",
+    "turkish": "Hediye",
+    "english": "Gift",
+    "example_zh": "这是送给你的礼品。",
+    "example_tr": "Bu size hediye.",
+    "example_en": "This is a gift for you.",
+    "category": "shopping"
+  },
+  {
+    "hanzi": "跑步",
+    "pinyin": "pǎo bù",
+    "turkish": "Koşu",
+    "english": "Jogging",
+    "example_zh": "我每天早上跑步。",
+    "example_tr": "Her sabah koşu yapıyorum.",
+    "example_en": "I go jogging every morning.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "散步",
+    "pinyin": "sàn bù",
+    "turkish": "Yürüyüş",
+    "english": "Walking",
+    "example_zh": "晚饭后我喜欢散步。",
+    "example_tr": "Akşam yemeğinden sonra yürüyüş yapmayı seviyorum.",
+    "example_en": "I like walking after dinner.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "游泳",
+    "pinyin": "yóu yǒng",
+    "turkish": "Yüzme",
+    "english": "Swimming",
+    "example_zh": "夏天我喜欢游泳。",
+    "example_tr": "Yazın yüzmeyi seviyorum.",
+    "example_en": "I like swimming in summer.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "骑车",
+    "pinyin": "qí chē",
+    "turkish": "Bisiklet sürmek",
+    "english": "Cycling",
+    "example_zh": "我每天骑车上班。",
+    "example_tr": "Her gün bisikletle işe gidiyorum.",
+    "example_en": "I ride a bike to work every day.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "开车",
+    "pinyin": "kāi chē",
+    "turkish": "Araba sürmek",
+    "english": "Driving",
+    "example_zh": "我会开车。",
+    "example_tr": "Araba kullanabiliyorum.",
+    "example_en": "I can drive.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "走路",
+    "pinyin": "zǒu lù",
+    "turkish": "Yürümek",
+    "english": "Walking",
+    "example_zh": "我喜欢走路去上学。",
+    "example_tr": "Okula yürüyerek gitmeyi seviyorum.",
+    "example_en": "I like walking to school.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "打篮球",
+    "pinyin": "dǎ lán qiú",
+    "turkish": "Basketbol oynamak",
+    "english": "Playing basketball",
+    "example_zh": "周末我们打篮球吧。",
+    "example_tr": "Hafta sonu basketbol oynayalım.",
+    "example_en": "Let's play basketball on the weekend.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "踢足球",
+    "pinyin": "tī zú qiú",
+    "turkish": "Futbol oynamak",
+    "english": "Playing soccer",
+    "example_zh": "他在踢足球。",
+    "example_tr": "Futbol oynuyor.",
+    "example_en": "He is playing soccer.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "打网球",
+    "pinyin": "dǎ wǎng qiú",
+    "turkish": "Tenis oynamak",
+    "english": "Playing tennis",
+    "example_zh": "我想学打网球。",
+    "example_tr": "Tenis oynamayı öğrenmek istiyorum.",
+    "example_en": "I want to learn to play tennis.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "打羽毛球",
+    "pinyin": "dǎ yǔ máo qiú",
+    "turkish": "Badminton oynamak",
+    "english": "Playing badminton",
+    "example_zh": "我们一起打羽毛球吧。",
+    "example_tr": "Birlikte badminton oynayalım.",
+    "example_en": "Let's play badminton together.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "打乒乓球",
+    "pinyin": "dǎ pīng pāng qiú",
+    "turkish": "Masa tenisi oynamak",
+    "english": "Playing table tennis",
+    "example_zh": "中国乒乓球很厉害。",
+    "example_tr": "Çin'de masa tenisi çok güçlü.",
+    "example_en": "Table tennis in China is very good.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "爬山",
+    "pinyin": "pá shān",
+    "turkish": "Dağa tırmanmak",
+    "english": "Mountain climbing",
+    "example_zh": "周末我们去爬山吧。",
+    "example_tr": "Hafta sonu dağa tırmanmaya gidelim.",
+    "example_en": "Let's go mountain climbing on the weekend.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "滑雪",
+    "pinyin": "huá xuě",
+    "turkish": "Kayak yapmak",
+    "english": "Skiing",
+    "example_zh": "冬天我喜欢滑雪。",
+    "example_tr": "Kışın kayak yapmayı seviyorum.",
+    "example_en": "I like skiing in winter.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "滑冰",
+    "pinyin": "huá bīng",
+    "turkish": "Buz pateni",
+    "english": "Ice skating",
+    "example_zh": "我们去滑冰吧。",
+    "example_tr": "Buz patenine gidelim.",
+    "example_en": "Let's go ice skating.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "钓鱼",
+    "pinyin": "diào yú",
+    "turkish": "Balık tutmak",
+    "english": "Fishing",
+    "example_zh": "他喜欢钓鱼。",
+    "example_tr": "Balık tutmayı seviyor.",
+    "example_en": "He likes fishing.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "健身",
+    "pinyin": "jiàn shēn",
+    "turkish": "Fitness yapmak",
+    "english": "Fitness",
+    "example_zh": "我每天都健身。",
+    "example_tr": "Her gün fitness yapıyorum.",
+    "example_en": "I exercise every day.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "瑜伽",
+    "pinyin": "yú jiā",
+    "turkish": "Yoga",
+    "english": "Yoga",
+    "example_zh": "她做瑜伽很专业。",
+    "example_tr": "Yoga yapmakta çok profesyonel.",
+    "example_en": "She is very professional at doing yoga.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "跳舞",
+    "pinyin": "tiào wǔ",
+    "turkish": "Dans etmek",
+    "english": "Dancing",
+    "example_zh": "我喜欢跳舞。",
+    "example_tr": "Dans etmeyi seviyorum.",
+    "example_en": "I like dancing.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "唱歌",
+    "pinyin": "chàng gē",
+    "turkish": "Şarkı söylemek",
+    "english": "Singing",
+    "example_zh": "她唱歌很好听。",
+    "example_tr": "Çok güzel şarkı söylüyor.",
+    "example_en": "She sings very well.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "看电影",
+    "pinyin": "kàn diàn yǐng",
+    "turkish": "Film izlemek",
+    "english": "Watching movies",
+    "example_zh": "今晚我们去看电影吧。",
+    "example_tr": "Bu akşam sinemaya gidelim.",
+    "example_en": "Let's go watch a movie tonight.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "看电视",
+    "pinyin": "kàn diàn shì",
+    "turkish": "TV izlemek",
+    "english": "Watching TV",
+    "example_zh": "我在看电视。",
+    "example_tr": "Televizyon izliyorum.",
+    "example_en": "I am watching TV.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "看书",
+    "pinyin": "kàn shū",
+    "turkish": "Kitap okumak",
+    "english": "Reading books",
+    "example_zh": "我喜欢看书。",
+    "example_tr": "Kitap okumayı seviyorum.",
+    "example_en": "I like reading books.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "听音乐",
+    "pinyin": "tīng yīn yuè",
+    "turkish": "Müzik dinlemek",
+    "english": "Listening to music",
+    "example_zh": "我喜欢听音乐。",
+    "example_tr": "Müzik dinlemeyi seviyorum.",
+    "example_en": "I like listening to music.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "做饭",
+    "pinyin": "zuò fàn",
+    "turkish": "Yemek yapmak",
+    "english": "Cooking",
+    "example_zh": "妈妈在做饭。",
+    "example_tr": "Anne yemek yapıyor.",
+    "example_en": "Mom is cooking.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "吃饭",
+    "pinyin": "chī fàn",
+    "turkish": "Yemek yemek",
+    "english": "Eating",
+    "example_zh": "我们一起吃饭吧。",
+    "example_tr": "Birlikte yemek yiyelim.",
+    "example_en": "Let's eat together.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "喝水",
+    "pinyin": "hē shuǐ",
+    "turkish": "Su içmek",
+    "english": "Drinking water",
+    "example_zh": "请多喝水。",
+    "example_tr": "Lütfen çok su için.",
+    "example_en": "Please drink more water.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "睡觉",
+    "pinyin": "shuì jiào",
+    "turkish": "Uyumak",
+    "english": "Sleeping",
+    "example_zh": "我要睡觉了。",
+    "example_tr": "Uyuyacağım.",
+    "example_en": "I'm going to sleep.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "起床",
+    "pinyin": "qǐ chuáng",
+    "turkish": "Uyanmak",
+    "english": "Getting up",
+    "example_zh": "我每天早上六点起床。",
+    "example_tr": "Her sabah saat altıda kalkıyorum.",
+    "example_en": "I get up at 6 AM every morning.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "洗澡",
+    "pinyin": "xǐ zǎo",
+    "turkish": "Duş almak",
+    "english": "Taking a shower",
+    "example_zh": "我每天晚上洗澡。",
+    "example_tr": "Her akşam duş alıyorum.",
+    "example_en": "I take a shower every evening.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "刷牙",
+    "pinyin": "shuā yá",
+    "turkish": "Diş fırçalamak",
+    "english": "Brushing teeth",
+    "example_zh": "请每天刷牙两次。",
+    "example_tr": "Lütfen her gün iki kez diş fırçalayın.",
+    "example_en": "Please brush your teeth twice a day.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "洗脸",
+    "pinyin": "xǐ liǎn",
+    "turkish": "Yüz yıkamak",
+    "english": "Washing face",
+    "example_zh": "我早上洗脸。",
+    "example_tr": "Sabah yüzümü yıkıyorum.",
+    "example_en": "I wash my face in the morning.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "洗衣服",
+    "pinyin": "xǐ yī fú",
+    "turkish": "Çamaşır yıkamak",
+    "english": "Doing laundry",
+    "example_zh": "我周末洗衣服。",
+    "example_tr": "Hafta sonu çamaşır yıkıyorum.",
+    "example_en": "I do laundry on weekends.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "参观",
+    "pinyin": "cān guān",
+    "turkish": "Ziyaret etmek",
+    "english": "Visiting",
+    "example_zh": "我们去参观博物馆吧。",
+    "example_tr": "Müzeyi ziyaret edelim.",
+    "example_en": "Let's visit the museum.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "收拾",
+    "pinyin": "shōu shi",
+    "turkish": "Toplamak",
+    "english": "Tidying up",
+    "example_zh": "我在收拾房间。",
+    "example_tr": "Odayı topluyorum.",
+    "example_en": "I am tidying up the room.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "买东西",
+    "pinyin": "mǎi dōng xi",
+    "turkish": "Alışveriş yapmak",
+    "english": "Shopping",
+    "example_zh": "我去买东西。",
+    "example_tr": "Alışverişe gidiyorum.",
+    "example_en": "I'm going shopping.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "上网",
+    "pinyin": "shàng wǎng",
+    "turkish": "İnternete girmek",
+    "english": "Surfing the Internet",
+    "example_zh": "我喜欢上网。",
+    "example_tr": "İnternete girmeyi seviyorum.",
+    "example_en": "I like surfing the Internet.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "聊天",
+    "pinyin": "liáo tiān",
+    "turkish": "Sohbet etmek",
+    "english": "Chatting",
+    "example_zh": "我们在聊天。",
+    "example_tr": "Sohbet ediyoruz.",
+    "example_en": "We are chatting.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "拍照",
+    "pinyin": "pāi zhào",
+    "turkish": "Fotoğraf çekmek",
+    "english": "Taking photos",
+    "example_zh": "请帮我拍张照片。",
+    "example_tr": "Lütfen benim için fotoğraf çekin.",
+    "example_en": "Please take a photo for me.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "玩手机",
+    "pinyin": "wán shǒu jī",
+    "turkish": "Telefon kullanmak",
+    "english": "Using the phone",
+    "example_zh": "别总是玩手机。",
+    "example_tr": "Her zaman telefon kullanma.",
+    "example_en": "Don't always use your phone.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "玩游戏",
+    "pinyin": "wán yóu xì",
+    "turkish": "Oyun oynamak",
+    "english": "Playing games",
+    "example_zh": "他在玩游戏。",
+    "example_tr": "Oyun oynuyor.",
+    "example_en": "He is playing games.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "旅游",
+    "pinyin": "lǚ yóu",
+    "turkish": "Seyahat etmek",
+    "english": "Traveling",
+    "example_zh": "我喜欢旅游。",
+    "example_tr": "Seyahat etmeyi seviyorum.",
+    "example_en": "I like traveling.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "拍视频",
+    "pinyin": "pāi shì pín",
+    "turkish": "Video çekmek",
+    "english": "Filming videos",
+    "example_zh": "我在拍视频。",
+    "example_tr": "Video çekiyorum.",
+    "example_en": "I am filming a video.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "做运动",
+    "pinyin": "zuò yùn dòng",
+    "turkish": "Spor yapmak",
+    "english": "Exercising",
+    "example_zh": "我们应该多做运动。",
+    "example_tr": "Daha fazla spor yapmalıyız.",
+    "example_en": "We should exercise more.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "休息",
+    "pinyin": "xiū xi",
+    "turkish": "Dinlenmek",
+    "english": "Rest",
+    "example_zh": "我要休息一下。",
+    "example_tr": "Biraz dinleneceğim.",
+    "example_en": "I need to rest.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "上课",
+    "pinyin": "shàng kè",
+    "turkish": "Derse girmek",
+    "english": "Attend class",
+    "example_zh": "我要去上课了。",
+    "example_tr": "Derse gideceğim.",
+    "example_en": "I'm going to class.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "下课",
+    "pinyin": "xià kè",
+    "turkish": "Ders çıkmak",
+    "english": "Finish class",
+    "example_zh": "下课了，我们去吃饭吧。",
+    "example_tr": "Ders bitti, yemek yemeye gidelim.",
+    "example_en": "Class is over, let's go eat.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "考试",
+    "pinyin": "kǎo shì",
+    "turkish": "Sınav",
+    "english": "Exam",
+    "example_zh": "明天有考试。",
+    "example_tr": "Yarın sınav var.",
+    "example_en": "There is an exam tomorrow.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "做作业",
+    "pinyin": "zuò zuò yè",
+    "turkish": "Ödev yapmak",
+    "english": "Doing homework",
+    "example_zh": "我在做作业。",
+    "example_tr": "Ödev yapıyorum.",
+    "example_en": "I am doing homework.",
+    "category": "activities"
+  },
+  {
+    "hanzi": "吃",
+    "pinyin": "chī",
+    "turkish": "Yemek",
+    "english": "Eat",
+    "example_zh": "我喜欢吃中国菜。",
+    "example_tr": "Çin yemeklerini yemeyi seviyorum.",
+    "example_en": "I like eating Chinese food.",
+    "category": "food"
+  },
+  {
+    "hanzi": "喝",
+    "pinyin": "hē",
+    "turkish": "İçmek",
+    "english": "Drink",
+    "example_zh": "我喜欢喝咖啡。",
+    "example_tr": "Kahve içmeyi seviyorum.",
+    "example_en": "I like drinking coffee.",
+    "category": "food"
+  },
+  {
+    "hanzi": "煮",
+    "pinyin": "zhǔ",
+    "turkish": "Kaynatmak",
+    "english": "Boil",
+    "example_zh": "妈妈在煮汤。",
+    "example_tr": "Anne çorba kaynatıyor.",
+    "example_en": "Mom is boiling soup.",
+    "category": "food"
+  },
+  {
+    "hanzi": "炒",
+    "pinyin": "chǎo",
+    "turkish": "Kavurmak",
+    "english": "Stir-fry",
+    "example_zh": "厨师在炒菜。",
+    "example_tr": "Şef kavurma yapıyor.",
+    "example_en": "The chef is stir-frying vegetables.",
+    "category": "food"
+  },
+  {
+    "hanzi": "烧",
+    "pinyin": "shāo",
+    "turkish": "Sotelemek",
+    "english": "Braise",
+    "example_zh": "我喜欢吃烧鸡。",
+    "example_tr": "Sote tavuk yemeyi seviyorum.",
+    "example_en": "I like eating braised chicken.",
+    "category": "food"
+  },
+  {
+    "hanzi": "烤",
+    "pinyin": "kǎo",
+    "turkish": "Izgara yapmak",
+    "english": "Roast",
+    "example_zh": "我们在烤肉。",
+    "example_tr": "Izgara yapıyoruz.",
+    "example_en": "We are roasting meat.",
+    "category": "food"
+  },
+  {
+    "hanzi": "蒸",
+    "pinyin": "zhēng",
+    "turkish": "Buharda pişirmek",
+    "english": "Steam",
+    "example_zh": "我在蒸鱼。",
+    "example_tr": "Balığı buharda pişiriyorum.",
+    "example_en": "I am steaming fish.",
+    "category": "food"
+  },
+  {
+    "hanzi": "炖",
+    "pinyin": "dùn",
+    "turkish": "Haşlamak",
+    "english": "Stew",
+    "example_zh": "妈妈在炖牛肉。",
+    "example_tr": "Anne sığır eti haşlıyor.",
+    "example_en": "Mom is stewing beef.",
+    "category": "food"
+  },
+  {
+    "hanzi": "切",
+    "pinyin": "qiē",
+    "turkish": "Kesmek",
+    "english": "Cut",
+    "example_zh": "请把菜切一下。",
+    "example_tr": "Lütfen sebzeleri kesin.",
+    "example_en": "Please cut the vegetables.",
+    "category": "food"
+  },
+  {
+    "hanzi": "剥",
+    "pinyin": "bāo",
+    "turkish": "Soymak",
+    "english": "Peel",
+    "example_zh": "我在剥橘子。",
+    "example_tr": "Mandalina soyuyorum.",
+    "example_en": "I am peeling an orange.",
+    "category": "food"
+  },
+  {
+    "hanzi": "搅拌",
+    "pinyin": "jiǎo bàn",
+    "turkish": "Karıştırmak",
+    "english": "Stir",
+    "example_zh": "请搅拌一下。",
+    "example_tr": "Lütfen karıştırın.",
+    "example_en": "Please stir it.",
+    "category": "food"
+  },
+  {
+    "hanzi": "倒",
+    "pinyin": "dào",
+    "turkish": "Dökmek",
+    "english": "Pour",
+    "example_zh": "请倒一杯水。",
+    "example_tr": "Lütfen bir bardak su dökün.",
+    "example_en": "Please pour a glass of water.",
+    "category": "food"
+  },
+  {
+    "hanzi": "饿",
+    "pinyin": "è",
+    "turkish": "Aç",
+    "english": "Hungry",
+    "example_zh": "我饿了。",
+    "example_tr": "Açım.",
+    "example_en": "I am hungry.",
+    "category": "food"
+  },
+  {
+    "hanzi": "饱",
+    "pinyin": "bǎo",
+    "turkish": "Tok",
+    "english": "Full",
+    "example_zh": "我吃饱了。",
+    "example_tr": "Doydum.",
+    "example_en": "I am full.",
+    "category": "food"
+  },
+  {
+    "hanzi": "渴",
+    "pinyin": "kě",
+    "turkish": "Susamış",
+    "english": "Thirsty",
+    "example_zh": "我渴了。",
+    "example_tr": "Susadım.",
+    "example_en": "I am thirsty.",
+    "category": "food"
+  },
+  {
+    "hanzi": "好吃",
+    "pinyin": "hǎo chī",
+    "turkish": "Lezzetli",
+    "english": "Delicious",
+    "example_zh": "这个菜很好吃。",
+    "example_tr": "Bu yemek çok lezzetli.",
+    "example_en": "This dish is very delicious.",
+    "category": "food"
+  },
+  {
+    "hanzi": "点菜",
+    "pinyin": "diǎn cài",
+    "turkish": "Sipariş vermek",
+    "english": "Order food",
+    "example_zh": "请点菜。",
+    "example_tr": "Lütfen sipariş verin.",
+    "example_en": "Please order food.",
+    "category": "food"
+  },
+  {
+    "hanzi": "结账",
+    "pinyin": "jié zhàng",
+    "turkish": "Hesap ödemek",
+    "english": "Pay bill",
+    "example_zh": "请结账。",
+    "example_tr": "Lütfen hesap ödeyin.",
+    "example_en": "Please pay the bill.",
+    "category": "food"
+  },
+  {
+    "hanzi": "外卖",
+    "pinyin": "wài mài",
+    "turkish": "Paket servis",
+    "english": "Takeout",
+    "example_zh": "我叫了外卖。",
+    "example_tr": "Paket servis siparişi verdim.",
+    "example_en": "I ordered takeout.",
+    "category": "food"
+  },
+  {
+    "hanzi": "菜单",
+    "pinyin": "cài dān",
+    "turkish": "Menü",
+    "english": "Menu",
+    "example_zh": "请给我菜单。",
+    "example_tr": "Lütfen bana menüyü verin.",
+    "example_en": "Please give me the menu.",
+    "category": "food"
+  },
+  {
+    "hanzi": "甜",
+    "pinyin": "tián",
+    "turkish": "Tatlı",
+    "english": "Sweet",
+    "example_zh": "这个蛋糕很甜。",
+    "example_tr": "Bu pasta çok tatlı.",
+    "example_en": "This cake is very sweet.",
+    "category": "food"
+  },
+  {
+    "hanzi": "咸",
+    "pinyin": "xián",
+    "turkish": "Tuzlu",
+    "english": "Salty",
+    "example_zh": "这个汤太咸了。",
+    "example_tr": "Bu çorba çok tuzlu.",
+    "example_en": "This soup is too salty.",
+    "category": "food"
+  },
+  {
+    "hanzi": "酸",
+    "pinyin": "suān",
+    "turkish": "Ekşi",
+    "english": "Sour",
+    "example_zh": "这个柠檬很酸。",
+    "example_tr": "Bu limon çok ekşi.",
+    "example_en": "This lemon is very sour.",
+    "category": "food"
+  },
+  {
+    "hanzi": "苦",
+    "pinyin": "kǔ",
+    "turkish": "Acı",
+    "english": "Bitter",
+    "example_zh": "这个药很苦。",
+    "example_tr": "Bu ilaç çok acı.",
+    "example_en": "This medicine is very bitter.",
+    "category": "food"
+  },
+  {
+    "hanzi": "辣",
+    "pinyin": "là",
+    "turkish": "Baharatlı / Acı",
+    "english": "Spicy",
+    "example_zh": "这个菜很辣。",
+    "example_tr": "Bu yemek çok baharatlı.",
+    "example_en": "This dish is very spicy.",
+    "category": "food"
+  },
+  {
+    "hanzi": "淡",
+    "pinyin": "dàn",
+    "turkish": "Tatsız",
+    "english": "Bland",
+    "example_zh": "这个菜太淡了。",
+    "example_tr": "Bu yemek çok tatsız.",
+    "example_en": "This dish is too bland.",
+    "category": "food"
+  },
+  {
+    "hanzi": "米饭",
+    "pinyin": "mǐ fàn",
+    "turkish": "Pirinç pilavı",
+    "english": "Rice",
+    "example_zh": "我要一碗米饭。",
+    "example_tr": "Bir kase pirinç pilavı istiyorum.",
+    "example_en": "I want a bowl of rice.",
+    "category": "food"
+  },
+  {
+    "hanzi": "面条",
+    "pinyin": "miàn tiáo",
+    "turkish": "Makarna / Erişte",
+    "english": "Noodles",
+    "example_zh": "我喜欢吃面条。",
+    "example_tr": "Makarna yemeyi seviyorum.",
+    "example_en": "I like eating noodles.",
+    "category": "food"
+  },
+  {
+    "hanzi": "饺子",
+    "pinyin": "jiǎo zi",
+    "turkish": "Mantı",
+    "english": "Dumplings",
+    "example_zh": "饺子是中国传统食物。",
+    "example_tr": "Mantı Çin geleneksel yiyeceğidir.",
+    "example_en": "Dumplings are traditional Chinese food.",
+    "category": "food"
+  },
+  {
+    "hanzi": "包子",
+    "pinyin": "bāo zi",
+    "turkish": "Buharda pişmiş çörek",
+    "english": "Steamed buns",
+    "example_zh": "早餐我喜欢吃包子。",
+    "example_tr": "Kahvaltıda buharda çörek yemeyi seviyorum.",
+    "example_en": "I like eating steamed buns for breakfast.",
+    "category": "food"
+  },
+  {
+    "hanzi": "馒头",
+    "pinyin": "mán tou",
+    "turkish": "Buharda ekmek",
+    "english": "Steamed bread",
+    "example_zh": "馒头是北方的主食。",
+    "example_tr": "Buharda ekmek kuzeyin temel yiyeceğidir.",
+    "example_en": "Steamed bread is a staple food in the north.",
+    "category": "food"
+  },
+  {
+    "hanzi": "粥",
+    "pinyin": "zhōu",
+    "turkish": "Çorba / Ezme",
+    "english": "Congee",
+    "example_zh": "早上我喜欢喝粥。",
+    "example_tr": "Sabahları ezme içmeyi seviyorum.",
+    "example_en": "I like drinking congee in the morning.",
+    "category": "food"
+  },
+  {
+    "hanzi": "面包",
+    "pinyin": "miàn bāo",
+    "turkish": "Ekmek",
+    "english": "Bread",
+    "example_zh": "我早餐吃面包。",
+    "example_tr": "Kahvaltıda ekmek yiyorum.",
+    "example_en": "I eat bread for breakfast.",
+    "category": "food"
+  },
+  {
+    "hanzi": "鸡蛋",
+    "pinyin": "jī dàn",
+    "turkish": "Yumurta",
+    "english": "Egg",
+    "example_zh": "我喜欢吃鸡蛋。",
+    "example_tr": "Yumurta yemeyi seviyorum.",
+    "example_en": "I like eating eggs.",
+    "category": "food"
+  },
+  {
+    "hanzi": "鸡肉",
+    "pinyin": "jī ròu",
+    "turkish": "Tavuk eti",
+    "english": "Chicken",
+    "example_zh": "鸡肉很健康。",
+    "example_tr": "Tavuk eti çok sağlıklı.",
+    "example_en": "Chicken is very healthy.",
+    "category": "food"
+  },
+  {
+    "hanzi": "牛肉",
+    "pinyin": "niú ròu",
+    "turkish": "Sığır eti",
+    "english": "Beef",
+    "example_zh": "我喜欢吃牛肉。",
+    "example_tr": "Sığır eti yemeyi seviyorum.",
+    "example_en": "I like eating beef.",
+    "category": "food"
+  },
+  {
+    "hanzi": "猪肉",
+    "pinyin": "zhū ròu",
+    "turkish": "Domuz eti",
+    "english": "Pork",
+    "example_zh": "猪肉在中国很常见。",
+    "example_tr": "Domuz eti Çin'de çok yaygın.",
+    "example_en": "Pork is very common in China.",
+    "category": "food"
+  },
+  {
+    "hanzi": "鱼",
+    "pinyin": "yú",
+    "turkish": "Balık",
+    "english": "Fish",
+    "example_zh": "鱼对大脑好。",
+    "example_tr": "Balık beyin için iyidir.",
+    "example_en": "Fish is good for the brain.",
+    "category": "food"
+  },
+  {
+    "hanzi": "虾",
+    "pinyin": "xiā",
+    "turkish": "Karides",
+    "english": "Shrimp",
+    "example_zh": "虾很好吃。",
+    "example_tr": "Karides çok lezzetli.",
+    "example_en": "Shrimp is very delicious.",
+    "category": "food"
+  },
+  {
+    "hanzi": "蔬菜",
+    "pinyin": "shū cài",
+    "turkish": "Sebze",
+    "english": "Vegetables",
+    "example_zh": "多吃蔬菜有益健康。",
+    "example_tr": "Çok sebze yemek sağlıklıdır.",
+    "example_en": "Eating more vegetables is good for health.",
+    "category": "food"
+  },
+  {
+    "hanzi": "土豆",
+    "pinyin": "tǔ dòu",
+    "turkish": "Patates",
+    "english": "Potato",
+    "example_zh": "土豆是常见的蔬菜。",
+    "example_tr": "Patates yaygın bir sebzedir.",
+    "example_en": "Potato is a common vegetable.",
+    "category": "food"
+  },
+  {
+    "hanzi": "胡萝卜",
+    "pinyin": "hú luó bo",
+    "turkish": "Havuç",
+    "english": "Carrot",
+    "example_zh": "胡萝卜对眼睛好。",
+    "example_tr": "Havuç gözler için iyidir.",
+    "example_en": "Carrots are good for the eyes.",
+    "category": "food"
+  },
+  {
+    "hanzi": "西红柿",
+    "pinyin": "xī hóng shì",
+    "turkish": "Domates",
+    "english": "Tomato",
+    "example_zh": "西红柿可以生吃。",
+    "example_tr": "Domates çiğ yenebilir.",
+    "example_en": "Tomatoes can be eaten raw.",
+    "category": "food"
+  },
+  {
+    "hanzi": "洋葱",
+    "pinyin": "yáng cōng",
+    "turkish": "Soğan",
+    "english": "Onion",
+    "example_zh": "洋葱可以调味。",
+    "example_tr": "Soğan tat verebilir.",
+    "example_en": "Onions can add flavor.",
+    "category": "food"
+  },
+  {
+    "hanzi": "辣椒",
+    "pinyin": "là jiāo",
+    "turkish": "Biber",
+    "english": "Chili",
+    "example_zh": "四川菜很辣。",
+    "example_tr": "Sichuan yemekleri çok baharatlıdır.",
+    "example_en": "Sichuan cuisine is very spicy.",
+    "category": "food"
+  },
+  {
+    "hanzi": "酱油",
+    "pinyin": "jiàng yóu",
+    "turkish": "Soya sosu",
+    "english": "Soy sauce",
+    "example_zh": "炒菜要加酱油。",
+    "example_tr": "Kavurma yaparken soya sosu eklenmeli.",
+    "example_en": "Soy sauce should be added when stir-frying.",
+    "category": "food"
+  },
+  {
+    "hanzi": "醋",
+    "pinyin": "cù",
+    "turkish": "Sirke",
+    "english": "Vinegar",
+    "example_zh": "吃饺子要蘸醋。",
+    "example_tr": "Mantı yerken sirkeye batırılmalı.",
+    "example_en": "Dumplings should be dipped in vinegar.",
+    "category": "food"
+  },
+  {
+    "hanzi": "盐",
+    "pinyin": "yán",
+    "turkish": "Tuz",
+    "english": "Salt",
+    "example_zh": "请少放点盐。",
+    "example_tr": "Lütfen az tuz koyun.",
+    "example_en": "Please put less salt.",
+    "category": "food"
+  },
+  {
+    "hanzi": "糖",
+    "pinyin": "táng",
+    "turkish": "Şeker",
+    "english": "Sugar",
+    "example_zh": "这个菜有点甜。",
+    "example_tr": "Bu yemek biraz tatlı.",
+    "example_en": "This dish is a bit sweet.",
+    "category": "food"
+  },
+  {
+    "hanzi": "火锅",
+    "pinyin": "huǒ guō",
+    "turkish": "Hotpot",
+    "english": "Hotpot",
+    "example_zh": "冬天我们吃火锅吧。",
+    "example_tr": "Kışın hotpot yiyelim.",
+    "example_en": "Let's eat hotpot in winter.",
+    "category": "food"
+  },
+  {
+    "hanzi": "烧烤",
+    "pinyin": "shāo kǎo",
+    "turkish": "Barbekü",
+    "english": "Barbecue",
+    "example_zh": "夏天我们吃烧烤。",
+    "example_tr": "Yazın barbekü yiyoruz.",
+    "example_en": "We eat barbecue in summer.",
+    "category": "food"
+  },
+  {
+    "hanzi": "炸鸡",
+    "pinyin": "zhá jī",
+    "turkish": "Kızarmış tavuk",
+    "english": "Fried chicken",
+    "example_zh": "我喜欢吃炸鸡。",
+    "example_tr": "Kızarmış tavuk yemeyi seviyorum.",
+    "example_en": "I like eating fried chicken.",
+    "category": "food"
+  },
+  {
+    "hanzi": "巧克力",
+    "pinyin": "qiǎo kè lì",
+    "turkish": "Çikolata",
+    "english": "Chocolate",
+    "example_zh": "巧克力很甜。",
+    "example_tr": "Çikolata çok tatlı.",
+    "example_en": "Chocolate is very sweet.",
+    "category": "food"
+  },
+  {
+    "hanzi": "冰淇淋",
+    "pinyin": "bīng qí lín",
+    "turkish": "Dondurma",
+    "english": "Ice cream",
+    "example_zh": "夏天我喜欢吃冰淇淋。",
+    "example_tr": "Yazın dondurma yemeyi seviyorum.",
+    "example_en": "I like eating ice cream in summer.",
+    "category": "food"
+  },
+  {
+    "hanzi": "新鲜",
+    "pinyin": "xīn xiān",
+    "turkish": "Taze",
+    "english": "Fresh",
+    "example_zh": "这些蔬菜很新鲜。",
+    "example_tr": "Bu sebzeler çok taze.",
+    "example_en": "These vegetables are very fresh.",
+    "category": "food"
+  },
+  {
+    "hanzi": "筷子",
+    "pinyin": "kuài zi",
+    "turkish": "Çubuk yemek çubuğu",
+    "english": "Chopsticks",
+    "example_zh": "我会用筷子。",
+    "example_tr": "Çubuk yemek çubuğu kullanabiliyorum.",
+    "example_en": "I can use chopsticks.",
+    "category": "food"
+  },
+  {
+    "hanzi": "勺子",
+    "pinyin": "sháo zi",
+    "turkish": "Kaşık",
+    "english": "Spoon",
+    "example_zh": "请给我勺子。",
+    "example_tr": "Lütfen bana kaşık verin.",
+    "example_en": "Please give me a spoon.",
+    "category": "food"
+  },
+  {
+    "hanzi": "味道",
+    "pinyin": "wèi dào",
+    "turkish": "Tat",
+    "english": "Taste",
+    "example_zh": "这个菜味道很好。",
+    "example_tr": "Bu yemeğin tadı çok iyi.",
+    "example_en": "This dish tastes very good.",
+    "category": "food"
+  },
+  {
+    "hanzi": "香",
+    "pinyin": "xiāng",
+    "turkish": "Güzel kokulu",
+    "english": "Fragrant",
+    "example_zh": "这个菜很香。",
+    "example_tr": "Bu yemek çok güzel kokuyor.",
+    "example_en": "This dish smells very good.",
+    "category": "food"
+  },
+  {
+    "hanzi": "家庭",
+    "pinyin": "jiā tíng",
+    "turkish": "Aile",
+    "english": "Family",
+    "example_zh": "我有一个幸福的家庭。",
+    "example_tr": "Mutlu bir ailem var.",
+    "example_en": "I have a happy family.",
+    "category": "family"
+  },
+  {
+    "hanzi": "家人",
+    "pinyin": "jiā rén",
+    "turkish": "Aile üyeleri",
+    "english": "Family members",
+    "example_zh": "我的家人很爱我。",
+    "example_tr": "Ailem beni çok seviyor.",
+    "example_en": "My family loves me very much.",
+    "category": "family"
+  },
+  {
+    "hanzi": "父亲",
+    "pinyin": "fù qīn",
+    "turkish": "Baba (resmi)",
+    "english": "Father (formal)",
+    "example_zh": "我的父亲是一位医生。",
+    "example_tr": "Babam doktor.",
+    "example_en": "My father is a doctor.",
+    "category": "family"
+  },
+  {
+    "hanzi": "母亲",
+    "pinyin": "mǔ qīn",
+    "turkish": "Anne (resmi)",
+    "english": "Mother (formal)",
+    "example_zh": "我的母亲很温柔。",
+    "example_tr": "Annem çok nazik.",
+    "example_en": "My mother is very gentle.",
+    "category": "family"
+  },
+  {
+    "hanzi": "爸爸",
+    "pinyin": "bà ba",
+    "turkish": "Baba",
+    "english": "Dad",
+    "example_zh": "爸爸去上班。",
+    "example_tr": "Baba işe gidiyor.",
+    "example_en": "Dad goes to work.",
+    "category": "family"
+  },
+  {
+    "hanzi": "妈妈",
+    "pinyin": "mā ma",
+    "turkish": "Anne",
+    "english": "Mom",
+    "example_zh": "妈妈在做饭。",
+    "example_tr": "Anne yemek yapıyor.",
+    "example_en": "Mom is cooking.",
+    "category": "family"
+  },
+  {
+    "hanzi": "父母",
+    "pinyin": "fù mǔ",
+    "turkish": "Ebeveynler",
+    "english": "Parents",
+    "example_zh": "我的父母很爱我。",
+    "example_tr": "Ebeveynlerim beni çok seviyor.",
+    "example_en": "My parents love me very much.",
+    "category": "family"
+  },
+  {
+    "hanzi": "儿子",
+    "pinyin": "ér zi",
+    "turkish": "Oğul",
+    "english": "Son",
+    "example_zh": "我有一个儿子。",
+    "example_tr": "Bir oğlum var.",
+    "example_en": "I have a son.",
+    "category": "family"
+  },
+  {
+    "hanzi": "女儿",
+    "pinyin": "nǚ ér",
+    "turkish": "Kız",
+    "english": "Daughter",
+    "example_zh": "我有一个女儿。",
+    "example_tr": "Bir kızım var.",
+    "example_en": "I have a daughter.",
+    "category": "family"
+  },
+  {
+    "hanzi": "孩子",
+    "pinyin": "hái zi",
+    "turkish": "Çocuk",
+    "english": "Child",
+    "example_zh": "孩子们很可爱。",
+    "example_tr": "Çocuklar çok sevimli.",
+    "example_en": "Children are very cute.",
+    "category": "family"
+  },
+  {
+    "hanzi": "哥哥",
+    "pinyin": "gē ge",
+    "turkish": "Ağabey",
+    "english": "Older brother",
+    "example_zh": "我哥哥比我大三岁。",
+    "example_tr": "Ağabeyim benden üç yaş büyük.",
+    "example_en": "My older brother is three years older than me.",
+    "category": "family"
+  },
+  {
+    "hanzi": "弟弟",
+    "pinyin": "dì di",
+    "turkish": "Erkek kardeş",
+    "english": "Younger brother",
+    "example_zh": "我弟弟在上小学。",
+    "example_tr": "Erkek kardeşim ilkokula gidiyor.",
+    "example_en": "My younger brother is in elementary school.",
+    "category": "family"
+  },
+  {
+    "hanzi": "姐姐",
+    "pinyin": "jiě jie",
+    "turkish": "Abla",
+    "english": "Older sister",
+    "example_zh": "我姐姐很漂亮。",
+    "example_tr": "Ablam çok güzel.",
+    "example_en": "My older sister is very beautiful.",
+    "category": "family"
+  },
+  {
+    "hanzi": "妹妹",
+    "pinyin": "mèi mei",
+    "turkish": "Kız kardeş",
+    "english": "Younger sister",
+    "example_zh": "我妹妹很可爱。",
+    "example_tr": "Kız kardeşim çok sevimli.",
+    "example_en": "My younger sister is very cute.",
+    "category": "family"
+  },
+  {
+    "hanzi": "丈夫",
+    "pinyin": "zhàng fu",
+    "turkish": "Koca",
+    "english": "Husband",
+    "example_zh": "我的丈夫很体贴。",
+    "example_tr": "Kocam çok düşünceli.",
+    "example_en": "My husband is very considerate.",
+    "category": "family"
+  },
+  {
+    "hanzi": "妻子",
+    "pinyin": "qī zi",
+    "turkish": "Karı",
+    "english": "Wife",
+    "example_zh": "我的妻子很贤惠。",
+    "example_tr": "Karım çok becerikli.",
+    "example_en": "My wife is very capable.",
+    "category": "family"
+  },
+  {
+    "hanzi": "爷爷",
+    "pinyin": "yé ye",
+    "turkish": "Büyükbaba",
+    "english": "Grandfather (paternal)",
+    "example_zh": "爷爷身体很好。",
+    "example_tr": "Büyükbabam çok sağlıklı.",
+    "example_en": "Grandfather is very healthy.",
+    "category": "family"
+  },
+  {
+    "hanzi": "奶奶",
+    "pinyin": "nǎi nai",
+    "turkish": "Büyükanne",
+    "english": "Grandmother (paternal)",
+    "example_zh": "奶奶做的菜很好吃。",
+    "example_tr": "Büyükannemin yemekleri çok lezzetli.",
+    "example_en": "Grandma's cooking is very delicious.",
+    "category": "family"
+  },
+  {
+    "hanzi": "外公",
+    "pinyin": "wài gōng",
+    "turkish": "Anneanne tarafı büyükbaba",
+    "english": "Grandfather (maternal)",
+    "example_zh": "外公喜欢下棋。",
+    "example_tr": "Anneannemin babası satranç oynamayı seviyor.",
+    "example_en": "Grandfather likes playing chess.",
+    "category": "family"
+  },
+  {
+    "hanzi": "外婆",
+    "pinyin": "wài pó",
+    "turkish": "Anneanne tarafı büyükanne",
+    "english": "Grandmother (maternal)",
+    "example_zh": "外婆很疼我。",
+    "example_tr": "Anneannem beni çok seviyor.",
+    "example_en": "Grandmother loves me very much.",
+    "category": "family"
+  },
+  {
+    "hanzi": "孙子",
+    "pinyin": "sūn zi",
+    "turkish": "Torun (erkek)",
+    "english": "Grandson",
+    "example_zh": "爷爷很疼爱孙子。",
+    "example_tr": "Büyükbaba torununu çok seviyor.",
+    "example_en": "Grandfather loves his grandson very much.",
+    "category": "family"
+  },
+  {
+    "hanzi": "孙女",
+    "pinyin": "sūn nǚ",
+    "turkish": "Torun (kız)",
+    "english": "Granddaughter",
+    "example_zh": "奶奶很疼爱孙女。",
+    "example_tr": "Büyükanne torununu çok seviyor.",
+    "example_en": "Grandmother loves her granddaughter very much.",
+    "category": "family"
+  },
+  {
+    "hanzi": "叔叔",
+    "pinyin": "shū shu",
+    "turkish": "Amca",
+    "english": "Uncle (father's younger brother)",
+    "example_zh": "叔叔在国外工作。",
+    "example_tr": "Amcam yurtdışında çalışıyor.",
+    "example_en": "Uncle works abroad.",
+    "category": "family"
+  },
+  {
+    "hanzi": "阿姨",
+    "pinyin": "ā yí",
+    "turkish": "Teyze",
+    "english": "Aunt (mother's sister)",
+    "example_zh": "阿姨是老师。",
+    "example_tr": "Teyzem öğretmen.",
+    "example_en": "Aunt is a teacher.",
+    "category": "family"
+  },
+  {
+    "hanzi": "舅舅",
+    "pinyin": "jiù jiu",
+    "turkish": "Dayı",
+    "english": "Uncle (mother's brother)",
+    "example_zh": "舅舅是工程师。",
+    "example_tr": "Dayım mühendis.",
+    "example_en": "Uncle is an engineer.",
+    "category": "family"
+  },
+  {
+    "hanzi": "姑姑",
+    "pinyin": "gū gu",
+    "turkish": "Hala",
+    "english": "Aunt (father's sister)",
+    "example_zh": "姑姑住在上海。",
+    "example_tr": "Halam Şanghay'da yaşıyor.",
+    "example_en": "Aunt lives in Shanghai.",
+    "category": "family"
+  },
+  {
+    "hanzi": "堂兄",
+    "pinyin": "táng xiōng",
+    "turkish": "Kuzen (baba tarafı, erkek, büyük)",
+    "english": "Older male cousin (paternal)",
+    "example_zh": "我堂兄在上海工作。",
+    "example_tr": "Babam tarafındaki kuzenim Şanghay’da çalışıyor.",
+    "example_en": "My older male cousin (paternal side) works in Shanghai.",
+    "category": "family"
+  },
+  {
+    "hanzi": "堂妹",
+    "pinyin": "táng mèi",
+    "turkish": "Kuzen (baba tarafı, kadın, küçük)",
+    "english": "Younger female cousin (paternal)",
+    "example_zh": "我和堂妹关系很好。",
+    "example_tr": "Babam tarafındaki kuzenimle çok iyi anlaşıyorum.",
+    "example_en": "I get along very well with my younger female cousin (paternal side).",
+    "category": "family"
+  },
+  {
+    "hanzi": "表姐",
+    "pinyin": "biǎo jiě",
+    "turkish": "Kuzen (anne tarafı, kadın, büyük)",
+    "english": "Older female cousin (maternal)",
+    "example_zh": "表姐对我很照顾。",
+    "example_tr": "Anne tarafındaki kuzenim bana çok iyi bakar.",
+    "example_en": "My older female cousin (maternal side) takes good care of me.",
+    "category": "family"
+  },
+  {
+    "hanzi": "表弟",
+    "pinyin": "biǎo dì",
+    "turkish": "Kuzen (anne tarafı, erkek, küçük)",
+    "english": "Younger male cousin (maternal)",
+    "example_zh": "表弟还在上大学。",
+    "example_tr": "Anne tarafındaki genç kuzenim hâlâ üniversitede okuyor.",
+    "example_en": "My younger male cousin (maternal side) is still in university.",
+    "category": "family"
+  },
+  {
+    "hanzi": "亲戚",
+    "pinyin": "qīn qi",
+    "turkish": "Akrabalar",
+    "english": "Relatives",
+    "example_zh": "我们有很多亲戚。",
+    "example_tr": "Çok fazla akrabamız var.",
+    "example_en": "We have many relatives.",
+    "category": "family"
+  },
+  {
+    "hanzi": "红色",
+    "pinyin": "hóng sè",
+    "turkish": "Kırmızı",
+    "english": "Red",
+    "example_zh": "红色代表喜庆。",
+    "example_tr": "Kırmızı kutlama anlamına gelir.",
+    "example_en": "Red represents celebration.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "蓝色",
+    "pinyin": "lán sè",
+    "turkish": "Mavi",
+    "english": "Blue",
+    "example_zh": "天空是蓝色的。",
+    "example_tr": "Gökyüzü mavidir.",
+    "example_en": "The sky is blue.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "黄色",
+    "pinyin": "huáng sè",
+    "turkish": "Sarı",
+    "english": "Yellow",
+    "example_zh": "香蕉是黄色的。",
+    "example_tr": "Muz sarıdır.",
+    "example_en": "Bananas are yellow.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "绿色",
+    "pinyin": "lǜ sè",
+    "turkish": "Yeşil",
+    "english": "Green",
+    "example_zh": "草是绿色的。",
+    "example_tr": "Çimen yeşildir.",
+    "example_en": "Grass is green.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "黑色",
+    "pinyin": "hēi sè",
+    "turkish": "Siyah",
+    "english": "Black",
+    "example_zh": "他穿黑色西装。",
+    "example_tr": "Siyah takım elbise giyiyor.",
+    "example_en": "He is wearing a black suit.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "白色",
+    "pinyin": "bái sè",
+    "turkish": "Beyaz",
+    "english": "White",
+    "example_zh": "她穿白色裙子。",
+    "example_tr": "Beyaz elbise giyiyor.",
+    "example_en": "She is wearing a white dress.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "灰色",
+    "pinyin": "huī sè",
+    "turkish": "Gri",
+    "english": "Gray",
+    "example_zh": "天空灰蒙蒙的。",
+    "example_tr": "Gökyüzü gridir.",
+    "example_en": "The sky is gray.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "棕色",
+    "pinyin": "zōng sè",
+    "turkish": "Kahverengi",
+    "english": "Brown",
+    "example_zh": "这只狗是棕色的。",
+    "example_tr": "Bu köpek kahverengi.",
+    "example_en": "This dog is brown.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "橙色",
+    "pinyin": "chéng sè",
+    "turkish": "Turuncu",
+    "english": "Orange",
+    "example_zh": "橘子是橙色的。",
+    "example_tr": "Portakal turuncudur.",
+    "example_en": "Oranges are orange.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "紫色",
+    "pinyin": "zǐ sè",
+    "turkish": "Mor",
+    "english": "Purple",
+    "example_zh": "她穿紫色衣服。",
+    "example_tr": "Mor kıyafet giyiyor.",
+    "example_en": "She is wearing purple clothes.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "粉红色",
+    "pinyin": "fěn hóng sè",
+    "turkish": "Pembe",
+    "english": "Pink",
+    "example_zh": "粉红色很浪漫。",
+    "example_tr": "Pembe çok romantik.",
+    "example_en": "Pink is very romantic.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "银色",
+    "pinyin": "yín sè",
+    "turkish": "Gümüş",
+    "english": "Silver",
+    "example_zh": "这辆车是银色的。",
+    "example_tr": "Bu araba gümüş rengi.",
+    "example_en": "This car is silver.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "金色",
+    "pinyin": "jīn sè",
+    "turkish": "Altın",
+    "english": "Gold",
+    "example_zh": "金牌是最珍贵的。",
+    "example_tr": "Altın madalya en değerlidir.",
+    "example_en": "The gold medal is the most precious.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "深色",
+    "pinyin": "shēn sè",
+    "turkish": "Koyu renk",
+    "english": "Dark color",
+    "example_zh": "我喜欢深色衣服。",
+    "example_tr": "Koyu renk kıyafetleri seviyorum.",
+    "example_en": "I like dark-colored clothes.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "浅色",
+    "pinyin": "qiǎn sè",
+    "turkish": "Açık renk",
+    "english": "Light color",
+    "example_zh": "浅色衣服适合夏天。",
+    "example_tr": "Açık renk kıyafetler yaz için uygundur.",
+    "example_en": "Light-colored clothes are suitable for summer.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "彩色",
+    "pinyin": "cǎi sè",
+    "turkish": "Renkli",
+    "english": "Multicolored",
+    "example_zh": "彩虹是彩色的。",
+    "example_tr": "Gökkuşağı renklidir.",
+    "example_en": "The rainbow is colorful.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "米色",
+    "pinyin": "mǐ sè",
+    "turkish": "Bej",
+    "english": "Beige",
+    "example_zh": "米色很优雅。",
+    "example_tr": "Bej çok zarif.",
+    "example_en": "Beige is very elegant.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "青色",
+    "pinyin": "qīng sè",
+    "turkish": "Camgöbeği",
+    "english": "Cyan",
+    "example_zh": "青色很清新。",
+    "example_tr": "Camgöbeği çok ferah.",
+    "example_en": "Cyan is very fresh.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "天蓝色",
+    "pinyin": "tiān lán sè",
+    "turkish": "Gök mavisi",
+    "english": "Sky blue",
+    "example_zh": "天蓝色像天空。",
+    "example_tr": "Gök mavisi gökyüzüne benzer.",
+    "example_en": "Sky blue is like the sky.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "宝蓝色",
+    "pinyin": "bǎo lán sè",
+    "turkish": "Kobalt mavisi",
+    "english": "Cobalt blue",
+    "example_zh": "宝蓝色很高贵。",
+    "example_tr": "Kobalt mavisi çok asil.",
+    "example_en": "Cobalt blue is very noble.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "橄榄绿",
+    "pinyin": "gǎn lǎn lǜ",
+    "turkish": "Zeytin yeşili",
+    "english": "Olive green",
+    "example_zh": "橄榄绿很时尚。",
+    "example_tr": "Zeytin yeşili çok moda.",
+    "example_en": "Olive green is very fashionable.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "咖啡色",
+    "pinyin": "kā fēi sè",
+    "turkish": "Kahve rengi",
+    "english": "Coffee color",
+    "example_zh": "咖啡色很温暖。",
+    "example_tr": "Kahve rengi çok sıcak.",
+    "example_en": "Coffee color is very warm.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "驼色",
+    "pinyin": "tuó sè",
+    "turkish": "Deve tüyü rengi",
+    "english": "Camel color",
+    "example_zh": "驼色大衣很经典。",
+    "example_tr": "Deve tüyü rengi palto çok klasik.",
+    "example_en": "Camel-colored coat is very classic.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "亮色",
+    "pinyin": "liàng sè",
+    "turkish": "Parlak renk",
+    "english": "Bright color",
+    "example_zh": "亮色很醒目。",
+    "example_tr": "Parlak renkler çok dikkat çekici.",
+    "example_en": "Bright colors are very eye-catching.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "暗色",
+    "pinyin": "àn sè",
+    "turkish": "Koyu renk",
+    "english": "Dark color",
+    "example_zh": "暗色很沉稳。",
+    "example_tr": "Koyu renkler çok ağırbaşlı.",
+    "example_en": "Dark colors are very dignified.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "柠檬黄",
+    "pinyin": "níng méng huáng",
+    "turkish": "Limon sarısı",
+    "english": "Lemon yellow",
+    "example_zh": "柠檬黄很明亮。",
+    "example_tr": "Limon sarısı çok parlak.",
+    "example_en": "Lemon yellow is very bright.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "珊瑚红",
+    "pinyin": "shān hú hóng",
+    "turkish": "Mercan kırmızısı",
+    "english": "Coral red",
+    "example_zh": "珊瑚红很温柔。",
+    "example_tr": "Mercan kırmızısı çok nazik.",
+    "example_en": "Coral red is very gentle.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "酒红色",
+    "pinyin": "jiǔ hóng sè",
+    "turkish": "Bordo",
+    "english": "Wine red",
+    "example_zh": "酒红色很高雅。",
+    "example_tr": "Bordo çok zarif.",
+    "example_en": "Wine red is very elegant.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "烟灰色",
+    "pinyin": "yān huī sè",
+    "turkish": "Duman grisi",
+    "english": "Smoky gray",
+    "example_zh": "烟灰色很高级。",
+    "example_tr": "Duman grisi çok şık.",
+    "example_en": "Smoky gray is very sophisticated.",
+    "category": "colors"
+  },
+  {
+    "hanzi": "水果",
+    "pinyin": "shuǐ guǒ",
+    "turkish": "Meyve",
+    "english": "Fruit",
+    "example_zh": "多吃水果有益健康。",
+    "example_tr": "Çok meyve yemek sağlıklıdır.",
+    "example_en": "Eating more fruit is good for health.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "苹果",
+    "pinyin": "píng guǒ",
+    "turkish": "Elma",
+    "english": "Apple",
+    "example_zh": "一天一个苹果，医生远离我。",
+    "example_tr": "Günde bir elma, doktoru uzak tutar.",
+    "example_en": "An apple a day keeps the doctor away.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "香蕉",
+    "pinyin": "xiāng jiāo",
+    "turkish": "Muz",
+    "english": "Banana",
+    "example_zh": "香蕉富含钾。",
+    "example_tr": "Muz potasyum açısından zengindir.",
+    "example_en": "Bananas are rich in potassium.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "西瓜",
+    "pinyin": "xī guā",
+    "turkish": "Karpuz",
+    "english": "Watermelon",
+    "example_zh": "夏天吃西瓜很解暑。",
+    "example_tr": "Yazın karpuz yemek serinletir.",
+    "example_en": "Eating watermelon in summer is very cooling.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "葡萄",
+    "pinyin": "pú táo",
+    "turkish": "Üzüm",
+    "english": "Grape",
+    "example_zh": "葡萄很甜。",
+    "example_tr": "Üzüm çok tatlı.",
+    "example_en": "Grapes are very sweet.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "橙子",
+    "pinyin": "chéng zi",
+    "turkish": "Portakal",
+    "english": "Orange",
+    "example_zh": "橙子富含维生素C。",
+    "example_tr": "Portakal C vitamini açısından zengindir.",
+    "example_en": "Oranges are rich in Vitamin C.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "柠檬",
+    "pinyin": "níng méng",
+    "turkish": "Limon",
+    "english": "Lemon",
+    "example_zh": "柠檬很酸。",
+    "example_tr": "Limon çok ekşi.",
+    "example_en": "Lemons are very sour.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "草莓",
+    "pinyin": "cǎo méi",
+    "turkish": "Çilek",
+    "english": "Strawberry",
+    "example_zh": "草莓很香。",
+    "example_tr": "Çilek çok güzel kokuyor.",
+    "example_en": "Strawberries smell very good.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "樱桃",
+    "pinyin": "yīng táo",
+    "turkish": "Kiraz",
+    "english": "Cherry",
+    "example_zh": "樱桃很昂贵。",
+    "example_tr": "Kiraz çok pahalı.",
+    "example_en": "Cherries are very expensive.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "桃子",
+    "pinyin": "táo zi",
+    "turkish": "Şeftali",
+    "english": "Peach",
+    "example_zh": "桃子很甜。",
+    "example_tr": "Şeftali çok tatlı.",
+    "example_en": "Peaches are very sweet.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "梨",
+    "pinyin": "lí",
+    "turkish": "Armut",
+    "english": "Pear",
+    "example_zh": "梨很脆。",
+    "example_tr": "Armut çok sert.",
+    "example_en": "Pears are very crunchy.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "芒果",
+    "pinyin": "máng guǒ",
+    "turkish": "Mango",
+    "english": "Mango",
+    "example_zh": "芒果是热带水果。",
+    "example_tr": "Mango tropikal bir meyvedir.",
+    "example_en": "Mango is a tropical fruit.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "菠萝",
+    "pinyin": "bō luó",
+    "turkish": "Ananas",
+    "english": "Pineapple",
+    "example_zh": "菠萝很甜。",
+    "example_tr": "Ananas çok tatlı.",
+    "example_en": "Pineapple is very sweet.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "猕猴桃",
+    "pinyin": "mí hóu táo",
+    "turkish": "Kivi",
+    "english": "Kiwi",
+    "example_zh": "猕猴桃很有营养。",
+    "example_tr": "Kivi çok besleyici.",
+    "example_en": "Kiwi is very nutritious.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "火龙果",
+    "pinyin": "huǒ lóng guǒ",
+    "turkish": "Ejder meyvesi",
+    "english": "Dragon fruit",
+    "example_zh": "火龙果很漂亮。",
+    "example_tr": "Ejder meyvesi çok güzel.",
+    "example_en": "Dragon fruit is very beautiful.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "榴莲",
+    "pinyin": "liú lián",
+    "turkish": "Durian",
+    "english": "Durian",
+    "example_zh": "榴莲有特殊的味道。",
+    "example_tr": "Durian'ın özel bir kokusu var.",
+    "example_en": "Durian has a special smell.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "荔枝",
+    "pinyin": "lì zhī",
+    "turkish": "Liçi",
+    "english": "Lychee",
+    "example_zh": "荔枝很甜。",
+    "example_tr": "Liçi çok tatlı.",
+    "example_en": "Lychee is very sweet.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "龙眼",
+    "pinyin": "lóng yǎn",
+    "turkish": "Longan",
+    "english": "Longan",
+    "example_zh": "龙眼很滋补。",
+    "example_tr": "Longan çok besleyici.",
+    "example_en": "Longan is very nourishing.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "柚子",
+    "pinyin": "yòu zi",
+    "turkish": "Pomelo",
+    "english": "Pomelo",
+    "example_zh": "柚子很大。",
+    "example_tr": "Pomelo çok büyük.",
+    "example_en": "Pomelo is very big.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "哈密瓜",
+    "pinyin": "hā mì guā",
+    "turkish": "Kavun",
+    "english": "Hami melon",
+    "example_zh": "哈密瓜很甜。",
+    "example_tr": "Kavun çok tatlı.",
+    "example_en": "Hami melon is very sweet.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "石榴",
+    "pinyin": "shí liu",
+    "turkish": "Nar",
+    "english": "Pomegranate",
+    "example_zh": "石榴有很多籽。",
+    "example_tr": "Narın çok fazla çekirdeği var.",
+    "example_en": "Pomegranate has many seeds.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "柿子",
+    "pinyin": "shì zi",
+    "turkish": "Trabzon hurması",
+    "english": "Persimmon",
+    "example_zh": "柿子很甜。",
+    "example_tr": "Trabzon hurması çok tatlı.",
+    "example_en": "Persimmon is very sweet.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "李子",
+    "pinyin": "lǐ zi",
+    "turkish": "Erik",
+    "english": "Plum",
+    "example_zh": "李子有点酸。",
+    "example_tr": "Erik biraz ekşi.",
+    "example_en": "Plum is a bit sour.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "梅子",
+    "pinyin": "méi zi",
+    "turkish": "Kayısı",
+    "english": "Apricot",
+    "example_zh": "梅子可以做蜜饯。",
+    "example_tr": "Kayısıdan reçel yapılabilir.",
+    "example_en": "Apricots can be made into preserves.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "椰子",
+    "pinyin": "yē zi",
+    "turkish": "Hindistan cevizi",
+    "english": "Coconut",
+    "example_zh": "椰子水很清凉。",
+    "example_tr": "Hindistan cevizi suyu çok serinletici.",
+    "example_en": "Coconut water is very refreshing.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "桑葚",
+    "pinyin": "sāng shèn",
+    "turkish": "Dut",
+    "english": "Mulberry",
+    "example_zh": "桑葚是紫色的。",
+    "example_tr": "Dut mor renktedir.",
+    "example_en": "Mulberry is purple.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "枣子",
+    "pinyin": "zǎo zi",
+    "turkish": "Hünnap",
+    "english": "Jujube",
+    "example_zh": "枣子很甜。",
+    "example_tr": "Hünnap çok tatlı.",
+    "example_en": "Jujube is very sweet.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "黄桃",
+    "pinyin": "huáng táo",
+    "turkish": "Sarı şeftali",
+    "english": "Yellow peach",
+    "example_zh": "黄桃很香。",
+    "example_tr": "Sarı şeftali çok güzel kokuyor.",
+    "example_en": "Yellow peach smells very good.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "百香果",
+    "pinyin": "bǎi xiāng guǒ",
+    "turkish": "Çarkıfelek meyvesi",
+    "english": "Passion fruit",
+    "example_zh": "百香果很香。",
+    "example_tr": "Çarkıfelek meyvesi çok güzel kokuyor.",
+    "example_en": "Passion fruit smells very good.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "菠萝蜜",
+    "pinyin": "bō luó mì",
+    "turkish": "Jak meyvesi",
+    "english": "Jackfruit",
+    "example_zh": "菠萝蜜很大。",
+    "example_tr": "Jak meyvesi çok büyük.",
+    "example_en": "Jackfruit is very big.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "椰枣",
+    "pinyin": "yē zǎo",
+    "turkish": "Hurma",
+    "english": "Date",
+    "example_zh": "椰枣很甜。",
+    "example_tr": "Hurma çok tatlı.",
+    "example_en": "Dates are very sweet.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "葡萄柚",
+    "pinyin": "pú táo yòu",
+    "turkish": "Greyfurt",
+    "english": "Grapefruit",
+    "example_zh": "葡萄柚有点苦。",
+    "example_tr": "Greyfurt biraz acı.",
+    "example_en": "Grapefruit is a bit bitter.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "牛油果",
+    "pinyin": "niú yóu guǒ",
+    "turkish": "Avokado",
+    "english": "Avocado",
+    "example_zh": "牛油果很营养。",
+    "example_tr": "Avokado çok besleyici.",
+    "example_en": "Avocado is very nutritious.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "番石榴",
+    "pinyin": "fān shí liú",
+    "turkish": "Guava",
+    "english": "Guava",
+    "example_zh": "番石榴很香。",
+    "example_tr": "Guava çok güzel kokuyor.",
+    "example_en": "Guava smells very good.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "杨桃",
+    "pinyin": "yáng táo",
+    "turkish": "Yıldız meyvesi",
+    "english": "Starfruit",
+    "example_zh": "杨桃形状像星星。",
+    "example_tr": "Yıldız meyvesi şekli yıldıza benzer.",
+    "example_en": "Starfruit is shaped like a star.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "香瓜",
+    "pinyin": "xiāng guā",
+    "turkish": "Kavun",
+    "english": "Honeydew melon",
+    "example_zh": "香瓜很甜。",
+    "example_tr": "Kavun çok tatlı.",
+    "example_en": "Honeydew melon is very sweet.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "杏子",
+    "pinyin": "xìng zi",
+    "turkish": "Kayısı",
+    "english": "Apricot",
+    "example_zh": "杏子很甜。",
+    "example_tr": "Kayısı çok tatlı.",
+    "example_en": "Apricot is very sweet.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "蓝莓干",
+    "pinyin": "lán méi gān",
+    "turkish": "Kurutulmuş yaban mersini",
+    "english": "Dried blueberry",
+    "example_zh": "蓝莓干很好吃。",
+    "example_tr": "Kurutulmuş yaban mersini çok lezzetli.",
+    "example_en": "Dried blueberry is very delicious.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "橘子",
+    "pinyin": "jú zi",
+    "turkish": "Mandalina",
+    "english": "Tangerine",
+    "example_zh": "橘子很甜。",
+    "example_tr": "Mandalina çok tatlı.",
+    "example_en": "Tangerine is very sweet.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "山竹",
+    "pinyin": "shān zhú",
+    "turkish": "Mangostan",
+    "english": "Mangosteen",
+    "example_zh": "山竹很甜。",
+    "example_tr": "Mangostan çok tatlı.",
+    "example_en": "Mangosteen is very sweet.",
+    "category": "fruits"
+  },
+  {
+    "hanzi": "年",
+    "pinyin": "nián",
+    "turkish": "Yıl",
+    "english": "Year",
+    "example_zh": "今年是2024年。",
+    "example_tr": "Bu yıl 2024.",
+    "example_en": "This year is 2024.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "月",
+    "pinyin": "yuè",
+    "turkish": "Ay",
+    "english": "Month",
+    "example_zh": "这个月很忙。",
+    "example_tr": "Bu ay çok meşgulüm.",
+    "example_en": "This month is very busy.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "日",
+    "pinyin": "rì",
+    "turkish": "Gün (resmi)",
+    "english": "Day (formal)",
+    "example_zh": "今天是星期日。",
+    "example_tr": "Bugün pazar.",
+    "example_en": "Today is Sunday.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "号",
+    "pinyin": "hào",
+    "turkish": "Gün (günlük)",
+    "english": "Day (common)",
+    "example_zh": "今天是八号。",
+    "example_tr": "Bugün sekiz.",
+    "example_en": "Today is the 8th.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "星期",
+    "pinyin": "xīng qī",
+    "turkish": "Hafta",
+    "english": "Week",
+    "example_zh": "这个星期很短。",
+    "example_tr": "Bu hafta çok kısa.",
+    "example_en": "This week is very short.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "星期一",
+    "pinyin": "xīng qī yī",
+    "turkish": "Pazartesi",
+    "english": "Monday",
+    "example_zh": "星期一要上班。",
+    "example_tr": "Pazartesi işe gidilmeli.",
+    "example_en": "Monday is a workday.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "星期二",
+    "pinyin": "xīng qī èr",
+    "turkish": "Salı",
+    "english": "Tuesday",
+    "example_zh": "星期二有会议。",
+    "example_tr": "Salı toplantı var.",
+    "example_en": "There is a meeting on Tuesday.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "星期三",
+    "pinyin": "xīng qī sān",
+    "turkish": "Çarşamba",
+    "english": "Wednesday",
+    "example_zh": "星期三是一周的中间。",
+    "example_tr": "Çarşamba haftanın ortasıdır.",
+    "example_en": "Wednesday is the middle of the week.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "星期四",
+    "pinyin": "xīng qī sì",
+    "turkish": "Perşembe",
+    "english": "Thursday",
+    "example_zh": "星期四快要周末了。",
+    "example_tr": "Perşembe hafta sonuna yaklaşıyor.",
+    "example_en": "Thursday is close to the weekend.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "星期五",
+    "pinyin": "xīng qī wǔ",
+    "turkish": "Cuma",
+    "english": "Friday",
+    "example_zh": "星期五最开心。",
+    "example_tr": "Cuma en mutlu gündür.",
+    "example_en": "Friday is the happiest day.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "星期六",
+    "pinyin": "xīng qī liù",
+    "turkish": "Cumartesi",
+    "english": "Saturday",
+    "example_zh": "星期六可以休息。",
+    "example_tr": "Cumartesi dinlenebilir.",
+    "example_en": "Saturday is a rest day.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "星期天",
+    "pinyin": "xīng qī tiān",
+    "turkish": "Pazar",
+    "english": "Sunday",
+    "example_zh": "星期天我想睡觉。",
+    "example_tr": "Pazar uyumak istiyorum.",
+    "example_en": "I want to sleep on Sunday.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "星期日",
+    "pinyin": "xīng qī rì",
+    "turkish": "Pazar",
+    "english": "Sunday",
+    "example_zh": "星期日是一周的最后一天。",
+    "example_tr": "Pazar haftanın son günüdür.",
+    "example_en": "Sunday is the last day of the week.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "今天",
+    "pinyin": "jīn tiān",
+    "turkish": "Bugün",
+    "english": "Today",
+    "example_zh": "今天天气很好。",
+    "example_tr": "Bugün hava çok güzel.",
+    "example_en": "The weather is very nice today.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "明天",
+    "pinyin": "míng tiān",
+    "turkish": "Yarın",
+    "english": "Tomorrow",
+    "example_zh": "明天我要上班。",
+    "example_tr": "Yarın işe gideceğim.",
+    "example_en": "I have to work tomorrow.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "昨天",
+    "pinyin": "zuó tiān",
+    "turkish": "Dün",
+    "english": "Yesterday",
+    "example_zh": "昨天我去了公园。",
+    "example_tr": "Dün parka gittim.",
+    "example_en": "I went to the park yesterday.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "后天",
+    "pinyin": "hòu tiān",
+    "turkish": "Öbür gün",
+    "english": "The day after tomorrow",
+    "example_zh": "后天是周末。",
+    "example_tr": "Öbür gün hafta sonu.",
+    "example_en": "The day after tomorrow is the weekend.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "前天",
+    "pinyin": "qián tiān",
+    "turkish": "Evvelsi gün",
+    "english": "The day before yesterday",
+    "example_zh": "前天我生病了。",
+    "example_tr": "Evvelsi gün hastaydım.",
+    "example_en": "I was sick the day before yesterday.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "每天",
+    "pinyin": "měi tiān",
+    "turkish": "Her gün",
+    "english": "Every day",
+    "example_zh": "我每天都运动。",
+    "example_tr": "Her gün spor yapıyorum.",
+    "example_en": "I exercise every day.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "每月",
+    "pinyin": "měi yuè",
+    "turkish": "Her ay",
+    "english": "Every month",
+    "example_zh": "我每月存一次钱。",
+    "example_tr": "Her ay bir kez para biriktiriyorum.",
+    "example_en": "I save money once a month.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "每年",
+    "pinyin": "měi nián",
+    "turkish": "Her yıl",
+    "english": "Every year",
+    "example_zh": "每年我都去旅行。",
+    "example_tr": "Her yıl seyahate çıkıyorum.",
+    "example_en": "I travel every year.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "今年",
+    "pinyin": "jīn nián",
+    "turkish": "Bu yıl",
+    "english": "This year",
+    "example_zh": "今年我毕业了。",
+    "example_tr": "Bu yıl mezun oldum.",
+    "example_en": "I graduated this year.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "明年",
+    "pinyin": "míng nián",
+    "turkish": "Gelecek yıl",
+    "english": "Next year",
+    "example_zh": "明年我要结婚。",
+    "example_tr": "Gelecek yıl evleneceğim.",
+    "example_en": "I'm getting married next year.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "去年",
+    "pinyin": "qù nián",
+    "turkish": "Geçen yıl",
+    "english": "Last year",
+    "example_zh": "去年我去了中国。",
+    "example_tr": "Geçen yıl Çin'e gittim.",
+    "example_en": "I went to China last year.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "上个月",
+    "pinyin": "shàng ge yuè",
+    "turkish": "Geçen ay",
+    "english": "Last month",
+    "example_zh": "上个月我很忙。",
+    "example_tr": "Geçen ay çok meşguldüm.",
+    "example_en": "I was very busy last month.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "下个月",
+    "pinyin": "xià ge yuè",
+    "turkish": "Gelecek ay",
+    "english": "Next month",
+    "example_zh": "下个月我要搬家。",
+    "example_tr": "Gelecek ay taşınacağım.",
+    "example_en": "I'm moving next month.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "月初",
+    "pinyin": "yuè chū",
+    "turkish": "Ayın başı",
+    "english": "Beginning of the month",
+    "example_zh": "月初要付房租。",
+    "example_tr": "Ayın başında kira ödenmeli.",
+    "example_en": "Rent is due at the beginning of the month.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "月中",
+    "pinyin": "yuè zhōng",
+    "turkish": "Ayın ortası",
+    "english": "Middle of the month",
+    "example_zh": "月中比较轻松。",
+    "example_tr": "Ayın ortası daha rahat.",
+    "example_en": "The middle of the month is more relaxed.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "月底",
+    "pinyin": "yuè dǐ",
+    "turkish": "Ayın sonu",
+    "english": "End of the month",
+    "example_zh": "月底要交报告。",
+    "example_tr": "Ayın sonunda rapor teslim edilmeli.",
+    "example_en": "The report is due at the end of the month.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "周末",
+    "pinyin": "zhōu mò",
+    "turkish": "Hafta sonu",
+    "english": "Weekend",
+    "example_zh": "周末我喜欢睡觉。",
+    "example_tr": "Hafta sonu uyumayı seviyorum.",
+    "example_en": "I like sleeping on weekends.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "工作日",
+    "pinyin": "gōng zuò rì",
+    "turkish": "Hafta içi",
+    "english": "Weekday",
+    "example_zh": "工作日要早起。",
+    "example_tr": "Hafta içi erken kalkmalı.",
+    "example_en": "You have to get up early on weekdays.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "假期",
+    "pinyin": "jià qī",
+    "turkish": "Tatil",
+    "english": "Holiday",
+    "example_zh": "假期我要去旅行。",
+    "example_tr": "Tatilde seyahate çıkacağım.",
+    "example_en": "I'm going to travel during the holiday.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "早上",
+    "pinyin": "zǎo shang",
+    "turkish": "Sabah",
+    "english": "Morning",
+    "example_zh": "早上我喜欢喝咖啡。",
+    "example_tr": "Sabah kahve içmeyi seviyorum.",
+    "example_en": "I like drinking coffee in the morning.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "上午",
+    "pinyin": "shàng wǔ",
+    "turkish": "Öğleden önce",
+    "english": "Late morning",
+    "example_zh": "上午我要开会。",
+    "example_tr": "Öğleden önce toplantım var.",
+    "example_en": "I have a meeting in the late morning.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "中午",
+    "pinyin": "zhōng wǔ",
+    "turkish": "Öğle",
+    "english": "Noon",
+    "example_zh": "中午我要吃午饭。",
+    "example_tr": "Öğle yemeği yemem gerekiyor.",
+    "example_en": "I need to eat lunch at noon.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "下午",
+    "pinyin": "xià wǔ",
+    "turkish": "Öğleden sonra",
+    "english": "Afternoon",
+    "example_zh": "下午我要工作。",
+    "example_tr": "Öğleden sonra çalışacağım.",
+    "example_en": "I'm going to work in the afternoon.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "晚上",
+    "pinyin": "wǎn shàng",
+    "turkish": "Akşam",
+    "english": "Evening",
+    "example_zh": "晚上我要看电视。",
+    "example_tr": "Akşam televizyon izleyeceğim.",
+    "example_en": "I'm going to watch TV in the evening.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "半夜",
+    "pinyin": "bàn yè",
+    "turkish": "Gece yarısı",
+    "english": "Midnight",
+    "example_zh": "半夜我醒了。",
+    "example_tr": "Gece yarısı uyandım.",
+    "example_en": "I woke up at midnight.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "小时",
+    "pinyin": "xiǎo shí",
+    "turkish": "Saat (süre)",
+    "english": "Hour",
+    "example_zh": "我工作八小时。",
+    "example_tr": "Sekiz saat çalışıyorum.",
+    "example_en": "I work eight hours.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "分钟",
+    "pinyin": "fēn zhōng",
+    "turkish": "Dakika",
+    "english": "Minute",
+    "example_zh": "请等五分钟。",
+    "example_tr": "Lütfen beş dakika bekleyin.",
+    "example_en": "Please wait five minutes.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "秒",
+    "pinyin": "miǎo",
+    "turkish": "Saniye",
+    "english": "Second",
+    "example_zh": "请等十秒。",
+    "example_tr": "Lütfen on saniye bekleyin.",
+    "example_en": "Please wait ten seconds.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "时间",
+    "pinyin": "shí jiān",
+    "turkish": "Zaman",
+    "english": "Time",
+    "example_zh": "时间很宝贵。",
+    "example_tr": "Zaman çok değerlidir.",
+    "example_en": "Time is precious.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "时候",
+    "pinyin": "shí hòu",
+    "turkish": "Zaman / An",
+    "english": "Moment",
+    "example_zh": "小时候我很调皮。",
+    "example_tr": "Küçükken çok yaramazdım.",
+    "example_en": "I was very naughty when I was young.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "刚才",
+    "pinyin": "gāng cái",
+    "turkish": "Az önce",
+    "english": "Just now",
+    "example_zh": "刚才我见到他了。",
+    "example_tr": "Az önce onu gördüm.",
+    "example_en": "I saw him just now.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "一会儿",
+    "pinyin": "yí huìr",
+    "turkish": "Birazdan",
+    "english": "A while",
+    "example_zh": "我一会儿就回来。",
+    "example_tr": "Birazdan döneceğim.",
+    "example_en": "I'll be back in a while.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "以前",
+    "pinyin": "yǐ qián",
+    "turkish": "Önce",
+    "english": "Before",
+    "example_zh": "以前我住在上海。",
+    "example_tr": "Önce Şanghay'da yaşıyordum.",
+    "example_en": "I used to live in Shanghai before.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "以后",
+    "pinyin": "yǐ hòu",
+    "turkish": "Sonra",
+    "english": "After",
+    "example_zh": "以后我要努力学习。",
+    "example_tr": "Sonra çok çalışacağım.",
+    "example_en": "I will study hard in the future.",
+    "category": "dates-time"
+  },
+  {
+    "hanzi": "一",
+    "pinyin": "yī",
+    "turkish": "bir",
+    "english": "one",
+    "example_zh": "我有一个苹果。",
+    "example_tr": "Bir elman var.",
+    "example_en": "I have one apple.",
+    "category": "numbers"
+  },
+  {
+    "hanzi": "二",
+    "pinyin": "èr",
+    "turkish": "iki",
+    "english": "two",
+    "example_zh": "我有两本书。",
+    "example_tr": "İki kitabım var.",
+    "example_en": "I have two books.",
+    "category": "numbers"
+  },
+  {
+    "hanzi": "三",
+    "pinyin": "sān",
+    "turkish": "üç",
+    "english": "three",
+    "example_zh": "我们家有三口人。",
+    "example_tr": "Ailemizde üç kişi var.",
+    "example_en": "There are three people in our family.",
+    "category": "numbers"
+  },
+  {
+    "hanzi": "四",
+    "pinyin": "sì",
+    "turkish": "dört",
+    "english": "four",
+    "example_zh": "一年有四个季节。",
+    "example_tr": "Bir yılda dört mevsim var.",
+    "example_en": "There are four seasons in a year.",
+    "category": "numbers"
+  },
+  {
+    "hanzi": "五",
+    "pinyin": "wǔ",
+    "turkish": "beş",
+    "english": "five",
+    "example_zh": "我有五个朋友。",
+    "example_tr": "Beş arkadaşım var.",
+    "example_en": "I have five friends.",
+    "category": "numbers"
+  },
+  {
+    "hanzi": "六",
+    "pinyin": "liù",
+    "turkish": "altı",
+    "english": "six",
+    "example_zh": "六点起床。",
+    "example_tr": "Saat altıda kalk.",
+    "example_en": "Get up at six o'clock.",
+    "category": "numbers"
+  },
+  {
+    "hanzi": "七",
+    "pinyin": "qī",
+    "turkish": "yedi",
+    "english": "seven",
+    "example_zh": "一周有七天。",
+    "example_tr": "Bir haftada yedi gün var.",
+    "example_en": "There are seven days in a week.",
+    "category": "numbers"
+  },
+  {
+    "hanzi": "八",
+    "pinyin": "bā",
+    "turkish": "sekiz",
+    "english": "eight",
+    "example_zh": "我八点钟上班。",
+    "example_tr": "Saat sekizde işe gidiyorum.",
+    "example_en": "I go to work at eight o'clock.",
+    "category": "numbers"
+  },
+  {
+    "hanzi": "九",
+    "pinyin": "jiǔ",
+    "turkish": "dokuz",
+    "english": "nine",
+    "example_zh": "他九点钟睡觉。",
+    "example_tr": "Saat dokuzda uyuyor.",
+    "example_en": "He goes to sleep at nine o'clock.",
+    "category": "numbers"
+  },
+  {
+    "hanzi": "十",
+    "pinyin": "shí",
+    "turkish": "on",
+    "english": "ten",
+    "example_zh": "十全十美。",
+    "example_tr": "On tam, on mükemmel.",
+    "example_en": "Ten perfect, ten complete.",
+    "category": "numbers"
+  },
+  {
+    "hanzi": "百",
+    "pinyin": "bǎi",
+    "turkish": "yüz",
+    "english": "hundred",
+    "example_zh": "百分之百。",
+    "example_tr": "Yüzde yüz.",
+    "example_en": "One hundred percent.",
+    "category": "numbers"
+  },
+  {
+    "hanzi": "千",
+    "pinyin": "qiān",
+    "turkish": "bin",
+    "english": "thousand",
+    "example_zh": "千里之行始于足下。",
+    "example_tr": "Bin kilometrelik yol bir adımla başlar.",
+    "example_en": "A journey of a thousand miles begins with a single step.",
+    "category": "numbers"
+  },
+  {
+    "hanzi": "万",
+    "pinyin": "wàn",
+    "turkish": "on bin",
+    "english": "ten thousand",
+    "example_zh": "万事如意。",
+    "example_tr": "On bin şey istediğin gibi olsun.",
+    "example_en": "May everything go as you wish.",
+    "category": "numbers"
+  },
+  {
+    "hanzi": "亿",
+    "pinyin": "yì",
+    "turkish": "yüz milyon",
+    "english": "hundred million",
+    "example_zh": "中国人口有十四亿。",
+    "example_tr": "Çin'in nüfusu bir milyar dört yüz milyon.",
+    "example_en": "China has a population of 1.4 billion.",
+    "category": "numbers"
+  },
+  {
+    "hanzi": "第",
+    "pinyin": "dì",
+    "turkish": "Sıra sayı eki",
+    "english": "prefix for ordinal numbers",
+    "example_zh": "我是第一名。",
+    "example_tr": "Birinciyim.",
+    "example_en": "I am the first.",
+    "category": "numbers"
+  },
+  {
+    "hanzi": "零",
+    "pinyin": "líng",
+    "turkish": "sıfır",
+    "english": "zero",
+    "example_zh": "温度是零度。",
+    "example_tr": "Sıcaklık sıfır derece.",
+    "example_en": "The temperature is zero degrees.",
+    "category": "numbers"
+  },
+  {
+    "hanzi": "一半",
+    "pinyin": "yí bàn",
+    "turkish": "yarım",
+    "english": "half",
+    "example_zh": "我吃了一半。",
+    "example_tr": "Yarısını yedim.",
+    "example_en": "I ate half.",
+    "category": "numbers"
+  },
+  {
+    "hanzi": "双",
+    "pinyin": "shuāng",
+    "turkish": "çift",
+    "english": "pair",
+    "example_zh": "我买了一双鞋。",
+    "example_tr": "Bir çift ayakkabı aldım.",
+    "example_en": "I bought a pair of shoes.",
+    "category": "numbers"
+  },
+  {
+    "hanzi": "两",
+    "pinyin": "liǎng",
+    "turkish": "iki (ölçü biriminden önce)",
+    "english": "two (before measure words)",
+    "example_zh": "我有两个苹果。",
+    "example_tr": "İki elmam var.",
+    "example_en": "I have two apples.",
+    "category": "numbers"
+  },
+  {
+    "hanzi": "半",
+    "pinyin": "bàn",
+    "turkish": "yarım",
+    "english": "half",
+    "example_zh": "现在是三点半。",
+    "example_tr": "Şu anda saat üç buçuk.",
+    "example_en": "It is half past three now.",
+    "category": "numbers"
+  },
+  {
+    "hanzi": "多",
+    "pinyin": "duō",
+    "turkish": "çok",
+    "english": "many",
+    "example_zh": "这里有很多人。",
+    "example_tr": "Burada çok fazla insan var.",
+    "example_en": "There are many people here.",
+    "category": "numbers"
+  },
+  {
+    "hanzi": "少",
+    "pinyin": "shǎo",
+    "turkish": "az",
+    "english": "few",
+    "example_zh": "这里人很少。",
+    "example_tr": "Burada çok az insan var.",
+    "example_en": "There are very few people here.",
+    "category": "numbers"
+  },
+  {
+    "hanzi": "几",
+    "pinyin": "jǐ",
+    "turkish": "kaç / birkaç",
+    "english": "how many / several",
+    "example_zh": "你有几个兄弟姐妹？",
+    "example_tr": "Kaç kardeşiniz var?",
+    "example_en": "How many siblings do you have?",
+    "category": "numbers"
+  },
+  {
+    "hanzi": "成千上万",
+    "pinyin": "chéng qiān shàng wàn",
+    "turkish": "binlerce",
+    "english": "thousands upon thousands",
+    "example_zh": "这里有成千上万的人。",
+    "example_tr": "Burada binlerce insan var.",
+    "example_en": "There are thousands of people here.",
+    "category": "numbers"
+  },
+  {
+    "hanzi": "开心",
+    "pinyin": "kāi xīn",
+    "turkish": "mutlu",
+    "english": "happy",
+    "example_zh": "我今天很开心。",
+    "example_tr": "Bugün çok mutluyum.",
+    "example_en": "I am very happy today.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "难过",
+    "pinyin": "nán guò",
+    "turkish": "üzgün",
+    "english": "sad",
+    "example_zh": "他看起来很難过。",
+    "example_tr": "Çok üzgün görünüyor.",
+    "example_en": "He looks very sad.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "生气",
+    "pinyin": "shēng qì",
+    "turkish": "kızgın",
+    "english": "angry",
+    "example_zh": "不要生我的气。",
+    "example_tr": "Bana kızma.",
+    "example_en": "Don't be angry with me.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "紧张",
+    "pinyin": "jǐn zhāng",
+    "turkish": "gergin",
+    "english": "nervous",
+    "example_zh": "面试时我很紧张。",
+    "example_tr": "Mülakat sırasında çok gergindim.",
+    "example_en": "I was very nervous during the interview.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "不安",
+    "pinyin": "bù ān",
+    "turkish": "huzursuz",
+    "english": "uneasy",
+    "example_zh": "我感到不安。",
+    "example_tr": "Huzursuz hissediyorum.",
+    "example_en": "I feel uneasy.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "兴奋",
+    "pinyin": "xīng fèn",
+    "turkish": "heyecanlı",
+    "english": "excited",
+    "example_zh": "我很兴奋要去旅行。",
+    "example_tr": "Seyahate çıkacağım için çok heyecanlıyım.",
+    "example_en": "I am very excited to go traveling.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "失望",
+    "pinyin": "shī wàng",
+    "turkish": "hayal kırıklığına uğramış",
+    "english": "disappointed",
+    "example_zh": "我对结果很失望。",
+    "example_tr": "Sonuçtan çok hayal kırıklığına uğradım.",
+    "example_en": "I am very disappointed with the result.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "满意",
+    "pinyin": "mǎn yì",
+    "turkish": "memnun",
+    "english": "satisfied",
+    "example_zh": "我对服务很满意。",
+    "example_tr": "Hizmetten çok memnunum.",
+    "example_en": "I am very satisfied with the service.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "害怕",
+    "pinyin": "hài pà",
+    "turkish": "korkmuş",
+    "english": "afraid",
+    "example_zh": "我害怕黑暗。",
+    "example_tr": "Karanlıktan korkuyorum.",
+    "example_en": "I am afraid of the dark.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "惊讶",
+    "pinyin": "jīng yà",
+    "turkish": "şaşırmış",
+    "english": "surprised",
+    "example_zh": "我很惊讶看到你了。",
+    "example_tr": "Seni gördüğüme çok şaşırdım.",
+    "example_en": "I am surprised to see you.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "痛苦",
+    "pinyin": "tòng kǔ",
+    "turkish": "acı içinde",
+    "english": "in pain",
+    "example_zh": "他很痛苦。",
+    "example_tr": "Çok acı çekiyor.",
+    "example_en": "He is in a lot of pain.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "悲伤",
+    "pinyin": "bēi shāng",
+    "turkish": "kederli",
+    "english": "sorrowful",
+    "example_zh": "她看起来很悲伤。",
+    "example_tr": "Çok kederli görünüyor.",
+    "example_en": "She looks very sorrowful.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "担心",
+    "pinyin": "dān xīn",
+    "turkish": "endişeli",
+    "english": "worried",
+    "example_zh": "妈妈很担心我。",
+    "example_tr": "Annem benim için çok endişeli.",
+    "example_en": "Mom is very worried about me.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "害羞",
+    "pinyin": "hài xiū",
+    "turkish": "utangaç",
+    "english": "shy",
+    "example_zh": "她很害羞。",
+    "example_tr": "Çok utangaç.",
+    "example_en": "She is very shy.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "尴尬",
+    "pinyin": "gān gà",
+    "turkish": "mahcup",
+    "english": "embarrassed",
+    "example_zh": "场面很尴尬。",
+    "example_tr": "Durum çok mahcubiyet vericiydi.",
+    "example_en": "The situation was very embarrassing.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "累",
+    "pinyin": "lèi",
+    "turkish": "yorgun",
+    "english": "tired",
+    "example_zh": "我今天很累。",
+    "example_tr": "Bugün çok yorgunum.",
+    "example_en": "I am very tired today.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "无聊",
+    "pinyin": "wú liáo",
+    "turkish": "sıkılmış",
+    "english": "bored",
+    "example_zh": "这部电影很无聊。",
+    "example_tr": "Bu film çok sıkıcı.",
+    "example_en": "This movie is very boring.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "烦",
+    "pinyin": "fán",
+    "turkish": "rahatsız olmuş",
+    "english": "annoyed",
+    "example_zh": "这个问题很烦人。",
+    "example_tr": "Bu sorun çok rahatsız edici.",
+    "example_en": "This problem is very annoying.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "郁闷",
+    "pinyin": "yù mèn",
+    "turkish": "moralsiz",
+    "english": "depressed",
+    "example_zh": "他看起来很郁闷。",
+    "example_tr": "Çok moralsiz görünüyor.",
+    "example_en": "He looks very depressed.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "高兴",
+    "pinyin": "gāo xìng",
+    "turkish": "sevinçli",
+    "english": "glad",
+    "example_zh": "我很高兴见到你。",
+    "example_tr": "Seni gördüğüme çok sevindim.",
+    "example_en": "I am very glad to see you.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "快乐",
+    "pinyin": "kuài lè",
+    "turkish": "neşeli",
+    "english": "joyful",
+    "example_zh": "祝你们快乐！",
+    "example_tr": "Mutlu olun!",
+    "example_en": "Wishing you joy!",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "幸福",
+    "pinyin": "xìng fú",
+    "turkish": "mutlu / mesut",
+    "english": "happy / Blessed",
+    "example_zh": "祝你幸福！",
+    "example_tr": "Mutlu ol!",
+    "example_en": "Wishing you happiness!",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "轻松",
+    "pinyin": "qīng sōng",
+    "turkish": "rahat",
+    "english": "relaxed",
+    "example_zh": "周末很輕鬆。",
+    "example_tr": "Hafta sonu çok rahat.",
+    "example_en": "The weekend is very relaxed.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "舒服",
+    "pinyin": "shū fu",
+    "turkish": "konforlu",
+    "english": "comfortable",
+    "example_zh": "这张床很舒服。",
+    "example_tr": "Bu yatak çok konforlu.",
+    "example_en": "This bed is very comfortable.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "自在",
+    "pinyin": "zì zài",
+    "turkish": "rahat / keyifli",
+    "english": "at ease",
+    "example_zh": "在这里很自在。",
+    "example_tr": "Burada çok rahatım.",
+    "example_en": "I feel very at ease here.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "自豪",
+    "pinyin": "zì háo",
+    "turkish": "gururlu",
+    "english": "proud",
+    "example_zh": "我为自己感到自豪。",
+    "example_tr": "Kendimle gurur duyuyorum.",
+    "example_en": "I am proud of myself.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "自信",
+    "pinyin": "zì xìn",
+    "turkish": "kendine güvenen",
+    "english": "confident",
+    "example_zh": "他很自信。",
+    "example_tr": "Çok kendine güveniyor.",
+    "example_en": "He is very confident.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "乐观",
+    "pinyin": "lè guān",
+    "turkish": "iyimser",
+    "english": "optimistic",
+    "example_zh": "他很乐观。",
+    "example_tr": "Çok iyimser.",
+    "example_en": "He is very optimistic.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "积极",
+    "pinyin": "jī jí",
+    "turkish": "pozitif",
+    "english": "positive",
+    "example_zh": "我们要积极面对生活。",
+    "example_tr": "Hayata pozitif yaklaşmalıyız.",
+    "example_en": "We should face life positively.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "满足",
+    "pinyin": "mǎn zú",
+    "turkish": "hoşnut",
+    "english": "content",
+    "example_zh": "我对现状很满足。",
+    "example_tr": "Mevcut durumdan çok memnunum.",
+    "example_en": "I am very content with the current situation.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "感激",
+    "pinyin": "gǎn jī",
+    "turkish": "minnettar",
+    "english": "grateful",
+    "example_zh": "我很感激你的帮助。",
+    "example_tr": "Yardımın için çok minnettarım.",
+    "example_en": "I am very grateful for your help.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "感动",
+    "pinyin": "gǎn dòng",
+    "turkish": "duygulanmış",
+    "english": "touched",
+    "example_zh": "我被这个故事感动了。",
+    "example_tr": "Bu hikaye beni çok duygulandırdı.",
+    "example_en": "I was touched by this story.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "羡慕",
+    "pinyin": "xiàn mù",
+    "turkish": "imrenen",
+    "english": "envious",
+    "example_zh": "我很羡慕你。",
+    "example_tr": "Sana çok imreniyorum.",
+    "example_en": "I am very envious of you.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "嫉妒",
+    "pinyin": "jí dù",
+    "turkish": "kıskanç",
+    "english": "jealous",
+    "example_zh": "不要嫉妒别人。",
+    "example_tr": "Başkalarını kıskanma.",
+    "example_en": "Don't be jealous of others.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "孤独",
+    "pinyin": "gū dú",
+    "turkish": "yalnız",
+    "english": "lonely",
+    "example_zh": "他感到很孤独。",
+    "example_tr": "Çok yalnız hissediyor.",
+    "example_en": "He feels very lonely.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "寂寞",
+    "pinyin": "jì mò",
+    "turkish": "yalnız / ıssız",
+    "english": "lonely",
+    "example_zh": "夜晚很寂寞。",
+    "example_tr": "Geceler yalnız geçiyor.",
+    "example_en": "The nights are lonely.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "焦虑",
+    "pinyin": "jiāo lǜ",
+    "turkish": "kaygılı",
+    "english": "anxious",
+    "example_zh": "考试前我很焦虑。",
+    "example_tr": "Sınavdan önce çok kaygılıydım.",
+    "example_en": "I was very anxious before the exam.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "恐惧",
+    "pinyin": "kǒng jù",
+    "turkish": "korkulu",
+    "english": "fearful",
+    "example_zh": "他对高处有恐惧。",
+    "example_tr": "Yüksek yerlerden korkuyor.",
+    "example_en": "He has a fear of heights.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "愤怒",
+    "pinyin": "fèn nù",
+    "turkish": "öfkeli",
+    "english": "furious",
+    "example_zh": "他很愤怒。",
+    "example_tr": "Çok öfkeli.",
+    "example_en": "He is very furious.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "不满",
+    "pinyin": "bù mǎn",
+    "turkish": "memnuniyetsiz",
+    "english": "dissatisfied",
+    "example_zh": "我对这个结果不满。",
+    "example_tr": "Bu sonuçtan memnun değilim.",
+    "example_en": "I am dissatisfied with this result.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "惊恐",
+    "pinyin": "jīng kǒng",
+    "turkish": "panik",
+    "english": "panic",
+    "example_zh": "他看起来很惊恐。",
+    "example_tr": "Çok panik içinde görünüyor.",
+    "example_en": "He looks very panicked.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "欣慰",
+    "pinyin": "xīn wèi",
+    "turkish": "teselli bulmuş",
+    "english": "I'm satisfied / glad to hear/ all your effort paid off",
+    "example_zh": "我很欣慰听到你成功了。",
+    "example_tr": "Başarın beni çok teselli etti.",
+    "example_en": "I am glad to hear your success.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "失落",
+    "pinyin": "shī luò",
+    "turkish": "kaybolmuş (duygusal)",
+    "english": "lost (emotionally)",
+    "example_zh": "他看起来很失落。",
+    "example_tr": "Çok kaybolmuş görünüyor.",
+    "example_en": "He looks very lost.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "恼火",
+    "pinyin": "nǎo huǒ",
+    "turkish": "sinirlenmiş",
+    "english": "annoyed",
+    "example_zh": "老板很恼火。",
+    "example_tr": "Patron çok sinirli.",
+    "example_en": "The boss is very annoyed.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "绝望",
+    "pinyin": "jué wàng",
+    "turkish": "umutsuz",
+    "english": "desperate",
+    "example_zh": "不要绝望。",
+    "example_tr": "Umutsuzluğa kapılma.",
+    "example_en": "Don't be desperate.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "心酸",
+    "pinyin": "xīn suān",
+    "turkish": "içleri acımış",
+    "english": "bitter (emotionally)",
+    "example_zh": "这个故事让人心酸。",
+    "example_tr": "Bu hikaye içleri acıtıyor.",
+    "example_en": "This story is heartbreaking.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "恶心",
+    "pinyin": "ě xīn",
+    "turkish": "mide bulantılı / iğrenmiş",
+    "english": "nauseated / disgusted",
+    "example_zh": "我觉得恶心。",
+    "example_tr": "Midem bulanıyor.",
+    "example_en": "I feel nauseated.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "激动",
+    "pinyin": "jī dòng",
+    "turkish": "heyecanlanmış",
+    "english": "stirred / excited",
+    "example_zh": "我很激动。",
+    "example_tr": "Çok heyecanlıyım.",
+    "example_en": "I am very excited.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "心动",
+    "pinyin": "xīn dòng",
+    "turkish": "kalbi çarpmış",
+    "english": "moved (emotionally)",
+    "example_zh": "我对她心动了。",
+    "example_tr": "Ona karşı kalbim çarptı.",
+    "example_en": "My heart skipped a beat for her.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "讨厌",
+    "pinyin": "tǎo yàn",
+    "turkish": "nefret etmek",
+    "english": "dislike",
+    "example_zh": "我讨厌下雨。",
+    "example_tr": "Yağmurdan nefret ediyorum.",
+    "example_en": "I dislike rain.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "怀疑",
+    "pinyin": "huái yí",
+    "turkish": "şüphelenmek",
+    "english": "doubt",
+    "example_zh": "我怀疑他说的话。",
+    "example_tr": "Söylediklerinden şüpheleniyorum.",
+    "example_en": "I doubt what he said.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "热情",
+    "pinyin": "rè qíng",
+    "turkish": "coşkulu",
+    "english": "enthusiastic",
+    "example_zh": "他很热情。",
+    "example_tr": "Çok coşkulu.",
+    "example_en": "He is very enthusiastic.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "冷静",
+    "pinyin": "lěng jìng",
+    "turkish": "sakin",
+    "english": "calm",
+    "example_zh": "请保持冷静。",
+    "example_tr": "Lütfen sakin kal.",
+    "example_en": "Please stay calm.",
+    "category": "emotions"
+  },
+  {
+    "hanzi": "体育",
+    "pinyin": "tǐ yù",
+    "turkish": "Spor",
+    "english": "Sports",
+    "example_zh": "体育很重要。",
+    "example_tr": "Spor çok önemli.",
+    "example_en": "Sports are very important.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "足球",
+    "pinyin": "zú qiú",
+    "turkish": "Futbol",
+    "english": "Soccer",
+    "example_zh": "足球是世界第一运动。",
+    "example_tr": "Futbol dünyanın bir numaralı sporudur.",
+    "example_en": "Soccer is the world's number one sport.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "篮球",
+    "pinyin": "lán qiú",
+    "turkish": "Basketbol",
+    "english": "Basketball",
+    "example_zh": "我喜欢打篮球。",
+    "example_tr": "Basketbol oynamayı seviyorum.",
+    "example_en": "I like playing basketball.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "排球",
+    "pinyin": "pái qiú",
+    "turkish": "Voleybol",
+    "english": "Volleyball",
+    "example_zh": "排球是团队运动。",
+    "example_tr": "Voleybol takım sporudur.",
+    "example_en": "Volleyball is a team sport.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "网球",
+    "pinyin": "wǎng qiú",
+    "turkish": "Tenis",
+    "english": "Tennis",
+    "example_zh": "网球很流行。",
+    "example_tr": "Tenis çok popüler.",
+    "example_en": "Tennis is very popular.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "乒乓球",
+    "pinyin": "pīng pāng qiú",
+    "turkish": "Masa tenisi",
+    "english": "Table Tennis",
+    "example_zh": "中国乒乓球很强。",
+    "example_tr": "Çin'de masa tenisi çok güçlü.",
+    "example_en": "Table tennis is very good in China.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "羽毛球",
+    "pinyin": "yǔ máo qiú",
+    "turkish": "Badminton",
+    "english": "Badminton",
+    "example_zh": "羽毛球很轻。",
+    "example_tr": "Badminton topu çok hafif.",
+    "example_en": "Badminton shuttlecock is very light.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "棒球",
+    "pinyin": "bàng qiú",
+    "turkish": "Beyzbol",
+    "english": "Baseball",
+    "example_zh": "棒球在美国很流行。",
+    "example_tr": "Beyzbol Amerika'da çok popüler.",
+    "example_en": "Baseball is very popular in America.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "高尔夫球",
+    "pinyin": "gāo ěr fū qiú",
+    "turkish": "Golf",
+    "english": "Golf",
+    "example_zh": "高尔夫球很昂贵。",
+    "example_tr": "Golf çok pahalı.",
+    "example_en": "Golf is very expensive.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "跳远",
+    "pinyin": "tiào yuǎn",
+    "turkish": "Uzakla atlama",
+    "english": "Long Jump",
+    "example_zh": "他跳远成绩很好。",
+    "example_tr": "Uzakla atlama performansı çok iyi.",
+    "example_en": "His long jump performance is very good.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "跳高",
+    "pinyin": "tiào gāo",
+    "turkish": "Yüksek atlama",
+    "english": "High Jump",
+    "example_zh": "跳高需要技巧。",
+    "example_tr": "Yüksek atlama teknik gerektirir.",
+    "example_en": "High jump requires skill.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "举重",
+    "pinyin": "jǔ zhòng",
+    "turkish": "Ağırlık kaldırma",
+    "english": "Weightlifting",
+    "example_zh": "举重需要力量。",
+    "example_tr": "Ağırlık kaldırma güç gerektirir.",
+    "example_en": "Weightlifting requires strength.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "拳击",
+    "pinyin": "quán jī",
+    "turkish": "Boks",
+    "english": "Boxing",
+    "example_zh": "拳击很激烈。",
+    "example_tr": "Boks çok sert.",
+    "example_en": "Boxing is very intense.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "摔跤",
+    "pinyin": "shuāi jiāo",
+    "turkish": "Güreş",
+    "english": "Wrestling",
+    "example_zh": "摔跤是古老的运动。",
+    "example_tr": "Güreş eski bir spordur.",
+    "example_en": "Wrestling is an ancient sport.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "射箭",
+    "pinyin": "shè jiàn",
+    "turkish": "Okçuluk",
+    "english": "Archery",
+    "example_zh": "射箭需要专注。",
+    "example_tr": "Okçuluk odaklanma gerektirir.",
+    "example_en": "Archery requires focus.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "体操",
+    "pinyin": "tǐ cāo",
+    "turkish": "Jimnastik",
+    "english": "Gymnastics",
+    "example_zh": "体操很难。",
+    "example_tr": "Jimnastik çok zor.",
+    "example_en": "Gymnastics is very difficult.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "自行车",
+    "pinyin": "zì xíng chē",
+    "turkish": "Bisiklet",
+    "english": "Bicycle",
+    "example_zh": "我喜欢骑自行车。",
+    "example_tr": "Bisiklet sürmeyi seviyorum.",
+    "example_en": "I like cycling.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "马拉松",
+    "pinyin": "mǎ lā sōng",
+    "turkish": "Maraton",
+    "english": "Marathon",
+    "example_zh": "马拉松很长。",
+    "example_tr": "Maraton çok uzun.",
+    "example_en": "The marathon is very long.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "赛车",
+    "pinyin": "sài chē",
+    "turkish": "Yarış",
+    "english": "Racing",
+    "example_zh": "赛车很刺激。",
+    "example_tr": "Yarış çok heyecan verici.",
+    "example_en": "Racing is very exciting.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "竞走",
+    "pinyin": "jìng zǒu",
+    "turkish": "Yürüyüş yarışı",
+    "english": "Race Walking",
+    "example_zh": "竞走是奥运会项目。",
+    "example_tr": "Yürüyüş yarışı olimpiyat sporudur.",
+    "example_en": "Race walking is an Olympic sport.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "跳水",
+    "pinyin": "tiào shuǐ",
+    "turkish": "Dalış",
+    "english": "Diving",
+    "example_zh": "跳水很危险。",
+    "example_tr": "Dalış çok tehlikeli.",
+    "example_en": "Diving is very dangerous.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "射击",
+    "pinyin": "shè jī",
+    "turkish": "Atıcılık",
+    "english": "Shooting",
+    "example_zh": "射击需要精准。",
+    "example_tr": "Atıcılık kesinlik gerektirir.",
+    "example_en": "Shooting requires precision.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "冲浪",
+    "pinyin": "chōng làng",
+    "turkish": "Sörf",
+    "english": "Surfing",
+    "example_zh": "冲浪很酷。",
+    "example_tr": "Sörf çok havalı.",
+    "example_en": "Surfing is very cool.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "举办",
+    "pinyin": "jǔ bàn",
+    "turkish": "Düzenlemek",
+    "english": "To Host (Event)",
+    "example_zh": "我们举办运动会。",
+    "example_tr": "Spor şenliği düzenliyoruz.",
+    "example_en": "We are hosting a sports meet.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "运动会",
+    "pinyin": "yùn dòng huì",
+    "turkish": "Spor şenliği",
+    "english": "Sports Meet",
+    "example_zh": "学校要开运动会。",
+    "example_tr": "Okul spor şenliği düzenleyecek.",
+    "example_en": "The school will hold a sports meet.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "田径",
+    "pinyin": "tián jìng",
+    "turkish": "Atletizm",
+    "english": "Track and Field",
+    "example_zh": "田径是基础运动。",
+    "example_tr": "Atletizm temel spordur.",
+    "example_en": "Track and field is a basic sport.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "裁判",
+    "pinyin": "cái pàn",
+    "turkish": "Hakem",
+    "english": "Referee",
+    "example_zh": "裁判要公正。",
+    "example_tr": "Hakem adil olmalı.",
+    "example_en": "The referee must be fair.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "球队",
+    "pinyin": "qiú duì",
+    "turkish": "Spor takımı",
+    "english": "Sports Team",
+    "example_zh": "这支球队很强。",
+    "example_tr": "Bu spor takımı çok güçlü.",
+    "example_en": "This sports team is very strong.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "球员",
+    "pinyin": "qiú yuán",
+    "turkish": "Oyuncu",
+    "english": "Player",
+    "example_zh": "球员需要训练。",
+    "example_tr": "Oyuncular antrenman yapmalı.",
+    "example_en": "Players need to train.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "球迷",
+    "pinyin": "qiú mí",
+    "turkish": "Taraftar",
+    "english": "Fan",
+    "example_zh": "球迷很热情。",
+    "example_tr": "Taraftarlar çok tutkulu.",
+    "example_en": "Fans are very passionate.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "冠军",
+    "pinyin": "guàn jūn",
+    "turkish": "Şampiyon",
+    "english": "Champion",
+    "example_zh": "他是冠军。",
+    "example_tr": "O şampiyon.",
+    "example_en": "He is the champion.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "亚军",
+    "pinyin": "yà jūn",
+    "turkish": "İkinci",
+    "english": "Runner-up",
+    "example_zh": "他是亚军。",
+    "example_tr": "O ikinci.",
+    "example_en": "He is the runner-up.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "季军",
+    "pinyin": "jì jūn",
+    "turkish": "Üçüncü",
+    "english": "Third place",
+    "example_zh": "他是季军。",
+    "example_tr": "O üçüncü.",
+    "example_en": "He is the third place.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "比赛",
+    "pinyin": "bǐ sài",
+    "turkish": "Maç / Yarışma",
+    "english": "Match / Competition",
+    "example_zh": "比赛很激烈。",
+    "example_tr": "Maç çok sert.",
+    "example_en": "The match is very intense.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "训练",
+    "pinyin": "xùn liàn",
+    "turkish": "Antrenman",
+    "english": "Training",
+    "example_zh": "运动员每天训练。",
+    "example_tr": "Sporcular her gün antrenman yapıyor.",
+    "example_en": "Athletes train every day.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "体育馆",
+    "pinyin": "tǐ yù guǎn",
+    "turkish": "Spor salonu",
+    "english": "Gymnasium",
+    "example_zh": "体育馆很大。",
+    "example_tr": "Spor salonu çok büyük.",
+    "example_en": "The gymnasium is very big.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "运动场",
+    "pinyin": "yùn dòng chǎng",
+    "turkish": "Spor sahası",
+    "english": "Sports field",
+    "example_zh": "运动场有很多人。",
+    "example_tr": "Spor sahasında çok insan var.",
+    "example_en": "There are many people on the sports field.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "瑜伽馆",
+    "pinyin": "yú jiā guǎn",
+    "turkish": "Yoga stüdyosu",
+    "english": "Yoga studio",
+    "example_zh": "瑜伽馆很安静。",
+    "example_tr": "Yoga stüdyosu çok sessiz.",
+    "example_en": "The yoga studio is very quiet.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "滑雪场",
+    "pinyin": "huá xuě chǎng",
+    "turkish": "Kayak merkezi",
+    "english": "Ski resort",
+    "example_zh": "滑雪场很大。",
+    "example_tr": "Kayak merkezi çok büyük.",
+    "example_en": "The ski resort is very big.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "赛季",
+    "pinyin": "sài jì",
+    "turkish": "Sezon",
+    "english": "Season",
+    "example_zh": "新赛季开始了。",
+    "example_tr": "Yeni sezon başladı.",
+    "example_en": "The new season has started.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "决赛",
+    "pinyin": "jué sài",
+    "turkish": "Final",
+    "english": "Final",
+    "example_zh": "决赛很精彩。",
+    "example_tr": "Final çok heyecanlıydı.",
+    "example_en": "The final was very exciting.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "半决赛",
+    "pinyin": "bàn jué sài",
+    "turkish": "Yarı final",
+    "english": "Semi-final",
+    "example_zh": "半决赛很激烈。",
+    "example_tr": "Yarı final çok sertti.",
+    "example_en": "The semi-final was very intense.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "小组赛",
+    "pinyin": "xiǎo zǔ sài",
+    "turkish": "Grup aşaması",
+    "english": "Group stage",
+    "example_zh": "小组赛开始了。",
+    "example_tr": "Grup aşaması başladı.",
+    "example_en": "The group stage has started.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "热身赛",
+    "pinyin": "rè shēn sài",
+    "turkish": "Hazırlık maçı",
+    "english": "Warm-up match",
+    "example_zh": "热身赛不重要。",
+    "example_tr": "Hazırlık maçı önemli değil.",
+    "example_en": "The warm-up match is not important.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "友谊赛",
+    "pinyin": "yǒu yì sài",
+    "turkish": "Özel maç",
+    "english": "Friendly match",
+    "example_zh": "友谊赛很友好。",
+    "example_tr": "Özel maç çok dostça.",
+    "example_en": "The friendly match is very friendly.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "联赛",
+    "pinyin": "lián sài",
+    "turkish": "Lig",
+    "english": "League",
+    "example_zh": "联赛很漫长。",
+    "example_tr": "Lig çok uzun.",
+    "example_en": "The league is very long.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "杯赛",
+    "pinyin": "bēi sài",
+    "turkish": "Kupa yarışması",
+    "english": "Cup competition",
+    "example_zh": "杯赛很刺激。",
+    "example_tr": "Kupa yarışması çok heyecan verici.",
+    "example_en": "The cup competition is very exciting.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "锦标赛",
+    "pinyin": "jǐn biāo sài",
+    "turkish": "Şampiyona",
+    "english": "Championship",
+    "example_zh": "锦标赛水平很高。",
+    "example_tr": "Şampiyona seviyesi çok yüksek.",
+    "example_en": "The championship level is very high.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "奥运会",
+    "pinyin": "ào yùn huì",
+    "turkish": "Olimpiyatlar",
+    "english": "Olympics",
+    "example_zh": "奥运会四年一次。",
+    "example_tr": "Olimpiyatlar dört yılda bir.",
+    "example_en": "The Olympics are held every four years.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "世界杯",
+    "pinyin": "shì jiè bēi",
+    "turkish": "Dünya Kupası",
+    "english": "World Cup",
+    "example_zh": "世界杯很受欢迎。",
+    "example_tr": "Dünya Kupası çok popüler.",
+    "example_en": "The World Cup is very popular.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "得分",
+    "pinyin": "dé fēn",
+    "turkish": "Sayı / Gol",
+    "english": "Score",
+    "example_zh": "他得分了。",
+    "example_tr": "Sayı aldı.",
+    "example_en": "He scored.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "进球",
+    "pinyin": "jìn qiú",
+    "turkish": "Gol atmak",
+    "english": "Goal",
+    "example_zh": "他进球了。",
+    "example_tr": "Gol attı.",
+    "example_en": "He scored a goal.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "犯规",
+    "pinyin": "fàn guī",
+    "turkish": "Faul",
+    "english": "Foul",
+    "example_zh": "他犯规了。",
+    "example_tr": "Faul yaptı.",
+    "example_en": "He committed a foul.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "黄牌",
+    "pinyin": "huáng pái",
+    "turkish": "Sarı kart",
+    "english": "Yellow Card",
+    "example_zh": "裁判给了他黄牌。",
+    "example_tr": "Hakem ona sarı kart gösterdi.",
+    "example_en": "The referee gave him a yellow card.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "红牌",
+    "pinyin": "hóng pái",
+    "turkish": "Kırmızı kart",
+    "english": "Red Card",
+    "example_zh": "裁判给了他红牌。",
+    "example_tr": "Hakem ona kırmızı kart gösterdi.",
+    "example_en": "The referee gave him a red card.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "球场",
+    "pinyin": "qiú chǎng",
+    "turkish": "Saha",
+    "english": "Sports Field",
+    "example_zh": "球场很大。",
+    "example_tr": "Saha çok büyük.",
+    "example_en": "The sports field is very big.",
+    "category": "sports"
+  },
+  {
+    "hanzi": "大",
+    "pinyin": "dà",
+    "turkish": "Büyük",
+    "english": "Big",
+    "example_zh": "这个房间很大。",
+    "example_tr": "Bu oda çok büyük.",
+    "example_en": "This room is very big.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "小",
+    "pinyin": "xiǎo",
+    "turkish": "Küçük",
+    "english": "Small",
+    "example_zh": "这个苹果很小。",
+    "example_tr": "Bu elma çok küçük.",
+    "example_en": "This apple is very small.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "长",
+    "pinyin": "cháng",
+    "turkish": "Uzun",
+    "english": "Long",
+    "example_zh": "这条路很长。",
+    "example_tr": "Bu yol çok uzun.",
+    "example_en": "This road is very long.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "短",
+    "pinyin": "duǎn",
+    "turkish": "Kısa",
+    "english": "Short",
+    "example_zh": "他的头发很短。",
+    "example_tr": "Saçları çok kısa.",
+    "example_en": "His hair is very short.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "高",
+    "pinyin": "gāo",
+    "turkish": "Uzun / Yüksek",
+    "english": "Tall / High",
+    "example_zh": "这座山很高。",
+    "example_tr": "Bu dağ çok yüksek.",
+    "example_en": "This mountain is very high.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "低",
+    "pinyin": "dī",
+    "turkish": "Alçak",
+    "english": "Low",
+    "example_zh": "这个声音很低。",
+    "example_tr": "Bu ses çok alçak.",
+    "example_en": "This voice is very low.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "宽",
+    "pinyin": "kuān",
+    "turkish": "Geniş",
+    "english": "Wide",
+    "example_zh": "这条路很宽。",
+    "example_tr": "Bu yol çok geniş.",
+    "example_en": "This road is very wide.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "狭窄",
+    "pinyin": "xiá zhǎi",
+    "turkish": "Dar",
+    "english": "Narrow",
+    "example_zh": "这条巷子很狭窄。",
+    "example_tr": "Bu sokak çok dar.",
+    "example_en": "This alley is very narrow.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "重",
+    "pinyin": "zhòng",
+    "turkish": "Ağır",
+    "english": "Heavy",
+    "example_zh": "这个箱子很重。",
+    "example_tr": "Bu kutu çok ağır.",
+    "example_en": "This box is very heavy.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "轻",
+    "pinyin": "qīng",
+    "turkish": "Hafif",
+    "english": "Light (weight)",
+    "example_zh": "这个包很轻。",
+    "example_tr": "Bu çanta çok hafif.",
+    "example_en": "This bag is very light.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "深",
+    "pinyin": "shēn",
+    "turkish": "Derin",
+    "english": "Deep",
+    "example_zh": "这个湖很深。",
+    "example_tr": "Bu göl çok derin.",
+    "example_en": "This lake is very deep.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "浅",
+    "pinyin": "qiǎn",
+    "turkish": "Sığ",
+    "english": "Shallow",
+    "example_zh": "这个河很浅。",
+    "example_tr": "Bu nehir çok sığ.",
+    "example_en": "This river is very shallow.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "亮",
+    "pinyin": "liàng",
+    "turkish": "Parlak",
+    "english": "Bright",
+    "example_zh": "这个房间很亮。",
+    "example_tr": "Bu oda çok parlak.",
+    "example_en": "This room is very bright.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "暗",
+    "pinyin": "àn",
+    "turkish": "Karanlık",
+    "english": "Dark",
+    "example_zh": "这个房间很暗。",
+    "example_tr": "Bu oda çok karanlık.",
+    "example_en": "This room is very dark.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "清晰",
+    "pinyin": "qīng xī",
+    "turkish": "Net",
+    "english": "Clear",
+    "example_zh": "这个图片很清晰。",
+    "example_tr": "Bu resim çok net.",
+    "example_en": "This picture is very clear.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "模糊",
+    "pinyin": "mó hū",
+    "turkish": "Bulanık",
+    "english": "Blurry",
+    "example_zh": "这个照片很模糊。",
+    "example_tr": "Bu fotoğraf çok bulanık.",
+    "example_en": "This photo is very blurry.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "软",
+    "pinyin": "ruǎn",
+    "turkish": "Yumuşak",
+    "english": "Soft",
+    "example_zh": "这个床很软。",
+    "example_tr": "Bu yatak çok yumuşak.",
+    "example_en": "This bed is very soft.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "硬",
+    "pinyin": "yìng",
+    "turkish": "Sert",
+    "english": "Hard",
+    "example_zh": "这个石头很硬。",
+    "example_tr": "Bu taş çok sert.",
+    "example_en": "This stone is very hard.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "瘦",
+    "pinyin": "shòu",
+    "turkish": "Zayıf",
+    "english": "Thin",
+    "example_zh": "她很瘦。",
+    "example_tr": "Çok zayıf.",
+    "example_en": "She is very thin.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "胖",
+    "pinyin": "pàng",
+    "turkish": "Şişman",
+    "english": "Fat",
+    "example_zh": "他有点胖。",
+    "example_tr": "Biraz şişman.",
+    "example_en": "He is a bit fat.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "美丽",
+    "pinyin": "měi lì",
+    "turkish": "Güzel (kadın)",
+    "english": "Beautiful (female)",
+    "example_zh": "她很漂亮。",
+    "example_tr": "Çok güzel.",
+    "example_en": "She is very beautiful.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "丑",
+    "pinyin": "chǒu",
+    "turkish": "Çirkin",
+    "english": "Ugly",
+    "example_zh": "这个建筑很丑。",
+    "example_tr": "Bu bina çok çirkin.",
+    "example_en": "This building is very ugly.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "模样",
+    "pinyin": "mú yàng",
+    "turkish": "Görünüm",
+    "english": "Appearance",
+    "example_zh": "他的模样很帅。",
+    "example_tr": "Görünümü çok yakışıklı.",
+    "example_en": "His appearance is very handsome.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "粗糙",
+    "pinyin": "cū cāo",
+    "turkish": "Pürüzlü",
+    "english": "Rough",
+    "example_zh": "这个表面很粗糙。",
+    "example_tr": "Bu yüzey çok pürüzlü.",
+    "example_en": "This surface is very rough.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "光滑",
+    "pinyin": "guāng huá",
+    "turkish": "Pürüzsüz",
+    "english": "Smooth",
+    "example_zh": "这个表面很光滑。",
+    "example_tr": "Bu yüzey çok pürüzsüz.",
+    "example_en": "This surface is very smooth.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "干净",
+    "pinyin": "gān jìng",
+    "turkish": "Temiz",
+    "english": "Clean",
+    "example_zh": "这个房间很干净。",
+    "example_tr": "Bu oda çok temiz.",
+    "example_en": "This room is very clean.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "脏",
+    "pinyin": "zāng",
+    "turkish": "Kirli",
+    "english": "Dirty",
+    "example_zh": "这个衣服很脏。",
+    "example_tr": "Bu kıyafet çok kirli.",
+    "example_en": "These clothes are very dirty.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "整齐",
+    "pinyin": "zhěng qí",
+    "turkish": "Düzenli",
+    "english": "Tidy",
+    "example_zh": "他的书桌很整齐。",
+    "example_tr": "Çalışma masası çok düzenli.",
+    "example_en": "His desk is very tidy.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "乱",
+    "pinyin": "luàn",
+    "turkish": "Dağınık",
+    "english": "Messy",
+    "example_zh": "这个房间很乱。",
+    "example_tr": "Bu oda çok dağınık.",
+    "example_en": "This room is very messy.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "新",
+    "pinyin": "xīn",
+    "turkish": "Yeni",
+    "english": "New",
+    "example_zh": "这个手机很新。",
+    "example_tr": "Bu telefon çok yeni.",
+    "example_en": "This phone is very new.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "旧",
+    "pinyin": "jiù",
+    "turkish": "Eski",
+    "english": "Old",
+    "example_zh": "这个房子很旧。",
+    "example_tr": "Bu ev çok eski.",
+    "example_en": "This house is very old.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "年轻",
+    "pinyin": "nián qīng",
+    "turkish": "Genç",
+    "english": "Young",
+    "example_zh": "他很年轻。",
+    "example_tr": "Çok genç.",
+    "example_en": "He is very young.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "老",
+    "pinyin": "lǎo",
+    "turkish": "Yaşlı",
+    "english": "Old",
+    "example_zh": "爷爷很老。",
+    "example_tr": "Büyükbaba çok yaşlı.",
+    "example_en": "Grandpa is very old.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "快",
+    "pinyin": "kuài",
+    "turkish": "Hızlı",
+    "english": "Fast",
+    "example_zh": "他跑得很快。",
+    "example_tr": "Çok hızlı koşuyor.",
+    "example_en": "He runs very fast.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "慢",
+    "pinyin": "màn",
+    "turkish": "Yavaş",
+    "english": "Slow",
+    "example_zh": "他走得很慢。",
+    "example_tr": "Çok yavaş yürüyor.",
+    "example_en": "He walks very slowly.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "早",
+    "pinyin": "zǎo",
+    "turkish": "Erken",
+    "english": "Early",
+    "example_zh": "他起得很早。",
+    "example_tr": "Çok erken kalkıyor.",
+    "example_en": "He gets up very early.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "晚",
+    "pinyin": "wǎn",
+    "turkish": "Geç",
+    "english": "Late",
+    "example_zh": "他睡得很晚。",
+    "example_tr": "Çok geç uyuyor.",
+    "example_en": "He sleeps very late.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "容易",
+    "pinyin": "róng yì",
+    "turkish": "Kolay",
+    "english": "Easy",
+    "example_zh": "这个问题很容易。",
+    "example_tr": "Bu soru çok kolay.",
+    "example_en": "This question is very easy.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "难",
+    "pinyin": "nán",
+    "turkish": "Zor",
+    "english": "Difficult",
+    "example_zh": "这个问题很难。",
+    "example_tr": "Bu soru çok zor.",
+    "example_en": "This question is very difficult.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "好",
+    "pinyin": "hǎo",
+    "turkish": "İyi",
+    "english": "Good",
+    "example_zh": "这个很好。",
+    "example_tr": "Bu çok iyi.",
+    "example_en": "This is very good.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "坏",
+    "pinyin": "huài",
+    "turkish": "Kötü",
+    "english": "Bad",
+    "example_zh": "这个很坏。",
+    "example_tr": "Bu çok kötü.",
+    "example_en": "This is very bad.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "对",
+    "pinyin": "duì",
+    "turkish": "Doğru",
+    "english": "Correct",
+    "example_zh": "你说得对。",
+    "example_tr": "Haklısın.",
+    "example_en": "You are right.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "错",
+    "pinyin": "cuò",
+    "turkish": "Yanlış",
+    "english": "Wrong",
+    "example_zh": "你说错了。",
+    "example_tr": "Yanılıyorsun.",
+    "example_en": "You are wrong.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "真",
+    "pinyin": "zhēn",
+    "turkish": "Gerçek",
+    "english": "Real",
+    "example_zh": "这是真的。",
+    "example_tr": "Bu gerçek.",
+    "example_en": "This is real.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "假",
+    "pinyin": "jiǎ",
+    "turkish": "Sahte",
+    "english": "Fake",
+    "example_zh": "这是假的。",
+    "example_tr": "Bu sahte.",
+    "example_en": "This is fake.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "重要",
+    "pinyin": "zhòng yào",
+    "turkish": "Önemli",
+    "english": "Important",
+    "example_zh": "这很重要。",
+    "example_tr": "Bu çok önemli.",
+    "example_en": "This is very important.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "有趣",
+    "pinyin": "yǒu qù",
+    "turkish": "İlginç",
+    "english": "Interesting",
+    "example_zh": "这个故事很有趣。",
+    "example_tr": "Bu hikaye çok ilginç.",
+    "example_en": "This story is very interesting.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "可爱",
+    "pinyin": "kě ài",
+    "turkish": "Sevimli",
+    "english": "Cute",
+    "example_zh": "这只猫很可爱。",
+    "example_tr": "Bu kedi çok sevimli.",
+    "example_en": "This cat is very cute.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "可怕",
+    "pinyin": "kě pà",
+    "turkish": "Korkutucu",
+    "english": "Scary",
+    "example_zh": "这个故事很可怕。",
+    "example_tr": "Bu hikaye çok korkutucu.",
+    "example_en": "This story is very scary.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "聪明",
+    "pinyin": "cōng míng",
+    "turkish": "Zeki",
+    "english": "Smart",
+    "example_zh": "他很聪明。",
+    "example_tr": "Çok zeki.",
+    "example_en": "He is very smart.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "笨",
+    "pinyin": "bèn",
+    "turkish": "Aptal",
+    "english": "Stupid",
+    "example_zh": "他很笨。",
+    "example_tr": "Çok aptal.",
+    "example_en": "He is very stupid.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "勇敢",
+    "pinyin": "yǒng gǎn",
+    "turkish": "Cesur",
+    "english": "Brave",
+    "example_zh": "他很勇敢。",
+    "example_tr": "Çok cesur.",
+    "example_en": "He is very brave.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "胆小",
+    "pinyin": "dǎn xiǎo",
+    "turkish": "Korkak",
+    "english": "Cowardly",
+    "example_zh": "他很胆小。",
+    "example_tr": "Çok korkak.",
+    "example_en": "He is very cowardly.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "友好",
+    "pinyin": "yǒu hǎo",
+    "turkish": "Dostane",
+    "english": "Friendly",
+    "example_zh": "他很友好。",
+    "example_tr": "Çok dostane.",
+    "example_en": "He is very friendly.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "粗鲁",
+    "pinyin": "cū lǔ",
+    "turkish": "Kaba",
+    "english": "Rude",
+    "example_zh": "他很粗鲁。",
+    "example_tr": "Çok kaba.",
+    "example_en": "He is very rude.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "诚实",
+    "pinyin": "chéng shí",
+    "turkish": "Dürüst",
+    "english": "Honest",
+    "example_zh": "他很诚实。",
+    "example_tr": "Çok dürüst.",
+    "example_en": "He is very honest.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "虚伪",
+    "pinyin": "xū wěi",
+    "turkish": "İkiyüzlü",
+    "english": "Hypocritical",
+    "example_zh": "他很虚伪。",
+    "example_tr": "Çok ikiyüzlü.",
+    "example_en": "He is very hypocritical.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "善良",
+    "pinyin": "shàn liáng",
+    "turkish": "İyi kalpli",
+    "english": "Kind",
+    "example_zh": "他很善良。",
+    "example_tr": "Çok iyi kalpli.",
+    "example_en": "He is very kind.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "刻薄",
+    "pinyin": "kè bó",
+    "turkish": "Kaba / Acımasız",
+    "english": "Mean",
+    "example_zh": "他很刻薄。",
+    "example_tr": "Çok acımasız.",
+    "example_en": "He is very mean.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "慷慨",
+    "pinyin": "kāng kǎi",
+    "turkish": "Cömert",
+    "english": "Generous",
+    "example_zh": "他很慷慨。",
+    "example_tr": "Çok cömert.",
+    "example_en": "He is very generous.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "小气",
+    "pinyin": "xiǎo qì",
+    "turkish": "Cimri",
+    "english": "Stingy",
+    "example_zh": "他很小气。",
+    "example_tr": "Çok cimri.",
+    "example_en": "He is very stingy.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "耐心",
+    "pinyin": "nài xīn",
+    "turkish": "Sabırlı",
+    "english": "Patient",
+    "example_zh": "他很有耐心。",
+    "example_tr": "Çok sabırlı.",
+    "example_en": "He is very patient.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "急躁",
+    "pinyin": "jí zào",
+    "turkish": "Sabırsız",
+    "english": "Impatient",
+    "example_zh": "他很急躁。",
+    "example_tr": "Çok sabırsız.",
+    "example_en": "He is very impatient.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "勤奋",
+    "pinyin": "qín fèn",
+    "turkish": "Çalışkan",
+    "english": "Diligent",
+    "example_zh": "他很勤奋。",
+    "example_tr": "Çok çalışkan.",
+    "example_en": "He is very diligent.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "懒惰",
+    "pinyin": "lǎn duò",
+    "turkish": "Tembel",
+    "english": "Lazy",
+    "example_zh": "他很懒惰。",
+    "example_tr": "Çok tembel.",
+    "example_en": "He is very lazy.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "细心",
+    "pinyin": "xì xīn",
+    "turkish": "Dikkatli",
+    "english": "Careful",
+    "example_zh": "他很细心。",
+    "example_tr": "Çok dikkatli.",
+    "example_en": "He is very careful.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "粗心",
+    "pinyin": "cū xīn",
+    "turkish": "Dikkatsiz",
+    "english": "Careless",
+    "example_zh": "他很粗心。",
+    "example_tr": "Çok dikkatsiz.",
+    "example_en": "He is very careless.",
+    "category": "descriptive"
+  },
+  {
+    "hanzi": "中国",
+    "pinyin": "Zhōng guó",
+    "turkish": "Çin",
+    "english": "China",
+    "example_zh": "中国很大。",
+    "example_tr": "Çin çok büyük.",
+    "example_en": "China is very big.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "越南",
+    "pinyin": "Yuè nán",
+    "turkish": "Vietnam",
+    "english": "Vietnam",
+    "example_zh": "越南在东南亚。",
+    "example_tr": "Vietnam Güneydoğu Asya'da.",
+    "example_en": "Vietnam is in Southeast Asia.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "日本",
+    "pinyin": "Rì běn",
+    "turkish": "Japonya",
+    "english": "Japan",
+    "example_zh": "日本是岛国。",
+    "example_tr": "Japonya bir ada ülkesi.",
+    "example_en": "Japan is an island country.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "韩国",
+    "pinyin": "Hán guó",
+    "turkish": "Güney Kore",
+    "english": "South Korea",
+    "example_zh": "韩国流行文化很发达。",
+    "example_tr": "Güney Kore popüler kültürü çok gelişmiş.",
+    "example_en": "South Korean pop culture is very developed.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "朝鲜",
+    "pinyin": "Cháo xiǎn",
+    "turkish": "Kuzey Kore",
+    "english": "North Korea",
+    "example_zh": "朝鲜在朝鲜半岛。",
+    "example_tr": "Kuzey Kore Kore yarımadasında.",
+    "example_en": "North Korea is on the Korean Peninsula.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "泰国",
+    "pinyin": "Tài guó",
+    "turkish": "Tayland",
+    "english": "Thailand",
+    "example_zh": "泰国很热。",
+    "example_tr": "Tayland çok sıcak.",
+    "example_en": "Thailand is very hot.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "老挝",
+    "pinyin": "Lǎo wō",
+    "turkish": "Laos",
+    "english": "Laos",
+    "example_zh": "老挝是内陆国家。",
+    "example_tr": "Laos kara ülkesi.",
+    "example_en": "Laos is a landlocked country.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "柬埔寨",
+    "pinyin": "Jiǎn pǔ zhài",
+    "turkish": "Kamboçya",
+    "english": "Cambodia",
+    "example_zh": "柬埔寨有吴哥窟。",
+    "example_tr": "Kamboçya'da Angkor Wat var.",
+    "example_en": "Cambodia has Angkor Wat.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "缅甸",
+    "pinyin": "Miǎn diàn",
+    "turkish": "Myanmar",
+    "english": "Myanmar",
+    "example_zh": "缅甸有很多寺庙。",
+    "example_tr": "Myanmar'da çok fazla tapınak var.",
+    "example_en": "Myanmar has many temples.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "印度",
+    "pinyin": "Yìn dù",
+    "turkish": "Hindistan",
+    "english": "India",
+    "example_zh": "印度人口很多。",
+    "example_tr": "Hindistan'ın nüfusu çok fazla.",
+    "example_en": "India has a large population.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "马来西亚",
+    "pinyin": "Mǎ lái xī yà",
+    "turkish": "Malezya",
+    "english": "Malaysia",
+    "example_zh": "马来西亚很美丽。",
+    "example_tr": "Malezya çok güzel.",
+    "example_en": "Malaysia is very beautiful.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "新加坡",
+    "pinyin": "Xīn jiā pō",
+    "turkish": "Singapur",
+    "english": "Singapore",
+    "example_zh": "新加坡很干净。",
+    "example_tr": "Singapur çok temiz.",
+    "example_en": "Singapore is very clean.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "印度尼西亚",
+    "pinyin": "Yìn dù ní xī yà",
+    "turkish": "Endonezya",
+    "english": "Indonesia",
+    "example_zh": "印度尼西亚有很多岛。",
+    "example_tr": "Endonezya'da çok fazla ada var.",
+    "example_en": "Indonesia has many islands.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "菲律宾",
+    "pinyin": "Fēi lǜ bīn",
+    "turkish": "Filipinler",
+    "english": "Philippines",
+    "example_zh": "菲律宾有很多海滩。",
+    "example_tr": "Filipinler'de çok fazla plaj var.",
+    "example_en": "The Philippines has many beaches.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "澳大利亚",
+    "pinyin": "Ào dà lì yà",
+    "turkish": "Avustralya",
+    "english": "Australia",
+    "example_zh": "澳大利亚有很多动物。",
+    "example_tr": "Avustralya'da çok fazla hayvan var.",
+    "example_en": "Australia has many animals.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "新西兰",
+    "pinyin": "Xīn xī lán",
+    "turkish": "Yeni Zelanda",
+    "english": "New Zealand",
+    "example_zh": "新西兰风景很美。",
+    "example_tr": "Yeni Zelanda manzarası çok güzel.",
+    "example_en": "New Zealand has beautiful scenery.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "美国",
+    "pinyin": "Měi guó",
+    "turkish": "Amerika Birleşik Devletleri",
+    "english": "United States",
+    "example_zh": "美国很大。",
+    "example_tr": "Amerika çok büyük.",
+    "example_en": "The United States is very big.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "加拿大",
+    "pinyin": "Jiā ná dà",
+    "turkish": "Kanada",
+    "english": "Canada",
+    "example_zh": "加拿大很冷。",
+    "example_tr": "Kanada çok soğuk.",
+    "example_en": "Canada is very cold.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "墨西哥",
+    "pinyin": "Mò xī gē",
+    "turkish": "Meksika",
+    "english": "Mexico",
+    "example_zh": "墨西哥菜很辣。",
+    "example_tr": "Meksika yemekleri çok baharatlı.",
+    "example_en": "Mexican food is very spicy.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "巴西",
+    "pinyin": "Bā xī",
+    "turkish": "Brezilya",
+    "english": "Brazil",
+    "example_zh": "巴西足球很强。",
+    "example_tr": "Brezilya futbolu çok güçlü.",
+    "example_en": "Brazilian soccer is very strong.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "阿根廷",
+    "pinyin": "Ā gēn tíng",
+    "turkish": "Arjantin",
+    "english": "Argentina",
+    "example_zh": "阿根廷有梅西。",
+    "example_tr": "Arjantin'de Messi var.",
+    "example_en": "Argentina has Messi.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "智利",
+    "pinyin": "Zhì lì",
+    "turkish": "Şili",
+    "english": "Chile",
+    "example_zh": "智利很狭长。",
+    "example_tr": "Şili çok uzun ve dar.",
+    "example_en": "Chile is very long and narrow.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "秘鲁",
+    "pinyin": "Bì lǔ",
+    "turkish": "Peru",
+    "english": "Peru",
+    "example_zh": "秘鲁有马丘比丘。",
+    "example_tr": "Peru'da Machu Picchu var.",
+    "example_en": "Peru has Machu Picchu.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "哥伦比亚",
+    "pinyin": "Gē lún bǐ yà",
+    "turkish": "Kolombiya",
+    "english": "Colombia",
+    "example_zh": "哥伦比亚咖啡很有名。",
+    "example_tr": "Kolombiya kahvesi çok ünlü.",
+    "example_en": "Colombian coffee is very famous.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "英国",
+    "pinyin": "Yīng guó",
+    "turkish": "Birleşik Krallık",
+    "english": "United Kingdom",
+    "example_zh": "英国有伦敦。",
+    "example_tr": "İngiltere'de Londra var.",
+    "example_en": "The UK has London.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "法国",
+    "pinyin": "Fǎ guó",
+    "turkish": "Fransa",
+    "english": "France",
+    "example_zh": "法国很浪漫。",
+    "example_tr": "Fransa çok romantik.",
+    "example_en": "France is very romantic.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "德国",
+    "pinyin": "Dé guó",
+    "turkish": "Almanya",
+    "english": "Germany",
+    "example_zh": "德国汽车很有名。",
+    "example_tr": "Almanya arabaları çok ünlü.",
+    "example_en": "German cars are very famous.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "意大利",
+    "pinyin": "Yì dà lì",
+    "turkish": "İtalya",
+    "english": "Italy",
+    "example_zh": "意大利菜很好吃。",
+    "example_tr": "İtalyan yemekleri çok lezzetli.",
+    "example_en": "Italian food is very delicious.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "西班牙",
+    "pinyin": "Xī bān yá",
+    "turkish": "İspanya",
+    "english": "Spain",
+    "example_zh": "西班牙有斗牛。",
+    "example_tr": "İspanya'da boğa güreşi var.",
+    "example_en": "Spain has bullfighting.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "葡萄牙",
+    "pinyin": "Pú táo yá",
+    "turkish": "Portekiz",
+    "english": "Portugal",
+    "example_zh": "葡萄牙有C罗。",
+    "example_tr": "Portekiz'de Ronaldo var.",
+    "example_en": "Portugal has Ronaldo.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "荷兰",
+    "pinyin": "Hé lán",
+    "turkish": "Hollanda",
+    "english": "Netherlands",
+    "example_zh": "荷兰有很多风车。",
+    "example_tr": "Hollanda'da çok fazla yel değirmeni var.",
+    "example_en": "The Netherlands has many windmills.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "比利时",
+    "pinyin": "Bǐ lì shí",
+    "turkish": "Belçika",
+    "english": "Belgium",
+    "example_zh": "比利时巧克力很有名。",
+    "example_tr": "Belçika çikolatası çok ünlü.",
+    "example_en": "Belgian chocolate is very famous.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "瑞士",
+    "pinyin": "Ruì shì",
+    "turkish": "İsviçre",
+    "english": "Switzerland",
+    "example_zh": "瑞士手表很有名。",
+    "example_tr": "İsviçre saatleri çok ünlü.",
+    "example_en": "Swiss watches are very famous.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "奥地利",
+    "pinyin": "Ào dì lì",
+    "turkish": "Avusturya",
+    "english": "Austria",
+    "example_zh": "奥地利音乐很发达。",
+    "example_tr": "Avusturya müziği çok gelişmiş.",
+    "example_en": "Austrian music is very developed.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "瑞典",
+    "pinyin": "Ruì diǎn",
+    "turkish": "İsveç",
+    "english": "Sweden",
+    "example_zh": "瑞典家具很有名。",
+    "example_tr": "İsveç mobilyaları çok ünlü.",
+    "example_en": "Swedish furniture is very famous.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "挪威",
+    "pinyin": "Nuó wēi",
+    "turkish": "Norveç",
+    "english": "Norway",
+    "example_zh": "挪威有峡湾。",
+    "example_tr": "Norveç'te fiyortlar var.",
+    "example_en": "Norway has fjords.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "丹麦",
+    "pinyin": "Dān mài",
+    "turkish": "Danimarka",
+    "english": "Denmark",
+    "example_zh": "丹麦有安徒生。",
+    "example_tr": "Danimarka'da Andersen var.",
+    "example_en": "Denmark has Andersen.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "芬兰",
+    "pinyin": "Fēn lán",
+    "turkish": "Finlandiya",
+    "english": "Finland",
+    "example_zh": "芬兰有圣诞老人。",
+    "example_tr": "Finlandiya'da Noel Baba var.",
+    "example_en": "Finland has Santa Claus.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "波兰",
+    "pinyin": "Bō lán",
+    "turkish": "Polonya",
+    "english": "Poland",
+    "example_zh": "波兰历史很悠久。",
+    "example_tr": "Polonya tarihi çok eski.",
+    "example_en": "Poland has a long history.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "捷克",
+    "pinyin": "Jié kè",
+    "turkish": "Çek Cumhuriyeti",
+    "english": "Czech Republic",
+    "example_zh": "捷克有布拉格。",
+    "example_tr": "Çek Cumhuriyeti'nde Prag var.",
+    "example_en": "The Czech Republic has Prague.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "匈牙利",
+    "pinyin": "Xiōng yá lì",
+    "turkish": "Macaristan",
+    "english": "Hungary",
+    "example_zh": "匈牙利有布达佩斯。",
+    "example_tr": "Macaristan'da Budapeşte var.",
+    "example_en": "Hungary has Budapest.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "俄罗斯",
+    "pinyin": "É luó sī",
+    "turkish": "Rusya",
+    "english": "Russia",
+    "example_zh": "俄罗斯很大。",
+    "example_tr": "Rusya çok büyük.",
+    "example_en": "Russia is very big.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "乌克兰",
+    "pinyin": "Wū kè lán",
+    "turkish": "Ukrayna",
+    "english": "Ukraine",
+    "example_zh": "乌克兰有基辅。",
+    "example_tr": "Ukrayna'da Kiev var.",
+    "example_en": "Ukraine has Kyiv.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "土耳其",
+    "pinyin": "Tǔ ěr qí",
+    "turkish": "Türkiye",
+    "english": "Turkey",
+    "example_zh": "土耳其横跨欧亚。",
+    "example_tr": "Türkiye Avrupa ve Asya'yı birleştirir.",
+    "example_en": "Turkey spans Europe and Asia.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "埃及",
+    "pinyin": "Āi jí",
+    "turkish": "Mısır",
+    "english": "Egypt",
+    "example_zh": "埃及有金字塔。",
+    "example_tr": "Mısır'da piramitler var.",
+    "example_en": "Egypt has pyramids.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "南非",
+    "pinyin": "Nán fēi",
+    "turkish": "Güney Afrika",
+    "english": "South Africa",
+    "example_zh": "南非有钻石。",
+    "example_tr": "Güney Afrika'da elmaslar var.",
+    "example_en": "South Africa has diamonds.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "摩洛哥",
+    "pinyin": "Mó luò gē",
+    "turkish": "Fas",
+    "english": "Morocco",
+    "example_zh": "摩洛哥有撒哈拉。",
+    "example_tr": "Fas'ta Sahara var.",
+    "example_en": "Morocco has the Sahara.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "阿尔及利亚",
+    "pinyin": "Ā ěr jí lì yà",
+    "turkish": "Cezayir",
+    "english": "Algeria",
+    "example_zh": "阿尔及利亚是非洲最大的国家。",
+    "example_tr": "Cezayir Afrika'nın en büyük ülkesi.",
+    "example_en": "Algeria is Africa's largest country.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "尼日利亚",
+    "pinyin": "Ní rì lì yà",
+    "turkish": "Nijerya",
+    "english": "Nigeria",
+    "example_zh": "尼日利亚人口很多。",
+    "example_tr": "Nijerya'nın nüfusu çok fazla.",
+    "example_en": "Nigeria has a large population.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "希腊",
+    "pinyin": "Xī là",
+    "turkish": "Yunanistan",
+    "english": "Greece",
+    "example_zh": "希腊是文明古国。",
+    "example_tr": "Yunanistan eski medeniyet ülkesi.",
+    "example_en": "Greece is an ancient civilization.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "以色列",
+    "pinyin": "Yǐ sè liè",
+    "turkish": "İsrail",
+    "english": "Israel",
+    "example_zh": "以色列历史很悠久。",
+    "example_tr": "İsrail tarihi çok eski.",
+    "example_en": "Israel has a long history.",
+    "category": "countries"
+  },
+  {
+    "hanzi": "狗",
+    "pinyin": "gǒu",
+    "turkish": "Köpek",
+    "english": "Dog",
+    "example_zh": "狗是人类的朋友。",
+    "example_tr": "Köpek insanın en iyi arkadaşıdır.",
+    "example_en": "Dogs are man's best friend.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "猫",
+    "pinyin": "māo",
+    "turkish": "Kedi",
+    "english": "Cat",
+    "example_zh": "猫很可爱。",
+    "example_tr": "Kediler çok sevimli.",
+    "example_en": "Cats are very cute.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "鸟",
+    "pinyin": "niǎo",
+    "turkish": "Kuş",
+    "english": "Bird",
+    "example_zh": "鸟在天上飞。",
+    "example_tr": "Kuşlar gökyüzünde uçuyor.",
+    "example_en": "Birds are flying in the sky.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "马",
+    "pinyin": "mǎ",
+    "turkish": "At",
+    "english": "Horse",
+    "example_zh": "马跑得很快。",
+    "example_tr": "Atlar çok hızlı koşuyor.",
+    "example_en": "Horses run very fast.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "牛",
+    "pinyin": "niú",
+    "turkish": "İnek",
+    "english": "Cow",
+    "example_zh": "牛在田里吃草。",
+    "example_tr": "İnekler tarlada ot yiyor.",
+    "example_en": "Cows are eating grass in the field.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "羊",
+    "pinyin": "yáng",
+    "turkish": "Koyun",
+    "english": "Sheep",
+    "example_zh": "羊毛很温暖。",
+    "example_tr": "Koyun yünü çok sıcak.",
+    "example_en": "Sheep wool is very warm.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "鸡",
+    "pinyin": "jī",
+    "turkish": "Tavuk",
+    "english": "Chicken",
+    "example_zh": "鸡会下蛋。",
+    "example_tr": "Tavuklar yumurtlar.",
+    "example_en": "Chickens lay eggs.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "猪",
+    "pinyin": "zhū",
+    "turkish": "Domuz",
+    "english": "Pig",
+    "example_zh": "猪肉很好吃。",
+    "example_tr": "Domuz eti çok lezzetli.",
+    "example_en": "Pork is very delicious.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "老虎",
+    "pinyin": "lǎo hǔ",
+    "turkish": "Kaplan",
+    "english": "Tiger",
+    "example_zh": "老虎是森林之王。",
+    "example_tr": "Kaplan ormanın kralıdır.",
+    "example_en": "The tiger is the king of the forest.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "狮子",
+    "pinyin": "shī zi",
+    "turkish": "Aslan",
+    "english": "Lion",
+    "example_zh": "狮子很凶猛。",
+    "example_tr": "Aslanlar çok vahşi.",
+    "example_en": "Lions are very fierce.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "大象",
+    "pinyin": "dà xiàng",
+    "turkish": "Fil",
+    "english": "Elephant",
+    "example_zh": "大象很大。",
+    "example_tr": "Filler çok büyük.",
+    "example_en": "Elephants are very big.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "熊",
+    "pinyin": "xióng",
+    "turkish": "Ayı",
+    "english": "Bear",
+    "example_zh": "熊很强壮。",
+    "example_tr": "Ayılar çok güçlü.",
+    "example_en": "Bears are very strong.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "狼",
+    "pinyin": "láng",
+    "turkish": "Kurt",
+    "english": "Wolf",
+    "example_zh": "狼是群居动物。",
+    "example_tr": "Kurtlar sürü halinde yaşar.",
+    "example_en": "Wolves live in packs.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "蛇",
+    "pinyin": "shé",
+    "turkish": "Yılan",
+    "english": "Snake",
+    "example_zh": "蛇没有腿。",
+    "example_tr": "Yılanların bacağı yok.",
+    "example_en": "Snakes have no legs.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "兔子",
+    "pinyin": "tù zi",
+    "turkish": "Tavşan",
+    "english": "Rabbit",
+    "example_zh": "兔子很可爱。",
+    "example_tr": "Tavşanlar çok sevimli.",
+    "example_en": "Rabbits are very cute.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "青蛙",
+    "pinyin": "qīng wā",
+    "turkish": "Kurbağa",
+    "english": "Frog",
+    "example_zh": "青蛙会跳。",
+    "example_tr": "Kurbağalar zıplayabilir.",
+    "example_en": "Frogs can jump.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "乌龟",
+    "pinyin": "wū guī",
+    "turkish": "Kaplumbağa",
+    "english": "Tortoise",
+    "example_zh": "乌龟活得很长。",
+    "example_tr": "Kaplumbağalar çok uzun yaşar.",
+    "example_en": "Tortoises live very long.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "鸭子",
+    "pinyin": "yā zi",
+    "turkish": "Ördek",
+    "english": "Duck",
+    "example_zh": "鸭子会游泳。",
+    "example_tr": "Ördekler yüzebilir.",
+    "example_en": "Ducks can swim.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "鹅",
+    "pinyin": "é",
+    "turkish": "Kaz",
+    "english": "Goose",
+    "example_zh": "鹅会飞。",
+    "example_tr": "Kazlar uçabilir.",
+    "example_en": "Geese can fly.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "猴子",
+    "pinyin": "hóu zi",
+    "turkish": "Maymun",
+    "english": "Monkey",
+    "example_zh": "猴子很聪明。",
+    "example_tr": "Maymunlar çok zeki.",
+    "example_en": "Monkeys are very smart.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "松鼠",
+    "pinyin": "sōng shǔ",
+    "turkish": "Sincap",
+    "english": "Squirrel",
+    "example_zh": "松鼠喜欢吃坚果。",
+    "example_tr": "Sincaplar fındık yemeyi sever.",
+    "example_en": "Squirrels like eating nuts.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "蟒蛇",
+    "pinyin": "mǎng shé",
+    "turkish": "Piton",
+    "english": "Python",
+    "example_zh": "蟒蛇很长。",
+    "example_tr": "Pitonlar çok uzun.",
+    "example_en": "Pythons are very long.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "猫头鹰",
+    "pinyin": "māo tóu yīng",
+    "turkish": "Baykuş",
+    "english": "Owl",
+    "example_zh": "猫头鹰晚上活动。",
+    "example_tr": "Baykuşlar gece aktif.",
+    "example_en": "Owls are active at night.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "海豚",
+    "pinyin": "hǎi tún",
+    "turkish": "Yunus",
+    "english": "Dolphin",
+    "example_zh": "海豚很聪明。",
+    "example_tr": "Yunuslar çok zeki.",
+    "example_en": "Dolphins are very smart.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "鲸鱼",
+    "pinyin": "jīng yú",
+    "turkish": "Balina",
+    "english": "Whale",
+    "example_zh": "鲸鱼是哺乳动物。",
+    "example_tr": "Balinalar memelidir.",
+    "example_en": "Whales are mammals.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "鲨鱼",
+    "pinyin": "shā yú",
+    "turkish": "Köpek balığı",
+    "english": "Shark",
+    "example_zh": "鲨鱼很凶猛。",
+    "example_tr": "Köpek balıkları çok vahşi.",
+    "example_en": "Sharks are very fierce.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "章鱼",
+    "pinyin": "zhāng yú",
+    "turkish": "Ahtapot",
+    "english": "Octopus",
+    "example_zh": "章鱼有八条腿。",
+    "example_tr": "Ahtapotların sekiz bacağı var.",
+    "example_en": "Octopuses have eight legs.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "螃蟹",
+    "pinyin": "páng xiè",
+    "turkish": "Yengeç",
+    "english": "Crab",
+    "example_zh": "螃蟹横着走。",
+    "example_tr": "Yengeçler yan yürür.",
+    "example_en": "Crabs walk sideways.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "龙虾",
+    "pinyin": "lóng xiā",
+    "turkish": "Istakoz",
+    "english": "Lobster",
+    "example_zh": "龙虾很昂贵。",
+    "example_tr": "Istakozlar çok pahalı.",
+    "example_en": "Lobsters are very expensive.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "蜜蜂",
+    "pinyin": "mì fēng",
+    "turkish": "Arı",
+    "english": "Bee",
+    "example_zh": "蜜蜂会采蜜。",
+    "example_tr": "Arılar bal toplar.",
+    "example_en": "Bees collect honey.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "蝴蝶",
+    "pinyin": "hú dié",
+    "turkish": "Kelebek",
+    "english": "Butterfly",
+    "example_zh": "蝴蝶很漂亮。",
+    "example_tr": "Kelebekler çok güzel.",
+    "example_en": "Butterflies are very beautiful.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "蚂蚁",
+    "pinyin": "mǎ yǐ",
+    "turkish": "Karınca",
+    "english": "Ant",
+    "example_zh": "蚂蚁很小。",
+    "example_tr": "Karıncalar çok küçük.",
+    "example_en": "Ants are very small.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "蚊子",
+    "pinyin": "wén zi",
+    "turkish": "Sivrisinek",
+    "english": "Mosquito",
+    "example_zh": "蚊子会咬人。",
+    "example_tr": "Sivrisinekler ısırır.",
+    "example_en": "Mosquitoes bite.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "苍蝇",
+    "pinyin": "cāng ying",
+    "turkish": "Sinek",
+    "english": "Fly",
+    "example_zh": "苍蝇很烦人。",
+    "example_tr": "Sinekler çok rahatsız edici.",
+    "example_en": "Flies are very annoying.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "蟑螂",
+    "pinyin": "zhāng láng",
+    "turkish": "Hamamböceği",
+    "english": "Cockroach",
+    "example_zh": "蟑螂很恶心。",
+    "example_tr": "Hamamböcekleri çok iğrenç.",
+    "example_en": "Cockroaches are disgusting.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "熊猫",
+    "pinyin": "xióng māo",
+    "turkish": "Panda",
+    "english": "Panda",
+    "example_zh": "熊猫是中国的国宝。",
+    "example_tr": "Pandalar Çin'in ulusal hazinesidir.",
+    "example_en": "Pandas are China's national treasure.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "袋鼠",
+    "pinyin": "dài shǔ",
+    "turkish": "Kanguru",
+    "english": "Kangaroo",
+    "example_zh": "袋鼠有口袋。",
+    "example_tr": "Kanguruların kesesi var.",
+    "example_en": "Kangaroos have pouches.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "考拉",
+    "pinyin": "kǎo lā",
+    "turkish": "Koala",
+    "english": "Koala",
+    "example_zh": "考拉很可爱。",
+    "example_tr": "Koalalar çok sevimli.",
+    "example_en": "Koalas are very cute.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "长颈鹿",
+    "pinyin": "cháng jǐng lù",
+    "turkish": "Zürafa",
+    "english": "Giraffe",
+    "example_zh": "长颈鹿脖子很长。",
+    "example_tr": "Zürafaların boynu çok uzun.",
+    "example_en": "Giraffes have very long necks.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "斑马",
+    "pinyin": "bān mǎ",
+    "turkish": "Zebra",
+    "english": "Zebra",
+    "example_zh": "斑马有条纹。",
+    "example_tr": "Zebraların çizgileri var.",
+    "example_en": "Zebras have stripes.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "河马",
+    "pinyin": "hé mǎ",
+    "turkish": "Su aygırı",
+    "english": "Hippo",
+    "example_zh": "河马很大。",
+    "example_tr": "Su aygırları çok büyük.",
+    "example_en": "Hippos are very big.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "犀牛",
+    "pinyin": "xī niú",
+    "turkish": "Gergedan",
+    "english": "Rhino",
+    "example_zh": "犀牛有角。",
+    "example_tr": "Gergedanların boynuzu var.",
+    "example_en": "Rhinos have horns.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "骆驼",
+    "pinyin": "luò tuo",
+    "turkish": "Deve",
+    "english": "Camel",
+    "example_zh": "骆驼可以存水。",
+    "example_tr": "Develer su depolayabilir.",
+    "example_en": "Camels can store water.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "企鹅",
+    "pinyin": "qǐ é",
+    "turkish": "Penguen",
+    "english": "Penguin",
+    "example_zh": "企鹅不会飞。",
+    "example_tr": "Penguenler uçamaz.",
+    "example_en": "Penguins cannot fly.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "海豹",
+    "pinyin": "hǎi bào",
+    "turkish": "Fok",
+    "english": "Seal",
+    "example_zh": "海豹很可爱。",
+    "example_tr": "Foklar çok sevimli.",
+    "example_en": "Seals are very cute.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "海狮",
+    "pinyin": "hǎi shī",
+    "turkish": "Deniz aslanı",
+    "english": "Sea lion",
+    "example_zh": "海狮会表演。",
+    "example_tr": "Deniz aslanları gösteri yapabilir.",
+    "example_en": "Sea lions can perform.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "北极熊",
+    "pinyin": "běi jí xióng",
+    "turkish": "Kutup ayısı",
+    "english": "Polar bear",
+    "example_zh": "北极熊生活在北极。",
+    "example_tr": "Kutup ayıları kutup bölgesinde yaşar.",
+    "example_en": "Polar bears live in the Arctic.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "狐狸",
+    "pinyin": "hú li",
+    "turkish": "Tilki",
+    "english": "Fox",
+    "example_zh": "狐狸很狡猾。",
+    "example_tr": "Tilkiler çok kurnaz.",
+    "example_en": "Foxes are very cunning.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "鹿",
+    "pinyin": "lù",
+    "turkish": "Geyik",
+    "english": "Deer",
+    "example_zh": "鹿很优雅。",
+    "example_tr": "Geyikler çok zarif.",
+    "example_en": "Deer are very elegant.",
+    "category": "animals"
+  },
+  {
+    "hanzi": "天气",
+    "pinyin": "tiān qì",
+    "turkish": "Hava durumu",
+    "english": "Weather",
+    "example_zh": "今天天气很好。",
+    "example_tr": "Bugün hava çok güzel.",
+    "example_en": "The weather is very nice today.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "晴天",
+    "pinyin": "qíng tiān",
+    "turkish": "Güneşli gün",
+    "english": "Sunny day",
+    "example_zh": "今天是晴天。",
+    "example_tr": "Bugün güneşli.",
+    "example_en": "Today is sunny.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "阴天",
+    "pinyin": "yīn tiān",
+    "turkish": "Bulutlu gün",
+    "english": "Cloudy day",
+    "example_zh": "今天是阴天。",
+    "example_tr": "Bugün bulutlu.",
+    "example_en": "Today is cloudy.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "多云",
+    "pinyin": "duō yún",
+    "turkish": "Çok bulutlu",
+    "english": "Overcast",
+    "example_zh": "今天多云。",
+    "example_tr": "Bugün çok bulutlu.",
+    "example_en": "Today is overcast.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "雨",
+    "pinyin": "yǔ",
+    "turkish": "Yağmur",
+    "english": "Rain",
+    "example_zh": "下雨了。",
+    "example_tr": "Yağmur yağıyor.",
+    "example_en": "It is raining.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "空气",
+    "pinyin": "kōng qì",
+    "turkish": "Hava",
+    "english": "Air",
+    "example_zh": "空气很清新。",
+    "example_tr": "Hava çok temiz.",
+    "example_en": "The air is very fresh.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "干旱",
+    "pinyin": "gān hàn",
+    "turkish": "Kuraklık",
+    "english": "Drought",
+    "example_zh": "这里很干旱。",
+    "example_tr": "Burada kuraklık var.",
+    "example_en": "There is a drought here.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "雷雨",
+    "pinyin": "léi yǔ",
+    "turkish": "Gök gürültülü fırtına",
+    "english": "Thunderstorm",
+    "example_zh": "今天有雷雨。",
+    "example_tr": "Bugün gök gürültülü fırtına var.",
+    "example_en": "There is a thunderstorm today.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "台风",
+    "pinyin": "tái fēng",
+    "turkish": "Tayfun",
+    "english": "Typhoon",
+    "example_zh": "台风要来了。",
+    "example_tr": "Tayfun geliyor.",
+    "example_en": "A typhoon is coming.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "风",
+    "pinyin": "fēng",
+    "turkish": "Rüzgar",
+    "english": "Wind",
+    "example_zh": "风很大。",
+    "example_tr": "Rüzgar çok güçlü.",
+    "example_en": "The wind is very strong.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "微风",
+    "pinyin": "wēi fēng",
+    "turkish": "Hafif rüzgar",
+    "english": "Breeze",
+    "example_zh": "微风很舒服。",
+    "example_tr": "Hafif rüzgar çok rahat.",
+    "example_en": "The breeze is very comfortable.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "强风",
+    "pinyin": "qiáng fēng",
+    "turkish": "Şiddetli rüzgar",
+    "english": "Strong wind",
+    "example_zh": "强风很危险。",
+    "example_tr": "Şiddetli rüzgar çok tehlikeli.",
+    "example_en": "Strong wind is very dangerous.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "雪",
+    "pinyin": "xuě",
+    "turkish": "Kar",
+    "english": "Snow",
+    "example_zh": "下雪了。",
+    "example_tr": "Kar yağıyor.",
+    "example_en": "It is snowing.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "海洋",
+    "pinyin": "hǎi yáng",
+    "turkish": "Okyanus",
+    "english": "Ocean",
+    "example_zh": "海洋很广阔。",
+    "example_tr": "Okyanus çok geniş.",
+    "example_en": "The ocean is very vast.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "热带",
+    "pinyin": "rè dài",
+    "turkish": "Tropikal",
+    "english": "Tropics",
+    "example_zh": "热带很热。",
+    "example_tr": "Tropikal bölge çok sıcak.",
+    "example_en": "The tropics are very hot.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "暖和",
+    "pinyin": "nuǎn huo",
+    "turkish": "Ilık",
+    "english": "Warm",
+    "example_zh": "今天很暖和。",
+    "example_tr": "Bugün çok ılık.",
+    "example_en": "Today is very warm.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "寒冷",
+    "pinyin": "hán lěng",
+    "turkish": "Soğuk",
+    "english": "Cold",
+    "example_zh": "冬天很寒冷。",
+    "example_tr": "Kış çok soğuk.",
+    "example_en": "Winter is very cold.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "太阳",
+    "pinyin": "tài yáng",
+    "turkish": "Güneş",
+    "english": "Sun",
+    "example_zh": "太阳很亮。",
+    "example_tr": "Güneş çok parlak.",
+    "example_en": "The sun is very bright.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "月亮",
+    "pinyin": "yuè liàng",
+    "turkish": "Ay",
+    "english": "Moon",
+    "example_zh": "月亮很圆。",
+    "example_tr": "Ay çok yuvarlak.",
+    "example_en": "The moon is very round.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "天空",
+    "pinyin": "tiān kōng",
+    "turkish": "Gökyüzü",
+    "english": "Sky",
+    "example_zh": "天空很蓝。",
+    "example_tr": "Gökyüzü çok mavi.",
+    "example_en": "The sky is very blue.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "星",
+    "pinyin": "xīng",
+    "turkish": "Yıldız",
+    "english": "Star",
+    "example_zh": "星星在闪烁。",
+    "example_tr": "Yıldızlar parlıyor.",
+    "example_en": "The stars are twinkling.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "风暴",
+    "pinyin": "fēng bào",
+    "turkish": "Fırtına",
+    "english": "Storm",
+    "example_zh": "风暴要来了。",
+    "example_tr": "Fırtına geliyor.",
+    "example_en": "A storm is coming.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "闪电",
+    "pinyin": "shǎn diàn",
+    "turkish": "Şimşek",
+    "english": "Lightning",
+    "example_zh": "闪电很亮。",
+    "example_tr": "Şimşek çok parlak.",
+    "example_en": "Lightning is very bright.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "雷声",
+    "pinyin": "léi shēng",
+    "turkish": "Gök gürültüsü",
+    "english": "Thunder",
+    "example_zh": "雷声很大。",
+    "example_tr": "Gök gürültüsü çok yüksek.",
+    "example_en": "The thunder is very loud.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "彩虹",
+    "pinyin": "cǎi hóng",
+    "turkish": "Gökkuşağı",
+    "english": "Rainbow",
+    "example_zh": "彩虹很漂亮。",
+    "example_tr": "Gökkuşağı çok güzel.",
+    "example_en": "The rainbow is very beautiful.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "雾",
+    "pinyin": "wù",
+    "turkish": "Sis",
+    "english": "Fog",
+    "example_zh": "雾很大。",
+    "example_tr": "Sis çok yoğun.",
+    "example_en": "The fog is very thick.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "霜",
+    "pinyin": "shuāng",
+    "turkish": "Ayaz",
+    "english": "Frost",
+    "example_zh": "地上有霜。",
+    "example_tr": "Yerde ayaz var.",
+    "example_en": "There is frost on the ground.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "熔岩",
+    "pinyin": "róng yán",
+    "turkish": "Lav",
+    "english": "Lava",
+    "example_zh": "火山喷出熔岩。",
+    "example_tr": "Yanardağ lav püskürtüyor.",
+    "example_en": "The volcano is spewing lava.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "温度",
+    "pinyin": "wēn dù",
+    "turkish": "Sıcaklık",
+    "english": "Temperature",
+    "example_zh": "温度很高。",
+    "example_tr": "Sıcaklık çok yüksek.",
+    "example_en": "The temperature is very high.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "地震",
+    "pinyin": "dì zhèn",
+    "turkish": "Deprem",
+    "english": "Earthquake",
+    "example_zh": "地震很危险。",
+    "example_tr": "Deprem çok tehlikeli.",
+    "example_en": "Earthquakes are very dangerous.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "气候",
+    "pinyin": "qì hòu",
+    "turkish": "İklim",
+    "english": "Climate",
+    "example_zh": "气候在变化。",
+    "example_tr": "İklim değişiyor.",
+    "example_en": "The climate is changing.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "极光",
+    "pinyin": "jí guāng",
+    "turkish": "Kutup ışıkları",
+    "english": "Aurora",
+    "example_zh": "极光很漂亮。",
+    "example_tr": "Kutup ışıkları çok güzel.",
+    "example_en": "The aurora is very beautiful.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "洪水",
+    "pinyin": "hóng shuǐ",
+    "turkish": "Sel",
+    "english": "Flood",
+    "example_zh": "洪水很可怕。",
+    "example_tr": "Sel çok korkutucu.",
+    "example_en": "Floods are very scary.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "春天",
+    "pinyin": "chūn tiān",
+    "turkish": "İlkbahar",
+    "english": "Spring",
+    "example_zh": "春天花开。",
+    "example_tr": "İlkbaharda çiçekler açar.",
+    "example_en": "Flowers bloom in spring.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "夏天",
+    "pinyin": "xià tiān",
+    "turkish": "Yaz",
+    "english": "Summer",
+    "example_zh": "夏天很热。",
+    "example_tr": "Yaz çok sıcak.",
+    "example_en": "Summer is very hot.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "秋天",
+    "pinyin": "qiū tiān",
+    "turkish": "Sonbahar",
+    "english": "Autumn",
+    "example_zh": "秋天叶子变黄。",
+    "example_tr": "Sonbaharda yapraklar sararır.",
+    "example_en": "Leaves turn yellow in autumn.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "冬天",
+    "pinyin": "dōng tiān",
+    "turkish": "Kış",
+    "english": "Winter",
+    "example_zh": "冬天很冷。",
+    "example_tr": "Kış çok soğuk.",
+    "example_en": "Winter is very cold.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "山",
+    "pinyin": "shān",
+    "turkish": "Dağ",
+    "english": "Mountain",
+    "example_zh": "山很高。",
+    "example_tr": "Dağlar çok yüksek.",
+    "example_en": "Mountains are very high.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "河",
+    "pinyin": "hé",
+    "turkish": "Nehir",
+    "english": "River",
+    "example_zh": "河很长。",
+    "example_tr": "Nehirler çok uzun.",
+    "example_en": "Rivers are very long.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "湖",
+    "pinyin": "hú",
+    "turkish": "Göl",
+    "english": "Lake",
+    "example_zh": "湖很平静。",
+    "example_tr": "Göller çok sakin.",
+    "example_en": "Lakes are very calm.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "海",
+    "pinyin": "hǎi",
+    "turkish": "Deniz",
+    "english": "Sea",
+    "example_zh": "海很蓝。",
+    "example_tr": "Deniz çok mavi.",
+    "example_en": "The sea is very blue.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "森林",
+    "pinyin": "sēn lín",
+    "turkish": "Orman",
+    "english": "Forest",
+    "example_zh": "森林很茂密。",
+    "example_tr": "Ormanlar çok gür.",
+    "example_en": "Forests are very dense.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "沙漠",
+    "pinyin": "shā mò",
+    "turkish": "Çöl",
+    "english": "Desert",
+    "example_zh": "沙漠很干燥。",
+    "example_tr": "Çöller çok kuru.",
+    "example_en": "Deserts are very dry.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "草原",
+    "pinyin": "cǎo yuán",
+    "turkish": "Otlak",
+    "english": "Grassland",
+    "example_zh": "草原很广阔。",
+    "example_tr": "Otlaklar çok geniş.",
+    "example_en": "Grasslands are very vast.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "岛屿",
+    "pinyin": "dǎo yǔ",
+    "turkish": "Ada",
+    "english": "Island",
+    "example_zh": "岛屿很美丽。",
+    "example_tr": "Adalar çok güzel.",
+    "example_en": "Islands are very beautiful.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "沙滩",
+    "pinyin": "shā tān",
+    "turkish": "Plaj",
+    "english": "Beach",
+    "example_zh": "沙滩很软。",
+    "example_tr": "Plajlar çok yumuşak.",
+    "example_en": "Beaches are very soft.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "石头",
+    "pinyin": "shí tou",
+    "turkish": "Taş",
+    "english": "Stone",
+    "example_zh": "石头很硬。",
+    "example_tr": "Taşlar çok sert.",
+    "example_en": "Stones are very hard.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "沙子",
+    "pinyin": "shā zi",
+    "turkish": "Kum",
+    "english": "Sand",
+    "example_zh": "沙子很细。",
+    "example_tr": "Kum çok ince.",
+    "example_en": "Sand is very fine.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "泥土",
+    "pinyin": "ní tǔ",
+    "turkish": "Toprak",
+    "english": "Soil",
+    "example_zh": "泥土很肥沃。",
+    "example_tr": "Toprak çok verimli.",
+    "example_en": "Soil is very fertile.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "树",
+    "pinyin": "shù",
+    "turkish": "Ağaç",
+    "english": "Tree",
+    "example_zh": "树很高。",
+    "example_tr": "Ağaçlar çok yüksek.",
+    "example_en": "Trees are very tall.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "花",
+    "pinyin": "huā",
+    "turkish": "Çiçek",
+    "english": "Flower",
+    "example_zh": "花很香。",
+    "example_tr": "Çiçekler çok güzel kokuyor.",
+    "example_en": "Flowers smell very good.",
+    "category": "nature-weather"
+  },
+  {
+    "hanzi": "墙",
+    "pinyin": "qiáng",
+    "turkish": "Duvar",
+    "english": "Wall",
+    "example_zh": "墙是白色的。",
+    "example_tr": "Duvar beyaz.",
+    "example_en": "The wall is white.",
+    "category": "household"
+  },
+  {
+    "hanzi": "地毯",
+    "pinyin": "dì tǎn",
+    "turkish": "Halı",
+    "english": "Carpet",
+    "example_zh": "地毯很软。",
+    "example_tr": "Halı çok yumuşak.",
+    "example_en": "The carpet is very soft.",
+    "category": "household"
+  },
+  {
+    "hanzi": "家具",
+    "pinyin": "jiā jù",
+    "turkish": "Mobilya",
+    "english": "Furniture",
+    "example_zh": "家具很新。",
+    "example_tr": "Mobilyalar çok yeni.",
+    "example_en": "The furniture is very new.",
+    "category": "household"
+  },
+  {
+    "hanzi": "沙发",
+    "pinyin": "shā fā",
+    "turkish": "Kanepe",
+    "english": "Sofa",
+    "example_zh": "沙发很舒服。",
+    "example_tr": "Kanepe çok rahat.",
+    "example_en": "The sofa is very comfortable.",
+    "category": "household"
+  },
+  {
+    "hanzi": "椅子",
+    "pinyin": "yǐ zi",
+    "turkish": "Sandalye",
+    "english": "Chair",
+    "example_zh": "请坐椅子。",
+    "example_tr": "Lütfen sandalyeye oturun.",
+    "example_en": "Please sit on the chair.",
+    "category": "household"
+  },
+  {
+    "hanzi": "桌子",
+    "pinyin": "zhuō zi",
+    "turkish": "Masa",
+    "english": "Table",
+    "example_zh": "桌子很大。",
+    "example_tr": "Masa çok büyük.",
+    "example_en": "The table is very big.",
+    "category": "household"
+  },
+  {
+    "hanzi": "床",
+    "pinyin": "chuáng",
+    "turkish": "Yatak",
+    "english": "Bed",
+    "example_zh": "床很软。",
+    "example_tr": "Yatak çok yumuşak.",
+    "example_en": "The bed is very soft.",
+    "category": "household"
+  },
+  {
+    "hanzi": "衣柜",
+    "pinyin": "yī guì",
+    "turkish": "Gardırop",
+    "english": "Wardrobe",
+    "example_zh": "衣柜里有很多衣服。",
+    "example_tr": "Gardıropta çok fazla kıyafet var.",
+    "example_en": "There are many clothes in the wardrobe.",
+    "category": "household"
+  },
+  {
+    "hanzi": "餐桌",
+    "pinyin": "cān zhuō",
+    "turkish": "Yemek masası",
+    "english": "Dining table",
+    "example_zh": "餐桌在厨房里。",
+    "example_tr": "Yemek masası mutfakta.",
+    "example_en": "The dining table is in the kitchen.",
+    "category": "household"
+  },
+  {
+    "hanzi": "茶几",
+    "pinyin": "chá jī",
+    "turkish": "Sehpa",
+    "english": "Coffee table",
+    "example_zh": "茶几上有杂志。",
+    "example_tr": "Sehpada dergiler var.",
+    "example_en": "There are magazines on the coffee table.",
+    "category": "household"
+  },
+  {
+    "hanzi": "电视",
+    "pinyin": "diàn shì",
+    "turkish": "Televizyon",
+    "english": "TV",
+    "example_zh": "电视很大。",
+    "example_tr": "Televizyon çok büyük.",
+    "example_en": "The TV is very big.",
+    "category": "household"
+  },
+  {
+    "hanzi": "空调",
+    "pinyin": "kōng tiáo",
+    "turkish": "Klima",
+    "english": "Air conditioner",
+    "example_zh": "空调很凉快。",
+    "example_tr": "Klima çok serin.",
+    "example_en": "The air conditioner is very cool.",
+    "category": "household"
+  },
+  {
+    "hanzi": "风扇",
+    "pinyin": "fēng shàn",
+    "turkish": "Vantilatör",
+    "english": "Fan",
+    "example_zh": "风扇在转。",
+    "example_tr": "Vantilatör dönüyor.",
+    "example_en": "The fan is spinning.",
+    "category": "household"
+  },
+  {
+    "hanzi": "冰箱",
+    "pinyin": "bīng xiāng",
+    "turkish": "Buzdolabı",
+    "english": "Refrigerator",
+    "example_zh": "冰箱里有食物。",
+    "example_tr": "Buzdolabında yiyecek var.",
+    "example_en": "There is food in the refrigerator.",
+    "category": "household"
+  },
+  {
+    "hanzi": "微波炉",
+    "pinyin": "wēi bō lú",
+    "turkish": "Mikrodalga",
+    "english": "Microwave",
+    "example_zh": "用微波炉加热食物。",
+    "example_tr": "Mikrodalgada yiyecek ısıtın.",
+    "example_en": "Heat food in the microwave.",
+    "category": "household"
+  },
+  {
+    "hanzi": "洗衣机",
+    "pinyin": "xǐ yī jī",
+    "turkish": "Çamaşır makinesi",
+    "english": "Washing machine",
+    "example_zh": "洗衣机在洗衣服。",
+    "example_tr": "Çamaşır makinesi çamaşır yıkıyor.",
+    "example_en": "The washing machine is washing clothes.",
+    "category": "household"
+  },
+  {
+    "hanzi": "洗碗机",
+    "pinyin": "xǐ wǎn jī",
+    "turkish": "Bulaşık makinesi",
+    "english": "Dishwasher",
+    "example_zh": "洗碗机很方便。",
+    "example_tr": "Bulaşık makinesi çok pratik.",
+    "example_en": "The dishwasher is very convenient.",
+    "category": "household"
+  },
+  {
+    "hanzi": "烤箱",
+    "pinyin": "kǎo xiāng",
+    "turkish": "Fırın",
+    "english": "Oven",
+    "example_zh": "烤箱可以烤蛋糕。",
+    "example_tr": "Fırında kek pişirilebilir.",
+    "example_en": "Cakes can be baked in the oven.",
+    "category": "household"
+  },
+  {
+    "hanzi": "电炉",
+    "pinyin": "diàn lú",
+    "turkish": "Elektrikli ocak",
+    "english": "Electric stove",
+    "example_zh": "电炉很安全。",
+    "example_tr": "Elektrikli ocak çok güvenli.",
+    "example_en": "The electric stove is very safe.",
+    "category": "household"
+  },
+  {
+    "hanzi": "炉子",
+    "pinyin": "lú zi",
+    "turkish": "Gaz ocağı",
+    "english": "Gas stove",
+    "example_zh": "炉子在厨房里。",
+    "example_tr": "Gaz ocağı mutfakta.",
+    "example_en": "The gas stove is in the kitchen.",
+    "category": "household"
+  },
+  {
+    "hanzi": "水槽",
+    "pinyin": "shuǐ cáo",
+    "turkish": "Lavabo",
+    "english": "Sink",
+    "example_zh": "水槽里有水。",
+    "example_tr": "Lavaboda su var.",
+    "example_en": "There is water in the sink.",
+    "category": "household"
+  },
+  {
+    "hanzi": "热水器",
+    "pinyin": "rè shuǐ qì",
+    "turkish": "Su ısıtıcı",
+    "english": "Water heater",
+    "example_zh": "热水器很烫。",
+    "example_tr": "Su ısıtıcı çok sıcak.",
+    "example_en": "The water heater is very hot.",
+    "category": "household"
+  },
+  {
+    "hanzi": "浴缸",
+    "pinyin": "yù gāng",
+    "turkish": "Küvet",
+    "english": "Bathtub",
+    "example_zh": "浴缸很大。",
+    "example_tr": "Küvet çok büyük.",
+    "example_en": "The bathtub is very big.",
+    "category": "household"
+  },
+  {
+    "hanzi": "马桶",
+    "pinyin": "mǎ tǒng",
+    "turkish": "Klozet",
+    "english": "Toilet bowl",
+    "example_zh": "马桶很干净。",
+    "example_tr": "Klozet çok temiz.",
+    "example_en": "The toilet bowl is very clean.",
+    "category": "household"
+  },
+  {
+    "hanzi": "洗手池",
+    "pinyin": "xǐ shǒu chí",
+    "turkish": "Lavabo",
+    "english": "Washbasin",
+    "example_zh": "洗手池在浴室里。",
+    "example_tr": "Lavabo banyoda.",
+    "example_en": "The washbasin is in the bathroom.",
+    "category": "household"
+  },
+  {
+    "hanzi": "镜子",
+    "pinyin": "jìng zi",
+    "turkish": "Ayna",
+    "english": "Mirror",
+    "example_zh": "镜子很亮。",
+    "example_tr": "Ayna çok parlak.",
+    "example_en": "The mirror is very bright.",
+    "category": "household"
+  },
+  {
+    "hanzi": "毛巾",
+    "pinyin": "máo jīn",
+    "turkish": "Havlu",
+    "english": "Towel",
+    "example_zh": "毛巾很软。",
+    "example_tr": "Havlu çok yumuşak.",
+    "example_en": "The towel is very soft.",
+    "category": "household"
+  },
+  {
+    "hanzi": "牙刷",
+    "pinyin": "yá shuā",
+    "turkish": "Diş fırçası",
+    "english": "Toothbrush",
+    "example_zh": "牙刷要常换。",
+    "example_tr": "Diş fırçası sık sık değiştirilmeli.",
+    "example_en": "Toothbrushes should be changed frequently.",
+    "category": "household"
+  },
+  {
+    "hanzi": "牙膏",
+    "pinyin": "yá gāo",
+    "turkish": "Diş macunu",
+    "english": "Toothpaste",
+    "example_zh": "牙膏用完了。",
+    "example_tr": "Diş macunu bitti.",
+    "example_en": "The toothpaste is finished.",
+    "category": "household"
+  },
+  {
+    "hanzi": "香皂",
+    "pinyin": "xiāng zào",
+    "turkish": "Sabun",
+    "english": "Soap",
+    "example_zh": "香皂很香。",
+    "example_tr": "Sabun çok güzel kokuyor.",
+    "example_en": "The soap smells very good.",
+    "category": "household"
+  },
+  {
+    "hanzi": "手纸",
+    "pinyin": "shǒu zhǐ",
+    "turkish": "Tuvalet kağıdı",
+    "english": "Toilet paper",
+    "example_zh": "手纸在厕所里。",
+    "example_tr": "Tuvalet kağıdı tuvalette.",
+    "example_en": "The toilet paper is in the toilet.",
+    "category": "household"
+  },
+  {
+    "hanzi": "洗发水",
+    "pinyin": "xǐ fà shuǐ",
+    "turkish": "Şampuan",
+    "english": "Shampoo",
+    "example_zh": "洗发水很香。",
+    "example_tr": "Şampuan çok güzel kokuyor.",
+    "example_en": "The shampoo smells very good.",
+    "category": "household"
+  },
+  {
+    "hanzi": "沐浴露",
+    "pinyin": "mù yù lù",
+    "turkish": "Duş jeli",
+    "english": "Body wash",
+    "example_zh": "沐浴露很滑。",
+    "example_tr": "Duş jeli çok kaygan.",
+    "example_en": "The body wash is very smooth.",
+    "category": "household"
+  },
+  {
+    "hanzi": "抱枕",
+    "pinyin": "bào zhěn",
+    "turkish": "Kırlent",
+    "english": "Hugging pillow",
+    "example_zh": "抱枕很可爱。",
+    "example_tr": "Kırlent çok sevimli.",
+    "example_en": "The hugging pillow is very cute.",
+    "category": "household"
+  },
+  {
+    "hanzi": "被子",
+    "pinyin": "bèi zi",
+    "turkish": "Yorgan",
+    "english": "Blanket",
+    "example_zh": "被子很暖和。",
+    "example_tr": "Yorgan çok sıcak.",
+    "example_en": "The blanket is very warm.",
+    "category": "household"
+  },
+  {
+    "hanzi": "床单",
+    "pinyin": "chuáng dān",
+    "turkish": "Çarşaf",
+    "english": "Bedsheet",
+    "example_zh": "床单很干净。",
+    "example_tr": "Çarşaf çok temiz.",
+    "example_en": "The bedsheet is very clean.",
+    "category": "household"
+  },
+  {
+    "hanzi": "枕头",
+    "pinyin": "zhěn tou",
+    "turkish": "Yastık",
+    "english": "Pillow",
+    "example_zh": "枕头很软。",
+    "example_tr": "Yastık çok yumuşak.",
+    "example_en": "The pillow is very soft.",
+    "category": "household"
+  },
+  {
+    "hanzi": "电视遥控器",
+    "pinyin": "diàn shì yáo kòng qì",
+    "turkish": "TV kumandası",
+    "english": "TV remote",
+    "example_zh": "遥控器在哪里？",
+    "example_tr": "TV kumandası nerede?",
+    "example_en": "Where is the TV remote?",
+    "category": "household"
+  },
+  {
+    "hanzi": "电话",
+    "pinyin": "diàn huà",
+    "turkish": "Telefon",
+    "english": "Telephone",
+    "example_zh": "电话响了。",
+    "example_tr": "Telefon çalıyor.",
+    "example_en": "The telephone is ringing.",
+    "category": "household"
+  },
+  {
+    "hanzi": "书架",
+    "pinyin": "shū jià",
+    "turkish": "Kitaplık",
+    "english": "Bookshelf",
+    "example_zh": "书架上有很多书。",
+    "example_tr": "Kitaplıkta çok fazla kitap var.",
+    "example_en": "There are many books on the bookshelf.",
+    "category": "household"
+  },
+  {
+    "hanzi": "灯",
+    "pinyin": "dēng",
+    "turkish": "Lamba",
+    "english": "Lamp",
+    "example_zh": "灯很亮。",
+    "example_tr": "Lamba çok parlak.",
+    "example_en": "The lamp is very bright.",
+    "category": "household"
+  },
+  {
+    "hanzi": "照相机",
+    "pinyin": "zhào xiàng jī",
+    "turkish": "Fotoğraf makinesi",
+    "english": "Camera",
+    "example_zh": "照相机可以拍照。",
+    "example_tr": "Fotoğraf makinesi fotoğraf çekebilir.",
+    "example_en": "The camera can take photos.",
+    "category": "household"
+  },
+  {
+    "hanzi": "电脑",
+    "pinyin": "diàn nǎo",
+    "turkish": "Bilgisayar",
+    "english": "Computer",
+    "example_zh": "电脑很有用。",
+    "example_tr": "Bilgisayar çok faydalı.",
+    "example_en": "The computer is very useful.",
+    "category": "household"
+  },
+  {
+    "hanzi": "书",
+    "pinyin": "shū",
+    "turkish": "Kitap",
+    "english": "Book",
+    "example_zh": "书很有趣。",
+    "example_tr": "Kitaplar çok ilginç.",
+    "example_en": "Books are very interesting.",
+    "category": "household"
+  },
+  {
+    "hanzi": "杯子",
+    "pinyin": "bēi zi",
+    "turkish": "Bardak",
+    "english": "Cup",
+    "example_zh": "杯子里有水。",
+    "example_tr": "Bardakta su var.",
+    "example_en": "There is water in the cup.",
+    "category": "household"
+  },
+  {
+    "hanzi": "碗",
+    "pinyin": "wǎn",
+    "turkish": "Kase",
+    "english": "Bowl",
+    "example_zh": "碗里有饭。",
+    "example_tr": "Kasede pilav var.",
+    "example_en": "There is rice in the bowl.",
+    "category": "household"
+  },
+  {
+    "hanzi": "盘子",
+    "pinyin": "pán zi",
+    "turkish": "Tabak",
+    "english": "Plate",
+    "example_zh": "盘子很干净。",
+    "example_tr": "Tabak çok temiz.",
+    "example_en": "The plate is very clean.",
+    "category": "household"
+  },
+  {
+    "hanzi": "刀子",
+    "pinyin": "dāo zi",
+    "turkish": "Bıçak",
+    "english": "Knife",
+    "example_zh": "刀子很锋利。",
+    "example_tr": "Bıçak çok keskin.",
+    "example_en": "The knife is very sharp.",
+    "category": "household"
+  },
+  {
+    "hanzi": "叉子",
+    "pinyin": "chā zi",
+    "turkish": "Çatal",
+    "english": "Fork",
+    "example_zh": "请用叉子。",
+    "example_tr": "Lütfen çatal kullanın.",
+    "example_en": "Please use the fork.",
+    "category": "household"
+  },
+  {
+    "hanzi": "锅",
+    "pinyin": "guō",
+    "turkish": "Tencere",
+    "english": "Pot",
+    "example_zh": "锅在炉子上。",
+    "example_tr": "Tencere ocağın üzerinde.",
+    "example_en": "The pot is on the stove.",
+    "category": "household"
+  },
+  {
+    "hanzi": "平底锅",
+    "pinyin": "píng dǐ guō",
+    "turkish": "Tava",
+    "english": "Pan",
+    "example_zh": "用平底锅煎蛋。",
+    "example_tr": "Tavada yumurta kızartın.",
+    "example_en": "Fry eggs in a pan.",
+    "category": "household"
+  },
+  {
+    "hanzi": "水壶",
+    "pinyin": "shuǐ hú",
+    "turkish": "Kettle",
+    "english": "Kettle",
+    "example_zh": "水壶里有热水。",
+    "example_tr": "Kettle'da sıcak su var.",
+    "example_en": "There is hot water in the kettle.",
+    "category": "household"
+  },
+  {
+    "hanzi": "垃圾桶",
+    "pinyin": "lā jī tǒng",
+    "turkish": "Çöp kutusu",
+    "english": "Trash can",
+    "example_zh": "垃圾桶满了。",
+    "example_tr": "Çöp kutusu doldu.",
+    "example_en": "The trash can is full.",
+    "category": "household"
+  },
+  {
+    "hanzi": "扫帚",
+    "pinyin": "sào zhou",
+    "turkish": "Süpürge",
+    "english": "Broom",
+    "example_zh": "用扫帚扫地。",
+    "example_tr": "Süpürgeyle süpürün.",
+    "example_en": "Sweep with a broom.",
+    "category": "household"
+  },
+  {
+    "hanzi": "拖把",
+    "pinyin": "tuō bǎ",
+    "turkish": "Paspas",
+    "english": "Mop",
+    "example_zh": "用拖把拖地。",
+    "example_tr": "Paspasla silin.",
+    "example_en": "Mop with a mop.",
+    "category": "household"
+  },
+  {
+    "hanzi": "闹钟",
+    "pinyin": "nào zhōng",
+    "turkish": "Çalar saat",
+    "english": "Alarm clock",
+    "example_zh": "闹钟响了。",
+    "example_tr": "Çalar saat çalıyor.",
+    "example_en": "The alarm clock is ringing.",
+    "category": "household"
+  },
+  {
+    "hanzi": "钥匙",
+    "pinyin": "yào shi",
+    "turkish": "Anahtar",
+    "english": "Key",
+    "example_zh": "钥匙在哪里？",
+    "example_tr": "Anahtar nerede?",
+    "example_en": "Where is the key?",
+    "category": "household"
+  },
+  {
+    "hanzi": "衣服",
+    "pinyin": "yī fú",
+    "turkish": "Giysi",
+    "english": "Clothes",
+    "example_zh": "这件衣服很漂亮。",
+    "example_tr": "Bu kıyafet çok güzel.",
+    "example_en": "This piece of clothing is very beautiful.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "衬衫",
+    "pinyin": "chèn shān",
+    "turkish": "Gömlek",
+    "english": "Shirt",
+    "example_zh": "衬衫很正式。",
+    "example_tr": "Gömlek çok resmi.",
+    "example_en": "The shirt is very formal.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "T恤",
+    "pinyin": "T xù",
+    "turkish": "Tişört",
+    "english": "T-shirt",
+    "example_zh": "T恤很休闲。",
+    "example_tr": "Tişört çok rahat.",
+    "example_en": "The T-shirt is very casual.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "裙子",
+    "pinyin": "qún zi",
+    "turkish": "Etek",
+    "english": "Skirt",
+    "example_zh": "裙子很漂亮。",
+    "example_tr": "Etek çok güzel.",
+    "example_en": "The skirt is very beautiful.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "裤子",
+    "pinyin": "kù zi",
+    "turkish": "Pantolon",
+    "english": "Pants",
+    "example_zh": "裤子很舒服。",
+    "example_tr": "Pantolon çok rahat.",
+    "example_en": "The pants are very comfortable.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "外套",
+    "pinyin": "wài tào",
+    "turkish": "Mont",
+    "english": "Coat",
+    "example_zh": "外套很保暖。",
+    "example_tr": "Mont çok sıcak tutuyor.",
+    "example_en": "The coat is very warm.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "羽绒服",
+    "pinyin": "yǔ róng fú",
+    "turkish": "Şişme mont",
+    "english": "Down jacket",
+    "example_zh": "羽绒服很轻。",
+    "example_tr": "Şişme mont çok hafif.",
+    "example_en": "The down jacket is very light.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "连衣裙",
+    "pinyin": "lián yī qún",
+    "turkish": "Elbise",
+    "english": "Dress",
+    "example_zh": "连衣裙很优雅。",
+    "example_tr": "Elbise çok zarif.",
+    "example_en": "The dress is very elegant.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "西装",
+    "pinyin": "xī zhuāng",
+    "turkish": "Takım elbise",
+    "english": "Suit",
+    "example_zh": "西装很正式。",
+    "example_tr": "Takım elbise çok resmi.",
+    "example_en": "The suit is very formal.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "套装",
+    "pinyin": "tào zhuāng",
+    "turkish": "Takım",
+    "english": "Outfit",
+    "example_zh": "套装很方便。",
+    "example_tr": "Takım çok pratik.",
+    "example_en": "The outfit is very convenient.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "牛仔裤",
+    "pinyin": "niú zǎi kù",
+    "turkish": "Kot pantolon",
+    "english": "Jeans",
+    "example_zh": "牛仔裤很耐穿。",
+    "example_tr": "Kot pantolon çok dayanıklı.",
+    "example_en": "Jeans are very durable.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "运动鞋",
+    "pinyin": "yùn dòng xié",
+    "turkish": "Spor ayakkabı",
+    "english": "Sneakers",
+    "example_zh": "运动鞋很舒服。",
+    "example_tr": "Spor ayakkabı çok rahat.",
+    "example_en": "Sneakers are very comfortable.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "皮鞋",
+    "pinyin": "pí xié",
+    "turkish": "Deri ayakkabı",
+    "english": "Leather shoes",
+    "example_zh": "皮鞋很正式。",
+    "example_tr": "Deri ayakkabı çok resmi.",
+    "example_en": "Leather shoes are very formal.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "靴子",
+    "pinyin": "xuē zi",
+    "turkish": "Bot",
+    "english": "Boots",
+    "example_zh": "靴子很时尚。",
+    "example_tr": "Bot çok moda.",
+    "example_en": "Boots are very fashionable.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "拖鞋",
+    "pinyin": "tuō xié",
+    "turkish": "Terlik",
+    "english": "Slippers",
+    "example_zh": "拖鞋很方便。",
+    "example_tr": "Terlik çok pratik.",
+    "example_en": "Slippers are very convenient.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "帽子",
+    "pinyin": "mào zi",
+    "turkish": "Şapka",
+    "english": "Hat",
+    "example_zh": "帽子很时尚。",
+    "example_tr": "Şapka çok moda.",
+    "example_en": "The hat is very fashionable.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "围巾",
+    "pinyin": "wéi jīn",
+    "turkish": "Atkı",
+    "english": "Scarf",
+    "example_zh": "围巾很暖和。",
+    "example_tr": "Atkı çok sıcak.",
+    "example_en": "The scarf is very warm.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "手套",
+    "pinyin": "shǒu tào",
+    "turkish": "Eldiven",
+    "english": "Gloves",
+    "example_zh": "手套很保暖。",
+    "example_tr": "Eldiven çok sıcak tutuyor.",
+    "example_en": "Gloves are very warm.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "袜子",
+    "pinyin": "wà zi",
+    "turkish": "Çorap",
+    "english": "Socks",
+    "example_zh": "袜子很软。",
+    "example_tr": "Çorap çok yumuşak.",
+    "example_en": "Socks are very soft.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "内衣",
+    "pinyin": "nèi yī",
+    "turkish": "İç çamaşırı",
+    "english": "Underwear",
+    "example_zh": "内衣要常洗。",
+    "example_tr": "İç çamaşırı sık sık yıkanmalı.",
+    "example_en": "Underwear should be washed frequently.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "胸罩",
+    "pinyin": "xiōng zhào",
+    "turkish": "Sütyen",
+    "english": "Bra",
+    "example_zh": "胸罩要合身。",
+    "example_tr": "Sütyen uygun olmalı.",
+    "example_en": "The bra should fit well.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "内裤",
+    "pinyin": "nèi kù",
+    "turkish": "Külot",
+    "english": "Underpants",
+    "example_zh": "内裤要干净。",
+    "example_tr": "Külot temiz olmalı.",
+    "example_en": "Underpants should be clean.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "睡衣",
+    "pinyin": "shuì yī",
+    "turkish": "Pijama üstü",
+    "english": "Pajamas",
+    "example_zh": "睡衣很舒服。",
+    "example_tr": "Pijama üstü çok rahat.",
+    "example_en": "Pajamas are very comfortable.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "睡裤",
+    "pinyin": "shuì kù",
+    "turkish": "Pijama altı",
+    "english": "Sleep pants",
+    "example_zh": "睡裤很宽松。",
+    "example_tr": "Pijama altı çok bol.",
+    "example_en": "Sleep pants are very loose.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "背心",
+    "pinyin": "bèi xīn",
+    "turkish": "Atlet",
+    "english": "Tank top",
+    "example_zh": "背心很凉快。",
+    "example_tr": "Atlet çok serin.",
+    "example_en": "Tank top is very cool.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "夹克",
+    "pinyin": "jiá kè",
+    "turkish": "Ceket",
+    "english": "Jacket",
+    "example_zh": "夹克很帅气。",
+    "example_tr": "Ceket çok havalı.",
+    "example_en": "The jacket is very cool.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "运动裤",
+    "pinyin": "yùn dòng kù",
+    "turkish": "Eşofman altı",
+    "english": "Sweatpants",
+    "example_zh": "运动裤很舒服。",
+    "example_tr": "Eşofman altı çok rahat.",
+    "example_en": "Sweatpants are very comfortable.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "游泳衣",
+    "pinyin": "yóu yǒng yī",
+    "turkish": "Mayo",
+    "english": "Swimsuit",
+    "example_zh": "游泳衣很贴身。",
+    "example_tr": "Mayo çok dar.",
+    "example_en": "Swimsuit is very tight.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "睡袍",
+    "pinyin": "shuì páo",
+    "turkish": "Bornoz",
+    "english": "Bathrobe",
+    "example_zh": "睡袍很柔软。",
+    "example_tr": "Bornoz çok yumuşak.",
+    "example_en": "Bathrobe is very soft.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "牛仔外套",
+    "pinyin": "niú zǎi wài tào",
+    "turkish": "Kot ceket",
+    "english": "Denim jacket",
+    "example_zh": "牛仔外套很经典。",
+    "example_tr": "Kot ceket çok klasik.",
+    "example_en": "Denim jacket is very classic.",
+    "category": "clothing"
+  },
+  {
+    "hanzi": "前台",
+    "pinyin": "qián tái",
+    "turkish": "Resepsiyon",
+    "english": "Reception/Front desk",
+    "example_zh": "前台在哪里？",
+    "example_tr": "Resepsiyon nerede?",
+    "example_en": "Where is the reception?",
+    "category": "hotel"
+  },
+  {
+    "hanzi": "预订",
+    "pinyin": "yù dìng",
+    "turkish": "Rezervasyon",
+    "english": "Reservation",
+    "example_zh": "我有预订。",
+    "example_tr": "Rezervasyonum var.",
+    "example_en": "I have a reservation.",
+    "category": "hotel"
+  },
+  {
+    "hanzi": "入住",
+    "pinyin": "rù zhù",
+    "turkish": "Check-in",
+    "english": "Check-in",
+    "example_zh": "我想办理入住。",
+    "example_tr": "Check-in yapmak istiyorum.",
+    "example_en": "I want to check in.",
+    "category": "hotel"
+  },
+  {
+    "hanzi": "退房",
+    "pinyin": "tuì fáng",
+    "turkish": "Check-out",
+    "english": "Check-out",
+    "example_zh": "我想退房。",
+    "example_tr": "Check-out yapmak istiyorum.",
+    "example_en": "I want to check out.",
+    "category": "hotel"
+  },
+  {
+    "hanzi": "房间号",
+    "pinyin": "fáng jiān hào",
+    "turkish": "Oda numarası",
+    "english": "Room number",
+    "example_zh": "我的房间号是多少？",
+    "example_tr": "Oda numaram nedir?",
+    "example_en": "What is my room number?",
+    "category": "hotel"
+  },
+  {
+    "hanzi": "房卡",
+    "pinyin": "fáng kǎ",
+    "turkish": "Oda kartı",
+    "english": "Room key/card",
+    "example_zh": "我的房卡丢了。",
+    "example_tr": "Oda kartımı kaybettim.",
+    "example_en": "I lost my room key.",
+    "category": "hotel"
+  },
+  {
+    "hanzi": "套房",
+    "pinyin": "tào fáng",
+    "turkish": "Suit oda",
+    "english": "Suite",
+    "example_zh": "我要一间套房。",
+    "example_tr": "Bir suit oda istiyorum.",
+    "example_en": "I want a suite.",
+    "category": "hotel"
+  },
+  {
+    "hanzi": "单人间",
+    "pinyin": "dān rén jiān",
+    "turkish": "Tek kişilik oda",
+    "english": "Single room",
+    "example_zh": "有单人间吗？",
+    "example_tr": "Tek kişilik oda var mı?",
+    "example_en": "Do you have a single room?",
+    "category": "hotel"
+  },
+  {
+    "hanzi": "双人间",
+    "pinyin": "shuāng rén jiān",
+    "turkish": "Çift kişilik oda",
+    "english": "Double room",
+    "example_zh": "我要双人间。",
+    "example_tr": "Çift kişilik oda istiyorum.",
+    "example_en": "I want a double room.",
+    "category": "hotel"
+  },
+  {
+    "hanzi": "大床房",
+    "pinyin": "dà chuáng fáng",
+    "turkish": "Büyük yataklı oda",
+    "english": "King room",
+    "example_zh": "有大床房吗？",
+    "example_tr": "Büyük yataklı oda var mı?",
+    "example_en": "Do you have a king room?",
+    "category": "hotel"
+  },
+  {
+    "hanzi": "无烟房",
+    "pinyin": "wú yān fáng",
+    "turkish": "Sigara içilmeyen oda",
+    "english": "Non-smoking room",
+    "example_zh": "我要无烟房。",
+    "example_tr": "Sigara içilmeyen oda istiyorum.",
+    "example_en": "I want a non-smoking room.",
+    "category": "hotel"
+  },
+  {
+    "hanzi": "海景房",
+    "pinyin": "hǎi jǐng fáng",
+    "turkish": "Deniz manzaralı oda",
+    "english": "Sea view room",
+    "example_zh": "海景房多少钱？",
+    "example_tr": "Deniz manzaralı oda ne kadar?",
+    "example_en": "How much is the sea view room?",
+    "category": "hotel"
+  },
+  {
+    "hanzi": "叫醒服务",
+    "pinyin": "jiào xǐng fú wù",
+    "turkish": "Uyandırma servisi",
+    "english": "Wake-up call",
+    "example_zh": "请提供叫醒服务。",
+    "example_tr": "Lütfen uyandırma servisi verin.",
+    "example_en": "Please give me a wake-up call.",
+    "category": "hotel"
+  },
+  {
+    "hanzi": "客房服务",
+    "pinyin": "kè fáng fú wù",
+    "turkish": "Oda servisi",
+    "english": "Room service",
+    "example_zh": "我要叫客房服务。",
+    "example_tr": "Oda servisi istiyorum.",
+    "example_en": "I want to order room service.",
+    "category": "hotel"
+  },
+  {
+    "hanzi": "打扫",
+    "pinyin": "dǎ sǎo",
+    "turkish": "Temizlik",
+    "english": "Cleaning",
+    "example_zh": "请打扫房间。",
+    "example_tr": "Lütfen odayı temizleyin.",
+    "example_en": "Please clean the room.",
+    "category": "hotel"
+  },
+  {
+    "hanzi": "行李员",
+    "pinyin": "xíng li yuán",
+    "turkish": "Bellboy",
+    "english": "Bellhop",
+    "example_zh": "请叫行李员。",
+    "example_tr": "Lütfen bellboy çağırın.",
+    "example_en": "Please call the bellhop.",
+    "category": "hotel"
+  },
+  {
+    "hanzi": "保险箱",
+    "pinyin": "bǎo xiǎn xiāng",
+    "turkish": "Kasa",
+    "english": "Safe",
+    "example_zh": "房间有保险箱吗？",
+    "example_tr": "Odada kasa var mı?",
+    "example_en": "Is there a safe in the room?",
+    "category": "hotel"
+  },
+  {
+    "hanzi": "押金",
+    "pinyin": "yā jīn",
+    "turkish": "Depozito",
+    "english": "Deposit",
+    "example_zh": "押金是多少？",
+    "example_tr": "Depozito ne kadar?",
+    "example_en": "How much is the deposit?",
+    "category": "hotel"
+  },
+  {
+    "hanzi": "投诉",
+    "pinyin": "tóu sù",
+    "turkish": "Şikayet",
+    "english": "Complaint",
+    "example_zh": "我要投诉。",
+    "example_tr": "Şikayet etmek istiyorum.",
+    "example_en": "I want to make a complaint.",
+    "category": "hotel"
+  },
+  {
+    "hanzi": "换房间",
+    "pinyin": "huàn fáng jiān",
+    "turkish": "Oda değiştirmek",
+    "english": "Change room",
+    "example_zh": "我想换房间。",
+    "example_tr": "Oda değiştirmek istiyorum.",
+    "example_en": "I want to change rooms.",
+    "category": "hotel"
+  },
+  {
+    "hanzi": "电梯",
+    "pinyin": "diàn tī",
+    "turkish": "Asansör",
+    "english": "Elevator",
+    "example_zh": "电梯在哪里？",
+    "example_tr": "Asansör nerede?",
+    "example_en": "Where is the elevator?",
+    "category": "hotel"
+  },
+  {
+    "hanzi": "迷路",
+    "pinyin": "mí lù",
+    "turkish": "Kaybolmak",
+    "english": "Get lost",
+    "example_zh": "我迷路了。",
+    "example_tr": "Kayboldum.",
+    "example_en": "I'm lost.",
+    "category": "directions"
+  },
+  {
+    "hanzi": "怎么走",
+    "pinyin": "zěn me zǒu",
+    "turkish": "Nasıl gidilir",
+    "english": "How to get there",
+    "example_zh": "去火车站怎么走？",
+    "example_tr": "Tren istasyonuna nasıl gidilir?",
+    "example_en": "How do I get to the train station?",
+    "category": "directions"
+  },
+  {
+    "hanzi": "直走",
+    "pinyin": "zhí zǒu",
+    "turkish": "Düz git",
+    "english": "Go straight",
+    "example_zh": "直走两百米。",
+    "example_tr": "İki yüz metre düz git.",
+    "example_en": "Go straight for 200 meters.",
+    "category": "directions"
+  },
+  {
+    "hanzi": "左转",
+    "pinyin": "zuǒ zhuǎn",
+    "turkish": "Sola dön",
+    "english": "Turn left",
+    "example_zh": "在第一个路口左转。",
+    "example_tr": "İlk kavşakta sola dön.",
+    "example_en": "Turn left at the first intersection.",
+    "category": "directions"
+  },
+  {
+    "hanzi": "右转",
+    "pinyin": "yòu zhuǎn",
+    "turkish": "Sağa dön",
+    "english": "Turn right",
+    "example_zh": "右转就到了。",
+    "example_tr": "Sağa dönünce varırsın.",
+    "example_en": "Turn right and you'll arrive.",
+    "category": "directions"
+  },
+  {
+    "hanzi": "十字路口",
+    "pinyin": "shí zì lù kǒu",
+    "turkish": "Kavşak",
+    "english": "Intersection",
+    "example_zh": "前面有十字路口。",
+    "example_tr": "Önümüzde kavşak var.",
+    "example_en": "There's an intersection ahead.",
+    "category": "directions"
+  },
+  {
+    "hanzi": "红绿灯",
+    "pinyin": "hóng lǜ dēng",
+    "turkish": "Trafik ışığı",
+    "english": "Traffic light",
+    "example_zh": "等红绿灯。",
+    "example_tr": "Trafik ışığında bekle.",
+    "example_en": "Wait at the traffic light.",
+    "category": "directions"
+  },
+  {
+    "hanzi": "斑马线",
+    "pinyin": "bān mǎ xiàn",
+    "turkish": "Yaya geçidi",
+    "english": "Crosswalk",
+    "example_zh": "走斑马线。",
+    "example_tr": "Yaya geçidinden geç.",
+    "example_en": "Use the crosswalk.",
+    "category": "directions"
+  },
+  {
+    "hanzi": "地下通道",
+    "pinyin": "dì xià tōng dào",
+    "turkish": "Alt geçit",
+    "english": "Underpass",
+    "example_zh": "走地下通道。",
+    "example_tr": "Alt geçidi kullan.",
+    "example_en": "Use the underpass.",
+    "category": "directions"
+  },
+  {
+    "hanzi": "公交站",
+    "pinyin": "gōng jiāo zhàn",
+    "turkish": "Otobüs durağı",
+    "english": "Bus stop",
+    "example_zh": "公交站在哪里？",
+    "example_tr": "Otobüs durağı nerede?",
+    "example_en": "Where is the bus stop?",
+    "category": "directions"
+  },
+  {
+    "hanzi": "站牌",
+    "pinyin": "zhàn pái",
+    "turkish": "Durak tabelası",
+    "english": "Bus stop sign",
+    "example_zh": "看站牌。",
+    "example_tr": "Durak tabelasına bak.",
+    "example_en": "Look at the bus stop sign.",
+    "category": "directions"
+  },
+  {
+    "hanzi": "地图",
+    "pinyin": "dì tú",
+    "turkish": "Harita",
+    "english": "Map",
+    "example_zh": "给我看一下地图。",
+    "example_tr": "Haritaya bakabilir miyim?",
+    "example_en": "Can I see the map?",
+    "category": "directions"
+  },
+  {
+    "hanzi": "导航",
+    "pinyin": "dǎo háng",
+    "turkish": "Navigasyon",
+    "english": "Navigation",
+    "example_zh": "开导航。",
+    "example_tr": "Navigasyonu aç.",
+    "example_en": "Turn on the navigation.",
+    "category": "directions"
+  },
+  {
+    "hanzi": "多远",
+    "pinyin": "duō yuǎn",
+    "turkish": "Ne kadar uzak",
+    "english": "How far",
+    "example_zh": "有多远？",
+    "example_tr": "Ne kadar uzak?",
+    "example_en": "How far is it?",
+    "category": "directions"
+  },
+  {
+    "hanzi": "多久",
+    "pinyin": "duō jiǔ",
+    "turkish": "Ne kadar sürer",
+    "english": "How long",
+    "example_zh": "要多久？",
+    "example_tr": "Ne kadar sürer?",
+    "example_en": "How long does it take?",
+    "category": "directions"
+  },
+  {
+    "hanzi": "公里",
+    "pinyin": "gōng lǐ",
+    "turkish": "Kilometre",
+    "english": "Kilometer",
+    "example_zh": "两公里远。",
+    "example_tr": "İki kilometre uzakta.",
+    "example_en": "It's 2 kilometers away.",
+    "category": "directions"
+  },
+  {
+    "hanzi": "米",
+    "pinyin": "mǐ",
+    "turkish": "Metre",
+    "english": "Meter",
+    "example_zh": "五十米。",
+    "example_tr": "Elli metre.",
+    "example_en": "50 meters.",
+    "category": "directions"
+  },
+  {
+    "hanzi": "拐角",
+    "pinyin": "guǎi jiǎo",
+    "turkish": "Köşe",
+    "english": "Corner",
+    "example_zh": "在拐角处。",
+    "example_tr": "Köşede.",
+    "example_en": "At the corner.",
+    "category": "directions"
+  },
+  {
+    "hanzi": "尽头",
+    "pinyin": "jìn tóu",
+    "turkish": "Son",
+    "english": "End",
+    "example_zh": "走到尽头。",
+    "example_tr": "Sonuna kadar git.",
+    "example_en": "Go to the end.",
+    "category": "directions"
+  },
+  {
+    "hanzi": "出租车",
+    "pinyin": "chū zū chē",
+    "turkish": "Taksi",
+    "english": "Taxi",
+    "example_zh": "一辆出租车。",
+    "example_tr": "Bir taksi.",
+    "example_en": "A taxi.",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "打车",
+    "pinyin": "dǎ chē",
+    "turkish": "Taksi çağırmak",
+    "english": "Hail a taxi",
+    "example_zh": "我要打车。",
+    "example_tr": "Taksi çağırmak istiyorum.",
+    "example_en": "I want to hail a taxi.",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "滴滴",
+    "pinyin": "dī dī",
+    "turkish": "Didi (app)",
+    "english": "Didi (ride app)",
+    "example_zh": "我用滴滴打车。",
+    "example_tr": "Didi kullanarak taksi çağırıyorum.",
+    "example_en": "I'm using Didi to get a ride.",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "师傅",
+    "pinyin": "shī fu",
+    "turkish": "Şoför bey",
+    "english": "Driver (respectful)",
+    "example_zh": "师傅，去机场。",
+    "example_tr": "Şoför bey, havalimanına.",
+    "example_en": "Driver, to the airport.",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "目的地",
+    "pinyin": "mù dì dì",
+    "turkish": "Varış yeri",
+    "english": "Destination",
+    "example_zh": "我的目的地是酒店。",
+    "example_tr": "Varış yerim otel.",
+    "example_en": "My destination is the hotel.",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "计价器",
+    "pinyin": "jì jià qì",
+    "turkish": "Taksi metre",
+    "english": "Meter",
+    "example_zh": "请打开计价器。",
+    "example_tr": "Lütfen taksi metreyi açın.",
+    "example_en": "Please turn on the meter.",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "打表",
+    "pinyin": "dǎ biǎo",
+    "turkish": "Metreyle gitmek",
+    "english": "Use the meter",
+    "example_zh": "请打表。",
+    "example_tr": "Lütfen metreyle gidin.",
+    "example_en": "Please use the meter.",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "一口价",
+    "pinyin": "yī kǒu jià",
+    "turkish": "Sabit fiyat",
+    "english": "Flat rate",
+    "example_zh": "一口价多少钱？",
+    "example_tr": "Sabit fiyat ne kadar?",
+    "example_en": "What's the flat rate?",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "堵车",
+    "pinyin": "dǔ chē",
+    "turkish": "Trafik sıkışıklığı",
+    "english": "Traffic jam",
+    "example_zh": "堵车了。",
+    "example_tr": "Trafik var.",
+    "example_en": "There's a traffic jam.",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "绕路",
+    "pinyin": "rào lù",
+    "turkish": "Dolambaçlı yol",
+    "english": "Detour",
+    "example_zh": "不要绕路。",
+    "example_tr": "Dolambaçlı gitmeyin.",
+    "example_en": "Don't take a detour.",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "近路",
+    "pinyin": "jìn lù",
+    "turkish": "Kısa yol",
+    "english": "Shortcut",
+    "example_zh": "走近路。",
+    "example_tr": "Kısa yoldan git.",
+    "example_en": "Take the shortcut.",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "快一点",
+    "pinyin": "kuài yī diǎn",
+    "turkish": "Daha hızlı",
+    "english": "Faster",
+    "example_zh": "请快一点。",
+    "example_tr": "Lütfen daha hızlı gidin.",
+    "example_en": "Please go faster.",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "慢一点",
+    "pinyin": "màn yī diǎn",
+    "turkish": "Daha yavaş",
+    "english": "Slower",
+    "example_zh": "请慢一点。",
+    "example_tr": "Lütfen daha yavaş gidin.",
+    "example_en": "Please go slower.",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "停车",
+    "pinyin": "tíng chē",
+    "turkish": "Durmak",
+    "english": "Stop",
+    "example_zh": "在这里停车。",
+    "example_tr": "Burada durun.",
+    "example_en": "Stop here.",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "后备箱",
+    "pinyin": "hòu bèi xiāng",
+    "turkish": "Bagaj",
+    "english": "Trunk",
+    "example_zh": "请打开后备箱。",
+    "example_tr": "Lütfen bagajı açın.",
+    "example_en": "Please open the trunk.",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "放行李",
+    "pinyin": "fàng xíng li",
+    "turkish": "Bagaj koymak",
+    "english": "Put luggage",
+    "example_zh": "我要放行李。",
+    "example_tr": "Bagaj koyacağım.",
+    "example_en": "I need to put luggage.",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "微信支付",
+    "pinyin": "wēi xìn zhī fù",
+    "turkish": "WeChat Pay",
+    "english": "WeChat Pay",
+    "example_zh": "可以微信支付吗？",
+    "example_tr": "WeChat Pay ile ödeyebilir miyim?",
+    "example_en": "Can I use WeChat Pay?",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "支付宝",
+    "pinyin": "zhī fù bǎo",
+    "turkish": "Alipay",
+    "english": "Alipay",
+    "example_zh": "可以用支付宝吗？",
+    "example_tr": "Alipay kullanabilir miyim?",
+    "example_en": "Can I use Alipay?",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "多少钱",
+    "pinyin": "duō shǎo qián",
+    "turkish": "Ne kadar",
+    "english": "How much",
+    "example_zh": "多少钱？",
+    "example_tr": "Ne kadar?",
+    "example_en": "How much is it?",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "小费",
+    "pinyin": "xiǎo fèi",
+    "turkish": "Bahşiş",
+    "english": "Tip",
+    "example_zh": "不用找零了。",
+    "example_tr": "Para üstü kalsın.",
+    "example_en": "Keep the change.",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "高铁站",
+    "pinyin": "gāo tiě zhàn",
+    "turkish": "Hızlı tren istasyonu",
+    "english": "High-speed rail",
+    "example_zh": "去高铁站。",
+    "example_tr": "Hızlı tren istasyonuna.",
+    "example_en": "To the high-speed rail station.",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "市中心",
+    "pinyin": "shì zhōng xīn",
+    "turkish": "Şehir merkezi",
+    "english": "City center",
+    "example_zh": "去市中心。",
+    "example_tr": "Şehir merkezine.",
+    "example_en": "To the city center.",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "景点",
+    "pinyin": "jǐng diǎn",
+    "turkish": "Turistik yer",
+    "english": "Scenic spot",
+    "example_zh": "去这个景点。",
+    "example_tr": "Bu turistik yere.",
+    "example_en": "To this scenic spot.",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "接人",
+    "pinyin": "jiē rén",
+    "turkish": "Birini almak",
+    "english": "Pick someone up",
+    "example_zh": "我去接人。",
+    "example_tr": "Birini almaya gidiyorum.",
+    "example_en": "I'm going to pick someone up.",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "赶时间",
+    "pinyin": "gǎn shí jiān",
+    "turkish": "Acelem var",
+    "english": "In a hurry",
+    "example_zh": "我赶时间。",
+    "example_tr": "Acelem var.",
+    "example_en": "I'm in a hurry.",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "安全带",
+    "pinyin": "ān quán dài",
+    "turkish": "Emniyet kemeri",
+    "english": "Seatbelt",
+    "example_zh": "请系安全带。",
+    "example_tr": "Lütfen emniyet kemerini takın.",
+    "example_en": "Please fasten your seatbelt.",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "晕车",
+    "pinyin": "yùn chē",
+    "turkish": "Araba tutması",
+    "english": "Carsickness",
+    "example_zh": "我晕车。",
+    "example_tr": "Araba tutuyor.",
+    "example_en": "I'm carsick.",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "开空调",
+    "pinyin": "kāi kōng tiáo",
+    "turkish": "Klimayı aç",
+    "english": "Turn on AC",
+    "example_zh": "请开空调。",
+    "example_tr": "Lütfen klimayı açın.",
+    "example_en": "Please turn on the AC.",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "开窗",
+    "pinyin": "kāi chuāng",
+    "turkish": "Camı aç",
+    "english": "Open window",
+    "example_zh": "请开窗。",
+    "example_tr": "Lütfen camı açın.",
+    "example_en": "Please open the window.",
+    "category": "taxi"
+  },
+  {
+    "hanzi": "护照",
+    "pinyin": "hù zhào",
+    "turkish": "Pasaport",
+    "english": "Passport",
+    "example_zh": "我的护照。",
+    "example_tr": "Pasaportum.",
+    "example_en": "My passport.",
+    "category": "airport"
+  },
+  {
+    "hanzi": "签证",
+    "pinyin": "qiān zhèng",
+    "turkish": "Vize",
+    "english": "Visa",
+    "example_zh": "我需要签证吗？",
+    "example_tr": "Vizeye ihtiyacım var mı?",
+    "example_en": "Do I need a visa?",
+    "category": "airport"
+  },
+  {
+    "hanzi": "登机牌",
+    "pinyin": "dēng jī pái",
+    "turkish": "Biniş kartı",
+    "english": "Boarding pass",
+    "example_zh": "我的登机牌。",
+    "example_tr": "Biniş kartım.",
+    "example_en": "My boarding pass.",
+    "category": "airport"
+  },
+  {
+    "hanzi": "机票",
+    "pinyin": "jī piào",
+    "turkish": "Uçak bileti",
+    "english": "Flight ticket",
+    "example_zh": "我订了机票。",
+    "example_tr": "Uçak bileti aldım.",
+    "example_en": "I booked a flight ticket.",
+    "category": "airport"
+  },
+  {
+    "hanzi": "航班",
+    "pinyin": "háng bān",
+    "turkish": "Uçuş",
+    "english": "Flight",
+    "example_zh": "航班号是多少？",
+    "example_tr": "Uçuş numarası nedir?",
+    "example_en": "What is the flight number?",
+    "category": "airport"
+  },
+  {
+    "hanzi": "起飞",
+    "pinyin": "qǐ fēi",
+    "turkish": "Kalkış",
+    "english": "Takeoff",
+    "example_zh": "几点起飞？",
+    "example_tr": "Saat kaçta kalkıyor?",
+    "example_en": "What time does it take off?",
+    "category": "airport"
+  },
+  {
+    "hanzi": "降落",
+    "pinyin": "jiàng luò",
+    "turkish": "İniş",
+    "english": "Landing",
+    "example_zh": "什么时候降落？",
+    "example_tr": "Ne zaman iniş yapıyor?",
+    "example_en": "When does it land?",
+    "category": "airport"
+  },
+  {
+    "hanzi": "航站楼",
+    "pinyin": "háng zhàn lóu",
+    "turkish": "Terminal",
+    "english": "Terminal",
+    "example_zh": "哪个航站楼？",
+    "example_tr": "Hangi terminal?",
+    "example_en": "Which terminal?",
+    "category": "airport"
+  },
+  {
+    "hanzi": "安检",
+    "pinyin": "ān jiǎn",
+    "turkish": "Güvenlik kontrolü",
+    "english": "Security check",
+    "example_zh": "请过安检。",
+    "example_tr": "Lütfen güvenlik kontrolünden geçin.",
+    "example_en": "Please go through security.",
+    "category": "airport"
+  },
+  {
+    "hanzi": "行李提取",
+    "pinyin": "xíng li tí qǔ",
+    "turkish": "Bagaj alımı",
+    "english": "Baggage claim",
+    "example_zh": "行李提取在哪里？",
+    "example_tr": "Bagaj alımı nerede?",
+    "example_en": "Where is baggage claim?",
+    "category": "airport"
+  },
+  {
+    "hanzi": "传送带",
+    "pinyin": "chuán sòng dài",
+    "turkish": "Bagaj bandı",
+    "english": "Conveyor belt",
+    "example_zh": "在传送带等。",
+    "example_tr": "Bagaj bandında bekle.",
+    "example_en": "Wait at the conveyor belt.",
+    "category": "airport"
+  },
+  {
+    "hanzi": "行李丢失",
+    "pinyin": "xíng li diū shī",
+    "turkish": "Kayıp bagaj",
+    "english": "Lost luggage",
+    "example_zh": "我的行李丢了。",
+    "example_tr": "Bagajım kayboldu.",
+    "example_en": "My luggage is lost.",
+    "category": "airport"
+  },
+  {
+    "hanzi": "转机",
+    "pinyin": "zhuǎn jī",
+    "turkish": "Aktarma",
+    "english": "Transfer",
+    "example_zh": "我要转机。",
+    "example_tr": "Aktarma yapacağım.",
+    "example_en": "I need to transfer.",
+    "category": "airport"
+  },
+  {
+    "hanzi": "候机室",
+    "pinyin": "hòu jī shì",
+    "turkish": "Bekleme salonu",
+    "english": "Waiting lounge",
+    "example_zh": "候机室在哪里？",
+    "example_tr": "Bekleme salonu nerede?",
+    "example_en": "Where is the waiting lounge?",
+    "category": "airport"
+  },
+  {
+    "hanzi": "登机口",
+    "pinyin": "dēng jī kǒu",
+    "turkish": "Kapı",
+    "english": "Gate",
+    "example_zh": "登机口是多少？",
+    "example_tr": "Kapı numarası nedir?",
+    "example_en": "What is the gate number?",
+    "category": "airport"
+  },
+  {
+    "hanzi": "延误",
+    "pinyin": "yán wù",
+    "turkish": "Rötar",
+    "english": "Delay",
+    "example_zh": "航班延误了。",
+    "example_tr": "Uçuş rötarlı.",
+    "example_en": "The flight is delayed.",
+    "category": "airport"
+  },
+  {
+    "hanzi": "取消",
+    "pinyin": "qǔ xiāo",
+    "turkish": "İptal",
+    "english": "Cancelled",
+    "example_zh": "航班取消了。",
+    "example_tr": "Uçuş iptal edildi.",
+    "example_en": "The flight is cancelled.",
+    "category": "airport"
+  },
+  {
+    "hanzi": "靠窗",
+    "pinyin": "kào chuāng",
+    "turkish": "Pencere kenarı",
+    "english": "Window seat",
+    "example_zh": "我要靠窗的座位。",
+    "example_tr": "Pencere kenarı koltuk istiyorum.",
+    "example_en": "I want a window seat.",
+    "category": "airport"
+  },
+  {
+    "hanzi": "靠过道",
+    "pinyin": "kào guò dào",
+    "turkish": "Koridor kenarı",
+    "english": "Aisle seat",
+    "example_zh": "我要靠过道的座位。",
+    "example_tr": "Koridor kenarı koltuk istiyorum.",
+    "example_en": "I want an aisle seat.",
+    "category": "airport"
+  },
+  {
+    "hanzi": "托运",
+    "pinyin": "tuō yùn",
+    "turkish": "Bagaj teslim",
+    "english": "Check-in luggage",
+    "example_zh": "我要托运。",
+    "example_tr": "Bagaj teslim edeceğim.",
+    "example_en": "I want to check in luggage.",
+    "category": "airport"
+  },
+  {
+    "hanzi": "手提",
+    "pinyin": "shǒu tí",
+    "turkish": "El bagajı",
+    "english": "Carry-on",
+    "example_zh": "这是手提行李。",
+    "example_tr": "Bu el bagajı.",
+    "example_en": "This is carry-on luggage.",
+    "category": "airport"
+  },
+  {
+    "hanzi": "超重",
+    "pinyin": "chāo zhòng",
+    "turkish": "Ağırlık fazlası",
+    "english": "Overweight",
+    "example_zh": "行李超重了。",
+    "example_tr": "Bagaj ağırlığı fazla.",
+    "example_en": "The luggage is overweight.",
+    "category": "airport"
+  },
+  {
+    "hanzi": "充电宝",
+    "pinyin": "chōng diàn bǎo",
+    "turkish": "Power bank",
+    "english": "Power bank",
+    "example_zh": "充电宝不能托运。",
+    "example_tr": "Power bank bagaja verilemez.",
+    "example_en": "Power banks cannot be checked in.",
+    "category": "airport"
+  },
+  {
+    "hanzi": "液体",
+    "pinyin": "yè tǐ",
+    "turkish": "Sıvı",
+    "english": "Liquid",
+    "example_zh": "液体不能超过100ml。",
+    "example_tr": "Sıvı 100ml'yi geçemez.",
+    "example_en": "Liquids cannot exceed 100ml.",
+    "category": "airport"
+  },
+  {
+    "hanzi": "微信",
+    "pinyin": "wēi xìn",
+    "turkish": "WeChat",
+    "english": "WeChat",
+    "example_zh": "我们微信联系。",
+    "example_tr": "WeChat üzerinden iletişime geçelim.",
+    "example_en": "Let's contact via WeChat.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "加微信",
+    "pinyin": "jiā wēi xìn",
+    "turkish": "WeChat ekle",
+    "english": "Add on WeChat",
+    "example_zh": "可以加你微信吗？",
+    "example_tr": "Seni WeChat'e ekleyebilir miyim?",
+    "example_en": "Can I add you on WeChat?",
+    "category": "apps"
+  },
+  {
+    "hanzi": "朋友圈",
+    "pinyin": "péng you quān",
+    "turkish": "Moments",
+    "english": "Moments (WeChat)",
+    "example_zh": "发朋友圈。",
+    "example_tr": "Moments'ta paylaşım yap.",
+    "example_en": "Post on Moments.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "公众号",
+    "pinyin": "gōng zhòng hào",
+    "turkish": "Resmi hesap",
+    "english": "Official Account",
+    "example_zh": "关注公众号。",
+    "example_tr": "Resmi hesabı takip et.",
+    "example_en": "Follow the official account.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "小程序",
+    "pinyin": "xiǎo chéng xù",
+    "turkish": "Mini program",
+    "english": "Mini Program",
+    "example_zh": "打开小程序。",
+    "example_tr": "Mini programı aç.",
+    "example_en": "Open the mini program.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "扫码",
+    "pinyin": "sǎo mǎ",
+    "turkish": "Kod tarama",
+    "english": "Scan QR code",
+    "example_zh": "请扫码。",
+    "example_tr": "Lütfen kodu tarayın.",
+    "example_en": "Please scan the QR code.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "二维码",
+    "pinyin": "èr wéi mǎ",
+    "turkish": "QR kod",
+    "english": "QR code",
+    "example_zh": "这是我的二维码。",
+    "example_tr": "Bu benim QR kodum.",
+    "example_en": "This is my QR code.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "抖音",
+    "pinyin": "dǒu yīn",
+    "turkish": "TikTok",
+    "english": "TikTok",
+    "example_zh": "刷抖音。",
+    "example_tr": "TikTok izle.",
+    "example_en": "Browse TikTok.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "视频",
+    "pinyin": "shì pín",
+    "turkish": "Video",
+    "english": "Video",
+    "example_zh": "看视频。",
+    "example_tr": "Video izle.",
+    "example_en": "Watch video.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "直播",
+    "pinyin": "zhí bō",
+    "turkish": "Canlı yayın",
+    "english": "Live stream",
+    "example_zh": "看直播。",
+    "example_tr": "Canlı yayın izle.",
+    "example_en": "Watch live stream.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "点赞",
+    "pinyin": "diǎn zàn",
+    "turkish": "Beğenmek",
+    "english": "Like",
+    "example_zh": "请点赞。",
+    "example_tr": "Lütfen beğen.",
+    "example_en": "Please like.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "评论",
+    "pinyin": "píng lùn",
+    "turkish": "Yorum",
+    "english": "Comment",
+    "example_zh": "写评论。",
+    "example_tr": "Yorum yaz.",
+    "example_en": "Write a comment.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "转发",
+    "pinyin": "zhuǎn fā",
+    "turkish": "Paylaşmak",
+    "english": "Share/Repost",
+    "example_zh": "转发给朋友。",
+    "example_tr": "Arkadaşlarla paylaş.",
+    "example_en": "Share with friends.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "关注",
+    "pinyin": "guān zhù",
+    "turkish": "Takip etmek",
+    "english": "Follow",
+    "example_zh": "请关注我。",
+    "example_tr": "Lütfen beni takip et.",
+    "example_en": "Please follow me.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "粉丝",
+    "pinyin": "fěn sī",
+    "turkish": "Takipçi",
+    "english": "Follower/Fan",
+    "example_zh": "我有很多粉丝。",
+    "example_tr": "Çok takipçim var.",
+    "example_en": "I have many followers.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "网红",
+    "pinyin": "wǎng hóng",
+    "turkish": "Influencer",
+    "english": "Internet celebrity",
+    "example_zh": "她是网红。",
+    "example_tr": "O bir influencer.",
+    "example_en": "She is an influencer.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "爆款",
+    "pinyin": "bào kuǎn",
+    "turkish": "Virál ürün",
+    "english": "Viral hit",
+    "example_zh": "这是爆款。",
+    "example_tr": "Bu viral oldu.",
+    "example_en": "This went viral.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "拉黑",
+    "pinyin": "lā hēi",
+    "turkish": "Engellemek",
+    "english": "Block",
+    "example_zh": "把他拉黑了。",
+    "example_tr": "Onu engelledim.",
+    "example_en": "I blocked him.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "删除",
+    "pinyin": "shān chú",
+    "turkish": "Silmek",
+    "english": "Delete",
+    "example_zh": "删除消息。",
+    "example_tr": "Mesajı sil.",
+    "example_en": "Delete the message.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "撤回",
+    "pinyin": "chè huí",
+    "turkish": "Geri çekmek",
+    "english": "Recall/Unsend",
+    "example_zh": "撤回消息。",
+    "example_tr": "Mesajı geri çek.",
+    "example_en": "Recall the message.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "语音",
+    "pinyin": "yǔ yīn",
+    "turkish": "Ses mesajı",
+    "english": "Voice message",
+    "example_zh": "发语音。",
+    "example_tr": "Ses mesajı gönder.",
+    "example_en": "Send voice message.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "视频通话",
+    "pinyin": "shì pín tōng huà",
+    "turkish": "Görüntülü arama",
+    "english": "Video call",
+    "example_zh": "视频通话吗？",
+    "example_tr": "Görüntülü arama yapalım mı?",
+    "example_en": "Shall we video call?",
+    "category": "apps"
+  },
+  {
+    "hanzi": "表情包",
+    "pinyin": "biǎo qíng bāo",
+    "turkish": "Emoji/Sticker",
+    "english": "Sticker pack",
+    "example_zh": "发表情包。",
+    "example_tr": "Emoji gönder.",
+    "example_en": "Send stickers.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "截图",
+    "pinyin": "jié tú",
+    "turkish": "Ekran görüntüsü",
+    "english": "Screenshot",
+    "example_zh": "请截图。",
+    "example_tr": "Lütfen ekran görüntüsü al.",
+    "example_en": "Please take a screenshot.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "录屏",
+    "pinyin": "lù píng",
+    "turkish": "Ekran kaydı",
+    "english": "Screen recording",
+    "example_zh": "录屏保存。",
+    "example_tr": "Ekran kaydı yap.",
+    "example_en": "Record the screen.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "文档",
+    "pinyin": "wén dàng",
+    "turkish": "Belge",
+    "english": "Document",
+    "example_zh": "打开文档。",
+    "example_tr": "Belgeyi aç.",
+    "example_en": "Open the document.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "表格",
+    "pinyin": "biǎo gé",
+    "turkish": "Tablo",
+    "english": "Spreadsheet",
+    "example_zh": "做表格。",
+    "example_tr": "Tablo yap.",
+    "example_en": "Make a spreadsheet.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "幻灯片",
+    "pinyin": "huàn dēng piàn",
+    "turkish": "Slayt",
+    "english": "Presentation/Slides",
+    "example_zh": "做幻灯片。",
+    "example_tr": "Slayt hazırla.",
+    "example_en": "Make a presentation.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "保存",
+    "pinyin": "bǎo cún",
+    "turkish": "Kaydetmek",
+    "english": "Save",
+    "example_zh": "请保存。",
+    "example_tr": "Lütfen kaydet.",
+    "example_en": "Please save.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "另存为",
+    "pinyin": "lìng cún wéi",
+    "turkish": "Farklı kaydet",
+    "english": "Save as",
+    "example_zh": "另存为PDF。",
+    "example_tr": "PDF olarak kaydet.",
+    "example_en": "Save as PDF.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "打印",
+    "pinyin": "dǎ yìn",
+    "turkish": "Yazdırmak",
+    "english": "Print",
+    "example_zh": "打印文件。",
+    "example_tr": "Dosyayı yazdır.",
+    "example_en": "Print the document.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "复制",
+    "pinyin": "fù zhì",
+    "turkish": "Kopyalamak",
+    "english": "Copy",
+    "example_zh": "复制粘贴。",
+    "example_tr": "Kopyala yapıştır.",
+    "example_en": "Copy and paste.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "粘贴",
+    "pinyin": "zhān tiē",
+    "turkish": "Yapıştırmak",
+    "english": "Paste",
+    "example_zh": "粘贴到这里。",
+    "example_tr": "Buraya yapıştır.",
+    "example_en": "Paste here.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "剪切",
+    "pinyin": "jiǎn qiē",
+    "turkish": "Kesmek",
+    "english": "Cut",
+    "example_zh": "剪切文本。",
+    "example_tr": "Metni kes.",
+    "example_en": "Cut the text.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "撤销",
+    "pinyin": "chè xiāo",
+    "turkish": "Geri almak",
+    "english": "Undo",
+    "example_zh": "撤销操作。",
+    "example_tr": "İşlemi geri al.",
+    "example_en": "Undo the action.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "恢复",
+    "pinyin": "huī fù",
+    "turkish": "Yinelemek",
+    "english": "Redo",
+    "example_zh": "恢复操作。",
+    "example_tr": "İşlemi yinele.",
+    "example_en": "Redo the action.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "查找",
+    "pinyin": "chá zhǎo",
+    "turkish": "Bulmak",
+    "english": "Find",
+    "example_zh": "查找文字。",
+    "example_tr": "Metin bul.",
+    "example_en": "Find text.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "替换",
+    "pinyin": "tì huàn",
+    "turkish": "Değiştirmek",
+    "english": "Replace",
+    "example_zh": "替换文字。",
+    "example_tr": "Metni değiştir.",
+    "example_en": "Replace text.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "全选",
+    "pinyin": "quán xuǎn",
+    "turkish": "Tümünü seç",
+    "english": "Select all",
+    "example_zh": "全选内容。",
+    "example_tr": "Tüm içeriği seç.",
+    "example_en": "Select all content.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "字体",
+    "pinyin": "zì tǐ",
+    "turkish": "Yazı tipi",
+    "english": "Font",
+    "example_zh": "改字体。",
+    "example_tr": "Yazı tipini değiştir.",
+    "example_en": "Change the font.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "加粗",
+    "pinyin": "jiā cū",
+    "turkish": "Kalın yapmak",
+    "english": "Bold",
+    "example_zh": "文字加粗。",
+    "example_tr": "Metni kalın yap.",
+    "example_en": "Make text bold.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "斜体",
+    "pinyin": "xié tǐ",
+    "turkish": "İtalik",
+    "english": "Italic",
+    "example_zh": "用斜体。",
+    "example_tr": "İtalik kullan.",
+    "example_en": "Use italic.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "下划线",
+    "pinyin": "xià huà xiàn",
+    "turkish": "Alt çizgi",
+    "english": "Underline",
+    "example_zh": "加下划线。",
+    "example_tr": "Alt çizgi ekle.",
+    "example_en": "Add underline.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "对齐",
+    "pinyin": "duì qí",
+    "turkish": "Hizalamak",
+    "english": "Align",
+    "example_zh": "左对齐。",
+    "example_tr": "Sola hizala.",
+    "example_en": "Align left.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "排序",
+    "pinyin": "pái xù",
+    "turkish": "Sıralamak",
+    "english": "Sort",
+    "example_zh": "按日期排序。",
+    "example_tr": "Tarihe göre sırala.",
+    "example_en": "Sort by date.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "筛选",
+    "pinyin": "shāi xuǎn",
+    "turkish": "Filtrelemek",
+    "english": "Filter",
+    "example_zh": "筛选数据。",
+    "example_tr": "Veriyi filtrele.",
+    "example_en": "Filter data.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "公式",
+    "pinyin": "gōng shì",
+    "turkish": "Formül",
+    "english": "Formula",
+    "example_zh": "输入公式。",
+    "example_tr": "Formül gir.",
+    "example_en": "Enter formula.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "图表",
+    "pinyin": "tú biǎo",
+    "turkish": "Grafik",
+    "english": "Chart/Graph",
+    "example_zh": "插入图表。",
+    "example_tr": "Grafik ekle.",
+    "example_en": "Insert chart.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "云盘",
+    "pinyin": "yún pán",
+    "turkish": "Bulut depolama",
+    "english": "Cloud storage",
+    "example_zh": "存到云盘。",
+    "example_tr": "Buluta kaydet.",
+    "example_en": "Save to cloud.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "同步",
+    "pinyin": "tóng bù",
+    "turkish": "Senkronize",
+    "english": "Sync",
+    "example_zh": "同步数据。",
+    "example_tr": "Veriyi senkronize et.",
+    "example_en": "Sync data.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "备份",
+    "pinyin": "bèi fèn",
+    "turkish": "Yedekleme",
+    "english": "Backup",
+    "example_zh": "备份文件。",
+    "example_tr": "Dosyayı yedekle.",
+    "example_en": "Backup files.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "压缩",
+    "pinyin": "yā suō",
+    "turkish": "Sıkıştırmak",
+    "english": "Compress",
+    "example_zh": "压缩文件。",
+    "example_tr": "Dosyayı sıkıştır.",
+    "example_en": "Compress file.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "解压",
+    "pinyin": "jiě yā",
+    "turkish": "Çıkarmak",
+    "english": "Extract",
+    "example_zh": "解压文件。",
+    "example_tr": "Dosyayı çıkar.",
+    "example_en": "Extract file.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "下载",
+    "pinyin": "xià zǎi",
+    "turkish": "İndirmek",
+    "english": "Download",
+    "example_zh": "下载应用。",
+    "example_tr": "Uygulama indir.",
+    "example_en": "Download the app.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "安装",
+    "pinyin": "ān zhuāng",
+    "turkish": "Yüklemek",
+    "english": "Install",
+    "example_zh": "安装软件。",
+    "example_tr": "Yazılım yükle.",
+    "example_en": "Install software.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "卸载",
+    "pinyin": "xiè zǎi",
+    "turkish": "Kaldırmak",
+    "english": "Uninstall",
+    "example_zh": "卸载应用。",
+    "example_tr": "Uygulamayı kaldır.",
+    "example_en": "Uninstall app.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "更新",
+    "pinyin": "gēng xīn",
+    "turkish": "Güncellemek",
+    "english": "Update",
+    "example_zh": "需要更新。",
+    "example_tr": "Güncelleme gerekiyor.",
+    "example_en": "Needs update.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "升级",
+    "pinyin": "shēng jí",
+    "turkish": "Yükseltmek",
+    "english": "Upgrade",
+    "example_zh": "升级到专业版。",
+    "example_tr": "Pro sürüme yükselt.",
+    "example_en": "Upgrade to Pro.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "注册",
+    "pinyin": "zhù cè",
+    "turkish": "Kaydolmak",
+    "english": "Register",
+    "example_zh": "注册账号。",
+    "example_tr": "Hesap oluştur.",
+    "example_en": "Register account.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "登录",
+    "pinyin": "dēng lù",
+    "turkish": "Giriş yapmak",
+    "english": "Login",
+    "example_zh": "请登录。",
+    "example_tr": "Lütfen giriş yap.",
+    "example_en": "Please login.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "退出",
+    "pinyin": "tuì chū",
+    "turkish": "Çıkış yapmak",
+    "english": "Logout",
+    "example_zh": "退出登录。",
+    "example_tr": "Çıkış yap.",
+    "example_en": "Logout.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "密码",
+    "pinyin": "mì mǎ",
+    "turkish": "Şifre",
+    "english": "Password",
+    "example_zh": "忘记密码。",
+    "example_tr": "Şifreyi unuttum.",
+    "example_en": "Forgot password.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "验证码",
+    "pinyin": "yàn zhèng mǎ",
+    "turkish": "Doğrulama kodu",
+    "english": "Verification code",
+    "example_zh": "输入验证码。",
+    "example_tr": "Doğrulama kodunu gir.",
+    "example_en": "Enter verification code.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "用户名",
+    "pinyin": "yòng hù míng",
+    "turkish": "Kullanıcı adı",
+    "english": "Username",
+    "example_zh": "用户名是什么？",
+    "example_tr": "Kullanıcı adı nedir?",
+    "example_en": "What is the username?",
+    "category": "apps"
+  },
+  {
+    "hanzi": "账号",
+    "pinyin": "zhàng hào",
+    "turkish": "Hesap",
+    "english": "Account",
+    "example_zh": "账号被锁定了。",
+    "example_tr": "Hesap kilitlendi.",
+    "example_en": "Account is locked.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "绑定",
+    "pinyin": "bǎng dìng",
+    "turkish": "Bağlamak",
+    "english": "Bind/Link",
+    "example_zh": "绑定手机号。",
+    "example_tr": "Telefon numarası bağla.",
+    "example_en": "Link phone number.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "解绑",
+    "pinyin": "jiě bǎng",
+    "turkish": "Bağlantıyı kes",
+    "english": "Unbind",
+    "example_zh": "解绑银行卡。",
+    "example_tr": "Banka kartı bağlantısını kes.",
+    "example_en": "Unlink bank card.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "设置",
+    "pinyin": "shè zhì",
+    "turkish": "Ayarlar",
+    "english": "Settings",
+    "example_zh": "打开设置。",
+    "example_tr": "Ayarları aç.",
+    "example_en": "Open settings.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "通知",
+    "pinyin": "tōng zhī",
+    "turkish": "Bildirim",
+    "english": "Notification",
+    "example_zh": "关闭通知。",
+    "example_tr": "Bildirimleri kapat.",
+    "example_en": "Turn off notifications.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "静音",
+    "pinyin": "jìng yīn",
+    "turkish": "Sessiz",
+    "english": "Mute",
+    "example_zh": "设为静音。",
+    "example_tr": "Sessize al.",
+    "example_en": "Set to mute.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "震动",
+    "pinyin": "zhèn dòng",
+    "turkish": "Titreşim",
+    "english": "Vibrate",
+    "example_zh": "开启震动。",
+    "example_tr": "Titreşimi aç.",
+    "example_en": "Turn on vibration.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "亮度",
+    "pinyin": "liàng dù",
+    "turkish": "Parlaklık",
+    "english": "Brightness",
+    "example_zh": "调低亮度。",
+    "example_tr": "Parlaklığı azalt.",
+    "example_en": "Lower brightness.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "音量",
+    "pinyin": "yīn liàng",
+    "turkish": "Ses seviyesi",
+    "english": "Volume",
+    "example_zh": "调大音量。",
+    "example_tr": "Sesi yükselt.",
+    "example_en": "Increase volume.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "流量",
+    "pinyin": "liú liàng",
+    "turkish": "İnternet paketi",
+    "english": "Data/Mobile data",
+    "example_zh": "流量用完了。",
+    "example_tr": "İnternet paketi bitti.",
+    "example_en": "Data is used up.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "WiFi",
+    "pinyin": "WiFi",
+    "turkish": "WiFi",
+    "english": "WiFi",
+    "example_zh": "连接WiFi。",
+    "example_tr": "WiFi'ye bağlan.",
+    "example_en": "Connect to WiFi.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "热点",
+    "pinyin": "rè diǎn",
+    "turkish": "Mobil hotspot",
+    "english": "Hotspot",
+    "example_zh": "开热点。",
+    "example_tr": "Hotspot aç.",
+    "example_en": "Turn on hotspot.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "蓝牙",
+    "pinyin": "lán yá",
+    "turkish": "Bluetooth",
+    "english": "Bluetooth",
+    "example_zh": "打开蓝牙。",
+    "example_tr": "Bluetooth'u aç.",
+    "example_en": "Turn on Bluetooth.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "定位",
+    "pinyin": "dìng wèi",
+    "turkish": "Konum",
+    "english": "Location",
+    "example_zh": "开启定位。",
+    "example_tr": "Konumu aç.",
+    "example_en": "Turn on location.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "相机",
+    "pinyin": "xiàng jī",
+    "turkish": "Kamera",
+    "english": "Camera",
+    "example_zh": "打开相机。",
+    "example_tr": "Kamerayı aç.",
+    "example_en": "Open camera.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "相册",
+    "pinyin": "xiàng cè",
+    "turkish": "Galeri",
+    "english": "Gallery/Album",
+    "example_zh": "查看相册。",
+    "example_tr": "Galeriye bak.",
+    "example_en": "Check gallery.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "滤镜",
+    "pinyin": "lǜ jìng",
+    "turkish": "Filtre",
+    "english": "Filter",
+    "example_zh": "加滤镜。",
+    "example_tr": "Filtre ekle.",
+    "example_en": "Add filter.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "美颜",
+    "pinyin": "měi yán",
+    "turkish": "Güzellik modu",
+    "english": "Beauty mode",
+    "example_zh": "开美颜。",
+    "example_tr": "Güzellik modunu aç.",
+    "example_en": "Turn on beauty mode.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "剪辑",
+    "pinyin": "jiǎn jí",
+    "turkish": "Düzenlemek",
+    "english": "Edit (video)",
+    "example_zh": "剪辑视频。",
+    "example_tr": "Video düzenle.",
+    "example_en": "Edit video.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "上传",
+    "pinyin": "shàng chuán",
+    "turkish": "Yüklemek",
+    "english": "Upload",
+    "example_zh": "上传文件。",
+    "example_tr": "Dosya yükle.",
+    "example_en": "Upload file.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "分享",
+    "pinyin": "fēn xiǎng",
+    "turkish": "Paylaşmak",
+    "english": "Share",
+    "example_zh": "分享链接。",
+    "example_tr": "Bağlantıyı paylaş.",
+    "example_en": "Share link.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "收藏",
+    "pinyin": "shōu cáng",
+    "turkish": "Kaydetmek",
+    "english": "Save/Bookmark",
+    "example_zh": "收藏文章。",
+    "example_tr": "Makaleyi kaydet.",
+    "example_en": "Save article.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "历史记录",
+    "pinyin": "lì shǐ jì lù",
+    "turkish": "Geçmiş",
+    "english": "History",
+    "example_zh": "查看历史记录。",
+    "example_tr": "Geçmişe bak.",
+    "example_en": "View history.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "缓存",
+    "pinyin": "huǎn cún",
+    "turkish": "Önbellek",
+    "english": "Cache",
+    "example_zh": "清除缓存。",
+    "example_tr": "Önbelleği temizle.",
+    "example_en": "Clear cache.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "崩溃",
+    "pinyin": "bēng kuì",
+    "turkish": "Çökmek",
+    "english": "Crash",
+    "example_zh": "应用崩溃了。",
+    "example_tr": "Uygulama çöktü.",
+    "example_en": "App crashed.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "卡顿",
+    "pinyin": "kǎ dùn",
+    "turkish": "Kasmak",
+    "english": "Lag",
+    "example_zh": "手机卡顿。",
+    "example_tr": "Telefon kasıyor.",
+    "example_en": "Phone is lagging.",
+    "category": "apps"
+  },
+  {
+    "hanzi": "闪退",
+    "pinyin": "shǎn tuì",
+    "turkish": "Aniden kapanmak",
+    "english": "Force close",
+    "example_zh": "软件闪退。",
+    "example_tr": "Yazılım aniden kapandı.",
+    "example_en": "App force closed.",
+    "category": "apps"
+  }
+];

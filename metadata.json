@@ -1,0 +1,7 @@
+{
+  "name": "Çince Öğren (Learn Chinese)",
+  "description": "An interactive app for Turkish speakers to learn Chinese, featuring AI voice conversations, pronunciation checking, and deep grammar explanations.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
