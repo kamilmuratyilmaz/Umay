@@ -1,0 +1,41 @@
+services:
+  ai:
+    build:
+      context: .
+      dockerfile: Dockerfile.ai
+    env_file: .env.local
+    environment:
+      - AI_BACKEND_PORT=8000
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 5s
+      start_period: 15s
+      retries: 3
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+      args:
+        # GEMINI_API_KEY is read from .env.local via the shell environment.
+        # Run: export $(cat .env.local | xargs) && docker compose up --build
+        GEMINI_API_KEY: ${GEMINI_API_KEY}
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - AI_BACKEND_URL=http://ai:8000
+    ports:
+      - "3000:3000"
+    volumes:
+      - audio_files:/app/public/audio
+    restart: unless-stopped
+    depends_on:
+      ai:
+        condition: service_healthy
+
+volumes:
+  audio_files:

@@ -1,0 +1,43 @@
+# ─── Stage 1: Resolve and install dependencies ────────────────────────────────
+FROM python:3.13-slim AS builder
+
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /usr/local/bin/uv
+
+WORKDIR /app
+
+# Copy manifests first so this layer is cached unless deps change
+COPY ai_backend/pyproject.toml ai_backend/uv.lock ./
+
+RUN uv sync \
+      --frozen \
+      --no-dev \
+      --no-install-project \
+      --compile-bytecode
+
+# ─── Stage 2: Production runner ───────────────────────────────────────────────
+FROM python:3.13-slim AS runner
+
+RUN groupadd -r app && useradd -r -g app app
+
+WORKDIR /app
+
+# Copy the resolved venv from the builder (no uv needed at runtime)
+COPY --from=builder /app/.venv ./.venv
+
+# Copy application source — standalone service, runs from /app
+COPY ai_backend/config.py ai_backend/main.py ./
+COPY ai_backend/routers/ ./routers/
+
+RUN chown -R app:app /app
+USER app
+
+ENV PATH="/app/.venv/bin:$PATH" \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+EXPOSE 8000
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=15s --retries=3 \
+    CMD python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')" || exit 1
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -1,0 +1,30 @@
+# Dependencies and build output
+node_modules/
+dist/
+.venv/
+ai_backend/.venv/
+
+# Python artifacts
+__pycache__/
+ai_backend/__pycache__/
+ai_backend/routers/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Secrets and local config
+.env.local
+.env.*.local
+
+# Version control
+.git/
+.gitignore
+
+# Docker files (not needed in the build context)
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# Dev / editor artifacts
+.DS_Store
+*.log
