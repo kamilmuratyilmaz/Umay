@@ -31,7 +31,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - audio_files:/app/public/audio
+      - audio_files:/app/data/audio
     restart: unless-stopped
     depends_on:
       ai:

@@ -26,7 +26,7 @@ async function startServer() {
   app.use("/api", apiLimiter);
 
   // Serve audio files
-  const audioDir = path.join(process.cwd(), "public", "audio");
+  const audioDir = path.join(process.cwd(), "data", "audio");
   if (!fs.existsSync(audioDir)) {
     fs.mkdirSync(audioDir, { recursive: true });
   }

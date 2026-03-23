@@ -20,7 +20,7 @@ async function downloadWord(word: any, tts: MsEdgeTTS): Promise<boolean> {
   const hash = simpleHash(word.hanzi);
   const filenameNormal = `tts-Puck-${hash}.mp3`;
   const filenameSlow = `tts-Puck-${hash}-slow.mp3`;
-  const dirPath = path.join(process.cwd(), 'public', 'audio', safeCategory);
+  const dirPath = path.join(process.cwd(), 'data', 'audio', safeCategory);
   
   if (!fs.existsSync(dirPath)) {
     fs.mkdirSync(dirPath, { recursive: true });
