@@ -1,4 +1,6 @@
 import { useState, useRef, useCallback } from "react";
+import type { LangCode } from "../i18n";
+import { LIVE_SYSTEM_INSTRUCTION } from "./liveInstructions";
 
 export const useLiveAPI = () => {
   const [isConnected, setIsConnected] = useState(false);
@@ -65,7 +67,8 @@ export const useLiveAPI = () => {
     setIsConnecting(false);
   }, []);
 
-  const connect = useCallback(async () => {
+  const connect = useCallback(async (args: { native: LangCode; target: LangCode } = { native: 'tr', target: 'zh' }) => {
+    const { native, target } = args;
     setIsConnecting(true);
     setError(null);
 
@@ -91,8 +94,7 @@ export const useLiveAPI = () => {
             type: "config",
             model: "gemini-2.5-flash-native-audio-preview-12-2025",
             voiceName: "Puck",
-            systemInstruction:
-              "You are a friendly Chinese teacher for a Turkish speaker. You speak both Turkish and Mandarin Chinese. Help the user practice their conversational Chinese. Correct their mistakes gently. Keep responses concise.",
+            systemInstruction: LIVE_SYSTEM_INSTRUCTION(native, target),
           })
         );
       };

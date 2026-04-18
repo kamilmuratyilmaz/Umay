@@ -45,7 +45,7 @@ export default function LiveTutor() {
         </div>
 
         <button
-          onClick={isConnected ? disconnect : connect}
+          onClick={() => (isConnected ? disconnect() : connect())}
           disabled={isConnecting}
           className={`px-10 py-4 rounded-full font-medium flex items-center gap-3 transition-all shadow-sm text-lg ${
             isConnected 
