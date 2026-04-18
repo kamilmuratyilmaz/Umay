@@ -64,12 +64,14 @@ export const evaluatePronunciation = async (
   base64Audio: string,
   mimeType: string,
   targetWord: string,
-  pinyin: string
+  pinyin: string,
+  native: LangCode = "tr",
+  target: LangCode = "zh",
 ) => {
   const response = await fetch("/api/evaluate-pronunciation", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ base64Audio, mimeType, targetWord, pinyin }),
+    body: JSON.stringify({ base64Audio, mimeType, targetWord, pinyin, native, target }),
   });
   if (!response.ok) throw new Error("Pronunciation evaluation failed");
   return response.json();
