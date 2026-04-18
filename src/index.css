@@ -1,21 +1,99 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap');
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Noto Serif SC", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  /* Surfaces */
+  --color-cream:     #FDFBF7;
+  --color-paper:     #FFFFFF;
+  --color-parchment: #F2EFE9;
+  --color-sand:      #EBE5D9;
+
+  /* Ink */
+  --color-ink:       #2D2A26;
+  --color-ink-deep:  #1A1816;
+  --color-stone:     #6B655B;
+  --color-mist:      #A39E93;
+
+  /* Accents */
+  --color-vermillion:      #C8102E;
+  --color-vermillion-deep: #A00D25;
+  --color-saffron:         #E8A33D;
+  --color-saffron-deep:    #C68324;
+  --color-lapis:           #2E5CB8;
+  --color-lapis-deep:      #1E4096;
+  --color-jade:            #047857;
+  --color-jade-deep:       #036349;
+
+  /* Semantic */
+  --color-amber:        #92400E;
+  --color-amber-soft:   #FFFBEB;
+  --color-amber-border: #FDE68A;
+  --color-rose:         #B91C1C;
+  --color-rose-soft:    #FEF2F2;
+  --color-rose-border:  #FECACA;
+  --color-lapis-info:         #1E40AF;
+  --color-lapis-info-soft:    #EFF6FF;
+  --color-lapis-info-border:  #BFDBFE;
+  --color-jade-soft:    #F0FDF4;
+  --color-jade-border:  #BBF7D0;
+
+  /* Fonts */
+  --font-sans:  "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-cjk:   "Noto Serif SC", "Songti SC", ui-serif, Georgia, serif;
+  --font-serif: "Noto Serif", Georgia, "Times New Roman", serif;
+
+  /* Radii */
+  --radius-xs:   6px;
+  --radius-sm:   10px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-2xl:  32px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(45,42,38,0.04);
+  --shadow-sm: 0 1px 3px rgba(45,42,38,0.06), 0 1px 2px rgba(45,42,38,0.04);
+  --shadow-md: 0 4px 12px rgba(45,42,38,0.08);
+  --shadow-lg: 0 12px 32px rgba(45,42,38,0.10);
+  --shadow-inner: inset 0 2px 4px rgba(45,42,38,0.04);
+
+  /* Motion */
+  --ease-out:      cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 500ms;
+}
+
+:root {
+  /* Aliases used inline; the @theme block above powers Tailwind utilities */
+  --bg:        var(--color-cream);
+  --bg-elev:   var(--color-paper);
+  --bg-sunken: var(--color-parchment);
+  --border:    var(--color-sand);
+  --fg1:       var(--color-ink);
+  --fg2:       var(--color-stone);
+  --fg3:       var(--color-mist);
+  --accent:       var(--color-vermillion);
+  --accent-deep:  var(--color-vermillion-deep);
+  --accent-tint:  rgba(200, 16, 46, 0.10);
+  --accent-glow:  rgba(200, 16, 46, 0.20);
+  --halo-accent:  0 0 0 12px var(--accent-tint);
 }
 
 @layer utilities {
-  .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  .scrollbar-hide::-webkit-scrollbar {
-    display: none;
-  }
-  .chinese-text {
-    font-family: var(--font-serif);
-  }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .cjk, .chinese-text { font-family: var(--font-cjk); font-weight: 500; }
+  .pinyin { font-family: var(--font-sans); color: var(--color-vermillion); font-weight: 500; letter-spacing: 0.04em; }
+  .eyebrow { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--fg3); }
 }
+
+html, body {
+  background: var(--bg);
+  color: var(--fg1);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+::selection { background: var(--accent-tint); color: var(--accent); }
