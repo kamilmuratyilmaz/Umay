@@ -1,255 +1,147 @@
-import { useState, useMemo } from 'react';
-import { Volume2, Loader2, Search, ChevronLeft, ChevronRight, Snail } from 'lucide-react';
-import { generateSpeech } from '../lib/gemini';
-import { VOCABULARY } from '../data/vocabulary';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { Search, Volume2, Snail, Loader2 } from 'lucide-react';
+import Card from './ui/Card';
+import Pill from './ui/Pill';
+import IconButton from './ui/IconButton';
+import SectionHeading from './ui/SectionHeading';
+import { VOCABULARY, type VocabularyWord } from '../data/vocabulary';
+import { useLanguage } from '../context/LanguageContext';
+import { resolveAudioSource, type AudioField, type AudioSpeed } from '../lib/audioPlayer';
+import type { LangCode } from '../i18n';
 
-const CATEGORY_MAP: Record<string, string> = {
-  'greetings': 'Selamlaşma',
-  'self-introduction': 'Kendini Tanıtma',
-  'places': 'Mekanlar',
-  'jobs': 'Meslekler',
-  'shopping': 'Alışveriş',
-  'activities': 'Aktiviteler',
-  'food': 'Yemek',
-  'family': 'Aile',
-  'colors': 'Renkler',
-  'fruits': 'Meyveler',
-  'dates-time': 'Tarih ve Zaman',
-  'numbers': 'Sayılar',
-  'emotions': 'Duygular',
-  'sports': 'Spor',
-  'descriptive': 'Sıfatlar',
-  'countries': 'Ülkeler',
-  'animals': 'Hayvanlar',
-  'nature-weather': 'Doğa ve Hava',
-  'household': 'Ev Eşyaları',
-  'clothing': 'Giyim',
-  'hotel': 'Otel',
-  'directions': 'Yönler',
-  'taxi': 'Taksi',
-  'airport': 'Havalimanı',
-  'apps': 'Uygulamalar'
-};
-
-const ITEMS_PER_PAGE = 12;
+function scriptAndTranslation(row: VocabularyWord, native: LangCode, target: LangCode) {
+  const map: Record<LangCode, string> = {
+    zh: row.hanzi,
+    tr: row.turkish,
+    en: row.english ?? '',
+  };
+  const scriptField: AudioField = target === 'zh' ? 'hanzi' : target === 'en' ? 'english' : 'turkish';
+  return {
+    script: map[target],
+    translation: map[native],
+    pinyin: target === 'zh' ? row.pinyin : '',
+    audioField: scriptField,
+    isCjk: target === 'zh',
+  };
+}
 
 export default function VocabularyList() {
-  const [loadingState, setLoadingState] = useState<{ index: number, type: 'normal' | 'slow' } | null>(null);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string>('Tümü');
-  const [currentPage, setCurrentPage] = useState(1);
+  const { pair, t } = useLanguage();
+  const { native, target } = pair!;
 
-  const categories = useMemo(() => {
-    const cats = new Set(VOCABULARY.map(w => w.category));
-    return ['Tümü', ...Array.from(cats)];
-  }, []);
+  const [search, setSearch] = useState('');
+  const [cat, setCat] = useState('all');
+  const [playing, setPlaying] = useState<{ idx: number; slow: boolean } | null>(null);
+  const audioElRef = useRef<HTMLAudioElement | null>(null);
 
-  const filteredVocabulary = useMemo(() => {
-    let filtered = VOCABULARY;
-    
-    if (selectedCategory !== 'Tümü') {
-      filtered = filtered.filter(word => word.category === selectedCategory);
-    }
-    
-    if (searchTerm) {
-      const lowerSearch = searchTerm.toLowerCase();
-      filtered = filtered.filter(
-        (word) =>
-          word.hanzi.includes(lowerSearch) ||
-          word.pinyin.toLowerCase().includes(lowerSearch) ||
-          word.turkish.toLowerCase().includes(lowerSearch)
-      );
-    }
-    
-    return filtered;
-  }, [searchTerm, selectedCategory]);
+  const cats = useMemo(() => ['all', ...Array.from(new Set(VOCABULARY.map(w => w.category)))], []);
 
-  const totalPages = Math.ceil(filteredVocabulary.length / ITEMS_PER_PAGE);
-  const currentItems = filteredVocabulary.slice(
-    (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE
-  );
+  const filtered = useMemo(() => {
+    return VOCABULARY.filter(w => {
+      if (cat !== 'all' && w.category !== cat) return false;
+      if (!search) return true;
+      const s = search.toLowerCase();
+      const { script, translation } = scriptAndTranslation(w, native, target);
+      return script.toLowerCase().includes(s)
+          || translation.toLowerCase().includes(s)
+          || (target === 'zh' && w.pinyin.toLowerCase().includes(s));
+    });
+  }, [search, cat, native, target]);
 
-  // Reset to first page when searching or changing category
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(e.target.value);
-    setCurrentPage(1);
-  };
-
-  const handleCategoryChange = (category: string) => {
-    setSelectedCategory(category);
-    setCurrentPage(1);
-  };
-
-  const playAudio = async (text: string, index: number, category: string, isSlow: boolean = false) => {
+  const play = async (row: VocabularyWord, idx: number, speed: AudioSpeed) => {
+    const { audioField } = scriptAndTranslation(row, native, target);
+    setPlaying({ idx, slow: speed === 'slow' });
     try {
-      setLoadingState({ index, type: isSlow ? 'slow' : 'normal' });
-      const audioBufferData = await generateSpeech(text, 'Puck', category, isSlow);
-      
-      if (!audioBufferData || audioBufferData.byteLength === 0) {
-        throw new Error("Audio buffer is empty");
+      const src = await resolveAudioSource(row, audioField, speed, target);
+      if (!src) { setPlaying(null); return; }
+      if (!audioElRef.current) audioElRef.current = new Audio();
+      if (src.kind === 'uri') {
+        audioElRef.current.src = src.src;
+      } else {
+        audioElRef.current.src = URL.createObjectURL(new Blob([src.buffer], { type: 'audio/wav' }));
       }
-
-      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 24000 });
-      
-      try {
-        const audioBuffer = await audioContext.decodeAudioData(audioBufferData.slice(0));
-        const source = audioContext.createBufferSource();
-        source.buffer = audioBuffer;
-        source.connect(audioContext.destination);
-        source.start(0);
-      } catch (e) {
-        // Fallback to raw PCM16
-        const int16Array = new Int16Array(audioBufferData);
-        if (int16Array.length === 0) {
-           throw new Error("PCM array is empty");
-        }
-        const float32Array = new Float32Array(int16Array.length);
-        for (let i = 0; i < int16Array.length; i++) {
-          float32Array[i] = int16Array[i] / 32768.0;
-        }
-        
-        const audioBuffer = audioContext.createBuffer(1, float32Array.length, 24000);
-        audioBuffer.getChannelData(0).set(float32Array);
-        
-        const source = audioContext.createBufferSource();
-        source.buffer = audioBuffer;
-        source.connect(audioContext.destination);
-        source.start(0);
-      }
-    } catch (error) {
-      console.error('Failed to play audio:', error);
-      alert('Ses çalınamadı. Lütfen tekrar deneyin.');
-    } finally {
-      setLoadingState(null);
+      audioElRef.current.onended = () => setPlaying(null);
+      await audioElRef.current.play();
+    } catch (e) {
+      console.error('Audio play failed', e);
+      setPlaying(null);
     }
   };
+
+  useEffect(() => () => { audioElRef.current?.pause(); audioElRef.current = null; }, []);
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h2 className="text-2xl font-semibold text-[#2D2A26]">Temel Kelimeler</h2>
-        <p className="text-[#6B655B] mt-1">Çince karakterleri, okunuşlarını ve Türkçe anlamlarını öğrenin.</p>
-      </div>
+    <div className="flex flex-col gap-6">
+      <SectionHeading title={t('vocab.title')} />
 
       <div className="relative">
-        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-          <Search className="h-5 w-5 text-[#A39E93]" />
-        </div>
+        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--fg3)] pointer-events-none flex">
+          <Search style={{ width: 18, height: 18 }} strokeWidth={1.75} />
+        </span>
         <input
-          type="text"
-          className="block w-full pl-11 pr-4 py-3.5 border border-[#EBE5D9] rounded-2xl leading-5 bg-white placeholder-[#A39E93] focus:outline-none focus:ring-2 focus:ring-[#C8102E]/20 focus:border-[#C8102E] sm:text-sm transition-all shadow-sm"
-          placeholder="Çince, Pinyin veya Türkçe ara..."
-          value={searchTerm}
-          onChange={handleSearchChange}
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          placeholder={t('vocab.searchPh')}
+          className="w-full box-border py-3.5 pl-11 pr-4 rounded-2xl border border-[var(--border)] bg-[var(--bg-elev)] text-[var(--fg1)] text-sm shadow-sm outline-none focus:border-[var(--accent)]"
+          style={{ boxShadow: 'var(--shadow-sm)' }}
         />
       </div>
 
-      <div className="flex overflow-x-auto pb-2 -mx-2 px-2 space-x-2 scrollbar-hide">
-        {categories.map((category) => (
-          <button
-            key={category}
-            onClick={() => handleCategoryChange(category)}
-            className={`whitespace-nowrap px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
-              selectedCategory === category
-                ? 'bg-[#2D2A26] text-white shadow-md'
-                : 'bg-white text-[#6B655B] border border-[#EBE5D9] hover:bg-[#F2EFE9] hover:text-[#2D2A26]'
-            }`}
-          >
-            {category === 'Tümü' ? 'Tümü' : CATEGORY_MAP[category] || category}
-          </button>
+      <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
+        {cats.map(c => (
+          <Pill key={c} active={cat === c} onClick={() => setCat(c)}>
+            {c === 'all' ? t('vocab.cat.all') : c}
+          </Pill>
         ))}
       </div>
-      
-      {currentItems.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {currentItems.map((word, index) => (
-            <div key={`${word.hanzi}-${index}`} className="bg-white p-6 rounded-3xl shadow-sm border border-[#EBE5D9] flex items-center justify-between hover:shadow-md transition-all group">
-              <div>
-                <div className="text-4xl font-medium text-[#2D2A26] mb-3 chinese-text">{word.hanzi}</div>
-                <div className="text-lg text-[#C8102E] font-medium tracking-wide">{word.pinyin}</div>
-                <div className="text-[#6B655B] mt-1">{word.turkish}</div>
-              </div>
-              <div className="flex flex-col space-y-2 ml-4 shrink-0 opacity-80 group-hover:opacity-100 transition-opacity">
-                <button
-                  onClick={() => playAudio(word.hanzi, index, word.category, false)}
-                  disabled={loadingState?.index === index}
-                  className="p-3.5 rounded-full bg-[#FDFBF7] text-[#2D2A26] hover:bg-[#F2EFE9] transition-colors disabled:opacity-50 border border-[#EBE5D9]"
-                  aria-label="Normal Dinle"
-                  title="Normal Dinle"
-                >
-                  {loadingState?.index === index && loadingState?.type === 'normal' ? <Loader2 className="w-5 h-5 animate-spin" /> : <Volume2 className="w-5 h-5" />}
-                </button>
-                <button
-                  onClick={() => playAudio(word.hanzi, index, word.category, true)}
-                  disabled={loadingState?.index === index}
-                  className="p-3.5 rounded-full bg-[#FDFBF7] text-[#6B655B] hover:bg-[#F2EFE9] transition-colors disabled:opacity-50 border border-[#EBE5D9]"
-                  aria-label="Yavaş Dinle"
-                  title="Yavaş Dinle"
-                >
-                  {loadingState?.index === index && loadingState?.type === 'slow' ? <Loader2 className="w-5 h-5 animate-spin" /> : <Snail className="w-5 h-5" />}
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div className="text-center py-16 bg-white rounded-3xl border border-[#EBE5D9]">
-          <p className="text-[#6B655B]">Aramanızla eşleşen kelime bulunamadı.</p>
-        </div>
-      )}
 
-      {totalPages > 1 && (
-        <div className="flex items-center justify-between bg-white px-4 py-3 border border-[#EBE5D9] rounded-2xl sm:px-6 shadow-sm">
-          <div className="flex flex-1 justify-between sm:hidden">
-            <button
-              onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
-              disabled={currentPage === 1}
-              className="relative inline-flex items-center rounded-xl border border-[#EBE5D9] bg-white px-4 py-2 text-sm font-medium text-[#2D2A26] hover:bg-[#FDFBF7] disabled:opacity-50"
-            >
-              Önceki
-            </button>
-            <button
-              onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
-              disabled={currentPage === totalPages}
-              className="relative ml-3 inline-flex items-center rounded-xl border border-[#EBE5D9] bg-white px-4 py-2 text-sm font-medium text-[#2D2A26] hover:bg-[#FDFBF7] disabled:opacity-50"
-            >
-              Sonraki
-            </button>
-          </div>
-          <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
-            <div>
-              <p className="text-sm text-[#6B655B]">
-                Toplam <span className="font-medium text-[#2D2A26]">{filteredVocabulary.length}</span> kelimeden{' '}
-                <span className="font-medium text-[#2D2A26]">{(currentPage - 1) * ITEMS_PER_PAGE + 1}</span> -{' '}
-                <span className="font-medium text-[#2D2A26]">{Math.min(currentPage * ITEMS_PER_PAGE, filteredVocabulary.length)}</span> arası gösteriliyor
-              </p>
-            </div>
-            <div>
-              <nav className="isolate inline-flex -space-x-px rounded-xl shadow-sm" aria-label="Pagination">
-                <button
-                  onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
-                  disabled={currentPage === 1}
-                  className="relative inline-flex items-center rounded-l-xl px-2 py-2 text-[#A39E93] ring-1 ring-inset ring-[#EBE5D9] hover:bg-[#FDFBF7] focus:z-20 focus:outline-offset-0 disabled:opacity-50"
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {filtered.map((w, i) => {
+          const { script, translation, pinyin, isCjk } = scriptAndTranslation(w, native, target);
+          const isPlayingNormal = playing?.idx === i && !playing.slow;
+          const isPlayingSlow   = playing?.idx === i &&  playing.slow;
+          return (
+            <Card key={`${w.hanzi}-${i}`} className="flex items-center justify-between gap-4" padding={24}>
+              <div className="min-w-0">
+                <div
+                  className={isCjk ? 'chinese-text' : ''}
+                  style={{
+                    fontSize: isCjk ? 36 : 26,
+                    fontWeight: isCjk ? 500 : 600,
+                    color: 'var(--fg1)', lineHeight: 1.1, marginBottom: 10,
+                    letterSpacing: isCjk ? 0 : '-0.01em', wordBreak: 'break-word',
+                  }}
                 >
-                  <span className="sr-only">Önceki</span>
-                  <ChevronLeft className="h-5 w-5" aria-hidden="true" />
-                </button>
-                <span className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-[#2D2A26] ring-1 ring-inset ring-[#EBE5D9] focus:outline-offset-0 bg-white">
-                  {currentPage} / {totalPages}
-                </span>
-                <button
-                  onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
-                  disabled={currentPage === totalPages}
-                  className="relative inline-flex items-center rounded-r-xl px-2 py-2 text-[#A39E93] ring-1 ring-inset ring-[#EBE5D9] hover:bg-[#FDFBF7] focus:z-20 focus:outline-offset-0 disabled:opacity-50"
-                >
-                  <span className="sr-only">Sonraki</span>
-                  <ChevronRight className="h-5 w-5" aria-hidden="true" />
-                </button>
-              </nav>
-            </div>
-          </div>
-        </div>
+                  {script}
+                </div>
+                {pinyin && <div className="pinyin text-base mb-0.5">{pinyin}</div>}
+                <div className="text-[15px] text-[var(--fg2)]">{translation}</div>
+              </div>
+              <div className="flex flex-col gap-2 shrink-0">
+                <IconButton
+                  icon={isPlayingNormal ? Loader2 : Volume2}
+                  tone="ink"
+                  loading={isPlayingNormal}
+                  onClick={() => play(w, i, 'normal')}
+                  title={t('vocab.playNormal')}
+                />
+                <IconButton
+                  icon={isPlayingSlow ? Loader2 : Snail}
+                  tone="stone"
+                  loading={isPlayingSlow}
+                  onClick={() => play(w, i, 'slow')}
+                  title={t('vocab.playSlow')}
+                />
+              </div>
+            </Card>
+          );
+        })}
+      </div>
+
+      {filtered.length === 0 && (
+        <Card padding={48} className="text-center">
+          <p className="m-0 text-[var(--fg2)]">{t('vocab.empty')}</p>
+        </Card>
       )}
     </div>
   );
