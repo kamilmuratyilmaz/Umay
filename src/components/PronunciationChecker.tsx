@@ -1,7 +1,15 @@
-import { useState, useRef, useEffect } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Mic, Square, CheckCircle2, XCircle, Loader2, RefreshCw, Volume2, Snail } from 'lucide-react';
-import { evaluatePronunciation, generateSpeech } from '../lib/gemini';
-import { VOCABULARY, VocabularyWord } from '../data/vocabulary';
+import Card from './ui/Card';
+import IconButton from './ui/IconButton';
+import HeroIconTile from './ui/HeroIconTile';
+import SectionHeading from './ui/SectionHeading';
+import Eyebrow from './ui/Eyebrow';
+import { evaluatePronunciation } from '../lib/gemini';
+import { VOCABULARY, type VocabularyWord } from '../data/vocabulary';
+import { useLanguage } from '../context/LanguageContext';
+import { resolveAudioSource, type AudioField, type AudioSpeed } from '../lib/audioPlayer';
+import type { LangCode } from '../i18n';
 
 interface EvaluationResult {
   score: number;
@@ -9,66 +17,69 @@ interface EvaluationResult {
   transcription: string;
 }
 
+function targetText(row: VocabularyWord, target: LangCode): string {
+  if (target === 'zh') return row.hanzi;
+  if (target === 'en') return row.english ?? '';
+  return row.turkish;
+}
+
+function translationText(row: VocabularyWord, native: LangCode): string {
+  if (native === 'zh') return row.hanzi;
+  if (native === 'en') return row.english ?? '';
+  return row.turkish;
+}
+
+function targetAudioField(target: LangCode): AudioField {
+  return target === 'zh' ? 'hanzi' : target === 'en' ? 'english' : 'turkish';
+}
+
 export default function PronunciationChecker() {
+  const { pair, t } = useLanguage();
+  const { native, target } = pair!;
+
+  const supported = target === 'zh' || target === 'en';
+
+  const candidates = useMemo(
+    () => VOCABULARY.filter(w => (target === 'zh' ? !!w.hanzi : target === 'en' ? !!w.english : !!w.turkish)),
+    [target],
+  );
+
+  const [targetWord, setTargetWord] = useState<VocabularyWord>(candidates[0] ?? VOCABULARY[0]);
   const [isRecording, setIsRecording] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [audioLoadingState, setAudioLoadingState] = useState<'normal' | 'slow' | null>(null);
+  const [audioLoadingState, setAudioLoadingState] = useState<AudioSpeed | null>(null);
   const [result, setResult] = useState<EvaluationResult | null>(null);
-  const [targetWord, setTargetWord] = useState<VocabularyWord>(VOCABULARY[0]);
-  
+
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
+  const audioElRef = useRef<HTMLAudioElement | null>(null);
 
   const pickRandomWord = () => {
-    const randomIndex = Math.floor(Math.random() * VOCABULARY.length);
-    setTargetWord(VOCABULARY[randomIndex]);
+    if (candidates.length === 0) return;
+    const idx = Math.floor(Math.random() * candidates.length);
+    setTargetWord(candidates[idx]);
     setResult(null);
   };
 
-  useEffect(() => {
-    pickRandomWord();
-  }, []);
+  useEffect(() => { pickRandomWord(); /* eslint-disable-next-line react-hooks/exhaustive-deps */ }, [target]);
+  useEffect(() => () => { audioElRef.current?.pause(); audioElRef.current = null; }, []);
 
-  const playTargetAudio = async (isSlow: boolean = false) => {
+  const playTargetAudio = async (speed: AudioSpeed) => {
+    if (!supported) return;
+    setAudioLoadingState(speed);
     try {
-      setAudioLoadingState(isSlow ? 'slow' : 'normal');
-      const audioBufferData = await generateSpeech(targetWord.hanzi, 'Puck', targetWord.category, isSlow);
-      
-      if (!audioBufferData || audioBufferData.byteLength === 0) {
-        throw new Error("Audio buffer is empty");
+      const src = await resolveAudioSource(targetWord, targetAudioField(target), speed, target);
+      if (!src) { setAudioLoadingState(null); return; }
+      if (!audioElRef.current) audioElRef.current = new Audio();
+      if (src.kind === 'uri') {
+        audioElRef.current.src = src.src;
+      } else {
+        audioElRef.current.src = URL.createObjectURL(new Blob([src.buffer], { type: 'audio/wav' }));
       }
-
-      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)({ sampleRate: 24000 });
-      
-      try {
-        const audioBuffer = await audioContext.decodeAudioData(audioBufferData.slice(0));
-        const source = audioContext.createBufferSource();
-        source.buffer = audioBuffer;
-        source.connect(audioContext.destination);
-        source.start(0);
-      } catch (e) {
-        // Fallback to raw PCM16
-        const int16Array = new Int16Array(audioBufferData);
-        if (int16Array.length === 0) {
-           throw new Error("PCM array is empty");
-        }
-        const float32Array = new Float32Array(int16Array.length);
-        for (let i = 0; i < int16Array.length; i++) {
-          float32Array[i] = int16Array[i] / 32768.0;
-        }
-        
-        const audioBuffer = audioContext.createBuffer(1, float32Array.length, 24000);
-        audioBuffer.getChannelData(0).set(float32Array);
-        
-        const source = audioContext.createBufferSource();
-        source.buffer = audioBuffer;
-        source.connect(audioContext.destination);
-        source.start(0);
-      }
-    } catch (error) {
-      console.error('Failed to play audio:', error);
-      alert('Ses çalınamadı. Lütfen tekrar deneyin.');
-    } finally {
+      audioElRef.current.onended = () => setAudioLoadingState(null);
+      await audioElRef.current.play();
+    } catch (e) {
+      console.error('Failed to play audio:', e);
       setAudioLoadingState(null);
     }
   };
@@ -81,9 +92,7 @@ export default function PronunciationChecker() {
       chunksRef.current = [];
 
       mediaRecorder.ondataavailable = (e) => {
-        if (e.data.size > 0) {
-          chunksRef.current.push(e.data);
-        }
+        if (e.data.size > 0) chunksRef.current.push(e.data);
       };
 
       mediaRecorder.onstop = async () => {
@@ -94,15 +103,18 @@ export default function PronunciationChecker() {
           const base64data = (reader.result as string).split(',')[1];
           setLoading(true);
           try {
-            const evalResult = await evaluatePronunciation(base64data, 'audio/webm', targetWord.hanzi, targetWord.pinyin);
+            const evalResult = await evaluatePronunciation(
+              base64data,
+              'audio/webm',
+              targetText(targetWord, target),
+              target === 'zh' ? targetWord.pinyin : '',
+              native,
+              target,
+            );
             setResult(evalResult);
           } catch (error) {
             console.error('Evaluation failed:', error);
-            setResult({
-              score: 0,
-              feedback: 'Değerlendirme yapılamadı. Lütfen tekrar deneyin.',
-              transcription: 'Anlaşılamadı'
-            });
+            setResult({ score: 0, feedback: t('common.error'), transcription: '' });
           } finally {
             setLoading(false);
           }
@@ -114,7 +126,6 @@ export default function PronunciationChecker() {
       setResult(null);
     } catch (error) {
       console.error('Microphone access denied:', error);
-      alert('Mikrofon erişimi reddedildi.');
     }
   };
 
@@ -126,108 +137,152 @@ export default function PronunciationChecker() {
     }
   };
 
+  if (!supported) {
+    return (
+      <div className="flex flex-col gap-6">
+        <div className="flex items-center gap-3">
+          <HeroIconTile icon={Mic} color="var(--accent)" tint="rgba(200,16,46,0.08)" />
+          <SectionHeading title={t('pron.title')} />
+        </div>
+        <Card padding={48} className="text-center">
+          <p className="m-0 text-[var(--fg2)]">{t('picker.comingSoon')}</p>
+        </Card>
+      </div>
+    );
+  }
+
   const isMatch = result && result.score >= 80;
+  const script = targetText(targetWord, target);
+  const translation = translationText(targetWord, native);
+  const isCjk = target === 'zh';
 
   return (
-    <div className="bg-white rounded-[2rem] shadow-sm border border-[#EBE5D9] p-6 md:p-10">
-      <div className="flex items-center justify-between mb-8">
-        <div className="flex items-center gap-4">
-          <div className="p-3.5 bg-[#C8102E]/5 rounded-2xl text-[#C8102E]">
-            <Mic className="w-6 h-6" />
-          </div>
-          <div>
-            <h2 className="text-2xl font-semibold text-[#2D2A26]">Telaffuz Kontrolü</h2>
-            <p className="text-[#6B655B] text-sm mt-1">Sesinizi kaydedin ve yapay zeka ile telaffuzunuzu test edin.</p>
-          </div>
+    <div className="flex flex-col gap-6">
+      <div className="flex items-center gap-3">
+        <HeroIconTile icon={Mic} color="var(--accent)" tint="rgba(200,16,46,0.08)" />
+        <SectionHeading title={t('pron.title')} />
+      </div>
+
+      <Card hero padding={40} sunken className="text-center relative">
+        <div className="absolute top-6 right-6 flex gap-2">
+          <IconButton
+            icon={audioLoadingState === 'normal' ? Loader2 : Volume2}
+            loading={audioLoadingState === 'normal'}
+            onClick={() => playTargetAudio('normal')}
+            tone="ink"
+            title={t('vocab.playNormal')}
+          />
+          <IconButton
+            icon={audioLoadingState === 'slow' ? Loader2 : Snail}
+            loading={audioLoadingState === 'slow'}
+            onClick={() => playTargetAudio('slow')}
+            tone="stone"
+            title={t('vocab.playSlow')}
+          />
         </div>
-        <button 
-          onClick={pickRandomWord}
-          className="flex items-center gap-2 px-5 py-2.5 bg-[#FDFBF7] hover:bg-[#F2EFE9] border border-[#EBE5D9] text-[#2D2A26] rounded-xl transition-all text-sm font-medium shadow-sm"
+
+        <Eyebrow>{t('pron.targetLabel')}</Eyebrow>
+
+        <div
+          className={isCjk ? 'chinese-text' : ''}
+          style={{
+            fontSize: isCjk ? 96 : 56,
+            fontWeight: 500,
+            color: 'var(--fg1)',
+            lineHeight: 1.1,
+            marginTop: 16,
+            marginBottom: 16,
+            wordBreak: 'break-word',
+          }}
         >
-          <RefreshCw className="w-4 h-4" />
-          <span className="hidden sm:inline">Başka Kelime</span>
-        </button>
-      </div>
+          {script}
+        </div>
 
-      <div className="mb-10 p-8 bg-[#FDFBF7] rounded-[2rem] border border-[#EBE5D9] text-center relative shadow-inner">
-        <div className="absolute top-6 right-6 flex space-x-2">
+        {target === 'zh' && targetWord.pinyin && (
+          <div className="pinyin text-2xl mb-3 text-[var(--accent)]">{targetWord.pinyin}</div>
+        )}
+        <div className="text-lg text-[var(--fg2)]">{translation}</div>
+
+        <div className="mt-6 flex justify-center">
           <button
-            onClick={() => playTargetAudio(false)}
-            disabled={audioLoadingState !== null}
-            className="p-3.5 rounded-full bg-white text-[#2D2A26] hover:bg-[#F2EFE9] transition-colors disabled:opacity-50 border border-[#EBE5D9] shadow-sm"
-            aria-label="Normal Dinle"
-            title="Normal Dinle"
+            type="button"
+            onClick={pickRandomWord}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--bg-elev)] border border-[var(--border)] text-sm font-medium text-[var(--fg1)] shadow-sm"
           >
-            {audioLoadingState === 'normal' ? <Loader2 className="w-5 h-5 animate-spin" /> : <Volume2 className="w-5 h-5" />}
-          </button>
-          <button
-            onClick={() => playTargetAudio(true)}
-            disabled={audioLoadingState !== null}
-            className="p-3.5 rounded-full bg-white text-[#6B655B] hover:bg-[#F2EFE9] transition-colors disabled:opacity-50 border border-[#EBE5D9] shadow-sm"
-            aria-label="Yavaş Dinle"
-            title="Yavaş Dinle"
-          >
-            {audioLoadingState === 'slow' ? <Loader2 className="w-5 h-5 animate-spin" /> : <Snail className="w-5 h-5" />}
+            <RefreshCw style={{ width: 14, height: 14 }} strokeWidth={1.75} />
+            {t('pron.newWord')}
           </button>
         </div>
-        <p className="text-xs text-[#A39E93] mb-4 uppercase tracking-widest font-bold">Hedef Kelime</p>
-        <div className="text-7xl md:text-8xl font-medium text-[#2D2A26] mb-6 chinese-text leading-tight">{targetWord.hanzi}</div>
-        <div className="text-2xl text-[#C8102E] font-medium mb-3 tracking-wide">{targetWord.pinyin}</div>
-        <div className="text-lg text-[#6B655B]">{targetWord.turkish}</div>
-      </div>
+      </Card>
 
-      <div className="flex flex-col items-center justify-center space-y-8 my-12">
+      <div className="flex flex-col items-center gap-4 my-6">
         <button
+          type="button"
           onClick={isRecording ? stopRecording : startRecording}
           disabled={loading}
-          className={`relative flex items-center justify-center w-28 h-28 rounded-full transition-all duration-300 ${
-            isRecording 
-              ? 'bg-[#C8102E] text-white shadow-[0_0_0_12px_rgba(200,16,46,0.15)] animate-pulse' 
-              : 'bg-[#FDFBF7] text-[#C8102E] hover:bg-[#F2EFE9] border-2 border-[#EBE5D9] shadow-sm'
-          } disabled:opacity-50 disabled:cursor-not-allowed`}
+          className="rounded-full flex items-center justify-center transition-shadow duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          style={{
+            width: 96,
+            height: 96,
+            background: isRecording ? 'var(--accent)' : 'var(--bg-elev)',
+            color: isRecording ? 'white' : 'var(--accent)',
+            border: isRecording ? 'none' : '2px solid var(--border)',
+            boxShadow: isRecording ? 'var(--halo-accent)' : 'var(--shadow-sm)',
+          }}
         >
           {loading ? (
-            <Loader2 className="w-10 h-10 animate-spin text-[#C8102E]" />
+            <Loader2 style={{ width: 36, height: 36 }} strokeWidth={1.75} className="animate-spin" />
           ) : isRecording ? (
-            <Square className="w-10 h-10 fill-current" />
+            <Square style={{ width: 36, height: 36 }} strokeWidth={1.75} />
           ) : (
-            <Mic className="w-12 h-12" />
+            <Mic style={{ width: 40, height: 40 }} strokeWidth={1.75} />
           )}
         </button>
-        <p className="text-sm font-medium text-[#6B655B]">
-          {isRecording ? 'Kaydediliyor... Durdurmak için tıklayın.' : 'Kayda başlamak için mikrofona tıklayın.'}
+        <p className="text-sm font-medium text-[var(--fg2)]">
+          {isRecording ? t('pron.recording') : t('pron.micPrompt')}
         </p>
       </div>
 
       {result && !loading && (
-        <div className={`mt-10 p-8 rounded-[2rem] border ${isMatch ? 'bg-[#F0FDF4] border-[#BBF7D0]' : 'bg-[#FFFBEB] border-[#FDE68A]'}`}>
+        <Card hero padding={32}>
           <div className="flex flex-col md:flex-row items-start md:items-center gap-8">
-            <div className={`flex items-center justify-center w-24 h-24 rounded-full shrink-0 bg-white shadow-sm border ${isMatch ? 'border-[#BBF7D0]' : 'border-[#FDE68A]'}`}>
-              <span className={`text-4xl font-bold ${isMatch ? 'text-[#166534]' : 'text-[#92400E]'}`}>
+            <div
+              className="flex items-center justify-center w-24 h-24 rounded-full shrink-0 bg-[var(--bg-elev)] border shadow-sm"
+              style={{ borderColor: isMatch ? 'var(--color-jade)' : 'var(--color-amber)' }}
+            >
+              <span
+                className="text-4xl font-bold"
+                style={{ color: isMatch ? 'var(--color-jade)' : 'var(--color-amber)' }}
+              >
                 {result.score}
               </span>
             </div>
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-3">
                 {isMatch ? (
-                  <CheckCircle2 className="w-7 h-7 text-[#22C55E] shrink-0" />
+                  <CheckCircle2 className="w-7 h-7 shrink-0" style={{ color: 'var(--color-jade)' }} />
                 ) : (
-                  <XCircle className="w-7 h-7 text-[#F59E0B] shrink-0" />
+                  <XCircle className="w-7 h-7 shrink-0" style={{ color: 'var(--color-amber)' }} />
                 )}
-                <h3 className={`text-xl font-semibold ${isMatch ? 'text-[#166534]' : 'text-[#92400E]'}`}>
-                  {isMatch ? 'Harika Telaffuz!' : 'Biraz Daha Pratik Yapmalısın'}
+                <h3
+                  className="text-xl font-semibold"
+                  style={{ color: isMatch ? 'var(--color-jade)' : 'var(--color-amber)' }}
+                >
+                  {isMatch ? t('pron.great') : t('pron.tryAgain')}
                 </h3>
               </div>
-              <p className={`text-lg mb-5 leading-relaxed ${isMatch ? 'text-[#15803D]' : 'text-[#B45309]'}`}>
-                {result.feedback}
-              </p>
-              <div className="bg-white/60 rounded-xl p-4 text-sm border border-white/40">
-                <span className="text-[#6B655B]">Senin söylediğin:</span>
-                <span className="font-medium text-[#2D2A26] ml-2 text-lg chinese-text">{result.transcription}</span>
-              </div>
+              <p className="text-lg mb-5 leading-relaxed text-[var(--fg1)]">{result.feedback}</p>
+              {result.transcription && (
+                <div className="bg-[var(--bg-sunken)] rounded-xl p-4 text-sm border border-[var(--border)]">
+                  <span className="text-[var(--fg2)]">{t('pron.youSaid')}:</span>
+                  <span className={`font-medium text-[var(--fg1)] ml-2 text-lg ${isCjk ? 'chinese-text' : ''}`}>
+                    {result.transcription}
+                  </span>
+                </div>
+              )}
             </div>
           </div>
-        </div>
+        </Card>
       )}
     </div>
   );
