@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Umay">
+  
+  <rect x="0" y="0" width="120" height="120" rx="26" fill="#C8102E"></rect>
+
+  
+  <g fill="#FDFBF7" stroke="none">
+
+    
+    <rect x="24" y="86" width="72" height="6" rx="3"></rect>
+
+    
+    <path d="&#xA;      M 33 86&#xA;      C 33 70, 36 58, 44 48&#xA;      L 49 52&#xA;      C 42 61, 39 72, 39 86&#xA;      Z"></path>
+
+    
+    <path d="&#xA;      M 87 86&#xA;      C 87 70, 84 58, 76 48&#xA;      L 71 52&#xA;      C 78 61, 81 72, 81 86&#xA;      Z"></path>
+
+    
+    <rect x="56" y="34" width="8" height="54" rx="3"></rect>
+
+    
+    <circle cx="60" cy="24" r="6"></circle>
+  </g>
+</svg>

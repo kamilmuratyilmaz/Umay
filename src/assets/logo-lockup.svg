@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 80" width="260" height="80">
+  <rect x="0" y="0" width="80" height="80" rx="18" fill="#C8102E"></rect>
+  <svg x="0" y="0" width="80" height="80" viewBox="0 0 120 120">
+    <g fill="#FDFBF7">
+      <rect x="24" y="86" width="72" height="6" rx="3"></rect>
+      <path d="M 33 86 C 33 70, 36 58, 44 48 L 49 52 C 42 61, 39 72, 39 86 Z"></path>
+      <path d="M 87 86 C 87 70, 84 58, 76 48 L 71 52 C 78 61, 81 72, 81 86 Z"></path>
+      <rect x="56" y="34" width="8" height="54" rx="3"></rect>
+      <circle cx="60" cy="24" r="6"></circle>
+    </g>
+  </svg>
+  <text x="100" y="52" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="40" letter-spacing="-1" fill="#2D2A26">Umay</text>
+</svg>
