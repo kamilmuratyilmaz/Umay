@@ -1,0 +1,38 @@
+{
+  "rows": [
+    {
+      "row_idx": 0,
+      "row": {
+        "hanzi": "你好",
+        "pinyin": "nǐ hǎo",
+        "turkish": "Merhaba",
+        "english": "Hello",
+        "example_zh": "你好，朋友。",
+        "example_tr": "Merhaba, arkadaşım.",
+        "example_en": "Hello, friend.",
+        "category": "greetings",
+        "audio_hanzi_normal": "https://hf.co/bucket/hanzi/normal/row_0.wav",
+        "audio_hanzi_slow":   "https://hf.co/bucket/hanzi/slow/row_0.wav",
+        "audio_english_normal": "https://hf.co/bucket/en/normal/row_0.wav",
+        "audio_english_slow":   "https://hf.co/bucket/en/slow/row_0.wav",
+        "audio_example_zh_normal": null,
+        "audio_example_zh_slow":   null,
+        "audio_example_en_normal": null,
+        "audio_example_en_slow":   null
+      }
+    },
+    {
+      "row_idx": 1,
+      "row": {
+        "hanzi": "谢谢",
+        "pinyin": "xiè xie",
+        "turkish": "Teşekkürler",
+        "english": "Thank you",
+        "example_zh": null,
+        "example_tr": null,
+        "example_en": null,
+        "category": "greetings"
+      }
+    }
+  ]
+}
