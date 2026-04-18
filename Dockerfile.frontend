@@ -38,7 +38,7 @@ RUN npm ci --omit=dev && npm cache clean --force
 COPY --from=builder /app/server.js ./
 COPY --from=builder /app/dist ./dist
 
-RUN chown -R app:app /app
+RUN mkdir -p /app/data/audio && chown -R app:app /app
 USER app
 
 ENV NODE_ENV=production

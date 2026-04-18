@@ -1,7 +1,6 @@
 import express from "express";
 import { createServer as createHttpServer } from "http";
 import { createProxyMiddleware } from "http-proxy-middleware";
-import fs from "fs";
 import path from "path";
 import cors from "cors";
 import rateLimit from "express-rate-limit";
@@ -17,55 +16,12 @@ async function startServer() {
 
   app.use(cors());
 
-  // Rate limiting on /api/save-audio (the only API handled here)
   const apiLimiter = rateLimit({
     windowMs: 60 * 1000,
     max: 30,
     message: { error: "Too many requests, please try again later." },
   });
   app.use("/api", apiLimiter);
-
-  // Serve audio files
-  const audioDir = path.join(process.cwd(), "data", "audio");
-  if (!fs.existsSync(audioDir)) {
-    fs.mkdirSync(audioDir, { recursive: true });
-  }
-  app.use("/audio", express.static(audioDir));
-  app.use("/audio", (_req, res) => {
-    res.status(404).json({ error: "Audio file not found" });
-  });
-
-  // Save audio files (TTS cache — filesystem op stays in TS)
-  app.post("/api/save-audio", express.json({ limit: "50mb" }), (req, res) => {
-    const { filename, base64Data, category } = req.body;
-    if (!filename || !base64Data || !category) {
-      return res.status(400).json({ error: "Missing filename, base64Data, or category" });
-    }
-
-    const safeCategory = category.replace(/[^a-zA-Z0-9_-]/g, "");
-    const safeFilename = path.basename(filename).replace(/[^a-zA-Z0-9_\-.]/g, "");
-
-    if (!safeFilename || !safeCategory) {
-      return res.status(400).json({ error: "Invalid filename or category" });
-    }
-
-    const categoryDir = path.join(audioDir, safeCategory);
-    if (!fs.existsSync(categoryDir)) {
-      fs.mkdirSync(categoryDir, { recursive: true });
-    }
-
-    const filePath = path.join(categoryDir, safeFilename);
-    if (!fs.existsSync(filePath)) {
-      try {
-        fs.writeFileSync(filePath, Buffer.from(base64Data, "base64"));
-      } catch (err) {
-        console.error("Failed to write audio file:", err);
-        return res.status(500).json({ error: "Failed to write file" });
-      }
-    }
-
-    res.json({ success: true });
-  });
 
   // Proxy AI endpoints to the Python backend.
   // Mounted at root (not at a sub-path) so Express does not strip the path

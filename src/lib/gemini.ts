@@ -1,11 +1,6 @@
 import type { LangCode } from "../i18n";
 
-// DEPRECATED — replaced by audioPlayer.resolveAudioSource. Removed in Phase 6.
-export const generateSpeech = async (..._args: unknown[]): Promise<ArrayBuffer> => {
-  throw new Error('generateSpeech has been replaced by audioPlayer.resolveAudioSource');
-};
-
-// 2. Transcribe Audio
+// Transcribe Audio
 export const transcribeAudio = async (base64Audio: string, mimeType: string) => {
   const response = await fetch("/api/transcribe", {
     method: "POST",
