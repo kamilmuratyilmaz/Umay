@@ -1,3 +1,8 @@
+export interface VocabularyAudio {
+  normal: string;
+  slow: string;
+}
+
 export interface VocabularyWord {
   hanzi: string;
   pinyin: string;
@@ -7,6 +12,14 @@ export interface VocabularyWord {
   example_tr?: string;
   example_en?: string;
   category: string;
+  audio?: {
+    hanzi?:      VocabularyAudio;
+    english?:    VocabularyAudio;
+    turkish?:    VocabularyAudio;
+    example_zh?: VocabularyAudio;
+    example_en?: VocabularyAudio;
+    example_tr?: VocabularyAudio;
+  };
 }
 
 export const VOCABULARY: VocabularyWord[] = [
