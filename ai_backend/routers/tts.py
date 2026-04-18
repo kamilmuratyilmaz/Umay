@@ -4,29 +4,25 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 import litellm
 
+from prompts import for_pair
+
 logger = logging.getLogger(__name__)
 
 router = APIRouter()
-
-# --- vLLM swap point ---
-# Replace the Gemini TTS call below with your TTS service (e.g. Kokoro, Coqui, F5-TTS).
-# The endpoint contract stays the same: return {"audio": <base64 pcm/wav>}
 
 
 class TTSRequest(BaseModel):
     text: str = Field(..., max_length=500)
     voiceName: str = "Puck"
     isSlow: bool = False
+    target: str = Field(default="zh", pattern="^(tr|en|zh)$")
 
 
 @router.post("/tts")
 async def tts(body: TTSRequest):
-    prompt = (
-        f"Please speak the following Chinese text very slowly, clearly and naturally, "
-        f"emphasizing the tones: {body.text}"
-        if body.isSlow
-        else f"Please speak the following Chinese text clearly and naturally: {body.text}"
-    )
+    tpl_key = "tts_slow" if body.isSlow else "tts_normal"
+    # Native is irrelevant for TTS; pair lookup just needs a valid native code
+    prompt = for_pair("tr", body.target)[tpl_key].format(text=body.text)
 
     try:
         response = await litellm.acompletion(

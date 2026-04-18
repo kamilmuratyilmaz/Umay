@@ -29,11 +29,11 @@ function textFor(row: VocabularyWord, field: AudioField): string | null {
   }
 }
 
-async function callGeminiTts(text: string, isSlow: boolean): Promise<ArrayBuffer> {
+async function callGeminiTts(text: string, isSlow: boolean, target: LangCode): Promise<ArrayBuffer> {
   const res = await fetch('/api/tts', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ text, voiceName: 'Puck', isSlow }),
+    body: JSON.stringify({ text, voiceName: 'Puck', isSlow, target }),
   });
   if (!res.ok) throw new Error(`TTS failed with status ${res.status}`);
   const { audio } = await res.json();
@@ -56,6 +56,6 @@ export async function resolveAudioSource(
   if (!GEMINI_FALLBACK_TARGETS.includes(target)) return null;
   const text = textFor(row, field);
   if (!text) return null;
-  const buffer = await callGeminiTts(text, speed === 'slow');
+  const buffer = await callGeminiTts(text, speed === 'slow', target);
   return { kind: 'buffer', buffer };
 }
