@@ -1,77 +1,46 @@
+import { MessageCircle, Phone } from 'lucide-react';
+import Card from './ui/Card';
+import HeroIconTile from './ui/HeroIconTile';
+import SectionHeading from './ui/SectionHeading';
 import { useLiveAPI } from '../hooks/useLiveAPI';
-import { Mic, PhoneOff, Loader2, MessageCircle } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function LiveTutor() {
+  const { pair, t } = useLanguage();
+  const { native, target } = pair!;
   const { connect, disconnect, isConnected, isConnecting, error } = useLiveAPI();
 
   return (
-    <div className="bg-white rounded-[2rem] shadow-sm border border-[#EBE5D9] p-6 md:p-10">
-      <div className="flex items-center gap-4 mb-8">
-        <div className="p-3.5 bg-[#047857]/5 rounded-2xl text-[#047857]">
-          <MessageCircle className="w-6 h-6" />
-        </div>
-        <div>
-          <h2 className="text-2xl font-semibold text-[#2D2A26]">Canlı Pratik</h2>
-          <p className="text-[#6B655B] text-sm mt-1">Yapay zeka Çince öğretmeni ile gerçek zamanlı konuşun.</p>
-        </div>
+    <div className="flex flex-col gap-6">
+      <div className="flex items-center gap-3">
+        <HeroIconTile icon={MessageCircle} color="var(--color-jade)" tint="rgba(4,120,87,0.08)" />
+        <SectionHeading title={t('live.title')} />
       </div>
 
-      <div className="flex flex-col items-center justify-center py-16 space-y-10">
-        <div className="relative">
-          <div className={`w-44 h-44 rounded-full flex items-center justify-center transition-all duration-500 ${
-            isConnected 
-              ? 'bg-[#047857]/10 shadow-[0_0_0_16px_rgba(4,120,87,0.05)] animate-pulse' 
-              : 'bg-[#FDFBF7] border-2 border-[#EBE5D9] shadow-sm'
-          }`}>
-            {isConnecting ? (
-              <Loader2 className="w-14 h-14 text-[#047857] animate-spin" />
-            ) : isConnected ? (
-              <Mic className="w-16 h-16 text-[#047857]" />
-            ) : (
-              <MessageCircle className="w-16 h-16 text-[#A39E93]" />
-            )}
-          </div>
-        </div>
-
-        <div className="text-center space-y-3">
-          <h3 className="text-2xl font-medium text-[#2D2A26]">
-            {isConnecting ? 'Bağlanıyor...' : isConnected ? 'Dinliyor...' : 'Sohbete Başla'}
-          </h3>
-          <p className="text-[#6B655B] max-w-sm mx-auto text-lg">
-            {isConnected 
-              ? 'Çince konuşmaya başlayın. Öğretmeniniz sizi dinliyor ve yanıt verecek.' 
-              : 'Mikrofonunuzu açın ve yapay zeka ile Çince pratik yapmaya başlayın.'}
-          </p>
-        </div>
-
-        <button
-          onClick={() => (isConnected ? disconnect() : connect())}
-          disabled={isConnecting}
-          className={`px-10 py-4 rounded-full font-medium flex items-center gap-3 transition-all shadow-sm text-lg ${
-            isConnected 
-              ? 'bg-[#C8102E] hover:bg-[#A00D25] text-white shadow-[#C8102E]/20' 
-              : 'bg-[#047857] hover:bg-[#065F46] text-white shadow-[#047857]/20'
-          } disabled:opacity-50 disabled:cursor-not-allowed`}
-        >
-          {isConnected ? (
-            <>
-              <PhoneOff className="w-6 h-6" />
-              Aramayı Sonlandır
-            </>
-          ) : (
-            <>
-              <Mic className="w-6 h-6" />
-              Bağlan
-            </>
-          )}
-        </button>
-
-        {error && (
-          <div className="p-5 bg-[#FEF2F2] border border-[#FECACA] text-[#B91C1C] rounded-2xl text-sm font-medium">
-            {error}
-          </div>
+      <Card hero padding={40} className="flex flex-col items-center gap-6 min-h-[360px] justify-center">
+        {isConnected ? (
+          <button
+            type="button"
+            onClick={disconnect}
+            className="rounded-full text-white font-semibold px-8 py-4 flex items-center gap-3"
+            style={{ background: 'var(--accent)', boxShadow: '0 4px 12px rgba(200,16,46,0.22)' }}
+          >
+            <Phone style={{ width: 18, height: 18 }} strokeWidth={1.75} />
+            {t('live.endCall')}
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={() => connect({ native, target })}
+            disabled={isConnecting}
+            className="rounded-full text-white font-semibold px-8 py-4"
+            style={{ background: 'var(--color-jade)', boxShadow: '0 4px 12px rgba(4,120,87,0.22)' }}
+          >
+            {isConnecting ? t('live.connecting') : t('live.connect')}
+          </button>
         )}
-      </div>
+        {error && <p className="m-0 text-sm text-[var(--color-rose)]">{error}</p>}
+      </Card>
     </div>
   );
 }
