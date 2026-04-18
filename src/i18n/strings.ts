@@ -41,6 +41,9 @@ export const STRINGS: Record<LangCode, Dict> = {
     'flash.good':        'İyi',
     'flash.easy':        'Kolay',
     'flash.allDone':     'Harika! Tüm kartları bitirdin.',
+    'flash.remaining':   'Kalan',
+    'flash.reset':       'İlerlemeyi sıfırla',
+    'flash.resetConfirm':'Tüm ilerlemeyi sıfırlamak istediğinize emin misiniz?',
 
     'grammar.title':     'Dilbilgisi Asistanı',
     'grammar.prompt':    'Bir dilbilgisi konusu sor',
@@ -90,6 +93,9 @@ export const STRINGS: Record<LangCode, Dict> = {
     'flash.good':        'Good',
     'flash.easy':        'Easy',
     'flash.allDone':     "Nice! You've finished all cards.",
+    'flash.remaining':   'Remaining',
+    'flash.reset':       'Reset progress',
+    'flash.resetConfirm':'Are you sure you want to reset all progress?',
 
     'grammar.title':     'Grammar Helper',
     'grammar.prompt':    'Ask a grammar question',
@@ -139,6 +145,9 @@ export const STRINGS: Record<LangCode, Dict> = {
     'flash.good':        '良好',
     'flash.easy':        '简单',
     'flash.allDone':     '完成所有卡片！',
+    'flash.remaining':   '剩余',
+    'flash.reset':       '重置进度',
+    'flash.resetConfirm':'确定要重置所有进度吗？',
 
     'grammar.title':     '语法助手',
     'grammar.prompt':    '问一个语法问题',
