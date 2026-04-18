@@ -1,4 +1,5 @@
 import { getCachedAudioUrl, saveAudioToServer } from "./audioCache";
+import type { LangCode } from "../i18n";
 
 // 1. Generate Speech (TTS) — proxied through server to keep API key off the client
 export const generateSpeech = async (
@@ -75,11 +76,15 @@ export const evaluatePronunciation = async (
 };
 
 // 4. Explain Grammar
-export const explainGrammar = async (query: string) => {
+export const explainGrammar = async (
+  query: string,
+  native: LangCode = "tr",
+  target: LangCode = "zh",
+) => {
   const response = await fetch("/api/grammar", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ query }),
+    body: JSON.stringify({ query, native, target }),
   });
   if (!response.ok) throw new Error("Grammar explanation failed");
   const { text } = await response.json();

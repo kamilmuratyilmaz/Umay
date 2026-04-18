@@ -2,30 +2,25 @@ from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 import litellm
 
+from prompts import for_pair
+
 router = APIRouter()
-
-# --- vLLM swap point ---
-# Replace with a local reasoning model served via vLLM (e.g. Qwen2.5-72B-Instruct).
-# Set openai_api_base to your vLLM endpoint and use the OpenAI-compatible API.
-
-SYSTEM_INSTRUCTION = (
-    "You are an expert Chinese language teacher for Turkish speakers. "
-    "Explain complex Chinese grammar concepts clearly in Turkish. "
-    "Provide examples in Chinese characters, Pinyin, and Turkish translation."
-)
 
 
 class GrammarRequest(BaseModel):
     query: str = Field(..., max_length=1000)
+    native: str = Field(default="tr", pattern="^(tr|en|zh)$")
+    target: str = Field(default="zh", pattern="^(tr|en|zh)$")
 
 
 @router.post("/grammar")
 async def grammar(body: GrammarRequest):
+    system_instruction = for_pair(body.native, body.target)["grammar"]
     try:
         response = await litellm.acompletion(
             model="gemini/gemini-2.5-flash",
             messages=[
-                {"role": "system", "content": SYSTEM_INSTRUCTION},
+                {"role": "system", "content": system_instruction},
                 {"role": "user", "content": body.query},
             ],
         )
