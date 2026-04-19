@@ -1,6 +1,8 @@
 # Umay
 
-A multilingual language learning app powered by Google Gemini.
+> **Umay** — in Turkic mythology, the mother-goddess who protects women, children, and newborns; a giver of names, life, and language. Fitting for an app whose job is to help people be born into a new tongue.
+
+A multilingual language learning app powered by **Google Gemini** and **Qwen 3 TTS**.
 
 Umay is a tool that currently teaches **English, Turkish, and Mandarin Chinese** using polyglot-style techniques. More languages will be added over time. Every AI feature is parameterised by a `(native, target)` language pair — `tr`, `en`, `zh` are supported today, with `(tr, zh)` as the default fallback.
 
@@ -75,7 +77,7 @@ React SPA (Vite) ──► Express (:3000) ──► FastAPI (:8000) ──► G
 ### Audio pipeline
 
 1. Vocabulary rows point at URIs like `/audio/{field}/{speed}/row_{N}.wav`.
-2. `npm run download-audio` pulls WAVs from the `Thoria/TTS-UMAY` HF bucket (URLs are constructed deterministically — the dataset's JSON audio columns are not authoritative). Idempotent.
+2. `npm run download-audio` pulls WAVs from the `Thoria/TTS-UMAY` HF bucket — pre-rendered with **Qwen 3 TTS** for native-speaker quality — using deterministic URLs (the dataset's JSON audio columns are not authoritative). Idempotent.
 3. Client first **HEAD-probes** the static URL. 200 → stream the file; 404 → call `/api/tts`, which returns base64 PCM16, and the client wraps it as WAV in-browser.
 4. Turkish as a target (`tr`) is v2-gated and returns `null` rather than falling back to TTS.
 
@@ -105,7 +107,7 @@ Two services share a named volume (`audio_files`) so the pre-downloaded audio is
 
 - **Frontend:** React 19, Vite 6, Tailwind v4, TypeScript, Vitest (+ jsdom)
 - **Backend:** FastAPI, `litellm`, `google-genai`, uv, Python 3.13
-- **AI:** Google Gemini 2.5 (flash, flash-preview-tts, flash-native-audio-dialog)
+- **AI:** Google Gemini 2.5 (flash, flash-preview-tts, flash-native-audio-dialog); Qwen 3 TTS (offline bucket renders)
 - **Infra:** Express reverse proxy, Docker Compose, HuggingFace Hub audio bucket
 
 ## Project Layout
