@@ -5,20 +5,16 @@
       "row": {
         "hanzi": "你好",
         "pinyin": "nǐ hǎo",
-        "turkish": "Merhaba",
-        "english": "Hello",
+        "tr": "Merhaba",
+        "en": "Hello",
         "example_zh": "你好，朋友。",
         "example_tr": "Merhaba, arkadaşım.",
         "example_en": "Hello, friend.",
         "category": "greetings",
-        "audio_hanzi_normal": "https://hf.co/bucket/hanzi/normal/row_0.wav",
-        "audio_hanzi_slow":   "https://hf.co/bucket/hanzi/slow/row_0.wav",
-        "audio_english_normal": "https://hf.co/bucket/en/normal/row_0.wav",
-        "audio_english_slow":   "https://hf.co/bucket/en/slow/row_0.wav",
-        "audio_example_zh_normal": null,
-        "audio_example_zh_slow":   null,
-        "audio_example_en_normal": null,
-        "audio_example_en_slow":   null
+        "frequency_zipf": 4.69,
+        "zh_audio": "{\"sentence\": {\"normal\": \"https://huggingface.co/buckets/Thoria/TTS-UMAY/tree/example_zh/normal/row_0.wav\", \"slow\": \"https://huggingface.co/buckets/Thoria/TTS-UMAY/tree/example_zh/slow/row_0.wav\"}, \"word\": {\"normal\": \"https://huggingface.co/buckets/Thoria/TTS-UMAY/tree/hanzi/normal/row_0.wav\", \"slow\": \"https://huggingface.co/buckets/Thoria/TTS-UMAY/tree/hanzi/slow/row_0.wav\"}}",
+        "en_audio": "{\"sentence\": {\"normal\": \"https://huggingface.co/buckets/Thoria/TTS-UMAY/tree/example_en/normal/row_0.wav\", \"slow\": \"https://huggingface.co/buckets/Thoria/TTS-UMAY/tree/example_en/slow/row_0.wav\"}, \"word\": {\"normal\": \"https://huggingface.co/buckets/Thoria/TTS-UMAY/tree/english/normal/row_0.wav\", \"slow\": \"https://huggingface.co/buckets/Thoria/TTS-UMAY/tree/english/slow/row_0.wav\"}}",
+        "tr_audio": "{\"sentence\": {\"normal\": \"https://huggingface.co/buckets/Thoria/TTS-UMAY/tree/example_tr/normal/row_0.wav\", \"slow\": \"https://huggingface.co/buckets/Thoria/TTS-UMAY/tree/example_tr/slow/row_0.wav\"}, \"word\": {\"normal\": \"https://huggingface.co/buckets/Thoria/TTS-UMAY/tree/turkish/normal/row_0.wav\", \"slow\": \"https://huggingface.co/buckets/Thoria/TTS-UMAY/tree/turkish/slow/row_0.wav\"}}"
       }
     },
     {
@@ -26,12 +22,33 @@
       "row": {
         "hanzi": "谢谢",
         "pinyin": "xiè xie",
-        "turkish": "Teşekkürler",
-        "english": "Thank you",
+        "tr": "Teşekkürler",
+        "en": "Thank you",
         "example_zh": null,
         "example_tr": null,
         "example_en": null,
-        "category": "greetings"
+        "category": "greetings",
+        "frequency_zipf": 5.12,
+        "zh_audio": null,
+        "en_audio": null,
+        "tr_audio": null
+      }
+    },
+    {
+      "row_idx": 2,
+      "row": {
+        "hanzi": "再见",
+        "pinyin": "zài jiàn",
+        "tr": "Görüşürüz",
+        "en": "Goodbye",
+        "example_zh": "再见，明天见。",
+        "example_tr": "Görüşürüz, yarın görüşürüz.",
+        "example_en": "Goodbye, see you tomorrow.",
+        "category": "greetings",
+        "frequency_zipf": 4.41,
+        "zh_audio": "{\"sentence\": {\"normal\": \"\", \"slow\": \"\"}, \"word\": {\"normal\": \"https://huggingface.co/buckets/Thoria/TTS-UMAY/tree/hanzi/normal/row_2.wav\", \"slow\": \"https://huggingface.co/buckets/Thoria/TTS-UMAY/tree/hanzi/slow/row_2.wav\"}}",
+        "en_audio": "not-valid-json{{{",
+        "tr_audio": null
       }
     }
   ]

@@ -23,24 +23,99 @@ type AudioNest = {
   example_tr?: AudioPair;
 };
 
-const AUDIO_COLS: Array<[keyof AudioNest, string, string]> = [
-  ['hanzi',      'audio_hanzi_normal',      'audio_hanzi_slow'],
-  ['english',    'audio_english_normal',    'audio_english_slow'],
-  ['turkish',    'audio_turkish_normal',    'audio_turkish_slow'],
-  ['example_zh', 'audio_example_zh_normal', 'audio_example_zh_slow'],
-  ['example_en', 'audio_example_en_normal', 'audio_example_en_slow'],
-  ['example_tr', 'audio_example_tr_normal', 'audio_example_tr_slow'],
+// Nested JSON shape inside zh_audio / en_audio / tr_audio columns.
+type HFAudioBlob = {
+  sentence?: { normal?: string; slow?: string };
+  word?:     { normal?: string; slow?: string };
+};
+
+// Maps one of the three per-language audio columns onto the two VocabularyWord
+// fields it feeds (word → hanzi/english/turkish, sentence → example_*).
+const AUDIO_COLS: Array<{
+  column: 'zh_audio' | 'en_audio' | 'tr_audio';
+  wordKey: keyof AudioNest;
+  sentenceKey: keyof AudioNest;
+}> = [
+  { column: 'zh_audio', wordKey: 'hanzi',   sentenceKey: 'example_zh' },
+  { column: 'en_audio', wordKey: 'english', sentenceKey: 'example_en' },
+  { column: 'tr_audio', wordKey: 'turkish', sentenceKey: 'example_tr' },
 ];
 
+// Converts an HF bucket URL into the local path served by Express.
+// Accepts `/tree/` (dataset-browser URL, not downloadable), `/resolve/`
+// (current HF Buckets direct-download URL), and `/resolve/main/` (standard
+// HF datasets direct-download URL). All three produce the same local path.
+// Returns null for anything that doesn't match, so malformed entries in the
+// dataset don't silently produce broken <audio src> values.
+//
+//   https://huggingface.co/buckets/Thoria/TTS-UMAY/tree/example_zh/normal/row_0.wav
+//   https://huggingface.co/buckets/Thoria/TTS-UMAY/resolve/example_zh/normal/row_0.wav
+//   https://huggingface.co/buckets/Thoria/TTS-UMAY/resolve/main/example_zh/normal/row_0.wav
+//     → /audio/example_zh/normal/row_0.wav
+export function toLocalPath(hfUrl: string): string | null {
+  if (!hfUrl) return null;
+  const match = hfUrl.match(/\/(?:tree|resolve(?:\/main)?)\/(.+\.wav)$/);
+  return match ? `/audio/${match[1]}` : null;
+}
+
+// ─────────────────────────────────────────────────────────────────────────
+// TODO(user): implement the body of buildAudio.
+//
+// Contract:
+//   - Input:  one HFRow. The three audio columns (zh_audio, en_audio, tr_audio)
+//             arrive as JSON *strings* (or null / undefined / ""). Each parsed
+//             value matches HFAudioBlob { sentence: {normal, slow}, word: {normal, slow} }.
+//   - Output: AudioNest populated with LOCAL paths (use `toLocalPath(url)` on each
+//             URL), or `undefined` if no usable audio entries were produced.
+//
+// Decisions you'll be making inside this function:
+//
+//   1. Malformed JSON: hard-fail the whole sync, or skip the row's audio?
+//      The dataset is auto-generated — a single broken row shouldn't kill the
+//      rebuild, but completely silent failures hide real regressions. I'd
+//      recommend try/catch + console.warn, but your call.
+//
+//   2. Empty-string URLs ("") vs. missing keys: the dataset uses "" as a
+//      "not generated yet" marker. Treat both the same? Or distinguish them?
+//
+//   3. toLocalPath(url) returning null means the URL didn't match the expected
+//      HF bucket pattern. When that happens for one speed (e.g. 'slow') but
+//      the other (`normal`) works — do you keep a half-populated AudioPair
+//      (which the app doesn't support — the type requires both), or drop the
+//      whole pair?
+//
+// Reference for structure: AUDIO_COLS above tells you which row field maps to
+// which AudioNest key. Roughly:
+//
+//   for each { column, wordKey, sentenceKey } in AUDIO_COLS:
+//     parse row[column] as HFAudioBlob
+//     if blob.word.normal + blob.word.slow both map to non-null local paths:
+//       nest[wordKey] = { normal, slow }
+//     same for blob.sentence → nest[sentenceKey]
+//
+// Keep it short (~10 lines). Return undefined when nest is empty.
+// ─────────────────────────────────────────────────────────────────────────
 function buildAudio(row: HFRow): AudioNest | undefined {
   const nest: AudioNest = {};
-  for (const [key, nCol, sCol] of AUDIO_COLS) {
-    const n = row[nCol];
-    const s = row[sCol];
-    if (typeof n === 'string' && typeof s === 'string' && n && s) {
-      nest[key] = { normal: n, slow: s };
-    }
+
+  const toPair = (p?: { normal?: string; slow?: string }): AudioPair | null => {
+    const normal = p?.normal ? toLocalPath(p.normal) : null;
+    const slow   = p?.slow   ? toLocalPath(p.slow)   : null;
+    return normal && slow ? { normal, slow } : null;
+  };
+
+  for (const { column, wordKey, sentenceKey } of AUDIO_COLS) {
+    const raw = row[column];
+    if (typeof raw !== 'string' || !raw) continue;
+    let blob: HFAudioBlob;
+    try { blob = JSON.parse(raw); }
+    catch { console.warn(`sync-vocab: malformed JSON in ${column} — skipping`); continue; }
+    const wordPair     = toPair(blob.word);
+    const sentencePair = toPair(blob.sentence);
+    if (wordPair)     nest[wordKey]     = wordPair;
+    if (sentencePair) nest[sentenceKey] = sentencePair;
   }
+
   return Object.keys(nest).length ? nest : undefined;
 }
 
@@ -56,8 +131,8 @@ function rowToVocab(row: HFRow) {
   const base = stripNullish({
     hanzi:      row.hanzi,
     pinyin:     row.pinyin,
-    turkish:    row.turkish ?? row.tr,
-    english:    row.english ?? row.en,
+    turkish:    row.tr ?? row.turkish,
+    english:    row.en ?? row.english,
     example_zh: row.example_zh,
     example_tr: row.example_tr,
     example_en: row.example_en,

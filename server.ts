@@ -23,6 +23,22 @@ async function startServer() {
   });
   app.use("/api", apiLimiter);
 
+  // Serve pre-downloaded vocabulary audio from data/audio/ (populated by
+  // `npm run download-audio`, gitignored, baked into the Docker image).
+  // vocabulary.ts references these via /audio/{field}/{speed}/row_N.wav paths.
+  app.use(
+    "/audio",
+    express.static(path.join(process.cwd(), "data", "audio"), {
+      maxAge: "30d",
+      immutable: true,
+      // Without this, a missing file calls next() and Vite's SPA middleware
+      // cheerfully serves index.html with content-type text/html — which the
+      // browser then fails to decode as audio. `fallthrough: false` ensures
+      // missing audio yields a real 404 so the client can trigger its fallback.
+      fallthrough: false,
+    }),
+  );
+
   // Proxy AI endpoints to the Python backend.
   // Mounted at root (not at a sub-path) so Express does not strip the path
   // prefix before http-proxy-middleware sees req.url.

@@ -77,6 +77,38 @@ async function callGeminiTts(text: string, isSlow: boolean, target: LangCode): P
   return pcm16ToWav(bytes.buffer, TTS_SAMPLE_RATE);
 }
 
+// HEAD-probes the static /audio URL so we can fall through to Gemini TTS
+// when the file hasn't been downloaded yet (dev machines without
+// `npm run download-audio`, or the first boot of a Docker image that didn't
+// bake them in). Any fetch error — 404, network, offline — is treated the
+// same: pretend the URI wasn't there.
+async function uriIsReachable(uri: string): Promise<boolean> {
+  try {
+    const res = await fetch(uri, { method: 'HEAD' });
+    if (!res.ok) return false;
+    // Defense in depth: an SPA catch-all middleware can return 200 + index.html
+    // for missing audio. Require an audio content-type so we fall through to
+    // Gemini TTS instead of handing HTML to the <audio> element.
+    const ct = res.headers.get('content-type') ?? '';
+    return ct.startsWith('audio/');
+  } catch {
+    return false;
+  }
+}
+
+async function geminiFallback(
+  row: VocabularyWord,
+  field: AudioField,
+  speed: AudioSpeed,
+  target: LangCode,
+): Promise<AudioSource | null> {
+  if (!GEMINI_FALLBACK_TARGETS.includes(target)) return null;
+  const text = textFor(row, field);
+  if (!text) return null;
+  const buffer = await callGeminiTts(text, speed === 'slow', target);
+  return { kind: 'buffer', buffer };
+}
+
 export async function resolveAudioSource(
   row: VocabularyWord,
   field: AudioField,
@@ -84,11 +116,6 @@ export async function resolveAudioSource(
   target: LangCode,
 ): Promise<AudioSource | null> {
   const uri = pickAudioUri(row, field, speed);
-  if (uri) return { kind: 'uri', src: uri };
-
-  if (!GEMINI_FALLBACK_TARGETS.includes(target)) return null;
-  const text = textFor(row, field);
-  if (!text) return null;
-  const buffer = await callGeminiTts(text, speed === 'slow', target);
-  return { kind: 'buffer', buffer };
+  if (uri && await uriIsReachable(uri)) return { kind: 'uri', src: uri };
+  return geminiFallback(row, field, speed, target);
 }
