@@ -79,8 +79,6 @@ React SPA (Vite) ──► Express (:3000) ──► FastAPI (:8000) ──► G
 3. Client first **HEAD-probes** the static URL. 200 → stream the file; 404 → call `/api/tts`, which returns base64 PCM16, and the client wraps it as WAV in-browser.
 4. Turkish as a target (`tr`) is v2-gated and returns `null` rather than falling back to TTS.
 
-See [CLAUDE.md](./CLAUDE.md) for deeper architecture notes, including the live-tutor WebSocket protocol and caching gotchas.
-
 ## Environment
 
 | Variable | Used by | Notes |
@@ -117,14 +115,13 @@ Two services share a named volume (`audio_files`) so the pre-downloaded audio is
 ├── ai_backend/          FastAPI app, Gemini wrappers, prompts
 ├── data/audio/          Pre-downloaded WAVs (gitignored)
 ├── scripts/             sync-vocab, download-audio
-├── server.ts            Express entry (SPA + /api proxy + /audio static)
 ├── src/
 │   ├── components/      React UI (Flashcards, LiveTutor, GrammarHelper, …)
 │   ├── data/            Generated vocabulary module
 │   ├── hooks/           useLiveAPI (16 kHz mic → 24 kHz playback queue), etc.
 │   ├── i18n/            Per-pair UI strings
 │   └── lib/             audioPlayer (HEAD-probe → TTS fallback), pcm16ToWav
-└── CLAUDE.md            Architecture reference
+└── server.ts            Express entry (SPA + /api proxy + /audio static)
 ```
 
 ## Contributing
