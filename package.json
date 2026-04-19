@@ -3,6 +3,8 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "license": "AGPL-3.0-only",
+  "author": "Kamil Murat Yılmaz",
   "scripts": {
     "dev": "concurrently --names \"frontend,ai\" -c \"cyan,yellow\" \"tsx server.ts\" \"cd ai_backend && uv run uvicorn main:app --reload --port 8000\"",
     "dev:frontend": "tsx server.ts",
