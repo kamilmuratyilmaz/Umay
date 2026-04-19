@@ -34,7 +34,10 @@ export default function VocabularyList() {
   const [playing, setPlaying] = useState<{ idx: number; slow: boolean } | null>(null);
   const audioElRef = useRef<HTMLAudioElement | null>(null);
 
-  const cats = useMemo(() => ['all', ...Array.from(new Set(VOCABULARY.map(w => w.category)))], []);
+  const cats = useMemo(
+    () => ['all', ...Array.from(new Set(VOCABULARY.map(w => w.category).filter(Boolean)))],
+    [],
+  );
 
   const filtered = useMemo(() => {
     return VOCABULARY.filter(w => {
@@ -79,6 +82,9 @@ export default function VocabularyList() {
           <Search style={{ width: 18, height: 18 }} strokeWidth={1.75} />
         </span>
         <input
+          type="search"
+          name="vocab-search"
+          aria-label={t('vocab.searchPh')}
           value={search}
           onChange={e => setSearch(e.target.value)}
           placeholder={t('vocab.searchPh')}

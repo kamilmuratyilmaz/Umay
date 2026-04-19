@@ -2,6 +2,7 @@ import { BookOpen, Layers, BrainCircuit, Mic, MessageCircle } from 'lucide-react
 import type { LucideIcon } from 'lucide-react';
 import LogoMark from './LogoMark';
 import Pill from './Pill';
+import { useLanguage } from '../../context/LanguageContext';
 
 export type Tab = 'vocabulary' | 'flashcards' | 'grammar' | 'pronunciation' | 'live';
 
@@ -11,15 +12,16 @@ type Props = {
   languagePair?: { nativeFlag: string; targetFlag: string; onChange: () => void };
 };
 
-const TABS: Array<{ id: Tab; label: string; icon: LucideIcon }> = [
-  { id: 'vocabulary', label: 'Kelimeler', icon: BookOpen },
-  { id: 'flashcards', label: 'Flashcards', icon: Layers },
-  { id: 'grammar', label: 'Dilbilgisi', icon: BrainCircuit },
-  { id: 'pronunciation', label: 'Telaffuz', icon: Mic },
-  { id: 'live', label: 'Canlı Pratik', icon: MessageCircle },
+const TABS: Array<{ id: Tab; i18nKey: string; icon: LucideIcon }> = [
+  { id: 'vocabulary', i18nKey: 'tab.vocabulary', icon: BookOpen },
+  { id: 'flashcards', i18nKey: 'tab.flashcards', icon: Layers },
+  { id: 'grammar', i18nKey: 'tab.grammar', icon: BrainCircuit },
+  { id: 'pronunciation', i18nKey: 'tab.pronunciation', icon: Mic },
+  { id: 'live', i18nKey: 'tab.live', icon: MessageCircle },
 ];
 
 export default function Header({ tab, setTab, languagePair }: Props) {
+  const { t } = useLanguage();
   return (
     <header
       className="sticky top-0 z-10 border-b border-[var(--border)]"
@@ -31,12 +33,12 @@ export default function Header({ tab, setTab, languagePair }: Props) {
           <h1 className="m-0 text-xl font-bold tracking-tight text-[var(--fg1)]">Umay</h1>
         </div>
         <nav className="hidden md:flex gap-1 items-center">
-          {TABS.map(t => {
-            const Icon = t.icon;
+          {TABS.map(tabDef => {
+            const Icon = tabDef.icon;
             return (
-              <Pill key={t.id} variant="nav" active={tab === t.id} onClick={() => setTab(t.id)}>
+              <Pill key={tabDef.id} variant="nav" active={tab === tabDef.id} onClick={() => setTab(tabDef.id)}>
                 <Icon style={{ width: 16, height: 16 }} strokeWidth={1.75} />
-                {t.label}
+                {t(tabDef.i18nKey)}
               </Pill>
             );
           })}

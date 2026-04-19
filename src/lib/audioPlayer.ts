@@ -18,6 +18,9 @@ export function pickAudioUri(row: VocabularyWord, field: AudioField, speed: Audi
 // Turkish target is v2-gated: a missing URI there returns null (caller hides the button).
 const GEMINI_FALLBACK_TARGETS: LangCode[] = ['zh', 'en'];
 
+// Gemini TTS outputs 16-bit PCM at 24 kHz mono. Must match the backend's `format: "pcm16"` config.
+const TTS_SAMPLE_RATE = 24000;
+
 function textFor(row: VocabularyWord, field: AudioField): string | null {
   switch (field) {
     case 'hanzi':      return row.hanzi ?? null;
@@ -27,6 +30,36 @@ function textFor(row: VocabularyWord, field: AudioField): string | null {
     case 'example_en': return row.example_en ?? null;
     case 'example_tr': return row.example_tr ?? null;
   }
+}
+
+// Wraps raw PCM16 mono samples in a minimal RIFF/WAVE container so the browser's
+// <audio> element can decode them. Without this, Blob({type:'audio/wav'}) over raw
+// PCM fails with NotSupportedError.
+function pcm16ToWav(pcm: ArrayBuffer, sampleRate: number): ArrayBuffer {
+  const byteRate = sampleRate * 2;
+  const header = new ArrayBuffer(44);
+  const view = new DataView(header);
+  const writeAscii = (offset: number, s: string) => {
+    for (let i = 0; i < s.length; i++) view.setUint8(offset + i, s.charCodeAt(i));
+  };
+  writeAscii(0, 'RIFF');
+  view.setUint32(4, 36 + pcm.byteLength, true);
+  writeAscii(8, 'WAVE');
+  writeAscii(12, 'fmt ');
+  view.setUint32(16, 16, true);
+  view.setUint16(20, 1, true);
+  view.setUint16(22, 1, true);
+  view.setUint32(24, sampleRate, true);
+  view.setUint32(28, byteRate, true);
+  view.setUint16(32, 2, true);
+  view.setUint16(34, 16, true);
+  writeAscii(36, 'data');
+  view.setUint32(40, pcm.byteLength, true);
+
+  const out = new Uint8Array(44 + pcm.byteLength);
+  out.set(new Uint8Array(header), 0);
+  out.set(new Uint8Array(pcm), 44);
+  return out.buffer;
 }
 
 async function callGeminiTts(text: string, isSlow: boolean, target: LangCode): Promise<ArrayBuffer> {
@@ -41,7 +74,7 @@ async function callGeminiTts(text: string, isSlow: boolean, target: LangCode): P
   const bin = atob(audio);
   const bytes = new Uint8Array(bin.length);
   for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
-  return bytes.buffer;
+  return pcm16ToWav(bytes.buffer, TTS_SAMPLE_RATE);
 }
 
 export async function resolveAudioSource(

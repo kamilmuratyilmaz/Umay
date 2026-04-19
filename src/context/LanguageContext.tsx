@@ -32,6 +32,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     }
   }, [pair]);
 
+  useEffect(() => {
+    document.documentElement.lang = pair?.native ?? 'tr';
+  }, [pair?.native]);
+
   const setPair = (p: Pair) => setPairState(p);
   const resetPair = () => {
     localStorage.removeItem(STORAGE_NATIVE);

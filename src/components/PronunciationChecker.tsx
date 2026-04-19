@@ -17,6 +17,9 @@ interface EvaluationResult {
   transcription: string;
 }
 
+// Add a LangCode here to hide the pronunciation tab for that target (e.g. if Gemini's eval quality is poor).
+const PRONUNCIATION_UNSUPPORTED: LangCode[] = [];
+
 function targetText(row: VocabularyWord, target: LangCode): string {
   if (target === 'zh') return row.hanzi;
   if (target === 'en') return row.english ?? '';
@@ -37,7 +40,7 @@ export default function PronunciationChecker() {
   const { pair, t } = useLanguage();
   const { native, target } = pair!;
 
-  const supported = target === 'zh' || target === 'en';
+  const supported = !PRONUNCIATION_UNSUPPORTED.includes(target);
 
   const candidates = useMemo(
     () => VOCABULARY.filter(w => (target === 'zh' ? !!w.hanzi : target === 'en' ? !!w.english : !!w.turkish)),

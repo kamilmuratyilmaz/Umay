@@ -7,7 +7,6 @@ import { useLanguage } from '../context/LanguageContext';
 const LANGS: LangCode[] = ['tr', 'en', 'zh'];
 
 const V2_PAIRS: Array<{ native: LangCode; target: LangCode }> = [
-  { native: 'zh', target: 'tr' },
   { native: 'en', target: 'tr' },
 ];
 
@@ -34,7 +33,10 @@ function LangCard({
     >
       <span className="text-3xl leading-none">{meta.flag}</span>
       <span className="text-[17px] font-semibold tracking-tight">{meta.name}</span>
-      <span className={`text-xs font-semibold uppercase tracking-[0.08em] ${selected ? 'text-white/65' : 'text-[var(--fg3)]'}`}>
+      <span
+        lang="en"
+        className={`text-xs font-semibold uppercase tracking-[0.08em] ${selected ? 'text-white/65' : 'text-[var(--fg3)]'}`}
+      >
         {meta.english}
       </span>
       {note && <span className={`text-xs ${selected ? 'text-white/80' : 'text-[var(--fg3)]'}`}>{note}</span>}

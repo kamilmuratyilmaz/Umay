@@ -38,6 +38,9 @@ export default function GrammarHelper() {
       <Card hero padding={32}>
         <div className="flex gap-3 items-center">
           <input
+            type="text"
+            name="grammar-query"
+            aria-label={t('grammar.prompt')}
             value={query}
             onChange={e => setQuery(e.target.value)}
             onKeyDown={e => e.key === 'Enter' && submit()}

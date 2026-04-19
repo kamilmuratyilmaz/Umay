@@ -56,8 +56,8 @@ function rowToVocab(row: HFRow) {
   const base = stripNullish({
     hanzi:      row.hanzi,
     pinyin:     row.pinyin,
-    turkish:    row.turkish,
-    english:    row.english,
+    turkish:    row.turkish ?? row.tr,
+    english:    row.english ?? row.en,
     example_zh: row.example_zh,
     example_tr: row.example_tr,
     example_en: row.example_en,
