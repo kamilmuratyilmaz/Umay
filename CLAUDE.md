@@ -8,7 +8,7 @@ Umay is a Mandarin Chinese learning app powered by Google Gemini AI. Originally 
 
 ## License
 
-AGPL-3.0-only (see `LICENSE`). Contributions use DCO sign-off (`git commit -s`); no CLA. See `CONTRIBUTING.md` for details (work-in-progress; has an author-written mission section pending).
+MIT (see `LICENSE`). By opening a PR, contributors agree their code is licensed under MIT; each contributor retains copyright on their own work. See `CONTRIBUTING.md`.
 
 ## Commands
 

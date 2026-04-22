@@ -128,8 +128,12 @@ Two services share a named volume (`audio_files`) so the pre-downloaded audio is
 
 ## Contributing
 
-Contributions welcome. Read [CONTRIBUTING.md](./CONTRIBUTING.md) — in short: open an issue for anything non-trivial, use Conventional Commits, and sign every commit with DCO (`git commit -s`). We don't require a CLA.
+Contributions welcome. Read [CONTRIBUTING.md](./CONTRIBUTING.md) — in short: open an issue for anything non-trivial and use Conventional Commits.
+
+## Data Sources
+
+Vocabulary (`src/data/vocabulary.ts`) and pre-rendered audio are generated from [`Thoria/mandarin-most-common-words-tr-en`](https://huggingface.co/datasets/Thoria/mandarin-most-common-words-tr-en) and [`Thoria/TTS-UMAY`](https://huggingface.co/buckets/Thoria/TTS-UMAY) — both created by Stephanie Liu, Kamil Murat Yılmaz, and contributors under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
 ## License
 
-[AGPL-3.0-only](./LICENSE). If you run a modified Umay as a network service, you must make your modifications available to your users. That's the whole point.
+[MIT](./LICENSE). Use it freely — commercial, private, fork, SaaS, whatever. Just keep the copyright notice.
